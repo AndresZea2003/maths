@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::view('/home', 'home')->name('home');
+Route::view('/levels', 'levels')->name('levels');
+
+Route::view('/normal/level-1', 'levels.normal.level1.home')->name('normal.level-1.home');
+Route::view('/normal/level-1/a', 'levels.normal.level1.a')->name('normal.level-1.a');
