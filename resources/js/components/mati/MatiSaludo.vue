@@ -6,7 +6,7 @@ const props = defineProps({
     asset: {type:String, required:true},
 })
 
-let img1 = ref(props.asset + '/robot/Mati.gif')
+let img1 = ref(props.asset + '/robot/mati.gif')
 
 
 </script>

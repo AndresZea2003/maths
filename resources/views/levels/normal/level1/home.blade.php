@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('main')
-    <div class="min-h-full bg-blue-900">
-        <div class="bg-gray-700 container mx-auto px-5 py-5 shadow-2xl rounded-md">
-            <div class="font-bold text-xl">Matematicas - Nivel 1</div>
+    <div class="min-h-full bg-gray-200">
+        <div class="container mx-auto">
+            <div class="font-bold text-xl bg-gray-700 px-5 py-5 shadow-2xl  rounded-b-lg mx-5">Matematicas - Nivel 1</div>
         </div>
-        <div class="bg-gray-300 container mx-auto mb-10 mt-10 shadow-2xl rounded-md px-5 py-5">
-            <div class="bg-blue-400 flex-col pt-5">
+        <div class="container mx-auto mb-10 mt-5 rounded-md px-5 ">
+            <div class="bg-blue-400 flex-col pt-5 shadow-2xl rounded-md border-4 border-blue-600">
                 <div class="flex justify-center">
                     <div class="font-bold text-2xl text-gray-600">Nivel Azul</div>
                 </div>

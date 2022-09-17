@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('main')
-    <div class="min-h-full bg-blue-900">
-        <div class="bg-gray-700 container mx-auto px-5 py-5 shadow-2xl rounded-md">
-            <div class="font-bold text-xl">Matematicas - Niveles</div>
+    <div class="min-h-full bg-gray-200">
+        <div class="container mx-auto rounded-md">
+            <div class="font-bold text-xl bg-gray-700 px-5 py-5 mx-5 shadow-2xl rounded-b-lg">Matematicas - Niveles</div>
         </div>
-        <div class="bg-gray-300 container mx-auto mt-5 mb-10 shadow-2xl rounded-md px-5 py-5">
-            <div class="bg-gray-400 flex-col pt-5">
-                <div class="flex justify-center grid md:grid-cols-3 sm:grid-cols-1 bg-gray-900">
+        <div class="container mx-auto mb-10 rounded-md px-5 py-5">
+            <div class="bg-gray-400 flex-col pt-5 rounded-md border-4 border-gray-600 shadow-2xl">
+                <div class="bg-gray-900 flex justify-center grid md:grid-cols-3 sm:grid-cols-1 mx-5">
                     <div class="flex md:justify-end justify-center">
                         <div class="w-20">
                             <mati-saludo asset="{{asset('images')}}"></mati-saludo>
