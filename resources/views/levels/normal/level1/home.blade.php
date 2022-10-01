@@ -26,45 +26,51 @@
                             </div>
                         </div>
                     </a>
-                    <div
-                        class="bg-blue-300 border-blue-400 p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                        <div>
-                            <div class="flex justify-center">
-                                <div class="font-bold text-2xl">
-                                    Nivel 2
+                    <a href="{{route('normal.level-1.b')}}">
+                        <div
+                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>
+                                <div class="flex justify-center">
+                                    <div class="font-bold text-2xl">
+                                        Nivel 2
+                                    </div>
+                                </div>
+                                <div class="w-20">
+                                    <img src="{{ asset('images/robot/1A.gif') }}" alt="">
                                 </div>
                             </div>
-                            <div class="w-20">
-                                <mati-1 asset="{{asset('images')}}"></mati-1>
-                            </div>
                         </div>
-                    </div>
-                    <div
-                        class="bg-blue-300 border-blue-400 p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                        <div>
-                            <div class="flex justify-center">
-                                <div class="font-bold text-2xl">
-                                    Nivel 3
+                    </a>
+                    <a href="{{route('normal.level-1.c')}}">
+                        <div
+                            class="bg-blue-300 border-blue-400 py-4  px-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>
+                                <div class="flex justify-center">
+                                    <div class="font-bold text-2xl">
+                                        Nivel 3
+                                    </div>
+                                </div>
+                                <div class="w-28">
+                                    <img src="{{ asset('images/robot/mota1c.gif') }}" alt="">
                                 </div>
                             </div>
-                            <div class="w-20">
-                                <mati-1 asset="{{asset('images')}}"></mati-1>
-                            </div>
                         </div>
-                    </div>
-                    <div
-                        class="bg-yellow-300 border-yellow-400 p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                        <div>
-                            <div class="flex justify-center">
-                                <div class="font-bold text-2xl">
-                                    Nivel 4
+                    </a>
+                    <a href="{{route('normal.level-1.d')}}">
+                        <div
+                            class="bg-violet-500 border-violet-600 px-5 py-4 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>
+                                <div class="flex justify-center">
+                                    <div class="font-bold text-2xl">
+                                        Nivel 4
+                                    </div>
+                                </div>
+                                <div class="w-28">
+                                    <img src="{{ asset('images/robot/mati2e-min.gif') }}" alt="">
                                 </div>
                             </div>
-                            <div class="w-20">
-                                <mati-1 asset="{{asset('images')}}"></mati-1>
-                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="p-5">

@@ -3,15 +3,16 @@
 @section('main')
     <div class="min-h-full bg-gray-200">
         <div class="container mx-auto rounded-md">
-            <div class="font-bold text-xl bg-gray-700 px-5 py-5 mx-5 shadow-2xl rounded-b-lg">Matematicas - Niveles</div>
+            <div class="font-bold text-xl bg-gray-700 px-5 py-5 mx-5 shadow-2xl rounded-b-lg">Matematicas - Niveles
+            </div>
         </div>
         <div class="container mx-auto mb-10 rounded-md px-5 py-5">
             <div class="bg-gray-400 flex-col pt-5 rounded-md border-4 border-gray-600 shadow-2xl">
                 <div class="bg-gray-900 flex justify-center grid md:grid-cols-3 sm:grid-cols-1 mx-5">
                     <div class="flex md:justify-end justify-center">
-                        <div class="w-20">
-                            <mati-saludo asset="{{asset('images')}}"></mati-saludo>
-                        </div>
+{{--                        <div class="w-20">--}}
+{{--                            <mati-saludo asset="{{asset('images')}}"></mati-saludo>--}}
+{{--                        </div>--}}
                     </div>
                     <div
                         class="md:flex sm:flex-col items-center bg-gray-800 text-gray-200 rounded-md border-gray-700 border-4">
@@ -39,9 +40,9 @@
                         </div>
                     </div>
                     <div class="flex md:justify-start justify-center">
-                        <div class="w-20">
-                            <mati-saludo asset="{{asset('images')}}"></mati-saludo>
-                        </div>
+{{--                        <div class="w-20">--}}
+{{--                            <mati-saludo asset="{{asset('images')}}"></mati-saludo>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
                 <div class="flex justify-center mt-5">
@@ -54,22 +55,30 @@
                             <div>Nivel 1</div>
                         </div>
                     </a>
-                    <div
-                        class="bg-orange-300 p-5 rounded-md shadow-2xl border-orange-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                        <div>Nivel 2</div>
-                    </div>
-                    <div
-                        class="bg-green-300 p-5 rounded-md shadow-2xl border-green-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                        <div>Nivel 3</div>
-                    </div>
-                    <div
-                        class="bg-violet-300 p-5 rounded-md shadow-2xl border-violet-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                        <div>Nivel 4</div>
-                    </div>
-                    <div
-                        class="bg-red-300 p-5 rounded-md shadow-2xl border-red-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                        <div>Nivel 5</div>
-                    </div>
+                    <a href="{{ route('normal.level-2.home') }}">
+                        <div
+                            class="bg-orange-300 p-5 rounded-md shadow-2xl border-orange-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>Nivel 2</div>
+                        </div>
+                    </a>
+                    <a href="{{ route('normal.level-3.home') }}">
+                        <div
+                            class="bg-green-300 p-5 rounded-md shadow-2xl border-green-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>Nivel 3</div>
+                        </div>
+                    </a>
+                    <a href="{{ route('normal.level-4.home') }}">
+                        <div
+                            class="bg-violet-300 p-5 rounded-md shadow-2xl border-violet-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>Nivel 4</div>
+                        </div>
+                    </a>
+                    <a href="{{ route('normal.level-5.home') }}">
+                        <div
+                            class="bg-red-300 p-5 rounded-md shadow-2xl border-red-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>Nivel 5</div>
+                        </div>
+                    </a>
                     <div
                         class="bg-yellow-300 p-5 rounded-md shadow-2xl border-yellow-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
                         <div>Nivel 6</div>

@@ -35,17 +35,24 @@ const paint = (id) => {
 
     document.getElementById(id).classList.remove('hover:bg-gray-400')
     document.getElementById(id).classList.remove('bg-red-600')
-    document.getElementById(id).classList.remove('bg-blue-600')
+    document.getElementById(id).classList.remove('bg-gray-700')
     document.getElementById(id).classList.remove('bg-green-600')
-    document.getElementById(id).classList.remove('bg-yellow-400')
+    document.getElementById(id).classList.remove('bg-green-600')
     document.getElementById(id).classList.remove('bg-white')
     document.getElementById(id).classList.add(`bg-${color}`);
 
     // Figura 1
-    if (document.getElementById('caja1').classList.contains('bg-blue-600') &&
-        document.getElementById('caja2').classList.contains('bg-green-600') &&
-        document.getElementById('caja3').classList.contains('bg-yellow-400') &&
-        document.getElementById('caja4').classList.contains('bg-red-600')
+    if (document.getElementById('caja1').classList.contains('bg-green-600') &&
+        document.getElementById('caja2').classList.contains('bg-red-600') &&
+        document.getElementById('caja3').classList.contains('bg-gray-700') &&
+
+        document.getElementById('caja4').classList.contains('bg-gray-700') &&
+        document.getElementById('caja5').classList.contains('bg-green-600') &&
+        document.getElementById('caja6').classList.contains('bg-red-600') &&
+
+        document.getElementById('caja7').classList.contains('bg-red-600') &&
+        document.getElementById('caja8').classList.contains('bg-gray-700') &&
+        document.getElementById('caja9').classList.contains('bg-green-600')
     ) {
 
         document.getElementById('fig1').classList.remove('text-gray-300')
@@ -83,10 +90,17 @@ const paint = (id) => {
 
     // Figura 2
 
-    if (document.getElementById('caja5').classList.contains('bg-green-600') &&
-        document.getElementById('caja6').classList.contains('bg-red-600') &&
-        document.getElementById('caja7').classList.contains('bg-blue-600') &&
-        document.getElementById('caja8').classList.contains('bg-yellow-400')
+    if (document.getElementById('caja10').classList.contains('bg-green-600') &&
+        document.getElementById('caja11').classList.contains('bg-red-600') &&
+        document.getElementById('caja12').classList.contains('bg-gray-700') &&
+
+        document.getElementById('caja13').classList.contains('bg-gray-700') &&
+        document.getElementById('caja14').classList.contains('bg-green-600') &&
+        document.getElementById('caja15').classList.contains('bg-red-600') &&
+
+        document.getElementById('caja16').classList.contains('bg-red-600') &&
+        document.getElementById('caja17').classList.contains('bg-gray-700') &&
+        document.getElementById('caja18').classList.contains('bg-green-600')
     ) {
 
         document.getElementById('fig2').classList.remove('text-gray-300')
@@ -123,10 +137,17 @@ const paint = (id) => {
     }
 
     // Figura 3
-    if (document.getElementById('caja9').classList.contains('bg-yellow-400') &&
-        document.getElementById('caja10').classList.contains('bg-blue-600') &&
-        document.getElementById('caja11').classList.contains('bg-red-600') &&
-        document.getElementById('caja12').classList.contains('bg-green-600')
+    if (document.getElementById('caja19').classList.contains('bg-red-600') &&
+        document.getElementById('caja20').classList.contains('bg-gray-700') &&
+        document.getElementById('caja21').classList.contains('bg-green-600') &&
+
+        document.getElementById('caja22').classList.contains('bg-gray-700') &&
+        document.getElementById('caja23').classList.contains('bg-green-600') &&
+        document.getElementById('caja24').classList.contains('bg-red-600') &&
+
+        document.getElementById('caja25').classList.contains('bg-green-600') &&
+        document.getElementById('caja26').classList.contains('bg-red-600') &&
+        document.getElementById('caja27').classList.contains('bg-gray-700')
     ) {
 
         document.getElementById('fig3').classList.remove('text-gray-300')
@@ -172,7 +193,7 @@ const selectColor = (bg) => {
     document.getElementById('muestra').classList.remove('bg-blue-600')
     document.getElementById('muestra').classList.remove('bg-red-600')
     document.getElementById('muestra').classList.remove('bg-green-600')
-    document.getElementById('muestra').classList.remove('bg-yellow-400')
+    document.getElementById('muestra').classList.remove('bg-green-600')
     document.getElementById('muestra').classList.remove('bg-white')
 
     document.getElementById('muestra').classList.add(`bg-${color}`)
@@ -195,7 +216,7 @@ const selectColor = (bg) => {
             <div class="bg-blue-400 border-4 border-blue-600 flex-col pb-2 rounded-md shadow-2xl">
                 <div class="mx-5 py-2">
                     <div>
-                        <span class="font-bold">Actividad 1 -</span>
+                        <span class="font-bold">Actividad 2 -</span>
                         <span> Replica los colores como se muestra en la imagen izquierda</span>
                     </div>
                 </div>
@@ -212,23 +233,38 @@ const selectColor = (bg) => {
                         <div>
                             <div class="flex justify-center">
                                 <div class="flex-col grid gap-5">
-                                    <div class="grid grid-cols-2">
-                                        <div class="p-6 border-black border-2 bg-blue-600">{{ null }}</div>
-                                        <div class="p-6 border-black border-2 bg-green-600">{{ null }}</div>
-                                        <div class="p-6 border-black border-2 bg-yellow-400">{{ null }}</div>
-                                        <div class="p-6 border-black border-2 bg-red-600">{{ null }}</div>
+                                    <div class="grid grid-cols-3">
+                                        <div class="p-4 border-black border-2 bg-green-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-red-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-gray-700">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-gray-700">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-green-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-red-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-red-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-gray-700">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-green-600">{{ null }}</div>
                                     </div>
-                                    <div class="grid grid-cols-2 rotate-45 my-5">
-                                        <div class="p-6 border-black border-2 bg-green-600">{{ null }}</div>
-                                        <div class="p-6 border-black border-2 bg-red-600">{{ null }}</div>
-                                        <div class="p-6 border-black border-2 bg-blue-600">{{ null }}</div>
-                                        <div class="p-6 border-black border-2 bg-yellow-400">{{ null }}</div>
+                                    <div class="grid grid-cols-3 rotate-45 my-5">
+                                        <div class="p-4 border-black border-2 bg-green-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-red-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-gray-700">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-gray-700">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-green-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-red-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-red-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-gray-700">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-green-600">{{ null }}</div>
                                     </div>
-                                    <div class="grid grid-cols-2 rotate-45 my-5">
-                                        <div class="p-6 border-black border-2 bg-yellow-400">{{ null }}</div>
-                                        <div class="p-6 border-black border-2 bg-blue-600">{{ null }}</div>
-                                        <div class="p-6 border-black border-2 bg-red-600">{{ null }}</div>
-                                        <div class="p-6 border-black border-2 bg-green-600">{{ null }}</div>
+                                    <div class="grid grid-cols-3 rotate-45 my-5">
+                                        <div class="p-4 border-black border-2 bg-red-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-gray-700">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-green-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-gray-700">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-green-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-red-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-green-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-red-600">{{ null }}</div>
+                                        <div class="p-4 border-black border-2 bg-gray-700">{{ null }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -268,87 +304,72 @@ const selectColor = (bg) => {
                         <div class="flex justify-center ">
                             <div class="flex-col grid gap-5">
                                 <div>
-                                    <div class="grid grid-cols-2">
+                                    <div class="grid grid-cols-3">
                                         <div @click="paint('caja1')" id="caja1"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
+                                             class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}
                                         </div>
                                         <div @click="paint('caja2')" id="caja2"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
+                                             class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}
                                         </div>
                                         <div @click="paint('caja3')" id="caja3"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
+                                             class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}
                                         </div>
                                         <div @click="paint('caja4')" id="caja4"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
+                                             class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}
                                         </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="grid grid-cols-2 rotate-45 my-5">
                                         <div @click="paint('caja5')" id="caja5"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
+                                             class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}
                                         </div>
                                         <div @click="paint('caja6')" id="caja6"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
+                                             class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}
                                         </div>
                                         <div @click="paint('caja7')" id="caja7"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
+                                             class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}
                                         </div>
                                         <div @click="paint('caja8')" id="caja8"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
+                                             class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}
+                                        </div>
+                                        <div @click="paint('caja9')" id="caja9"
+                                             class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}
                                         </div>
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="grid grid-cols-2 rotate-45 my-5">
-                                        <div @click="paint('caja9')" id="caja9"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
-                                        </div>
-                                        <div @click="paint('caja10')" id="caja10"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
-                                        </div>
-                                        <div @click="paint('caja11')" id="caja11"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
-                                        </div>
-                                        <div @click="paint('caja12')" id="caja12"
-                                             class="p-6 border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
-                                        </div>
+                                    <div class="grid grid-cols-3 rotate-45 my-5">
+                                        <div @click="paint('caja10')" id="caja10" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja11')" id="caja11" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja12')" id="caja12" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja13')" id="caja13" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja14')" id="caja14" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja15')" id="caja15" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja16')" id="caja16" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja17')" id="caja17" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja18')" id="caja18" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="grid grid-cols-3 rotate-45 my-5">
+                                        <div @click="paint('caja19')" id="caja19" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja20')" id="caja20" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja21')" id="caja21" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja22')" id="caja22" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja23')" id="caja23" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja24')" id="caja24" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja25')" id="caja25" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja26')" id="caja26" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
+                                        <div @click="paint('caja27')" id="caja27" class="p-4 border-black border-2 cursor-cell hover:bg-gray-400">{{ null }}</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="bg-blue-300 border-black border-4">
-                            <div class="grid grid-cols-2 gap-5 flex">
-                                <div class="bg-gray-900 col-span-2 border-4 border-blue-400 flex justify-center p-12">
+                            <div class="grid grid-cols-3 gap-5 flex">
+                                <div class="bg-gray-900 col-span-3 border-4 border-blue-400 flex justify-center p-12">
                                     <div class="text-blue-600 font-bold text-2xl">
                                         Planeta Azul
                                     </div>
                                 </div>
-                                <div class="col-span-2 mx-1 flex justify-center">
+                                <div class=" col-span-3 mx-1 flex justify-center">
                                     <div class="bg-pink-200 rounded-md px-2 flex">
                                         <ArrowDownIcon class="w-5"/>
                                         <div class="font-bold">PALETA DE COLORES</div>
@@ -356,30 +377,24 @@ const selectColor = (bg) => {
                                     </div>
                                 </div>
                                 <div class="flex justify-center">
-                                    <button @click="selectColor('blue-600')"
-                                            class="border-2 border-black bg-blue-600 hover:bg-blue-700 rounded-full p-5">
+                                    <button @click="selectColor('gray-700')"
+                                            class="border-2 border-black bg-gray-700 hover:bg-gray-600 rounded-full p-5">
                                         {{ null }}
                                     </button>
                                 </div>
                                 <div class="flex justify-center">
                                     <button @click="selectColor('red-600')"
-                                            class="border-2 border-black bg-red-600 hover:bg-red-700 rounded-full p-5">
-                                        {{ null }}
-                                    </button>
-                                </div>
-                                <div class="flex justify-center">
-                                    <button @click="selectColor('yellow-400')"
-                                            class="border-2 border-black bg-yellow-400 hover:bg-yellow-500 rounded-full p-5">
+                                            class="border-2 border-black bg-red-600 hover:bg-red-500 rounded-full p-5">
                                         {{ null }}
                                     </button>
                                 </div>
                                 <div class="flex justify-center">
                                     <button @click="selectColor('green-600')"
-                                            class="border-2 border-black bg-green-600 hover:bg-green-700 rounded-full p-5">
+                                            class="border-2 border-black bg-green-600 hover:bg-green-500 rounded-full p-5">
                                         {{ null }}
                                     </button>
                                 </div>
-                                <div id="muestra" class="border-2 border-black p-10 m-2 bg-white col-span-2"></div>
+                                <div id="muestra" class="border-2 border-black p-10 m-2 bg-white col-span-3"></div>
                             </div>
                         </div>
                     </div>
