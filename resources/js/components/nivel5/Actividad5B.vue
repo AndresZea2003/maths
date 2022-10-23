@@ -134,7 +134,7 @@ const selectColor = (bg) => {
             <div class="bg-red-400 border-4 border-red-600 flex-col pb-2 rounded-md shadow-2xl">
                 <div class="mx-5 py-2">
                     <div>
-                        <span class="font-bold">Actividad 1 -</span>
+                        <span class="font-bold">Actividad 2 -</span>
                         <span> Replica los colores como se muestra en la imagen izquierda</span>
                     </div>
                 </div>
@@ -160,10 +160,6 @@ const selectColor = (bg) => {
                                     <div class="grid md:grid-cols-5 gap-x-5">
                                         <div class="p-6 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-black border-2">{{ null }}</div>
-                                        <div class="p-6 border-dashed border-black border-2">{{ null }}</div>
-                                        <div class="p-6 border-black border-2">{{ null }}</div>
-                                        <div class="p-6 border-black border-2">{{ null }}</div>
-                                        <div class="p-6 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-dashed border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-black border-2">{{ null }}</div>
@@ -177,26 +173,30 @@ const selectColor = (bg) => {
                                         <div class="p-6 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-dashed border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-black border-2">{{ null }}</div>
-                                        <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-black border-2">{{ null }}</div>
-                                        <div class="p-6 border-black border-2">{{ null }}</div>
-                                        <div class="p-6 border-dashed border-black border-2">{{ null }}</div>
-                                        <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
-                                        <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-dashed border-black border-2">{{ null }}</div>
                                         <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
+                                        <div class="p-6 border-black border-2">{{ null }}</div>
+                                        <div class="p-6 border-black border-2">{{ null }}</div>
+                                        <div class="p-6 border-black border-2">{{ null }}</div>
+                                        <div class="p-6 border-dashed border-black border-2">{{ null }}</div>
                                         <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
+                                        <div class="p-6 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-black border-2">{{ null }}</div>
                                         <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-dashed border-black border-2">{{ null }}</div>
                                         <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
-                                        <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
+                                        <div class="p-6 border-black border-2">{{ null }}</div>
                                         <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
                                         <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
                                         <div class="p-6 border-dashed border-black border-2">{{ null }}</div>
                                         <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
+                                        <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
+                                        <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
+                                        <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
+                                        <div class="p-6 border-dashed border-black border-2">{{ null }}</div>
                                         <div class="p-6 bg-pink-500 border-black border-2">{{ null }}</div>
                                     </div>
                                 </div>
@@ -215,12 +215,12 @@ const selectColor = (bg) => {
                                             }}
                                         </div>
                                         <div @click="paint('caja3')" id="caja3"
-                                             class="border-dashed p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class=" p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja4')" id="caja4"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="border-dashed p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
@@ -240,12 +240,12 @@ const selectColor = (bg) => {
                                             }}
                                         </div>
                                         <div @click="paint('caja8')" id="caja8"
-                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja9')" id="caja9"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
@@ -265,12 +265,12 @@ const selectColor = (bg) => {
                                             }}
                                         </div>
                                         <div @click="paint('caja13')" id="caja13"
-                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja14')" id="caja14"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
@@ -290,17 +290,17 @@ const selectColor = (bg) => {
                                             }}
                                         </div>
                                         <div @click="paint('caja18')" id="caja18"
-                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja19')" id="caja19"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja20')" id="caja20"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
@@ -315,17 +315,17 @@ const selectColor = (bg) => {
                                             }}
                                         </div>
                                         <div @click="paint('caja23')" id="caja23"
-                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja24')" id="caja24"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja25')" id="caja25"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
@@ -340,17 +340,17 @@ const selectColor = (bg) => {
                                             }}
                                         </div>
                                         <div @click="paint('caja28')" id="caja28"
-                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja29')" id="caja29"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja30')" id="caja30"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
@@ -360,47 +360,47 @@ const selectColor = (bg) => {
                                             }}
                                         </div>
                                         <div @click="paint('caja32')" id="caja32"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja33')" id="caja33"
-                                             class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja34')" id="caja34"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
-                                        </div>
-                                        <div @click="paint('caja35')" id="caja35"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
-                                        </div>
-                                        <div @click="paint('caja36')" id="caja36"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
-                                        </div>
-                                        <div @click="paint('caja37')" id="caja37"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
-                                                null
-                                            }}
-                                        </div>
-                                        <div @click="paint('caja38')" id="caja38"
                                              class="p-6 bg-white border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
+                                        <div @click="paint('caja35')" id="caja35"
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                                null
+                                            }}
+                                        </div>
+                                        <div @click="paint('caja36')" id="caja36"
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                                null
+                                            }}
+                                        </div>
+                                        <div @click="paint('caja37')" id="caja37"
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                                null
+                                            }}
+                                        </div>
+                                        <div @click="paint('caja38')" id="caja38"
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                                null
+                                            }}
+                                        </div>
                                         <div @click="paint('caja39')" id="caja39"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 border-dashed border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>
                                         <div @click="paint('caja40')" id="caja40"
-                                             class="p-6 bg-white border-black border-2 cursor-cell hover:bg-gray-400">{{
+                                             class="p-6 bg-pink-500 border-black border-2 cursor-cell hover:bg-gray-400">{{
                                                 null
                                             }}
                                         </div>

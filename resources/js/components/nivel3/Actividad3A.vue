@@ -117,20 +117,20 @@ const selectColor = (bg) => {
     <div class="min-h-full bg-space" @mousedown="clickPaint()" @mouseup="clickPaint()">
         <div class="md:container mx-auto">
             <div class="font-bold text-xl bg-gray-900 mx-5 px-5 py-3 rounded-b-lg shadow-2xl text-white">Matematicas -
-                Nivel 1
+                Nivel 3
             </div>
         </div>
         <div class="container mx-auto mb-10 rounded-md px-5">
-            <div class="bg-blue-400 border border-1blue-600 flex-col pb-2 rounded-md shadow-2xl">
+            <div class="bg-green-400 border-4 border-green-600 flex-col pb-2 rounded-md shadow-2xl">
                 <div class="mx-5 py-2">
                     <div>
-                        <span class="font-bold">Actividad 3 -</span>
+                        <span class="font-bold">Actividad 1 -</span>
                         <span> Replica los colores como se muestra en la imagen izquierda</span>
                     </div>
                 </div>
                 <div class="grid md:grid-cols-4 mx-5">
                     <div
-                        class="bg-white border-4 border-1blue-600 rounded-md md:col-span-3 grid md:grid-cols-2">
+                        class="bg-white rounded-md md:col-span-3 grid md:grid-cols-2">
                         <div class="flex justify-center border-black border-4">
                             <div class="grid grid-cols-11">
                                 <!--                            linea1-->
@@ -5664,7 +5664,7 @@ const selectColor = (bg) => {
                             </div>
                         </div>
                     </div>
-                    <div class="bg-red-400 border-4 border-r-4ed-600 rounded-md flex justify-center items-center ">
+                    <div class="ml-5 bg-red-400 border-4 border-red-600 rounded-md flex justify-center items-center ">
                         <div class=" bg-gray-200 rounded p-2 border-gray-600 border-4">
                             <div id="muestra" class="border-2 border-black p-10 m-2 bg-white col-span-2"></div>
                             <div class="grid grid-cols-2 gap-5 flex">
@@ -5735,7 +5735,7 @@ const selectColor = (bg) => {
                         <div>
                             <a :href="props.route_back">
                                 <button
-                                    class="bg-red-300 px-2 py-1 rounded-md border-r-4ed-800 border-2 flex items-center hover:text-white hover:bg-gray-700 hover:scale-90 duration-300">
+                                    class="bg-red-300 px-2 py-1 rounded-md border-red-800 border-2 flex items-center hover:text-white hover:bg-gray-700 hover:scale-90 duration-300">
                                     <HomeIcon class="h-7 w-7"></HomeIcon>
                                     <span class="font-bold">&nbspVolver</span>
                                 </button>
@@ -5746,7 +5746,7 @@ const selectColor = (bg) => {
                         <div>
                             <a :href="props.route_next">
                                 <button
-                                    class="bg-red-300 px-2 py-1 rounded-md border-r-4ed-800 border-2 flex items-center hover:text-white hover:bg-gray-700 hover:scale-90 duration-300">
+                                    class="bg-red-300 px-2 py-1 rounded-md border-red-800 border-2 flex items-center hover:text-white hover:bg-gray-700 hover:scale-90 duration-300">
                                     <span class="font-bold">&nbspSiguiente</span>
                                     <ChevronRightIcon class="h-7 w-7"></ChevronRightIcon>
                                 </button>

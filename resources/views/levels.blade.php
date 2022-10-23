@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('main')
-    <div class="min-h-full bg-gray-200">
+    <div class="min-h-full bg-space">
         <div class="container mx-auto rounded-md">
-            <div class="font-bold text-xl bg-gray-700 px-5 py-5 mx-5 shadow-2xl rounded-b-lg">Matematicas - Niveles
+            <div class="font-bold text-xl bg-gray-600 px-5 py-5 mx-5 shadow-2xl rounded-b-lg text-gray-300">Matematicas - Niveles
             </div>
         </div>
         <div class="container mx-auto mb-10 rounded-md px-5 py-5">

@@ -41,6 +41,13 @@ Route::view('/normal/level-2/k', 'levels.normal.level2.k')->name('normal.level-2
 Route::view('/normal/level-2/l', 'levels.normal.level2.l')->name('normal.level-2.l');
 
 Route::view('/normal/level-3', 'levels.normal.level3.home')->name('normal.level-3.home');
+Route::view('/normal/level-3/a', 'levels.normal.level3.a')->name('normal.level-3.a');
+Route::view('/normal/level-3/b', 'levels.normal.level3.b')->name('normal.level-3.b');
+Route::view('/normal/level-3/c', 'levels.normal.level3.c')->name('normal.level-3.c');
+Route::view('/normal/level-3/d', 'levels.normal.level3.d')->name('normal.level-3.d');
+Route::view('/normal/level-3/e', 'levels.normal.level3.e')->name('normal.level-3.e');
+Route::view('/normal/level-3/f', 'levels.normal.level3.f')->name('normal.level-3.f');
+Route::view('/normal/level-3/g', 'levels.normal.level3.g')->name('normal.level-3.g');
 
 Route::view('/normal/level-4', 'levels.normal.level4.home')->name('normal.level-4.home');
 Route::view('/normal/level-4/a', 'levels.normal.level4.a')->name('normal.level-4.a');
@@ -57,3 +64,8 @@ Route::view('/normal/level-4/j', 'levels.normal.level4.j')->name('normal.level-4
 
 Route::view('/normal/level-5', 'levels.normal.level5.home')->name('normal.level-5.home');
 Route::view('/normal/level-5/a', 'levels.normal.level5.a')->name('normal.level-5.a');
+Route::view('/normal/level-5/b', 'levels.normal.level5.b')->name('normal.level-5.b');
+Route::view('/normal/level-5/c', 'levels.normal.level5.c')->name('normal.level-5.c');
+Route::view('/normal/level-5/d', 'levels.normal.level5.d')->name('normal.level-5.d');
+Route::view('/normal/level-5/e', 'levels.normal.level5.e')->name('normal.level-5.e');
+Route::view('/normal/level-5/f', 'levels.normal.level5.f')->name('normal.level-5.f');

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('main')
-    <div class="min-h-full bg-gray-200">
+    <div class="min-h-full bg-space">
         <div class="container mx-auto">
-            <div class="font-bold text-xl bg-gray-700 px-5 py-5 shadow-2xl  rounded-b-lg mx-5">Matematicas - Nivel 1
+            <div class="font-bold text-xl bg-gray-700 px-5 py-5 shadow-2xl text-gray-300 rounded-b-lg mx-5">Matematicas - Nivel 5
             </div>
         </div>
         <div class="container mx-auto mb-10 mt-5 rounded-md px-5 ">
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-5.a')}}">
+                    <a href="{{route('normal.level-5.b')}}">
                         <div
                             class="bg-red-300 border-red-400  p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer">
                             <div>
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-5.a')}}">
+                    <a href="{{route('normal.level-5.c')}}">
                         <div
                             class="bg-red-300 border-red-400  p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer">
                             <div>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-5.a')}}">
+                    <a href="{{route('normal.level-5.d')}}">
                         <div
                             class="bg-red-300 border-red-400  p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer">
                             <div>
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-1.d')}}">
+                    <a href="{{route('normal.level-5.e')}}">
                         <div
                             class="bg-red-300 border-red-400 p-2 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
                             <div>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-5.a')}}">
+                    <a href="{{route('normal.level-5.f')}}">
                         <div
                             class="bg-red-300 border-red-400  p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer">
                             <div>

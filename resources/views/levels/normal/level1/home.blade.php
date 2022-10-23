@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('main')
-    <div class="min-h-full bg-gray-200">
+    <div class="min-h-full bg-space">
         <div class="container mx-auto">
-            <div class="font-bold text-xl bg-gray-700 px-5 py-5 shadow-2xl  rounded-b-lg mx-5">Matematicas - Nivel 1</div>
+            <div class="font-bold text-xl bg-gray-600 px-5 py-5 shadow-2xl text-gray-300 rounded-b-lg mx-5">Matematicas - Nivel 1</div>
         </div>
         <div class="container mx-auto mb-10 mt-5 rounded-md px-5 ">
             <div class="bg-blue-400 flex-col pt-5 shadow-2xl rounded-md border-4 border-blue-600">
                 <div class="flex justify-center">
-                    <div class="font-bold text-2xl text-gray-600">Nivel Azul</div>
+                    <div class="font-bold text-2xl text-blue-700">Nivel Azul</div>
                 </div>
                 <div class="mt-5 gap-5 grid md:grid-cols-4 sm:grid-cols-1 mx-5">
                     <a href="{{route('normal.level-1.a')}}">
@@ -17,11 +17,11 @@
                             <div>
                                 <div class="flex justify-center">
                                     <div class="font-bold text-2xl">
-                                        Nivel 1
+                                        Actividad 1
                                     </div>
                                 </div>
-                                <div class="w-20">
-                                    <mati-1 asset="{{asset('images')}}"></mati-1>
+                                <div class="flex justify-center">
+                                    <img width="85" src="{{ asset('images/robot/mati_act1-min.gif') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -32,11 +32,11 @@
                             <div>
                                 <div class="flex justify-center">
                                     <div class="font-bold text-2xl">
-                                        Nivel 2
+                                        Actividad 2
                                     </div>
                                 </div>
-                                <div class="w-20">
-                                    <img src="{{ asset('images/robot/1A.gif') }}" alt="">
+                                <div class="flex justify-center">
+                                    <img width="80" src="{{ asset('images/robot/1A.gif') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -47,11 +47,11 @@
                             <div>
                                 <div class="flex justify-center">
                                     <div class="font-bold text-2xl">
-                                        Nivel 3
+                                        Actividad 3
                                     </div>
                                 </div>
-                                <div class="w-28">
-                                    <img src="{{ asset('images/robot/mota1c.gif') }}" alt="">
+                                <div class="flex justify-center">
+                                    <img width="112" src="{{ asset('images/robot/mota1c.gif') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -62,11 +62,11 @@
                             <div>
                                 <div class="flex justify-center">
                                     <div class="font-bold text-2xl">
-                                        Nivel 4
+                                        Actividad 4
                                     </div>
                                 </div>
-                                <div class="w-28">
-                                    <img src="{{ asset('images/robot/mati2e-min.gif') }}" alt="">
+                                <div class="flex justify-center">
+                                    <img width="109" src="{{ asset('images/robot/mati2e-min.gif') }}" alt="">
                                 </div>
                             </div>
                         </div>

@@ -104,7 +104,7 @@ const selectColor = (bg) => {
 </script>
 
 <template>
-    <div class="min-h-full bg-gray-300">
+    <div class="min-h-full bg-space">
         <div class="md:container mx-auto">
             <div class="font-bold text-xl bg-gray-900 mx-5 px-5 py-3 rounded-b-lg shadow-2xl text-white">Matematicas -
                 Nivel 1

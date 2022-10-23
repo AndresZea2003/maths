@@ -569,10 +569,10 @@ const check = () => {
 </script>
 
 <template>
-    <div class="min-h-full bg-gray-300" @mousedown="clickPaint()" @mouseup="clickPaint()">
+    <div class="min-h-full bg-space" @mousedown="clickPaint()" @mouseup="clickPaint()">
         <div class="md:container mx-auto">
             <div class="font-bold text-xl bg-gray-900 mx-5 px-5 py-3 rounded-b-lg shadow-2xl text-white">Matematicas -
-                Nivel 1
+                Nivel 4
             </div>
         </div>
         <div class="container mx-auto mb-10 rounded-md px-5">

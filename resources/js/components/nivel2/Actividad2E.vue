@@ -36,7 +36,7 @@ const paint = (id) => {
     document.getElementById(id).classList.remove('hover:bg-gray-400')
     document.getElementById(id).classList.remove('bg-pink-500')
     document.getElementById(id).classList.remove('bg-blue-600')
-    document.getElementById(id).classList.remove('bg-gray-900')
+    document.getElementById(id).classList.remove('bg-red-600')
     document.getElementById(id).classList.remove('bg-yellow-400')
     document.getElementById(id).classList.remove('bg-white')
     document.getElementById(id).classList.add(`bg-${color}`);
@@ -80,7 +80,7 @@ const selectColor = (bg) => {
 
     document.getElementById('muestra').classList.remove('bg-blue-600')
     document.getElementById('muestra').classList.remove('bg-pink-500')
-    document.getElementById('muestra').classList.remove('bg-gray-900')
+    document.getElementById('muestra').classList.remove('bg-red-600')
     document.getElementById('muestra').classList.remove('bg-yellow-400')
     document.getElementById('muestra').classList.remove('bg-white')
 
@@ -94,17 +94,17 @@ const selectColor = (bg) => {
 </script>
 
 <template>
-    <div class="min-h-full bg-gray-300">
+    <div class="min-h-full bg-space">
         <div class="md:container mx-auto">
             <div class="font-bold text-xl bg-gray-900 mx-5 px-5 py-3 rounded-b-lg shadow-2xl text-white">Matematicas -
-                Nivel 1
+                Nivel 2
             </div>
         </div>
         <div class="container mx-auto mb-10 rounded-md px-5">
             <div class="bg-orange-300 border-4 border-orange-400 flex-col pb-2 rounded-md shadow-2xl">
                 <div class="mx-5 py-2">
                     <div>
-                        <span class="font-bold">Actividad 1 -</span>
+                        <span class="font-bold">Actividad 5 -</span>
                         <span> Replica los colores como se muestra en la imagen izquierda</span>
                     </div>
                 </div>
@@ -182,8 +182,8 @@ const selectColor = (bg) => {
                                     </div>
                                 </div>
                                 <div class="flex justify-center">
-                                    <button @click="selectColor('gray-900')"
-                                            class="border-2 border-black bg-gray-900 hover:bg-gray-600 rounded-full p-5">
+                                    <button @click="selectColor('red-600')"
+                                            class="border-2 border-black bg-red-600 hover:bg-red-700 rounded-full p-5">
                                         {{ null }}
                                     </button>
                                 </div>

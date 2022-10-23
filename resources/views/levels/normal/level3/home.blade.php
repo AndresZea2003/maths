@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('main')
-    <div class="min-h-full bg-gray-200">
+    <div class="min-h-full bg-space">
         <div class="container mx-auto">
-            <div class="font-bold text-xl bg-gray-700 px-5 py-5 shadow-2xl  rounded-b-lg mx-5">Matematicas - Nivel 1
+            <div class="font-bold text-xl bg-gray-700 px-5 py-5 shadow-2xl text-gray-300 rounded-b-lg mx-5">Matematicas - Nivel 3
             </div>
         </div>
         <div class="container mx-auto mb-10 mt-5 rounded-md px-5 ">
             <div class="bg-green-400 flex-col shadow-2xl rounded-md border-4 border-green-600">
-                <div class="flex justify-center">
-                    <div class="font-bold text-2xl text-gray-600">Nivel Verde</div>
+                <div class="flex justify-center py-2">
+                    <div class="font-bold text-2xl text-green-800">Nivel Verde</div>
                 </div>
                 <div class="gap-5 grid md:grid-cols-4 sm:grid-cols-1 mx-5">
-                    <a href="{{route('normal.level-1.a')}}">
+                    <a href="{{route('normal.level-3.a')}}">
                         <div
                             class="bg-green-300 border-green-400 p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer">
                             <div>
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-1.a')}}">
+                    <a href="{{route('normal.level-3.b')}}">
                         <div
                             class="bg-green-300 border-green-400  p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer">
                             <div>
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-1.a')}}">
+                    <a href="{{route('normal.level-3.c')}}">
                         <div
                             class="bg-green-300 border-green-400  p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer">
                             <div>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-1.a')}}">
+                    <a href="{{route('normal.level-3.d')}}">
                         <div
                             class="bg-green-300 border-green-400  p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer">
                             <div>
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-1.d')}}">
+                    <a href="{{route('normal.level-3.e')}}">
                         <div
                             class="bg-green-300 border-green-400 p-2 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
                             <div>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-1.a')}}">
+                    <a href="{{route('normal.level-3.f')}}">
                         <div
                             class="bg-green-300 border-green-400  p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer">
                             <div>
@@ -102,7 +102,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.level-1.a')}}">
+                    <a href="{{route('normal.level-3.g')}}">
                         <div
                             class="bg-green-300 border-green-400  p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer">
                             <div>

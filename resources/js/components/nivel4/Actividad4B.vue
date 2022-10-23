@@ -587,17 +587,17 @@ const check = () => {
 </script>
 
 <template>
-    <div class="min-h-full bg-gray-300" @mousedown="clickPaint()" @mouseup="clickPaint()">
+    <div class="min-h-full bg-space" @mousedown="clickPaint()" @mouseup="clickPaint()">
         <div class="md:container mx-auto">
             <div class="font-bold text-xl bg-gray-900 mx-5 px-5 py-3 rounded-b-lg shadow-2xl text-white">Matematicas -
-                Nivel 1
+                Nivel 4
             </div>
         </div>
         <div class="container mx-auto mb-10 rounded-md px-5">
             <div class="bg-violet-300 border-4 border-violet-600 flex-col pb-2 rounded-md shadow-2xl">
                 <div class="mx-5 py-2">
                     <div>
-                        <span class="font-bold">Actividad 1 -</span>
+                        <span class="font-bold">Actividad 2 -</span>
                         <span> Replica los colores como se muestra en la imagen izquierda</span>
                     </div>
                 </div>
