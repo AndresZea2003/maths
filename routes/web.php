@@ -69,3 +69,60 @@ Route::view('/normal/level-5/c', 'levels.normal.level5.c')->name('normal.level-5
 Route::view('/normal/level-5/d', 'levels.normal.level5.d')->name('normal.level-5.d');
 Route::view('/normal/level-5/e', 'levels.normal.level5.e')->name('normal.level-5.e');
 Route::view('/normal/level-5/f', 'levels.normal.level5.f')->name('normal.level-5.f');
+
+Route::view('/normal/level-7', 'levels.normal.level7.home')->name('normal.level-7.home');
+Route::view('/normal/level-7/a', 'levels.normal.level7.a')->name('normal.level-7.a');
+Route::view('/normal/level-7/b', 'levels.normal.level7.b')->name('normal.level-7.b');
+Route::view('/normal/level-7/c', 'levels.normal.level7.c')->name('normal.level-7.c');
+Route::view('/normal/level-7/d', 'levels.normal.level7.d')->name('normal.level-7.d');
+Route::view('/normal/level-7/e', 'levels.normal.level7.e')->name('normal.level-7.e');
+Route::view('/normal/level-7/f', 'levels.normal.level7.f')->name('normal.level-7.f');
+
+Route::view('/normal/level-8', 'levels.normal.level8.home')->name('normal.level-8.home');
+Route::view('/normal/level-8/a', 'levels.normal.level8.a')->name('normal.level-8.a');
+Route::view('/normal/level-8/b', 'levels.normal.level8.b')->name('normal.level-8.b');
+Route::view('/normal/level-8/c', 'levels.normal.level8.c')->name('normal.level-8.c');
+Route::view('/normal/level-8/d', 'levels.normal.level8.d')->name('normal.level-8.d');
+Route::view('/normal/level-8/e', 'levels.normal.level8.e')->name('normal.level-8.e');
+Route::view('/normal/level-8/f', 'levels.normal.level8.f')->name('normal.level-8.f');
+
+Route::view('/normal/level-9', 'levels.normal.level9.home')->name('normal.level-9.home');
+Route::view('/normal/level-9/a', 'levels.normal.level9.a')->name('normal.level-9.a');
+Route::view('/normal/level-9/b', 'levels.normal.level9.b')->name('normal.level-9.b');
+Route::view('/normal/level-9/c', 'levels.normal.level9.c')->name('normal.level-9.c');
+Route::view('/normal/level-9/d', 'levels.normal.level9.d')->name('normal.level-9.d');
+Route::view('/normal/level-9/e', 'levels.normal.level9.e')->name('normal.level-9.e');
+Route::view('/normal/level-9/f', 'levels.normal.level9.f')->name('normal.level-9.f');
+Route::view('/normal/level-9/g', 'levels.normal.level9.g')->name('normal.level-9.g');
+
+Route::view('/normal/level-10', 'levels.normal.level10.home')->name('normal.level-10.home');
+Route::view('/normal/level-10/a', 'levels.normal.level10.a')->name('normal.level-10.a');
+Route::view('/normal/level-10/b', 'levels.normal.level10.b')->name('normal.level-10.b');
+Route::view('/normal/level-10/c', 'levels.normal.level10.c')->name('normal.level-10.c');
+Route::view('/normal/level-10/d', 'levels.normal.level10.d')->name('normal.level-10.d');
+Route::view('/normal/level-10/e', 'levels.normal.level10.e')->name('normal.level-10.e');
+
+Route::view('/normal/level-11', 'levels.normal.level11.home')->name('normal.level-11.home');
+Route::view('/normal/level-11/a', 'levels.normal.level11.a')->name('normal.level-11.a');
+Route::view('/normal/level-11/b', 'levels.normal.level11.b')->name('normal.level-11.b');
+Route::view('/normal/level-11/c', 'levels.normal.level11.c')->name('normal.level-11.c');
+Route::view('/normal/level-11/d', 'levels.normal.level11.d')->name('normal.level-11.d');
+Route::view('/normal/level-11/e', 'levels.normal.level11.e')->name('normal.level-11.e');
+Route::view('/normal/level-11/f', 'levels.normal.level11.f')->name('normal.level-11.f');
+Route::view('/normal/level-11/g', 'levels.normal.level11.g')->name('normal.level-11.g');
+
+Route::view('/normal/level-12', 'levels.normal.level12.home')->name('normal.level-12.home');
+Route::view('/normal/level-12/a', 'levels.normal.level12.a')->name('normal.level-12.a');
+Route::view('/normal/level-12/b', 'levels.normal.level12.b')->name('normal.level-12.b');
+Route::view('/normal/level-12/c', 'levels.normal.level12.c')->name('normal.level-12.c');
+Route::view('/normal/level-12/d', 'levels.normal.level12.d')->name('normal.level-12.d');
+Route::view('/normal/level-12/e', 'levels.normal.level12.e')->name('normal.level-12.e');
+
+Route::view('/normal/level-13', 'levels.normal.level13.home')->name('normal.level-13.home');
+Route::view('/normal/level-13/a', 'levels.normal.level13.a')->name('normal.level-13.a');
+Route::view('/normal/level-13/b', 'levels.normal.level13.b')->name('normal.level-13.b');
+Route::view('/normal/level-13/c', 'levels.normal.level13.c')->name('normal.level-13.c');
+
+Route::view('/normal/level-14', 'levels.normal.level14.home')->name('normal.level-14.home');
+Route::view('/normal/level-14/a', 'levels.normal.level14.a')->name('normal.level-14.a');
+Route::view('/normal/level-14/b', 'levels.normal.level14.b')->name('normal.level-14.b');

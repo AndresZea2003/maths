@@ -117,14 +117,14 @@ const selectColor = (bg) => {
     <div class="min-h-full bg-space" @mousedown="clickPaint()" @mouseup="clickPaint()">
         <div class="md:container mx-auto">
             <div class="font-bold text-xl bg-gray-900 mx-5 px-5 py-3 rounded-b-lg shadow-2xl text-white">Matematicas -
-                Nivel 3
+                Nivel 8
             </div>
         </div>
         <div class="container mx-auto mb-10 rounded-md px-5">
             <div class="bg-green-400 border-4 border-green-600 flex-col pb-2 rounded-md shadow-2xl">
                 <div class="mx-5 py-2">
                     <div>
-                        <span class="font-bold">Actividad 4 -</span>
+                        <span class="font-bold">Actividad 1 -</span>
                         <span> Replica los colores como se muestra en la imagen izquierda</span>
                     </div>
                 </div>
@@ -133,7 +133,7 @@ const selectColor = (bg) => {
                         class="bg-white rounded-md md:col-span-3 grid md:grid-cols-2">
                         <div class="flex justify-center border-black border-4">
                             <div class="grid grid-cols-11">
-                                <!--                                linea1-->
+<!--                                linea1-->
                                 <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -256,61 +256,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
                                 <!--                            linea2-->
-                                <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-4 bg-stone-700">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
                                 <div class="grid grid-cols-3 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -322,7 +267,62 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 bg-stone-700">
+                                <div class="grid grid-cols-3">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class="grid grid-cols-3">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class="grid grid-cols-3">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class="grid grid-cols-3 border-black border-t-4 border-l-4 bg-green-600">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class="grid grid-cols-3 border-black border-t-4 bg-green-600">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class="grid grid-cols-3 border-black border-t-4 border-r-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -389,7 +389,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class=" grid grid-cols-3 border-black  ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -400,18 +400,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 bg-yellow-400">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
+                                <div class="grid grid-cols-3 border-black border-x-4 border-t-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -433,7 +422,29 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 bg-yellow-400">
+                                <div class="grid grid-cols-3 border-black border-l-4 bg-green-600">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class="grid grid-cols-3 bg-green-600">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class="grid grid-cols-3 border-black border-r-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -466,18 +477,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 bg-yellow-400">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
+                                <div class=" grid grid-cols-3 border-black  ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -511,7 +511,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 bg-pink-500">
+                                <div class=" grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -522,7 +522,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-blue-500">
+                                <div class=" grid grid-cols-3 border-black border-l-4 border-b-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -533,7 +533,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-green-500">
+                                <div class=" grid grid-cols-3 border-black border-y-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -544,7 +544,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 bg-green-500">
+                                <div class=" grid grid-cols-3 border-black bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -555,7 +555,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-yellow-400">
+                                <div class=" grid grid-cols-3 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -566,7 +566,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-green-500">
+                                <div class=" grid grid-cols-3 border-black border-r-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -577,7 +577,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 bg-green-500">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -588,7 +588,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-blue-500">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -599,7 +599,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-pink-500">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -633,7 +633,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 bg-pink-500">
+                                <div class=" grid grid-cols-3 border-black  ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -644,7 +644,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-blue-500">
+                                <div class=" grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -655,7 +655,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-blue-500">
+                                <div class=" grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -666,7 +666,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 bg-green-500">
+                                <div class=" grid grid-cols-3 border-black border-l-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -677,7 +677,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-yellow-400">
+                                <div class=" grid grid-cols-3 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -688,7 +688,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-green-500">
+                                <div class=" grid grid-cols-3 border-black border-r-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -699,7 +699,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 bg-blue-500">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -710,7 +710,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-blue-500">
+                                <div class=" grid grid-cols-3 border-black border-x-4 border-t-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -721,7 +721,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-pink-500">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -766,7 +766,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-yellow-400">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -777,7 +777,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-blue-500">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -788,7 +788,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 bg-green-500">
+                                <div class=" grid grid-cols-3 border-black border-l-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -799,7 +799,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-yellow-400">
+                                <div class=" grid grid-cols-3 border-black bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -810,7 +810,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-green-500">
+                                <div class=" grid grid-cols-3 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -821,7 +821,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 bg-blue-500">
+                                <div class=" grid grid-cols-3 border-black border-y-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -832,7 +832,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-yellow-400">
+                                <div class=" grid grid-cols-3 border-black border-r-4 border-b-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -877,7 +877,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 bg-pink-500">
+                                <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -888,7 +888,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-blue-500">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -899,7 +899,40 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-pink-500">
+                                <div class=" grid grid-cols-3 border-black ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-l-4 bg-green-600">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black bg-green-600">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-r-4 bg-green-600">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -921,17 +954,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-yellow-400">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
                                 <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -943,29 +965,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 bg-pink-500">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-blue-500">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-pink-500">
+                                <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -999,39 +999,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 bg-pink-500">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-blue-500">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-pink-500">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
                                 <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1043,7 +1010,73 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class=" grid grid-cols-3 border-black  ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-y-4 border-l-4 bg-stone-700">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-t-4 bg-stone-700">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-t-4 bg-stone-700">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-t-4 bg-stone-700">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-y-4 border-r-4 bg-stone-700">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black  ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1055,39 +1088,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
                                 <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 bg-pink-500">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 bg-blue-500">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 bg-pink-500">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1132,17 +1132,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 bg-yellow-400">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
                                 <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1154,7 +1143,51 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class=" grid grid-cols-3 border-black  ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-l-4 bg-stone-700">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black bg-stone-700">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-r-4 bg-stone-700">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black  ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1166,39 +1199,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
                                 <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-4 bg-yellow-400">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1276,7 +1276,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class="grid grid-cols-3 border-black border-l-4 border-b-4 bg-stone-700">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1287,7 +1287,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class="grid grid-cols-3 border-black border-b-4 bg-stone-700">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1298,7 +1298,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class="grid grid-cols-3 border-black border-r-4 border-b-4 bg-stone-700">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1357,7 +1357,7 @@ const selectColor = (bg) => {
                         </div>
                         <div class="flex justify-center border-black border-4">
                             <div class="grid grid-cols-11">
-                                <!--                                linea1-->
+<!--                                linea1-->
                                 <div class="grid grid-cols-3 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1524,7 +1524,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 ">
+                                <div class="grid grid-cols-3 border-black border-t-4 border-l-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1535,7 +1535,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 ">
+                                <div class="grid grid-cols-3 border-black border-t-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1546,7 +1546,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 ">
+                                <div class="grid grid-cols-3 border-black border-t-4 border-r-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1613,7 +1613,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class=" grid grid-cols-3 border-black  ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1624,18 +1624,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
+                                <div class="grid grid-cols-3 border-black border-x-4 border-t-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1657,7 +1646,29 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 ">
+                                <div class="grid grid-cols-3 border-black border-l-4 ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class="grid grid-cols-3 ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class="grid grid-cols-3 border-black border-r-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1690,18 +1701,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
+                                <div class=" grid grid-cols-3 border-black  ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1735,7 +1735,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 ">
+                                <div class=" grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1746,7 +1746,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
+                                <div class=" grid grid-cols-3 border-black border-l-4 border-b-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1757,7 +1757,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                <div class=" grid grid-cols-3 border-black border-y-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1768,7 +1768,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1779,7 +1779,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
+                                <div class=" grid grid-cols-3 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1790,7 +1790,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                <div class=" grid grid-cols-3 border-black border-r-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1801,7 +1801,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1812,7 +1812,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1823,7 +1823,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1857,7 +1857,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 ">
+                                <div class=" grid grid-cols-3 border-black  ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1868,7 +1868,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
+                                <div class=" grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1879,7 +1879,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                <div class=" grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1890,7 +1890,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 ">
+                                <div class=" grid grid-cols-3 border-black border-l-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1901,7 +1901,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
+                                <div class=" grid grid-cols-3 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1912,7 +1912,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                <div class=" grid grid-cols-3 border-black border-r-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1923,7 +1923,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1934,7 +1934,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
+                                <div class=" grid grid-cols-3 border-black border-x-4 border-t-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1945,7 +1945,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -1990,7 +1990,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2001,7 +2001,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2012,7 +2012,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 ">
+                                <div class=" grid grid-cols-3 border-black border-l-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2023,7 +2023,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2034,7 +2034,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                <div class=" grid grid-cols-3 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2045,7 +2045,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 ">
+                                <div class=" grid grid-cols-3 border-black border-y-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2056,7 +2056,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
+                                <div class=" grid grid-cols-3 border-black border-r-4 border-b-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2101,7 +2101,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 ">
+                                <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2112,7 +2112,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2123,7 +2123,40 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                <div class=" grid grid-cols-3 border-black ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-l-4 ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-r-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2145,17 +2178,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
                                 <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2167,29 +2189,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2223,39 +2223,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
                                 <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2267,7 +2234,73 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class=" grid grid-cols-3 border-black  ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-y-4 border-l-4 ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-t-4 ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-t-4 ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-t-4 ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-y-4 border-r-4 ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black  ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2279,39 +2312,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
                                 <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-l-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-x-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-y-4 border-r-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2356,17 +2356,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3 border-black border-4 ">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
                                 <div class="grid grid-cols-3">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2378,7 +2367,51 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class=" grid grid-cols-3 border-black  ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-l-4 ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black border-r-4 ">
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
+                                </div>
+                                <div class=" grid grid-cols-3 border-black  ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2390,39 +2423,6 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
                                 <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3">
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                    <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
-                                </div>
-                                <div class="grid grid-cols-3 border-black border-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2500,7 +2500,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class="grid grid-cols-3 border-black border-l-4 border-b-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2511,7 +2511,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class="grid grid-cols-3 border-black border-b-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
@@ -2522,7 +2522,7 @@ const selectColor = (bg) => {
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                 </div>
-                                <div class="grid grid-cols-3">
+                                <div class="grid grid-cols-3 border-black border-r-4 border-b-4 ">
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
                                     <div class="select-none p-2 hover:bg-blue-700">{{ null }}</div>
