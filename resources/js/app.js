@@ -98,6 +98,30 @@ import Actividad13C from "./components/nivel13/Actividad13C.vue"
 import Actividad14A from "./components/nivel14/Actividad14A.vue"
 import Actividad14B from "./components/nivel14/Actividad14B.vue"
 
+import Actividad15A from "./components/nivel15/Actividad15A.vue"
+import Actividad15B from "./components/nivel15/Actividad15B.vue"
+import Actividad15C from "./components/nivel15/Actividad15C.vue"
+import Actividad15D from "./components/nivel15/Actividad15D.vue"
+import Actividad15E from "./components/nivel15/Actividad15E.vue"
+import Actividad15F from "./components/nivel15/Actividad15F.vue"
+
+import Actividad16A from "./components/nivel16/Actividad16A.vue"
+import Actividad16B from "./components/nivel16/Actividad16B.vue"
+import Actividad16C from "./components/nivel16/Actividad16C.vue"
+import Actividad16D from "./components/nivel16/Actividad16D.vue"
+import Actividad16E from "./components/nivel16/Actividad16E.vue"
+import Actividad16F from "./components/nivel16/Actividad16F.vue"
+
+import Actividad17A from "./components/nivel17/Actividad17A.vue"
+import Actividad17B from "./components/nivel17/Actividad17B.vue"
+import Actividad17C from "./components/nivel17/Actividad17C.vue"
+import Actividad17D from "./components/nivel17/Actividad17D.vue"
+import Actividad17E from "./components/nivel17/Actividad17E.vue"
+import Actividad17F from "./components/nivel17/Actividad17F.vue"
+
+import Test1 from "./components/nivel1/Test1.vue"
+import Tutorial1 from "./components/nivel1/tutorial1.vue"
+
 createApp({
     components: {
         'mati-saludo': MatiSaludo,
@@ -107,6 +131,10 @@ createApp({
         'mati-1': Mati1,
         'mati-2': Mati2,
         'motas-1': Motas1,
+
+        'test-1': Test1,
+
+        'tutorial-1': Tutorial1,
         'actividad-1a': Actividad1A,
         'actividad-1b': Actividad1B,
         'actividad-1c': Actividad1C,
@@ -196,5 +224,26 @@ createApp({
 
         'actividad-14a': Actividad14A,
         'actividad-14b': Actividad14B,
+
+        'actividad-15a': Actividad15A,
+        'actividad-15b': Actividad15B,
+        'actividad-15c': Actividad15C,
+        'actividad-15d': Actividad15D,
+        'actividad-15e': Actividad15E,
+        'actividad-15f': Actividad15F,
+
+        'actividad-16a': Actividad16A,
+        'actividad-16b': Actividad16B,
+        'actividad-16c': Actividad16C,
+        'actividad-16d': Actividad16D,
+        'actividad-16e': Actividad16E,
+        'actividad-16f': Actividad16F,
+
+        'actividad-17a': Actividad17A,
+        'actividad-17b': Actividad17B,
+        'actividad-17c': Actividad17C,
+        'actividad-17d': Actividad17D,
+        'actividad-17e': Actividad17E,
+        'actividad-17f': Actividad17F,
     }
 }).mount("#app");
