@@ -27,6 +27,9 @@ Route::view('/normal/level-1/a', 'levels.normal.level1.a')->name('normal.level-1
 Route::view('/normal/level-1/b', 'levels.normal.level1.b')->name('normal.level-1.b');
 Route::view('/normal/level-1/c', 'levels.normal.level1.c')->name('normal.level-1.c');
 Route::view('/normal/level-1/d', 'levels.normal.level1.d')->name('normal.level-1.d');
+Route::view('/normal/level-1/e', 'levels.normal.level1.e')->name('normal.level-1.e');
+Route::view('/normal/level-1/f', 'levels.normal.level1.f')->name('normal.level-1.f');
+Route::view('/normal/level-1/g', 'levels.normal.level1.g')->name('normal.level-1.g');
 
 Route::view('/normal/level-2', 'levels.normal.level2.home')->name('normal.level-2.home');
 Route::view('/normal/level-2/a', 'levels.normal.level2.a')->name('normal.level-2.a');

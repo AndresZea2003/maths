@@ -11,21 +11,6 @@
                     <div class="font-bold text-2xl text-blue-700">Nivel Azul</div>
                 </div>
                 <div class="mt-5 gap-5 grid md:grid-cols-4 sm:grid-cols-1 mx-5">
-                    <a href="{{route('normal.level-1.tutorial')}}">
-                        <div
-                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>
-                                <div class="flex justify-center">
-                                    <div class="font-bold text-2xl">
-                                        Test 1
-                                    </div>
-                                </div>
-                                <div class="flex justify-center">
-                                    <img width="85" src="{{ asset('images/robot/mati_act1-min.gif') }}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </a>
                     <a href="{{route('normal.level-1.a')}}">
                         <div
                             class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
@@ -83,6 +68,81 @@
                                 <div class="flex justify-center">
                                     <img width="109" src="{{ asset('images/robot/mati2e-min.gif') }}" alt="">
                                 </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{route('normal.level-1.e')}}">
+                        <div
+                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>
+                                <div class="flex justify-center">
+                                    <div class="font-bold text-2xl">
+                                        Actividad 1
+                                    </div>
+                                </div>
+                                <div class="flex justify-center">
+                                    <img width="85" src="{{ asset('images/robot/mati_act1-min.gif') }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{route('normal.level-1.f')}}">
+                        <div
+                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>
+                                <div class="flex justify-center">
+                                    <div class="font-bold text-2xl">
+                                        Actividad 1
+                                    </div>
+                                </div>
+                                <div class="flex justify-center">
+                                    <img width="85" src="{{ asset('images/robot/mati_act1-min.gif') }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{route('normal.level-1.g')}}">
+                        <div
+                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>
+                                <div class="flex justify-center">
+                                    <div class="font-bold text-2xl">
+                                        Actividad 1
+                                    </div>
+                                </div>
+                                <div class="flex justify-center">
+                                    <img width="85" src="{{ asset('images/robot/mati_act1-min.gif') }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{route('normal.test1')}}">
+                        <div
+                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>
+                                <div class="flex justify-center">
+                                    <div class="font-bold text-2xl">
+                                        Test 1
+                                    </div>
+                                </div>
+{{--                                <div class="flex justify-center">--}}
+{{--                                    <img width="85" src="{{ asset('images/robot/mati_act1-min.gif') }}" alt="">--}}
+{{--                                </div>--}}
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{route('normal.level-1.tutorial')}}">
+                        <div
+                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div>
+                                <div class="flex justify-center">
+                                    <div class="font-bold text-2xl">
+                                        Test 2
+                                    </div>
+                                </div>
+{{--                                <div class="flex justify-center">--}}
+{{--                                    <img width="85" src="{{ asset('images/robot/mati_act1-min.gif') }}" alt="">--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </a>

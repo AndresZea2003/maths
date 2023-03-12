@@ -8,10 +8,14 @@ import MatiSaludo from "./components/mati/MatiSaludo.vue"
 import Mati1 from "./components/mati/Mati1.vue"
 import Mati2 from "./components/mati/Mati2.vue"
 import Motas1 from "./components/motas/Motas1.vue"
+
 import Actividad1A from "./components/nivel1/Actividad1A.vue"
 import Actividad1B from "./components/nivel1/Actividad1B.vue"
 import Actividad1C from "./components/nivel1/Actividad1C.vue"
 import Actividad1D from "./components/nivel1/Actividad1D.vue"
+import Actividad1E from "./components/nivel1/Actividad1E.vue"
+import Actividad1F from "./components/nivel1/Actividad1F.vue"
+import Actividad1G from "./components/nivel1/Actividad1G.vue"
 
 import Actividad2A from "./components/nivel2/Actividad2A.vue"
 import Actividad2B from "./components/nivel2/Actividad2B.vue"
@@ -139,6 +143,9 @@ createApp({
         'actividad-1b': Actividad1B,
         'actividad-1c': Actividad1C,
         'actividad-1d': Actividad1D,
+        'actividad-1e': Actividad1E,
+        'actividad-1f': Actividad1F,
+        'actividad-1g': Actividad1G,
 
         'actividad-2a': Actividad2A,
         'actividad-2b': Actividad2B,

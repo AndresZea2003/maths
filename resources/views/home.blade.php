@@ -107,7 +107,7 @@
                             <span class="font-MPlus font-bold text-xl text-gray-300">Rapido!, Mati y Motas necesitan tu ayuda para salvar la galaxia..</span>
                             <div class="grid grid-cols-3">
                                 <div>
-                                    <img src="{{asset('images/robot/mati.gif')}}" width="100" alt="nube">
+                                    <img src="{{asset('images/robot/matiQuieto.gif')}}" width="100" alt="nube">
                                 </div>
                                 <div>
                                     <img src="{{asset('images/dog/motas.gif')}}" width="100" alt="nube">
