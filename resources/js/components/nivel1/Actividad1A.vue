@@ -22,6 +22,8 @@ let talk = ref(false);
 
 let ShowEraser = ref(false);
 
+let winLevel = ref(false);
+
 let eye = ref(`${props.asset_images}/herramientas/ojo.jpeg`)
 let eraser = ref(`${props.asset_images}/herramientas/eraser.png`)
 let mati = ref(`${props.asset_images}/robot/mati.png`)
@@ -119,7 +121,7 @@ function helpAudio() {
 
 function helpFigures() {
     selectFig1.value = 'bg-rose-300 rounded-md animate-pulse';
-    eye.value = `${props.asset_images}/herramientas/ojo.gif`
+    eye.value = `${props.asset_images}/herramientas/ojo1.gif`
     setTimeout(function () {
         eye.value = `${props.asset_images}/herramientas/ojo.jpeg`;
         selectFig1.value = '';
@@ -191,6 +193,7 @@ const paint = (id) => {
                 box.classList.remove(classToRemove, classToRemove2);
                 box.classList.add(classToAdd);
                 colorError.value = false;
+                box.classList.remove('animate-pulse')
                 if (!colorPainted.value) {
                     animateBrush(`${props.asset_audio}/soapBubble.wav`, 1000, 'brush', '#16a34a');
                 }
@@ -199,6 +202,7 @@ const paint = (id) => {
                 box.classList.remove(classToAdd);
                 box.classList.add(classToRemove, classToRemove2);
                 colorPainted.value = false;
+                box.classList.add('animate-pulse')
                 if (!colorError.value) {
                     animateBrush(`${props.asset_audio}/wood.wav`, 900, 'brush-fail', 'red');
                 } else {
@@ -273,8 +277,9 @@ const paint = (id) => {
         document.getElementById('caja3').classList.contains('bg-yellow-400') &&
         document.getElementById('caja4').classList.contains('bg-red-600')
     ) {
+        win()
         let sound = new Audio();
-        sound.src = `${props.asset_audio}/instantWin.wav`;
+        sound.src = `${props.asset_audio}/correctVictory.wav`;
         sound.play()
         Swal.fire({
             icon: 'success',
@@ -305,6 +310,27 @@ const selectColor = (bg) => {
     sound.src = `${props.asset_audio}/bubble.wav`;
     sound.play();
 }
+
+const win = () => {
+    let sound = new Audio();
+    sound.src = `${props.asset_audio}/voz1/win/felicidades1.m4a`;
+    sound.play();
+    document.getElementById('nave').classList.add('avanzar');
+    document.getElementById('b-1').classList.remove('bg-yellow-200');
+    document.getElementById('b-2').classList.remove('bg-gray-400');
+    document.getElementById('fondoMati').classList.remove('bg-orange-200');
+    document.getElementById('fondoMati').classList.add('bg-green-200');
+    document.getElementById('b-1').classList.add('bg-green-400');
+    document.getElementById('b-2').classList.add('bg-yellow-200');
+    document.getElementById('guia1').classList.add('bg-green-400');
+    document.getElementById('guia2').classList.add('bg-green-400');
+    document.getElementById('guia3').classList.add('bg-green-400');
+    document.getElementById('guia4').classList.add('bg-green-400');
+    mati.value = `${props.asset_images}/dog/logrado.gif`
+    widthMati.value = 200;
+    talk.value = true;
+    winLevel.value = true;
+}
 </script>
 
 <template>
@@ -330,7 +356,7 @@ const selectColor = (bg) => {
                 </div>
                 <div class="mx-5 grid md:grid-cols-6 gap-5">
                     <div id="fondoMati"
-                         class="bg-red-400 border-4 border-blue-600 rounded-md flex items-end justify-center">
+                         class="bg-orange-200 border-4 border-blue-600 rounded-md flex items-end justify-center">
                         <div class="">
 
                             <div v-if="indexSquareFig === 'colors'" class="flex justify-center items-center mb-16">
@@ -369,25 +395,27 @@ const selectColor = (bg) => {
 
                         <div class="col-span-3">
                             <div class="flex justify-center m-5 gap-5">
-                            <div>
-                                <img :src="`${props.asset_images}/planetas/tierra.svg`" width="50" alt="">
-                            </div>
-                            <div class="grid grid-cols-7 gap-x-1 bg-gray-600 h-5 rounded-full mt-3">
-                                <div class="bg-green-600 rounded-l-full h-5"></div>
-                                <div class="bg-gray-400 w-20 h-5"></div>
-                                <div class="bg-gray-400 w-20 h-5"></div>
-                                <div class="bg-gray-400 w-20 h-5"></div>
-                                <div class="bg-gray-400 w-20 h-5"></div>
-                                <div class="bg-gray-400 w-20 h-5"></div>
-                                <div class="bg-gray-400 w-20 rounded-r-full h-5"></div>
-                                <div class="flex justify-center">
-                                    <img :src="`${props.asset_images}/espacio/nave.svg`" width="50" alt="">
+                                <div>
+                                    <img :src="`${props.asset_images}/planetas/tierra.svg`" width="50" alt="">
+                                </div>
+                                <div id="barras" class="grid grid-cols-7 gap-x-1 bg-gray-600 h-5 rounded-full mt-3">
+                                    <div id="b-1" class="bg-yellow-200 rounded-l-full h-5"></div>
+                                    <div id="b-2" class="bg-gray-400 w-20 h-5"></div>
+                                    <div class="bg-gray-400 w-20 h-5"></div>
+                                    <div class="bg-gray-400 w-20 h-5"></div>
+                                    <div class="bg-gray-400 w-20 h-5"></div>
+                                    <div class="bg-gray-400 w-20 h-5"></div>
+                                    <div class="bg-gray-400 w-20 rounded-r-full h-5"></div>
+                                    <div class="flex justify-start">
+                                        <img id="nave" class="" :src="`${props.asset_images}/espacio/nave.svg`"
+                                             width="50" alt="">
+                                    </div>
+                                </div>
+                                <div>
+                                    <img :src="`${props.asset_images}/planetas/rojo.svg`" width="50" alt="">
                                 </div>
                             </div>
-                            <div>
-                                <img class="" :src="`${props.asset_images}/planetas/rojo.svg`" width="50" alt="">
-                            </div>
-                        </div>
+
                         </div>
                         <div :class="`${selectFig1} ml-5`">
                             <div class="flex-col justify-center items-center">
@@ -408,10 +436,13 @@ const selectColor = (bg) => {
                             <div class="flex justify-center mt-5">
                                 <div class="flex-col grid gap-5">
                                     <div class="grid grid-cols-2">
-                                        <div class="p-12 border-black border-2 bg-blue-600">{{ null }}</div>
-                                        <div class="p-12 border-black border-2 bg-green-600">{{ null }}</div>
-                                        <div class="p-12 border-black border-2 bg-yellow-400">{{ null }}</div>
-                                        <div class="p-12 border-black border-2 bg-red-600">{{ null }}</div>
+                                        <div id="guia1" class="p-12 border-black border-2 bg-blue-600">{{ null }}</div>
+                                        <div id="guia2" class="p-12 border-black border-2 bg-green-600">{{ null }}</div>
+                                        <div id="guia3" class="p-12 border-black border-2 bg-yellow-400">{{
+                                                null
+                                            }}
+                                        </div>
+                                        <div id="guia4" class="p-12 border-black border-2 bg-red-600">{{ null }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -419,9 +450,28 @@ const selectColor = (bg) => {
 
                         <div class="flex justify-center h-full pt-16">
 
-                            <svg fill="#9ca3af" id="arrow" :class="`${selectFig2} flex justify-center h-full pt-16`"
-                                 clip-rule="evenodd" fill-rule="evenodd" width="120" stroke-linejoin="round"
-                                 stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <div v-if="winLevel === true" class="">
+                                <span
+                                    class="font-MPlus text-2xl bg-green-400 p-2 rounded-full border-4 border-green-500">Felicidades!</span>
+
+                                <div class="flex justify-center pt-16">
+                                    <svg fill="#9ca3af" id="arrow"
+                                         :class="`${selectFig2} flex justify-center h-full pt-16`"
+                                         clip-rule="evenodd" fill-rule="evenodd" width="120" stroke-linejoin="round"
+                                         stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m13.022 14.999v3.251c0 .412.335.75.752.75.188 0 .375-.071.518-.206 1.775-1.685 4.945-4.692 6.396-6.069.2-.189.312-.452.312-.725 0-.274-.112-.536-.312-.725-1.451-1.377-4.621-4.385-6.396-6.068-.143-.136-.33-.207-.518-.207-.417 0-.752.337-.752.75v3.251h-9.02c-.531 0-1.002.47-1.002 1v3.998c0 .53.471 1 1.002 1z"
+                                            fill-rule="nonzero"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <svg v-else fill="#9ca3af" id="arrow"
+                                 :class="`${selectFig2} flex justify-center h-full pt-16`"
+                                 clip-rule="evenodd" fill-rule="evenodd" width="120"
+                                 stroke-linejoin="round"
+                                 stroke-miterlimit="2" viewBox="0 0 24 24"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="m13.022 14.999v3.251c0 .412.335.75.752.75.188 0 .375-.071.518-.206 1.775-1.685 4.945-4.692 6.396-6.069.2-.189.312-.452.312-.725 0-.274-.112-.536-.312-.725-1.451-1.377-4.621-4.385-6.396-6.068-.143-.136-.33-.207-.518-.207-.417 0-.752.337-.752.75v3.251h-9.02c-.531 0-1.002.47-1.002 1v3.998c0 .53.471 1 1.002 1z"
                                     fill-rule="nonzero"/>
@@ -447,7 +497,29 @@ const selectColor = (bg) => {
 
                             <div class="flex justify-center mt-5">
                                 <div class="flex-col">
-                                    <div>
+
+                                    <div v-if="winLevel === true" class="flex-col grid gap-5">
+                                        <div class="grid grid-cols-2">
+                                            <div id="guia1" class="p-12 border-black border-2 bg-green-400">{{
+                                                    null
+                                                }}
+                                            </div>
+                                            <div id="guia2" class="p-12 border-black border-2 bg-green-400">{{
+                                                    null
+                                                }}
+                                            </div>
+                                            <div id="guia3" class="p-12 border-black border-2 bg-green-400">{{
+                                                    null
+                                                }}
+                                            </div>
+                                            <div id="guia4" class="p-12 border-black border-2 bg-green-400">{{
+                                                    null
+                                                }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div v-else>
                                         <div class="grid grid-cols-2">
                                             <div @click="paint('caja1')" id="caja1"
                                                  class="p-12 border-black border-2 cursor-cell hover:bg-gray-400">
@@ -493,7 +565,7 @@ const selectColor = (bg) => {
                     </div>
 
                     <div>
-                        <div class="bg-blue-300 border-black border-4">
+                        <div class="bg-blue-300 border-black border-4 px-5">
                             <div class="grid grid-cols-2 gap-5 flex">
                                 <!--                                <div-->
                                 <!--                                    class="bg-gray-900 col-span-2 border-4 border-blue-400 flex justify-center py-5 px-12">-->
@@ -626,7 +698,7 @@ const selectColor = (bg) => {
                     </div>
                     <div class="px-5 pt-2 flex justify-end">
                         <div>
-                            <a :href="props.route_next" >
+                            <a :href="props.route_next">
                                 <button
                                     class="bg-red-300 px-2 py-1 rounded-md border-red-800 border-2 flex items-center hover:text-white hover:bg-gray-700 hover:scale-90 duration-300 opacity-50 cursor-not-allowed">
                                     <span class="font-bold">&nbspSiguiente</span>
@@ -746,6 +818,11 @@ const selectColor = (bg) => {
     100% {
         transform: translateX(0);
     }
+}
+
+.avanzar {
+    transform: translateX(100px);
+    transition: transform 0.5s ease-in-out;
 }
 
 </style>
