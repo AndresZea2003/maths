@@ -281,12 +281,12 @@ const paint = (id) => {
         let sound = new Audio();
         sound.src = `${props.asset_audio}/correctVictory.wav`;
         sound.play()
-        Swal.fire({
-            icon: 'success',
-            title: 'Completado!',
-            text: 'Felicidades! Has completado la actividad',
-            showConfirmButton: true,
-        })
+        // Swal.fire({
+        //     icon: 'success',
+        //     title: 'Completado!',
+        //     text: 'Felicidades! Has completado la actividad',
+        //     showConfirmButton: true,
+        // })
     }
 }
 
@@ -315,25 +315,111 @@ const win = () => {
     let sound = new Audio();
     sound.src = `${props.asset_audio}/voz1/win/felicidades1.m4a`;
     sound.play();
-    document.getElementById('nave').classList.add('avanzar');
-    document.getElementById('b-1').classList.remove('bg-yellow-200');
-    document.getElementById('b-2').classList.remove('bg-gray-400');
-    document.getElementById('fondoMati').classList.remove('bg-orange-200');
-    document.getElementById('fondoMati').classList.add('bg-green-200');
-    document.getElementById('b-1').classList.add('bg-green-400');
-    document.getElementById('b-2').classList.add('bg-yellow-200');
-    document.getElementById('guia1').classList.add('bg-green-400');
-    document.getElementById('guia2').classList.add('bg-green-400');
-    document.getElementById('guia3').classList.add('bg-green-400');
-    document.getElementById('guia4').classList.add('bg-green-400');
-    mati.value = `${props.asset_images}/dog/logrado.gif`
-    widthMati.value = 200;
-    talk.value = true;
-    winLevel.value = true;
+
+    // document.getElementById('loader').classList.remove('hidden');
+    // setTimeout(() => {
+    //         document.getElementById('loader').classList.add('hidden');
+    //         document.getElementById('loader').classList.remove('opacity-100');
+    //         document.getElementById('loader').classList.add('opacity-0');
+    // }, 2000);
+
+    const loader = document.getElementById('loader');
+    loader.classList.remove('hidden');
+
+    setTimeout(() => {
+        loader.classList.remove('opacity-0');
+    }, 1)
+
+    setTimeout(() => {
+        loader.classList.add('opacity-0');
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            loader.classList.remove('opacity-0');
+        }, 1500);
+    }, 2500);
+
+
+    setTimeout(() => {
+        document.getElementById('nave').classList.add('avanzar');
+        document.getElementById('b-1').classList.remove('bg-yellow-200');
+        document.getElementById('fondoMati').classList.remove('bg-orange-200');
+        document.getElementById('fondoMati').classList.add('bg-green-200');
+        document.getElementById('b-1').classList.add('bg-green-400');
+        // document.getElementById('guia1').classList.add('bg-green-400');
+        // document.getElementById('guia2').classList.add('bg-green-400');
+        // document.getElementById('guia3').classList.add('bg-green-400');
+        // document.getElementById('guia4').classList.add('bg-green-400');
+
+        document.getElementById('board').classList.remove('bg-white')
+    document.getElementById('board').classList.add('from-yellow-50')
+    document.getElementById('board').classList.add('to-yellow-500')
+    document.getElementById('board').classList.add('to-green-200')
+    document.getElementById('board').classList.add('bg-gradient-to-b')
+
+        mati.value = `${props.asset_images}/dog/logrado.gif`
+        widthMati.value = 200;
+        talk.value = true;
+        winLevel.value = true;
+    }, 2500);
 }
 </script>
 
 <template>
+    <div id="loader"
+         class="hidden fixed top-0 left-0 w-full h-full bg-black opacity-0 transition-opacity duration-500 z-50">
+        <div class="flex items-center justify-center h-full">
+
+            <div class="box-of-star1">
+                <div class="star star-position1"></div>
+                <div class="star star-position2"></div>
+                <div class="star star-position3"></div>
+                <div class="star star-position4"></div>
+                <div class="star star-position5"></div>
+                <div class="star star-position6"></div>
+                <div class="star star-position7"></div>
+            </div>
+            <div class="box-of-star2">
+                <div class="star star-position1"></div>
+                <div class="star star-position2"></div>
+                <div class="star star-position3"></div>
+                <div class="star star-position4"></div>
+                <div class="star star-position5"></div>
+                <div class="star star-position6"></div>
+                <div class="star star-position7"></div>
+            </div>
+            <div class="box-of-star3">
+                <div class="star star-position1"></div>
+                <div class="star star-position2"></div>
+                <div class="star star-position3"></div>
+                <div class="star star-position4"></div>
+                <div class="star star-position5"></div>
+                <div class="star star-position6"></div>
+                <div class="star star-position7"></div>
+            </div>
+            <div class="box-of-star4">
+                <div class="star star-position1"></div>
+                <div class="star star-position2"></div>
+                <div class="star star-position3"></div>
+                <div class="star star-position4"></div>
+                <div class="star star-position5"></div>
+                <div class="star star-position6"></div>
+                <div class="star star-position7"></div>
+            </div>
+            <div class="astronaut" data-js="astro">
+                <div class="head"></div>
+                <div class="arm arm-left"></div>
+                <div class="arm arm-right"></div>
+                <div class="body">
+                    <div class="panel"></div>
+                </div>
+                <div class="leg leg-left"></div>
+                <div class="leg leg-right"></div>
+                <div class="schoolbag"></div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="min-h-full bg-space">
         <nav class="bg-dominos px-4 py-3">
             <div class="max-w-7xl mx-auto">
@@ -390,8 +476,9 @@ const win = () => {
                         </div>
                     </div>
 
-                    <div
+                    <div id="board"
                         class="bg-white border-4 border-blue-600 rounded-md pb-5 pr-5 md:col-span-4 grid md:grid-cols-3 flex items-center">
+
 
                         <div class="col-span-3">
                             <div class="flex justify-center m-5 gap-5">
@@ -399,7 +486,7 @@ const win = () => {
                                     <img :src="`${props.asset_images}/planetas/tierra.svg`" width="50" alt="">
                                 </div>
                                 <div id="barras" class="grid grid-cols-7 gap-x-1 bg-gray-600 h-5 rounded-full mt-3">
-                                    <div id="b-1" class="bg-yellow-200 rounded-l-full h-5"></div>
+                                    <div id="b-1" class="bg-gray-400 rounded-l-full h-5"></div>
                                     <div id="b-2" class="bg-gray-400 w-20 h-5"></div>
                                     <div class="bg-gray-400 w-20 h-5"></div>
                                     <div class="bg-gray-400 w-20 h-5"></div>
@@ -451,8 +538,9 @@ const win = () => {
                         <div class="flex justify-center h-full pt-16">
 
                             <div v-if="winLevel === true" class="">
+
                                 <span
-                                    class="font-MPlus text-2xl bg-green-400 p-2 rounded-full border-4 border-green-500">Felicidades!</span>
+                                    class="font-MPlus text-2xl bg-green-400 p-2 rounded-lg border-4 border-green-500 animate-pulse">Felicidades!</span>
 
                                 <div class="flex justify-center pt-16">
                                     <svg fill="#9ca3af" id="arrow"
@@ -500,19 +588,19 @@ const win = () => {
 
                                     <div v-if="winLevel === true" class="flex-col grid gap-5">
                                         <div class="grid grid-cols-2">
-                                            <div id="guia1" class="p-12 border-black border-2 bg-green-400">{{
+                                            <div id="guia1" class="p-12 border-black border-2 bg-blue-600">{{
                                                     null
                                                 }}
                                             </div>
-                                            <div id="guia2" class="p-12 border-black border-2 bg-green-400">{{
+                                            <div id="guia2" class="p-12 border-black border-2 bg-green-600">{{
                                                     null
                                                 }}
                                             </div>
-                                            <div id="guia3" class="p-12 border-black border-2 bg-green-400">{{
+                                            <div id="guia3" class="p-12 border-black border-2 bg-yellow-400">{{
                                                     null
                                                 }}
                                             </div>
-                                            <div id="guia4" class="p-12 border-black border-2 bg-green-400">{{
+                                            <div id="guia4" class="p-12 border-black border-2 bg-red-600">{{
                                                     null
                                                 }}
                                             </div>
@@ -698,12 +786,21 @@ const win = () => {
                     </div>
                     <div class="px-5 pt-2 flex justify-end">
                         <div>
+                            <!--                            <a :href="props.route_next">-->
+                            <!--                                <button-->
+                            <!--                                    class="bg-red-300 px-2 py-1 rounded-md border-red-800 border-2 flex items-center hover:text-white hover:bg-gray-700 hover:scale-90 duration-300 opacity-50 cursor-not-allowed">-->
+                            <!--                                    <span class="font-bold">&nbspSiguiente</span>-->
+                            <!--                                    <ChevronRightIcon class="h-7 w-7"></ChevronRightIcon>-->
+                            <!--                                </button>-->
+                            <!--                            </a>-->
                             <a :href="props.route_next">
-                                <button
-                                    class="bg-red-300 px-2 py-1 rounded-md border-red-800 border-2 flex items-center hover:text-white hover:bg-gray-700 hover:scale-90 duration-300 opacity-50 cursor-not-allowed">
-                                    <span class="font-bold">&nbspSiguiente</span>
-                                    <ChevronRightIcon class="h-7 w-7"></ChevronRightIcon>
-                                </button>
+                                <button v-if="winLevel"
+                                    class="bg-yellow-300 p-2 font-MPlus flex items-center arrow border-2 border-yellow-100 animate-pulse shadow-2xl shadow-amber-300">
+                                Siguiente
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                    <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+                                </svg>
+                            </button>
                             </a>
                         </div>
                     </div>
@@ -824,6 +921,336 @@ const win = () => {
     transform: translateX(100px);
     transition: transform 0.5s ease-in-out;
 }
+
+
+/*Astronauta*/
+@keyframes snow {
+    0% {
+        opacity: 0;
+        transform: translateY(0px);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(650px);
+    }
+}
+
+@keyframes astronaut {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.box-of-star1,
+.box-of-star2,
+.box-of-star3,
+.box-of-star4 {
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    transform: translateY(650px);
+    height: 700px;
+}
+
+.box-of-star1 {
+    animation: snow 5s linear infinite;
+}
+
+.box-of-star2 {
+    animation: snow 5s -1.64s linear infinite;
+}
+
+.box-of-star3 {
+    animation: snow 5s -2.30s linear infinite;
+}
+
+.box-of-star4 {
+    animation: snow 5s -3.30s linear infinite;
+}
+
+.star {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #FFF;
+    position: absolute;
+    z-index: 10;
+    opacity: 0.7;
+}
+
+.star:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #FFF;
+    position: absolute;
+    z-index: 10;
+    top: 80px;
+    left: 70px;
+    opacity: .7;
+}
+
+.star:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #FFF;
+    position: absolute;
+    z-index: 10;
+    top: 8px;
+    left: 170px;
+    opacity: .9;
+}
+
+.star-position1 {
+    top: 30px;
+    left: 20px;
+}
+
+.star-position2 {
+    top: 110px;
+    left: 250px;
+}
+
+.star-position3 {
+    top: 60px;
+    left: 570px;
+}
+
+.star-position4 {
+    top: 120px;
+    left: 900px;
+}
+
+.star-position5 {
+    top: 20px;
+    left: 1120px;
+}
+
+.star-position6 {
+    top: 90px;
+    left: 1280px;
+}
+
+.star-position7 {
+    top: 30px;
+    left: 1480px;
+}
+
+.astronaut {
+    width: 250px;
+    height: 300px;
+    position: absolute;
+    z-index: 11;
+    top: calc(50% - 150px);
+    left: calc(50% - 125px);
+    animation: astronaut 5s linear infinite;
+}
+
+.schoolbag {
+    width: 100px;
+    height: 150px;
+    position: absolute;
+    z-index: 1;
+    top: calc(50% - 75px);
+    left: calc(50% - 50px);
+    background-color: #94b7ca;
+    border-radius: 50px 50px 0 0 / 30px 30px 0 0;
+}
+
+.head {
+    width: 97px;
+    height: 80px;
+    position: absolute;
+    z-index: 3;
+    background: -webkit-linear-gradient(left, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+    border-radius: 50%;
+    top: 34px;
+    left: calc(50% - 47.5px);
+}
+
+.head:after {
+    content: "";
+    width: 60px;
+    height: 50px;
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 30px);
+    background: -webkit-linear-gradient(top, #15aece 0%, #15aece 50%, #0391bf 50%, #0391bf 100%);
+    border-radius: 15px;
+}
+
+.head:before {
+    content: "";
+    width: 12px;
+    height: 25px;
+    position: absolute;
+    top: calc(50% - 12.5px);
+    left: -4px;
+    background-color: #618095;
+    border-radius: 5px;
+    box-shadow: 92px 0px 0px #618095;
+}
+
+.body {
+    width: 85px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+    background-color: #fffbff;
+    border-radius: 40px / 20px;
+    top: 105px;
+    left: calc(50% - 41px);
+    background: -webkit-linear-gradient(left, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+}
+
+.panel {
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    left: calc(50% - 30px);
+    background-color: #b7cceb;
+}
+
+.panel:before {
+    content: "";
+    width: 30px;
+    height: 5px;
+    position: absolute;
+    top: 9px;
+    left: 7px;
+    background-color: #fbfdfa;
+    box-shadow: 0px 9px 0px #fbfdfa, 0px 18px 0px #fbfdfa;
+}
+
+.panel:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 9px;
+    right: 7px;
+    background-color: #fbfdfa;
+    border-radius: 50%;
+    box-shadow: 0px 14px 0px 2px #fbfdfa;
+}
+
+.arm {
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    top: 121px;
+    z-index: 2;
+}
+
+.arm-left {
+    left: 30px;
+    background-color: #e3e8eb;
+    border-radius: 0 0 0 39px;
+}
+
+.arm-right {
+    right: 30px;
+    background-color: #fbfdfa;
+    border-radius: 0 0 39px 0;
+}
+
+.arm-left:before,
+.arm-right:before {
+    content: "";
+    width: 30px;
+    height: 70px;
+    position: absolute;
+    top: -40px;
+}
+
+.arm-left:before {
+    border-radius: 50px 50px 0px 120px / 50px 50px 0 110px;
+    left: 0;
+    background-color: #e3e8eb;
+}
+
+.arm-right:before {
+    border-radius: 50px 50px 120px 0 / 50px 50px 110px 0;
+    right: 0;
+    background-color: #fbfdfa;
+}
+
+.arm-left:after,
+.arm-right:after {
+    content: "";
+    width: 30px;
+    height: 10px;
+    position: absolute;
+    top: -24px;
+}
+
+.arm-left:after {
+    background-color: #6e91a4;
+    left: 0;
+}
+
+.arm-right:after {
+    right: 0;
+    background-color: #b6d2e0;
+}
+
+.leg {
+    width: 30px;
+    height: 40px;
+    position: absolute;
+    z-index: 2;
+    bottom: 70px;
+}
+
+.leg-left {
+    left: 76px;
+    background-color: #e3e8eb;
+    transform: rotate(20deg);
+}
+
+.leg-right {
+    right: 73px;
+    background-color: #fbfdfa;
+    transform: rotate(-20deg);
+}
+
+.leg-left:before,
+.leg-right:before {
+    content: "";
+    width: 50px;
+    height: 25px;
+    position: absolute;
+    bottom: -26px;
+}
+
+.leg-left:before {
+    left: -20px;
+    background-color: #e3e8eb;
+    border-radius: 30px 0 0 0;
+    border-bottom: 10px solid #6d96ac;
+}
+
+.leg-right:before {
+    right: -20px;
+    background-color: #fbfdfa;
+    border-radius: 0 30px 0 0;
+    border-bottom: 10px solid #b0cfe4;
+}
+
 
 </style>
 
