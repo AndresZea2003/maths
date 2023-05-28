@@ -80,20 +80,22 @@
                             <div>Nivel 5</div>
                         </div>
                     </a>
-                    <div
-                        class="bg-yellow-300 p-5 rounded-md shadow-2xl border-yellow-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                        <div>Nivel 6</div>
-                    </div>
+                    <a>
+                        <div
+                            class="bg-gray-200 p-5 rounded-md shadow-2xl border-gray-300 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div class="font-bold">Proximamente...</div>
+                        </div>
+                    </a>
                     <a href="{{ route('normal.level-7.home') }}">
                         <div
                             class="bg-stone-400 p-5 rounded-md shadow-2xl border-stone-500 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
                             <div>Nivel 7</div>
                         </div>
                     </a>
-                    <a href="{{ route('normal.level-8.home') }}">
+                    <a>
                         <div
-                            class="bg-pink-300 p-5 rounded-md shadow-2xl border-pink-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>Nivel 8</div>
+                            class="bg-gray-200 p-5 rounded-md shadow-2xl border-gray-300 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div class="font-bold">Proximamente...</div>
                         </div>
                     </a>
                     <a href="{{ route('normal.level-9.home') }}">
@@ -102,10 +104,10 @@
                             <div>Nivel 9</div>
                         </div>
                     </a>
-                    <a href="{{ route('normal.level-10.home') }}">
+                    <a>
                         <div
-                            class="bg-blue-600 p-5 rounded-md shadow-2xl border-blue-700 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>Nivel 10</div>
+                            class="bg-gray-200 p-5 rounded-md shadow-2xl border-gray-300 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div class="font-bold">Proximamente...</div>
                         </div>
                     </a>
                     <a href="{{ route('normal.level-11.home') }}">
@@ -114,42 +116,95 @@
                             <div>Nivel 11</div>
                         </div>
                     </a>
-                    <a href="{{ route('normal.level-12.home') }}">
+                    <a>
                         <div
-                            class="bg-red-600 p-5 rounded-md shadow-2xl border-red-700 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>Nivel 12</div>
+                            class="bg-gray-200 p-5 rounded-md shadow-2xl border-gray-300 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div class="font-bold">Proximamente...</div>
                         </div>
                     </a>
-                    <a href="{{ route('normal.level-13.home') }}">
+                    <a>
                         <div
-                            class="bg-red-100 p-5 rounded-md shadow-2xl border-red-200 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>Nivel 13</div>
+                            class="bg-gray-200 p-5 rounded-md shadow-2xl border-gray-300 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div class="font-bold">Proximamente...</div>
                         </div>
                     </a>
-                    <a href="{{ route('normal.level-14.home') }}">
+                    <a>
                         <div
-                            class="bg-green-600 p-5 rounded-md shadow-2xl border-green-700 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>Nivel 14</div>
+                            class="bg-gray-200 p-5 rounded-md shadow-2xl border-gray-300 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div class="font-bold">Proximamente...</div>
                         </div>
                     </a>
-                    <a href="{{ route('normal.level-15.home') }}">
+                    <a>
                         <div
-                            class="bg-yellow-400 p-5 rounded-md shadow-2xl border-yellow-500 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>Nivel 15</div>
+                            class="bg-gray-200 p-5 rounded-md shadow-2xl border-gray-300 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div class="font-bold">Proximamente...</div>
                         </div>
                     </a>
-                    <a href="{{ route('normal.level-16.home') }}">
+                    <a>
                         <div
-                            class="bg-pink-600 p-5 rounded-md shadow-2xl border-pink-700 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>Nivel 16</div>
+                            class="bg-gray-200 p-5 rounded-md shadow-2xl border-gray-300 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div class="font-bold">Proximamente...</div>
                         </div>
                     </a>
-                    <a href="{{ route('normal.level-17.home') }}">
+                    <a>
                         <div
-                            class="bg-orange-300 p-5 rounded-md shadow-2xl border-orange-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>Nivel 17</div>
+                            class="bg-gray-200 p-5 rounded-md shadow-2xl border-gray-300 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            <div class="font-bold">Proximamente...</div>
                         </div>
                     </a>
+
+                    {{--                    <div--}}
+                    {{--                        class="bg-yellow-300 p-5 rounded-md shadow-2xl border-yellow-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+                    {{--                        <div>Nivel 6</div>--}}
+                    {{--                    </div>--}}
+                    {{--                    <a href="{{ route('normal.level-8.home') }}">--}}
+                    {{--                        <div--}}
+                    {{--                            class="bg-pink-300 p-5 rounded-md shadow-2xl border-pink-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+                    {{--                            <div>Nivel 8</div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </a>--}}
+                    {{--                    <a href="{{ route('normal.level-10.home') }}">--}}
+                    {{--                        <div--}}
+                    {{--                            class="bg-blue-600 p-5 rounded-md shadow-2xl border-blue-700 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+                    {{--                            <div>Nivel 10</div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </a>--}}
+                    {{--                    <a href="{{ route('normal.level-12.home') }}">--}}
+                    {{--                        <div--}}
+                    {{--                            class="bg-red-600 p-5 rounded-md shadow-2xl border-red-700 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+                    {{--                            <div>Nivel 12</div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </a>--}}
+                    {{--                    <a href="{{ route('normal.level-13.home') }}">--}}
+                    {{--                        <div--}}
+                    {{--                            class="bg-red-100 p-5 rounded-md shadow-2xl border-red-200 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+                    {{--                            <div>Nivel 13</div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </a>--}}
+                    {{--                    <a href="{{ route('normal.level-14.home') }}">--}}
+                    {{--                        <div--}}
+                    {{--                            class="bg-green-600 p-5 rounded-md shadow-2xl border-green-700 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+                    {{--                            <div>Nivel 14</div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </a>--}}
+                    {{--                    <a href="{{ route('normal.level-15.home') }}">--}}
+                    {{--                        <div--}}
+                    {{--                            class="bg-yellow-400 p-5 rounded-md shadow-2xl border-yellow-500 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+                    {{--                            <div>Nivel 15</div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </a>--}}
+                    {{--                    <a href="{{ route('normal.level-16.home') }}">--}}
+                    {{--                        <div--}}
+                    {{--                            class="bg-pink-600 p-5 rounded-md shadow-2xl border-pink-700 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+                    {{--                            <div>Nivel 16</div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </a>--}}
+                    {{--                    <a href="{{ route('normal.level-17.home') }}">--}}
+                    {{--                        <div--}}
+                    {{--                            class="bg-orange-300 p-5 rounded-md shadow-2xl border-orange-400 border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+                    {{--                            <div>Nivel 17</div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </a>--}}
                 </div>
 
                 <div class="p-5">

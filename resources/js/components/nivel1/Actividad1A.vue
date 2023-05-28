@@ -24,7 +24,7 @@ let ShowEraser = ref(false);
 
 let winLevel = ref(false);
 
-let eye = ref(`${props.asset_images}/herramientas/ojo.jpeg`)
+let eye = ref(`${props.asset_images}/dog/eyes.png`)
 let eraser = ref(`${props.asset_images}/herramientas/eraser.png`)
 let mati = ref(`${props.asset_images}/robot/mati.png`)
 let widthMati = ref(150);
@@ -37,7 +37,7 @@ let indexSquare = ref('');
 
 let indexSquareFig = ref('');
 
-// const myTimeout = setTimeout(initialAudio, 2000);
+const myTimeout = setTimeout(initialAudio, 2000);
 
 let color1Error = ref(false);
 let color2Error = ref(false);
@@ -79,27 +79,30 @@ function initialAudio() {
         }, 8500)
         setTimeout(function () {
             let sound = new Audio();
-            sound.src = `${props.asset_audio}/voz1/Pinta-de-forma-idéntica-el-cuadrado-derecha.m4a`;
+            sound.src = `${props.asset_audio}/voz1/Pinta-de-forma-identica-el-cuadrado-derecha.m4a`;
             sound.play()
         }, 10000)
         widthMati.value = 160;
         setTimeout(resetMati, 15000);
+        setTimeout ( function () {
+            helpAudio()
+        }, 15000 )
     }
 }
 
 function showIndexSquare() {
     indexSquareFig.value = 'colors';
     setTimeout(function () {
-        indexSquare.value = 'border-black border-2 p-12 bg-blue-600 shadow-2xl shadow-blue-500';
+        indexSquare.value = 'border-black border-2 p-12 bg-blue-600';
     }, 4000);
     setTimeout(function () {
-        indexSquare.value = 'border-black border-2 p-12 bg-green-600 shadow-2xl shadow-green-500';
+        indexSquare.value = 'border-black border-2 p-12 bg-green-600';
     }, 5500);
     setTimeout(function () {
-        indexSquare.value = 'border-black border-2 p-12 bg-yellow-400 shadow-2xl shadow-yellow-500';
+        indexSquare.value = 'border-black border-2 p-12 bg-yellow-400';
     }, 7000);
     setTimeout(function () {
-        indexSquare.value = 'border-black border-2 p-12 bg-red-600 shadow-2xl shadow-red-500';
+        indexSquare.value = 'border-black border-2 p-12 bg-red-600';
     }, 8500);
     setTimeout(function () {
         indexSquare.value = '';
@@ -120,10 +123,21 @@ function helpAudio() {
 }
 
 function helpFigures() {
-    selectFig1.value = 'bg-rose-300 rounded-md animate-pulse';
-    eye.value = `${props.asset_images}/herramientas/ojo1.gif`
+    selectFig1.value = 'rounded-md animate-pulse';
+    eye.value = `${props.asset_images}/dog/ojos.gif`
+    document.getElementById('eye').classList.remove('scale-50');
+    document.getElementById('observa').classList.remove('text-xl');
+    document.getElementById('observa').classList.add('text-3xl');
+    document.getElementById('vista').classList.add('scale-125');
+    document.getElementById('vista').classList.add('mt-10');
+
     setTimeout(function () {
-        eye.value = `${props.asset_images}/herramientas/ojo.jpeg`;
+        document.getElementById('eye').classList.add('scale-50');
+        document.getElementById('observa').classList.add('text-xl');
+        document.getElementById('observa').classList.remove('text-3xl');
+        document.getElementById('vista').classList.remove('scale-125');
+        document.getElementById('vista').classList.remove('mt-10');
+        eye.value = `${props.asset_images}/dog/eyes.png`;
         selectFig1.value = '';
     }, 2000);
     setTimeout(function () {
@@ -131,7 +145,7 @@ function helpFigures() {
         document.getElementById('arrow').setAttribute('fill', '#22c55e')
     }, 2000);
     setTimeout(function () {
-        selectFig3.value = 'bg-rose-300 rounded-md animate-pulse';
+        selectFig3.value = 'rounded-md animate-pulse scale-125';
     }, 2000);
 }
 
@@ -345,16 +359,12 @@ const win = () => {
         document.getElementById('fondoMati').classList.remove('bg-orange-200');
         document.getElementById('fondoMati').classList.add('bg-green-200');
         document.getElementById('b-1').classList.add('bg-green-400');
-        // document.getElementById('guia1').classList.add('bg-green-400');
-        // document.getElementById('guia2').classList.add('bg-green-400');
-        // document.getElementById('guia3').classList.add('bg-green-400');
-        // document.getElementById('guia4').classList.add('bg-green-400');
 
         document.getElementById('board').classList.remove('bg-white')
-    document.getElementById('board').classList.add('from-yellow-50')
-    document.getElementById('board').classList.add('to-yellow-500')
-    document.getElementById('board').classList.add('to-green-200')
-    document.getElementById('board').classList.add('bg-gradient-to-b')
+        document.getElementById('board').classList.add('from-yellow-50')
+        document.getElementById('board').classList.add('to-yellow-500')
+        document.getElementById('board').classList.add('to-green-200')
+        document.getElementById('board').classList.add('bg-gradient-to-b')
 
         mati.value = `${props.asset_images}/dog/logrado.gif`
         widthMati.value = 200;
@@ -428,7 +438,11 @@ const win = () => {
                     <div class="flex items-center mr-auto">
                         <span class="text-white mx-3 font-bold text-yellow-500">Actividad 1</span>
                     </div>
-                    <a href="#" class="text-white hover:text-gray-200 mx-3">Regresar al Lobby</a>
+                    <a :href="props.route_back"
+                       class="flex items-center gap-2 text-white hover:text-gray-200 mx-3 bg-gray-800 py-1 px-2 rounded-md hover:bg-gray-600">
+                        Regresar al Lobby
+                        <HomeIcon class="h-7 w-7"></HomeIcon>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -477,7 +491,7 @@ const win = () => {
                     </div>
 
                     <div id="board"
-                        class="bg-white border-4 border-blue-600 rounded-md pb-5 pr-5 md:col-span-4 grid md:grid-cols-3 flex items-center">
+                         class="bg-white border-4 border-blue-600 rounded-md pb-5 pr-5 md:col-span-4 grid md:grid-cols-3 flex items-center">
 
 
                         <div class="col-span-3">
@@ -507,20 +521,21 @@ const win = () => {
                         <div :class="`${selectFig1} ml-5`">
                             <div class="flex-col justify-center items-center">
                                 <div class="flex justify-center">
-                                    <img :src="eye" alt="">
+                                    <img class="scale-50 transition-500 duration-300" id="eye" :src="eye" width="120"
+                                         alt="">
                                     <!--                                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="100" height="100"-->
-                                    <!--                                         viewBox="0 0 24 24">-->
+                                    <!--                                     s    viewBox="0 0 24 24">-->
                                     <!--                                        <path-->
                                     <!--                                            d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.21 0-4 1.791-4 4s1.79 4 4 4c2.209 0 4-1.791 4-4s-1.791-4-4-4zm-.004 3.999c-.564.564-1.479.564-2.044 0s-.565-1.48 0-2.044c.564-.564 1.479-.564 2.044 0s.565 1.479 0 2.044z"/>-->
                                     <!--                                    </svg>-->
                                 </div>
                             </div>
 
-                            <div class="flex justify-center mt-5">
-                                <span class="font-MPlus text-3xl">OBSERVA</span>
+                            <div class="flex justify-center ">
+                                <span id="observa" class="font-MPlus text-xl duration-300">OBSERVA</span>
                             </div>
 
-                            <div class="flex justify-center mt-5">
+                            <div id="vista" class="flex justify-center duration-300">
                                 <div class="flex-col grid gap-5">
                                     <div class="grid grid-cols-2">
                                         <div id="guia1" class="p-12 border-black border-2 bg-blue-600">{{ null }}</div>
@@ -565,25 +580,23 @@ const win = () => {
                                     fill-rule="nonzero"/>
                             </svg>
                         </div>
-                        <div :class="`${selectFig3} mr-5 pb-5`">
-                            <div class="flex-col justify-center items-center">
-                                <div class="flex justify-center">
-                                    <svg id="brush" class="" xmlns="http://www.w3.org/2000/svg" width="100"
-                                         fill="#78716c"
-                                         height="100"
-                                         viewBox="0 0 24 24">
-                                        <path
-                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
-                                    </svg>
-                                </div>
+                        <div id="fig3" :class="`${selectFig3} mr-5 pb-5 duration-300`">
+
+                            <div class="flex justify-center mt-5">
+                                <svg id="brush" class="duration-300" xmlns="http://www.w3.org/2000/svg" width="50"
+                                     fill="#78716c"
+                                     viewBox="0 0 24 24">
+                                    <path
+                                        d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                </svg>
                             </div>
 
 
-                            <div class="flex justify-center mt-5">
-                                <span class="font-MPlus text-3xl">COLOREA</span>
+                            <div class="flex justify-center mt-2">
+                                <span id="colorea" class="font-MPlus text-xl">COLOREA</span>
                             </div>
 
-                            <div class="flex justify-center mt-5">
+                            <div id="actividad" class="flex justify-center ">
                                 <div class="flex-col">
 
                                     <div v-if="winLevel === true" class="flex-col grid gap-5">
@@ -767,41 +780,22 @@ const win = () => {
                                 <!--                                    </button>-->
                                 <!--                                </div>-->
                                 <div id="muestra"
-                                     class="border-2 border-black px-10 py-5 m-2 bg-white col-span-2 shadow-2xl shadow-blue-900"></div>
+                                     class="border-2 border-black px-10 py-5 mx-2 bg-white col-span-2 shadow-2xl shadow-blue-900"></div>
+
+                                <div class="col-span-2 flex justify-center mb-3">
+                                    <a :href="props.route_next">
+                                        <button v-if="winLevel"
+                                                class="bg-yellow-300 p-2 font-MPlus flex items-center arrow border-2 border-yellow-100 animate-pulse shadow-2xl shadow-amber-300">
+                                            Siguiente
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                 viewBox="0 0 24 24">
+                                                <path
+                                                    d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+                                            </svg>
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2">
-                    <div class="px-5 pt-2 flex">
-                        <div>
-                            <a :href="props.route_back">
-                                <button
-                                    class="bg-red-300 px-2 py-1 rounded-md border-red-800 border-2 flex items-center hover:text-white hover:bg-gray-700 hover:scale-90 duration-300">
-                                    <HomeIcon class="h-7 w-7"></HomeIcon>
-                                    <span class="font-bold">&nbspVolver</span>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="px-5 pt-2 flex justify-end">
-                        <div>
-                            <!--                            <a :href="props.route_next">-->
-                            <!--                                <button-->
-                            <!--                                    class="bg-red-300 px-2 py-1 rounded-md border-red-800 border-2 flex items-center hover:text-white hover:bg-gray-700 hover:scale-90 duration-300 opacity-50 cursor-not-allowed">-->
-                            <!--                                    <span class="font-bold">&nbspSiguiente</span>-->
-                            <!--                                    <ChevronRightIcon class="h-7 w-7"></ChevronRightIcon>-->
-                            <!--                                </button>-->
-                            <!--                            </a>-->
-                            <a :href="props.route_next">
-                                <button v-if="winLevel"
-                                    class="bg-yellow-300 p-2 font-MPlus flex items-center arrow border-2 border-yellow-100 animate-pulse shadow-2xl shadow-amber-300">
-                                Siguiente
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                    <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-                                </svg>
-                            </button>
-                            </a>
                         </div>
                     </div>
                 </div>

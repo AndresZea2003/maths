@@ -58,7 +58,7 @@
                     </a>
                     <a href="{{route('normal.level-1.d')}}">
                         <div
-                            class="bg-violet-500 border-violet-600 px-5 py-4 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
+                            class="bg-blue-300 border-blue-400 px-5 py-4 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
                             <div>
                                 <div class="flex justify-center">
                                     <div class="font-bold text-2xl">
@@ -77,7 +77,7 @@
                             <div>
                                 <div class="flex justify-center">
                                     <div class="font-bold text-2xl">
-                                        Actividad 1
+                                        Actividad 5
                                     </div>
                                 </div>
                                 <div class="flex justify-center">
@@ -92,7 +92,7 @@
                             <div>
                                 <div class="flex justify-center">
                                     <div class="font-bold text-2xl">
-                                        Actividad 1
+                                        Actividad 6
                                     </div>
                                 </div>
                                 <div class="flex justify-center">
@@ -107,7 +107,7 @@
                             <div>
                                 <div class="flex justify-center">
                                     <div class="font-bold text-2xl">
-                                        Actividad 1
+                                        Actividad 7
                                     </div>
                                 </div>
                                 <div class="flex justify-center">
@@ -116,36 +116,36 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('normal.test1')}}">
-                        <div
-                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>
-                                <div class="flex justify-center">
-                                    <div class="font-bold text-2xl">
-                                        Test 1
-                                    </div>
-                                </div>
+{{--                    <a href="{{route('normal.test1')}}">--}}
+{{--                        <div--}}
+{{--                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+{{--                            <div>--}}
+{{--                                <div class="flex justify-center">--}}
+{{--                                    <div class="font-bold text-2xl">--}}
+{{--                                        Test 1--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 {{--                                <div class="flex justify-center">--}}
 {{--                                    <img width="85" src="{{ asset('images/robot/mati_act1-min.gif') }}" alt="">--}}
 {{--                                </div>--}}
-                            </div>
-                        </div>
-                    </a>
-                    <a href="{{route('normal.level-1.tutorial')}}">
-                        <div
-                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">
-                            <div>
-                                <div class="flex justify-center">
-                                    <div class="font-bold text-2xl">
-                                        Test 2
-                                    </div>
-                                </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                    <a href="{{route('normal.level-1.tutorial')}}">--}}
+{{--                        <div--}}
+{{--                            class="bg-blue-300 border-blue-400  p-5 rounded-md shadow-2xl border-4 flex justify-center hover:scale-90 duration-300 cursor-pointer">--}}
+{{--                            <div>--}}
+{{--                                <div class="flex justify-center">--}}
+{{--                                    <div class="font-bold text-2xl">--}}
+{{--                                        Test 2--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 {{--                                <div class="flex justify-center">--}}
 {{--                                    <img width="85" src="{{ asset('images/robot/mati_act1-min.gif') }}" alt="">--}}
 {{--                                </div>--}}
-                            </div>
-                        </div>
-                    </a>
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
                 </div>
 
                 <div class="p-5">

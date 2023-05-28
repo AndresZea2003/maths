@@ -17,10 +17,10 @@
                 </div>
 
                 <div class="mt-5">
-                    <div class="bg-gray-400 rounded-t-lg flex justify-center select-none border-gray-500 border-4">
-                        <span class="text-white font-bold text-2xl">Reto 1</span>
-                    </div>
                     <a href="{{ route('home') }}">
+                        <div class="bg-gray-400 rounded-t-lg flex justify-center select-none border-gray-500 border-4">
+                            <span class="text-white font-bold text-2xl">Reto 1</span>
+                        </div>
                         <div
                             class="md:flex sm:flex-col items-center hover:bg-gray-700 bg-gray-800 text-gray-200 rounded-b-lg border-gray-700 border-4 py-5">
                             <div class="flex justify-center">
@@ -54,30 +54,30 @@
                         <span class="text-white font-bold text-2xl">Reto 2</span>
                     </div>
 
-                        <div
-                            class="md:flex sm:flex-col items-center bg-gray-500 text-gray-200 rounded-b-lg border-gray-700 border-4 pb-1">
-                            <div aria-label="Orange and tan hamster running in a metal wheel" role="img"
-                                 class="wheel-and-hamster scale-75">
-                                <div class="wheel"></div>
-                                <div class="hamster">
-                                    <div class="hamster__body">
-                                        <div class="hamster__head">
-                                            <div class="hamster__ear"></div>
-                                            <div class="hamster__eye"></div>
-                                            <div class="hamster__nose"></div>
-                                        </div>
-                                        <div class="hamster__limb hamster__limb--fr"></div>
-                                        <div class="hamster__limb hamster__limb--fl"></div>
-                                        <div class="hamster__limb hamster__limb--br"></div>
-                                        <div class="hamster__limb hamster__limb--bl"></div>
-                                        <div class="hamster__tail"></div>
+                    <div
+                        class="md:flex sm:flex-col items-center bg-gray-500 text-gray-200 rounded-b-lg border-gray-700 border-4 pb-1">
+                        <div aria-label="Orange and tan hamster running in a metal wheel" role="img"
+                             class="wheel-and-hamster scale-75">
+                            <div class="wheel"></div>
+                            <div class="hamster">
+                                <div class="hamster__body">
+                                    <div class="hamster__head">
+                                        <div class="hamster__ear"></div>
+                                        <div class="hamster__eye"></div>
+                                        <div class="hamster__nose"></div>
                                     </div>
+                                    <div class="hamster__limb hamster__limb--fr"></div>
+                                    <div class="hamster__limb hamster__limb--fl"></div>
+                                    <div class="hamster__limb hamster__limb--br"></div>
+                                    <div class="hamster__limb hamster__limb--bl"></div>
+                                    <div class="hamster__tail"></div>
                                 </div>
-                                <div class="spoke"></div>
                             </div>
-
-                            <span class="font-MPlus text-black">No disponible...</span>
+                            <div class="spoke"></div>
                         </div>
+
+                        <span class="font-MPlus text-black">No disponible...</span>
+                    </div>
 
                 </div>
 
