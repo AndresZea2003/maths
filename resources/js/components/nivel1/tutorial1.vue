@@ -512,7 +512,39 @@ let colorPainted18 = ref(false);
 let colorPainted19 = ref(false);
 let colorPainted20 = ref(false);
 
-let classPaint1 = 'bg-red-500'
+let color1 = ref('');
+let color2 = ref('');
+let color3 = ref('');
+let color4 = ref('');
+let color5 = ref('');
+let color6 = ref('');
+let color7 = ref('');
+let color8 = ref('');
+let color9 = ref('');
+let color10 = ref('');
+let color11 = ref('');
+let color12 = ref('');
+let color13 = ref('');
+let color14 = ref('');
+let color15 = ref('');
+let color16 = ref('');
+let color17 = ref('');
+let color18 = ref('');
+
+
+let grupo1 = ref(color1.value + ' ' + color2.value + ' ' + color3.value);
+let grupo2 = ref('');
+let grupo3 = ref('');
+let grupo4 = ref('');
+let grupo5 = ref('');
+let grupo6 = ref('');
+
+let grupo1check = ref(false);
+let grupo2check = ref(false);
+let grupo3check = ref(false);
+let grupo4check = ref(false);
+let grupo5check = ref(false);
+let grupo6check = ref(false);
 
 function initialAudio() {
     if (talk.value === false) {
@@ -643,7 +675,9 @@ const paint = (id) => {
 
     document.getElementById(id).classList.remove('hover:bg-gray-400')
     document.getElementById(id).classList.remove('bg-white')
-    document.getElementById(id).classList.remove('bg-red-500')
+    document.getElementById(id).classList.remove('bg-blue-600')
+    document.getElementById(id).classList.remove('bg-yellow-400')
+    document.getElementById(id).classList.remove('bg-fuchsia-400')
     document.getElementById(id).classList.add(`bg-${color}`);
 
     // Borrador
@@ -655,43 +689,156 @@ const paint = (id) => {
         ShowEraser.value = colors.some(color => color);
     });
 
-    function verifyBox(boxNum, classToFind, classToAdd, classToRemove, classToRemove2, colorPainted, colorError) {
-        const box = document.getElementById(`caja${boxNum}`);
+    // function verifyBox(boxNum, classToFind, classToAdd, classToRemove, classToRemove2, colorPainted, colorError) {
+    //     const box = document.getElementById(`caja${boxNum}`);
+    //
+    //     if (box.classList.contains('bg-white')) {
+    //         colorError.value = false;
+    //         colorPainted.value = false;
+    //         box.classList.remove(classToRemove, classToRemove2);
+    //         box.classList.add(classToAdd);
+    //         let sound = new Audio();
+    //         sound.src = `${props.asset_audio}/eraser.mp3`;
+    //         sound.play()
+    //     } else {
+    //         if (box.classList.contains(classToFind)) {
+    //             box.classList.remove(classToRemove, classToRemove2);
+    //             box.classList.add(classToAdd);
+    //             colorError.value = false;
+    //             box.classList.remove('animate-pulse')
+    //             if (!colorPainted.value) {
+    //                 animateBrush(`${props.asset_audio}/soapBubble.wav`, 1000, 'brush', '#16a34a');
+    //             }
+    //             colorPainted.value = true;
+    //         } else if (!box.classList.contains(classToFind)) {
+    //             box.classList.remove(classToAdd);
+    //             box.classList.add(classToRemove, classToRemove2);
+    //             colorPainted.value = false;
+    //             box.classList.add('animate-pulse')
+    //             if (!colorError.value) {
+    //                 animateBrush(`${props.asset_audio}/wood.wav`, 900, 'brush-fail', 'red');
+    //             } else {
+    //                 let sound = new Audio();
+    //                 sound.src = `${props.asset_audio}/paint.wav`;
+    //                 sound.play()
+    //             }
+    //             colorError.value = true;
+    //         }
+    //     }
+    // }
 
-        if (box.classList.contains('bg-white')) {
-            colorError.value = false;
-            colorPainted.value = false;
-            box.classList.remove(classToRemove, classToRemove2);
-            box.classList.add(classToAdd);
-            let sound = new Audio();
-            sound.src = `${props.asset_audio}/eraser.mp3`;
-            sound.play()
-        } else {
-            if (box.classList.contains(classToFind)) {
-                box.classList.remove(classToRemove, classToRemove2);
-                box.classList.add(classToAdd);
-                colorError.value = false;
-                box.classList.remove('animate-pulse')
-                if (!colorPainted.value) {
-                    animateBrush(`${props.asset_audio}/soapBubble.wav`, 1000, 'brush', '#16a34a');
-                }
-                colorPainted.value = true;
-            } else if (!box.classList.contains(classToFind)) {
-                box.classList.remove(classToAdd);
-                box.classList.add(classToRemove, classToRemove2);
-                colorPainted.value = false;
-                box.classList.add('animate-pulse')
-                if (!colorError.value) {
-                    animateBrush(`${props.asset_audio}/wood.wav`, 900, 'brush-fail', 'red');
-                } else {
-                    let sound = new Audio();
-                    sound.src = `${props.asset_audio}/paint.wav`;
-                    sound.play()
-                }
-                colorError.value = true;
-            }
-        }
+    if (document.getElementById('caja1').classList.contains('bg-white')) {
+        color1.value = 'blanco'
+        colorPainted1.value = false
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/eraser.mp3`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
     }
+
+    if (document.getElementById('caja2').classList.contains('bg-white')) {
+        color2.value = 'blanco'
+        colorPainted2.value = false
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/eraser.mp3`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
+    if (document.getElementById('caja3').classList.contains('bg-white')) {
+        color3.value = 'blanco'
+        colorPainted3.value = false
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/eraser.mp3`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
+
+    if (document.getElementById('caja1').classList.contains('bg-blue-600') && colorPainted1.value === false) {
+        color1.value = 'azul'
+        colorPainted1.value = true
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/paint.wav`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
+
+    if (document.getElementById('caja2').classList.contains('bg-blue-600') && colorPainted2.value === false) {
+        color2.value = 'azul'
+        colorPainted2.value = true
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/paint.wav`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
+    if (document.getElementById('caja3').classList.contains('bg-blue-600') && colorPainted3.value === false) {
+        color3.value = 'azul'
+        colorPainted3.value = true
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/paint.wav`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
+    if (document.getElementById('caja1').classList.contains('bg-yellow-400') && colorPainted1.value === false) {
+        color1.value = 'amarillo'
+        colorPainted1.value = true
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/paint.wav`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
+
+    if (document.getElementById('caja2').classList.contains('bg-yellow-400') && colorPainted2.value === false) {
+        color2.value = 'amarillo'
+        colorPainted2.value = true
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/paint.wav`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
+    if (document.getElementById('caja3').classList.contains('bg-yellow-400') && colorPainted3.value === false) {
+        color3.value = 'amarillo'
+        colorPainted3.value = true
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/paint.wav`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
+    if (document.getElementById('caja1').classList.contains('bg-fuchsia-400') && colorPainted1.value === false) {
+        color1.value = 'fuchsia'
+        colorPainted1.value = true
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/paint.wav`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
+
+    if (document.getElementById('caja2').classList.contains('bg-fuchsia-400') && colorPainted2.value === false) {
+        color2.value = 'fuchsia'
+        colorPainted2.value = true
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/paint.wav`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
+    if (document.getElementById('caja3').classList.contains('bg-fuchsia-400') && colorPainted3.value === false) {
+        color3.value = 'fuchsia'
+        colorPainted3.value = true
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/paint.wav`;
+        sound.play()
+        grupo1.value = color1.value + ' ' + color2.value + ' ' + color3.value;
+    }
+
 
     function animateBrush(soundSrc, time, animateClass, BrushColor) {
         document.getElementById('brush').classList.add(animateClass);
@@ -706,7 +853,7 @@ const paint = (id) => {
     }
 
     const boxes = {
-        'caja3': {
+        'grupo1': {
             num: 3,
             classToFind: 'bg-white',
             // classToAdd: 'p-12',
@@ -715,7 +862,7 @@ const paint = (id) => {
             colorPainted: colorPainted1,
             colorError: color1Error
         },
-        'caja13': {
+        'grupo2': {
             num: 13,
             classToFind: 'bg-white',
             // classToAdd: 'p-12',
@@ -724,7 +871,7 @@ const paint = (id) => {
             colorPainted: colorPainted2,
             colorError: color2Error
         },
-        'caja23': {
+        'grupo23': {
             num: 23,
             classToFind: 'bg-white',
             // classToAdd: 'p-12',
@@ -733,7 +880,7 @@ const paint = (id) => {
             colorPainted: colorPainted3,
             colorError: color3Error
         },
-        'caja33': {
+        'grupo33': {
             num: 33,
             classToFind: 'bg-white',
             // classToAdd: 'p-12',
@@ -742,7 +889,7 @@ const paint = (id) => {
             colorPainted: colorPainted4,
             colorError: color4Error
         },
-        'caja43': {
+        'grupo43': {
             num: 43,
             classToFind: 'bg-white',
             // classToAdd: 'p-12',
@@ -751,7 +898,7 @@ const paint = (id) => {
             colorPainted: colorPainted5,
             colorError: color5Error
         },
-        'caja53': {
+        'grupo53': {
             num: 53,
             classToFind: 'bg-white',
             // classToAdd: 'p-12',
@@ -759,139 +906,18 @@ const paint = (id) => {
             // classToRemove2: 'px-5',
             colorPainted: colorPainted6,
             colorError: color6Error
-        },
-        'caja63': {
-            num: 63,
-            classToFind: 'bg-white',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted7,
-            colorError: color7Error
-        },
-        'caja73': {
-            num: 73,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted8,
-            colorError: color8Error
-        },
-        'caja83': {
-            num: 83,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted9,
-            colorError: color9Error
-        },
-        'caja93': {
-            num: 93,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted10,
-            colorError: color10Error
-        },
-        'caja10': {
-            num: 10,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted11,
-            colorError: color11Error
-        },
-        'caja20': {
-            num: 20,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted12,
-            colorError: color12Error
-        },
-        'caja30': {
-            num: 30,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted13,
-            colorError: color13Error
-        },
-        'caja40': {
-            num: 40,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted14,
-            colorError: color14Error
-        },
-        'caja50': {
-            num: 50,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted15,
-            colorError: color15Error
-        },
-        'caja60': {
-            num: 60,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted16,
-            colorError: color16Error
-        },
-        'caja70': {
-            num: 70,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted17,
-            colorError: color17Error
-        },
-        'caja80': {
-            num: 80,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted18,
-            colorError: color18Error
-        },
-        'caja90': {
-            num: 90,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted19,
-            colorError: color19Error
-        },
-        'caja100': {
-            num: 100,
-            classToFind: 'bg-red-500',
-            // classToAdd: 'p-12',
-            // classToRemove: 'py-8',
-            // classToRemove2: 'px-5',
-            colorPainted: colorPainted20,
-            colorError: color20Error
-        },
+        }
     };
 
     if (id in boxes) {
         const {num, classToFind, classToAdd, classToRemove, classToRemove2, colorPainted, colorError} = boxes[id];
         verifyBox(num, classToFind, classToAdd, classToRemove, classToRemove2, colorPainted, colorError);
     }
+    //
+
+    // grupo1.value = document.getElementById('caja1').contains('bg-blue-600'), document.getElementById('caja1').contains('bg-blue-600'), document.getElementById('caja1').contains('bg-blue-600')
+    // if (document.getElementById('caja1'))
+
 
     // Completar figura
     if (document.getElementById('caja1').classList.contains('bg-blue-600') &&
@@ -915,12 +941,12 @@ const paint = (id) => {
 const selectColor = (bg) => {
     color = bg
     colorSelected.value++
-    document.getElementById('muestra').classList.remove('bg-red-500', 'bg-white');
+    document.getElementById('muestra').classList.remove('bg-blue-600', 'bg-fuchsia-400', 'bg-yellow-400', 'bg-white');
     document.getElementById('muestra').classList.add(`bg-${bg}`);
     const colors = {
         'blue-600': '#2563eb',
         'red-600': '#dc2626',
-        'red-600': '#16a34a',
+        'fuchsia-400': '#e879f9',
         'yellow-400': '#facc15',
         'red-500': '#22c55e',
         'white': '#78716c'
@@ -1135,7 +1161,7 @@ const boxClicked = (boxNumber) => {
                     </div>
 
                     <div id="board"
-                         class="bg-white border-4 border-red-600 rounded-md pr-5 md:col-span-9 grid md:grid-cols-11 flex items-center">
+                         class="bg-white border-4 border-red-600 rounded-md pr-5 md:col-span-10 grid md:grid-cols-11 flex items-center">
 
 
                         <div class="col-span-11">
@@ -1163,138 +1189,92 @@ const boxClicked = (boxNumber) => {
 
                         </div>
                         <div :class="`${selectFig1} ml-5 col-span-5`">
-                            <div class="flex justify-between">
-                                <div class="flex-col justify-center items-center">
-                                    <div class="flex justify-center">
-                                        <img class="scale-50 transition-500 duration-300" id="eye" :src="eye"
-                                             width="100"
-                                             alt="">
-                                        <!--                                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="100" height="100"-->
-                                        <!--                                     s    viewBox="0 0 24 24">-->
-                                        <!--                                        <path-->
-                                        <!--                                            d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.21 0-4 1.791-4 4s1.79 4 4 4c2.209 0 4-1.791 4-4s-1.791-4-4-4zm-.004 3.999c-.564.564-1.479.564-2.044 0s-.565-1.48 0-2.044c.564-.564 1.479-.564 2.044 0s.565 1.479 0 2.044z"/>-->
-                                        <!--                                    </svg>-->
-                                    </div>
-                                </div>
-
-                                <div class="flex justify-center items-center">
-                                    <span id="observa" class="font-MPlus text-xl duration-300">OBSERVA</span>
+                            <div class="flex-col justify-center items-center">
+                                <div class="flex justify-center">
+                                    <img class="scale-50 transition-500 duration-300" id="eye" :src="eye"
+                                         width="100"
+                                         alt="">
+                                    <!--                                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="100" height="100"-->
+                                    <!--                                     s    viewBox="0 0 24 24">-->
+                                    <!--                                        <path-->
+                                    <!--                                            d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.21 0-4 1.791-4 4s1.79 4 4 4c2.209 0 4-1.791 4-4s-1.791-4-4-4zm-.004 3.999c-.564.564-1.479.564-2.044 0s-.565-1.48 0-2.044c.564-.564 1.479-.564 2.044 0s.565 1.479 0 2.044z"/>-->
+                                    <!--                                    </svg>-->
                                 </div>
                             </div>
 
-                            <div id="vista" class="border-gray-400 border-4 flex items-center justify-center">
+                            <div class="flex justify-center items-center">
+                                <span id="observa" class="font-MPlus text-xl duration-300">OBSERVA</span>
+                            </div>
+
+                            <div id="vista" class="border-gray-400 border-4 flex items-center justify-center p-2">
                                 <div class="flex justify-center">
-                                    <div class="grid md:grid-cols-10 gap-x-1">
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
+                                    <div class="grid md:grid-cols-2 gap-x-10">
+                                        <div class="grid grid-cols-3 gap-y-5 gap-x-1">
+                                            <div v-for="i in 9" :key="i + 100" :id="`caja${i + 100}`"
+                                                 :class="['p-6', 'border-black', 'border-2', 'cursor-cell', 'grid', 'hover:bg-gray-400',
+                                             { 'bg-red-600' : i + 100 === 102 || i + 100 === 106 || i + 100 === 107},
+                                             { 'bg-blue-600': i + 100 === 103 || i + 100 === 104 || i + 100 === 109},
+                                             { 'bg-green-500': i + 100 === 101 || i + 100 === 105 || i + 100 === 108}
+                                             ]">
+                                                {{ null }}
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-3 gap-y-5 gap-x-1">
+                                            <div v-for="i in 9" :key="i + 109" :id="`caja${i + 109}`"
+                                                 :class="['p-6', 'border-black', 'border-2', 'cursor-cell', 'grid', 'hover:bg-gray-400',
+                                             { 'bg-red-600' : i + 109 === 112 || i + 109 === 114 || i + 109 === 116},
+                                             { 'bg-blue-600': i + 109 === 111 || i + 109 === 113 || i + 109 === 117},
+                                             { 'bg-green-500': i + 109 === 110 || i + 109 === 115 || i + 109 === 118}
+                                             ]">
+                                                {{ null }}
+                                            </div>
+                                        </div>
+                                        <div class="mt-5 flex justify-center gap-5 col-span-2 opacity-50">
+                                            <div class="flex justify-center">
+                                                <button
+                                                    class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg class="icon-red" xmlns="http://www.w3.org/2000/svg" width="50"
+                                                         height="50"
+                                                         viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
 
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
+                                            <div class="flex justify-center">
+                                                <button
+                                                    class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg class="icon-blue" xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
 
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
+                                            <div class="flex justify-center">
+                                                <button
+                                                    class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg class="icon-green" xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
 
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-
-                                        <div class="p-5 bg-white border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-                                        <div class="p-5 bg-red-500 border-black border">{{ null }}</div>
-
+                                            <button
+                                                class="relative rounded-md p-2 shadow-md bg-gray-300  flex justify-center select-none">
+                                                <div class="relative">
+                                                    <img :src="eraser" alt="borrador" width="50">
+                                                </div>
+                                            </button>
+                                        </div>
+                                        <div id="muestraExample"
+                                             class="opacity-50 border-2 border-black py-5 mx-10 mt-5 bg-white col-span-2 shadow-2xl shadow-blue-900"></div>
                                     </div>
                                 </div>
                             </div>
@@ -1332,180 +1312,92 @@ const boxClicked = (boxNumber) => {
                         </div>
                         <div id="fig3" :class="`${selectFig3} mr-5 pb-5 duration-300 col-span-5`">
 
-                            <div class="flex justify-between">
-                                <div class="flex justify-center mt-5 pb-2">
-                                    <svg id="brush" class="duration-300" xmlns="http://www.w3.org/2000/svg" width="30"
-                                         fill="#78716c"
-                                         viewBox="0 0 24 24">
-                                        <path
-                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
-                                    </svg>
-                                </div>
-
-
-                                <div class="flex justify-center items-center mt-2">
-                                    <span id="colorea" class="font-MPlus text-xl">COLOREA</span>
-                                </div>
+                            <div class="flex justify-center mt-5 pb-2">
+                                <svg id="brush" class="duration-300" xmlns="http://www.w3.org/2000/svg" width="30"
+                                     fill="#78716c"
+                                     viewBox="0 0 24 24">
+                                    <path
+                                        d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                </svg>
                             </div>
 
-                            <div id="actividad" class="border-gray-400 border-4 flex items-center justify-center pr-1">
+
+                            <div class="flex justify-center items-center mt-2">
+                                <span id="colorea" class="font-MPlus text-xl">COLOREA</span>
+                            </div>
+
+                            <div id="actividad" class="border-gray-400 border-4 flex items-center justify-center p-2 ">
                                 <div class="flex justify-center">
-                                    <div class="grid md:grid-cols-10 gap-x-2">
-                                        <div v-for="i in 100" :key="i" :id="`caja${i}`" @click="boxClicked(i)"
-                                             :class="['p-5', 'border-black', 'border', 'cursor-cell', 'hover:bg-gray-400',
-                                             { 'bg-red-500' : i === 91 || i === 92 ||
-                                                 i === 94 || i === 95 || i === 96 ||
-                                                 i === 97 || i === 98 || i === 99 ||
-                                                 i === 82 || i === 84 || i === 85 ||
-                                                 i === 86 || i === 87 || i === 88 ||
-                                                 i === 89 || i === 74 || i === 75 ||
-                                                 i === 76 || i === 77 || i === 78 ||
-                                                 i === 79 || i === 64 || i === 65 ||
-                                                 i === 66 || i === 67 || i === 68 ||
-                                                 i === 69 || i === 55 || i === 56 ||
-                                                 i === 57 || i === 58 || i === 46 ||
-                                                 i === 59 || i === 47 || i === 48 ||
-                                                 i === 37 || i === 49 || i === 38 ||
-                                                 i === 39 || i === 28 || i === 29 ||
-                                                 i === 19},
-                                             { 'border-dashed' : i === 3 || i === 13 || i === 23 ||
-                                                 i === 33 || i === 43 || i === 53 ||
-                                                 i === 63 || i === 73 || i === 83 ||
-                                                 i === 93 || i === 10 || i === 20 ||
-                                                 i === 30 || i === 40 || i === 50 ||
-                                                 i === 60 || i === 70 || i === 80 ||
-                                                 i === 90 || i === 100 }]">
-                                            {{ null }}
+                                    <div class="grid md:grid-cols-2 gap-x-10">
+                                        <div class="grid grid-cols-3 gap-y-5 gap-x-1">
+                                            <div v-for="i in 9" :key="i" :id="`caja${i}`"
+                                                 @click="paint(`caja${i}`)"
+                                                 :class="['p-6', 'border-black', 'border-2', 'cursor-cell', 'grid', 'hover:bg-gray-400'
+                                             ]">
+                                                {{ null }}
+                                            </div>
                                         </div>
-                                        <!--                                        <div v-for="i in 2" :key="i"-->
-                                        <!--                                             class="p-5 bg-white border-black border cursor-cell hover:bg-gray-400">-->
-                                        <!--                                            {{ null }}-->
-                                        <!--                                        </div>-->
-                                        <!--                                        <div v-for="i in 7" :key="i + 2" @click="error('caja' + (i + 2))"-->
-                                        <!--                                             class="p-5 bg-white border-black border cursor-cell hover:bg-gray-400">-->
-                                        <!--                                            {{ null }}-->
-                                        <!--                                        </div>-->
-                                        <!--                                        <div v-for="i in 10" :key="i + 9" @click="paint('caja' + (i + 9))"-->
-                                        <!--                                             class="border-dashed p-5 bg-white border-black border cursor-cell hover:bg-gray-400">-->
-                                        <!--                                            {{ null }}-->
-                                        <!--                                        </div>-->
+                                        <div class="grid grid-cols-3 gap-y-5 gap-x-1">
+                                            <div v-for="i in 9" :key="i + 9" :id="`caja${i + 9}`"
+                                                 @click="paint(`caja${i + 9}`)"
+                                                 :class="['p-6', 'border-black', 'border-2', 'cursor-cell', 'grid', 'hover:bg-gray-400'
+                                             ]">
+                                                {{ null }}
+                                            </div>
+                                        </div>
+                                        <div class="mt-5 flex justify-center gap-5 col-span-2">
+                                            <div class="flex justify-center">
+                                                <button @click="selectColor('fuchsia-400')"
+                                                        class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg class="icon-fuchsia" xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50"
+                                                         viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
 
+                                            <div class="flex justify-center">
+                                                <button @click="selectColor('yellow-400')"
+                                                        class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg class="icon-yellow" xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+
+                                            <div class="flex justify-center">
+                                                <button @click="selectColor('blue-600')"
+                                                        class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg class="icon-blue" xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+
+                                            <button @click="selectColor('white')"
+                                                    class="relative rounded-md p-2 shadow-md bg-gray-300  flex justify-center select-none">
+                                                <div class="relative">
+                                                    <img :src="eraser" alt="borrador" width="50">
+                                                </div>
+                                            </button>
+                                        </div>
+                                        <div id="muestra"
+                                             class="border-2 border-black py-5 mx-10 mt-5 bg-white col-span-2 shadow-2xl shadow-blue-900"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                    </div>
 
-                    <div>
-                        <div class="bg-red-500 border-black border-4">
-                            <div class="grid grid-cols-2 gap-5 flex">
-                                <!--                                <div-->
-                                <!--                                    class="bg-gray-900 col-span-2 border-4 border-blue-400 flex justify-center py-5 px-12">-->
-                                <!--                                    <div class="text-blue-600 font-bold text-2xl">-->
-                                <!--                                        Planeta Azul-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
-                                <div class="col-span-2 mx-1 flex justify-center mt-5 ">
-                                    <div class="bg-pink-200 rounded-md px-2 flex">
-                                        <ArrowDownIcon class="w-5"/>
-                                        <div class="font-bold text-center">PINCEL</div>
-                                        <ArrowDownIcon class="w-5"/>
-                                    </div>
-                                </div>
-
-                                <div class="flex justify-center col-span-2">
-                                    <button @click="selectColor('red-500')"
-                                            class="rounded-md p-2 shadow-md bg-gray-300">
-                                        <svg class="icon-red" xmlns="http://www.w3.org/2000/svg" width="60"
-                                             height="60"
-                                             viewBox="0 0 24 24">
-                                            <path
-                                                d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-
-                                <div class="col-span-2 mx-1 flex justify-center">
-                                    <div class="bg-pink-200 rounded-md px-2 flex">
-                                        <ArrowDownIcon class="w-5"/>
-                                        <div class="font-bold">BORRADOR</div>
-                                        <ArrowDownIcon class="w-5"/>
-                                    </div>
-                                </div>
-
-                                <div v-if="ShowEraser === true" @click="selectColor('white')"
-                                     class="relative col-span-2 rounded-md p-2 shadow-md bg-gray-300  flex justify-center mx-2 select-none cursor-pointer">
-                                    <div
-                                        class="w-3 h-3 bg-red-500 rounded-full absolute top-0 right-0 -mt-1 -mr-1"></div>
-                                    <div
-                                        class="w-3 h-3 bg-red-500 rounded-full absolute top-0 right-0 -mt-1 -mr-1 animate-ping"></div>
-                                    <button class="eraser">
-                                        <div class="relative">
-                                            <img :src="eraser" alt="borrador" width="65">
-                                        </div>
-                                    </button>
-                                </div>
-
-                                <button v-else @click="selectColor('white')"
-                                        class="relative col-span-2 rounded-md p-2 shadow-md bg-gray-300  flex justify-center mx-2 select-none">
-                                    <div class="relative">
-                                        <img :src="eraser" alt="borrador" width="65">
-                                    </div>
-                                </button>
-
-
-                                <!--                                <div class="flex justify-center">-->
-                                <!--                                    <button @click="selectColor('blue-600')"-->
-                                <!--                                            class="border-2 border-black bg-blue-600 hover:bg-blue-700 rounded-full p-5">-->
-                                <!--                                        {{ null }}-->
-                                <!--                                    </button>-->
-                                <!--                                </div>-->
-                                <!--                                <div class="flex justify-center">-->
-                                <!--                                    <button @click="selectColor('red-600')"-->
-                                <!--                                            class="border-2 border-black bg-red-600 hover:bg-red-700 rounded-full p-5">-->
-                                <!--                                        {{ null }}-->
-                                <!--                                    </button>-->
-                                <!--                                </div>-->
-                                <!--                                <div class="flex justify-center">-->
-                                <!--                                    <button @click="selectColor('yellow-400')"-->
-                                <!--                                            class="border-2 border-black bg-yellow-400 hover:bg-yellow-500 rounded-full p-5">-->
-                                <!--                                        {{ null }}-->
-                                <!--                                    </button>-->
-                                <!--                                </div>-->
-                                <!--                                <div class="flex justify-center">-->
-                                <!--                                    <button @click="selectColor('red-600')"-->
-                                <!--                                            class="border-2 border-black bg-red-600 hover:bg-red-700 rounded-full p-5">-->
-                                <!--                                        {{ null }}-->
-                                <!--                                    </button>-->
-                                <!--                                </div>-->
-
-                                <div class="col-span-2 mx-1 flex justify-center mt-2 ">
-                                    <div class="bg-pink-200 rounded-md px-2 flex">
-                                        <ArrowDownIcon class="w-5"/>
-                                        <div class="font-bold text-center">COLOR</div>
-                                        <ArrowDownIcon class="w-5"/>
-                                    </div>
-                                </div>
-
-                                <div id="muestra"
-                                     class="border-2 border-black px-5 py-10 mx-2 bg-white col-span-2 shadow-2xl shadow-blue-900"></div>
-
-                                <div class="col-span-2 flex justify-center mb-3">
-                                    <a :href="props.route_next">
-                                        <button v-if="winLevel"
-                                                class="bg-yellow-300 p-2 font-MPlus flex items-center arrow border-2 border-yellow-100 animate-pulse shadow-2xl shadow-amber-300">
-                                            Siguiente
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                 viewBox="0 0 24 24">
-                                                <path
-                                                    d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-                                            </svg>
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1520,6 +1412,14 @@ const boxClicked = (boxNumber) => {
 
 .icon:hover {
     fill: white;
+}
+
+.icon-fuchsia {
+    fill: #e879f9
+}
+
+.icon-fuchsia:hover {
+    fill: #a855f7
 }
 
 .icon-blue {

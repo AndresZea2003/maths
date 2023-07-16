@@ -696,7 +696,7 @@ const win = () => {
                                 <div class="flex justify-center">
                                     <button @click="selectColor('red-600')"
                                             class="rounded-md p-2 shadow-md bg-gray-300">
-                                        <svg class="icon-red" xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                        <svg class="icon-red1" xmlns="http://www.w3.org/2000/svg" width="60" height="60"
                                              viewBox="0 0 24 24">
                                             <path
                                                 d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
@@ -821,11 +821,11 @@ const win = () => {
     fill: #1d4ed8;
 }
 
-.icon-red {
+.icon-red1 {
     fill: #dc2626;
 }
 
-.icon-red:hover {
+.icon-red1:hover {
     fill: #b91c1c;
 }
 

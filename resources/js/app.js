@@ -56,6 +56,10 @@ import Actividad5D from "./components/nivel5/Actividad5D.vue"
 import Actividad5E from "./components/nivel5/Actividad5E.vue"
 import Actividad5F from "./components/nivel5/Actividad5F.vue"
 
+import Actividad6A from "./components/nivel6/Actividad6A.vue"
+import Actividad6B from "./components/nivel6/Actividad6B.vue"
+import Actividad6C from "./components/nivel6/Actividad6C.vue"
+
 import Actividad7A from "./components/nivel7/Actividad7A.vue"
 import Actividad7B from "./components/nivel7/Actividad7B.vue"
 import Actividad7C from "./components/nivel7/Actividad7C.vue"
@@ -123,11 +127,24 @@ import Actividad17D from "./components/nivel17/Actividad17D.vue"
 import Actividad17E from "./components/nivel17/Actividad17E.vue"
 import Actividad17F from "./components/nivel17/Actividad17F.vue"
 
+import Actividad18A from "./components/nivel18/Actividad18A.vue"
+import Actividad18B from "./components/nivel18/Actividad18B.vue"
+import Actividad18C from "./components/nivel18/Actividad18C.vue"
+import Actividad18D from "./components/nivel18/Actividad18D.vue"
+import Actividad18E from "./components/nivel18/Actividad18E.vue"
+import Actividad18F from "./components/nivel18/Actividad18F.vue"
+import Actividad18G from "./components/nivel18/Actividad18G.vue"
+import Actividad18H from "./components/nivel18/Actividad18H.vue"
+import Actividad18I from "./components/nivel18/Actividad18I.vue"
+import Actividad18J from "./components/nivel18/Actividad18J.vue"
+
 import Test1 from "./components/nivel1/Test1.vue"
 import Tutorial1 from "./components/nivel1/tutorial1.vue"
+import HomeView from "./components/HomeView.vue"
 
 createApp({
     components: {
+        'home-view': HomeView,
         'mati-saludo': MatiSaludo,
         'c-button': CButton,
         'bars-3-icon': Bars3Icon,
@@ -185,6 +202,10 @@ createApp({
         'actividad-5d': Actividad5D,
         'actividad-5e': Actividad5E,
         'actividad-5f': Actividad5F,
+
+        'actividad-6a': Actividad6A,
+        'actividad-6b': Actividad6B,
+        'actividad-6c': Actividad6C,
 
         'actividad-7a': Actividad7A,
         'actividad-7b': Actividad7B,
@@ -252,5 +273,16 @@ createApp({
         'actividad-17d': Actividad17D,
         'actividad-17e': Actividad17E,
         'actividad-17f': Actividad17F,
+
+        'actividad-18a': Actividad18A,
+        'actividad-18b': Actividad18B,
+        'actividad-18c': Actividad18C,
+        'actividad-18d': Actividad18D,
+        'actividad-18e': Actividad18E,
+        'actividad-18f': Actividad18F,
+        'actividad-18g': Actividad18G,
+        'actividad-18h': Actividad18H,
+        'actividad-18i': Actividad18I,
+        'actividad-18j': Actividad18J,
     }
 }).mount("#app");

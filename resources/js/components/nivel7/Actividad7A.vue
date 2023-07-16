@@ -870,10 +870,14 @@ const paint = (id) => {
     }
 
     // Completar figura
-    if (document.getElementById('caja1').classList.contains('bg-blue-600') &&
-        document.getElementById('caja2').classList.contains('bg-green-600') &&
-        document.getElementById('caja3').classList.contains('bg-yellow-400') &&
-        document.getElementById('caja4').classList.contains('bg-red-600')
+    if (document.getElementById('caja6').classList.contains('bg-white') &&
+        document.getElementById('caja14').classList.contains('bg-white') &&
+        document.getElementById('caja22').classList.contains('bg-green-500') &&
+        document.getElementById('caja30').classList.contains('bg-green-500') &&
+        document.getElementById('caja38').classList.contains('bg-green-500') &&
+        document.getElementById('caja46').classList.contains('bg-green-500') &&
+        document.getElementById('caja54').classList.contains('bg-green-500') &&
+        document.getElementById('caja62').classList.contains('bg-green-500')
     ) {
         win()
         let sound = new Audio();
@@ -1098,7 +1102,7 @@ const win = () => {
                         <div class="col-span-9">
                             <div class="flex justify-center my-2 mx-5 gap-5">
                                 <div>
-                                    <img :src="`${props.asset_images}/planetas/tierra.svg`" width="50" alt="">
+                                    <img :src="`${props.asset_images}/planetas/jupiter.svg`" width="50" alt="">
                                 </div>
                                 <div id="barras" class="grid grid-cols-7 gap-x-1 bg-gray-600 h-5 rounded-full mt-3">
                                     <div id="b-1" class="bg-gray-400 rounded-l-full h-5"></div>
@@ -1114,7 +1118,7 @@ const win = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <img :src="`${props.asset_images}/planetas/rojo.svg`" width="50" alt="">
+                                    <img :src="`${props.asset_images}/planetas/neptuno.svg`" width="50" alt="">
                                 </div>
                             </div>
 
