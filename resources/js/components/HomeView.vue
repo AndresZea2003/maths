@@ -4,7 +4,8 @@ import {ref} from "vue";
 
 const props = defineProps({
     asset_images: {type: String, required: true},
-    asset_audio: {type: String, required: true}
+    asset_audio: {type: String, required: true},
+    levels_route: {type: String, required: true}
 })
 
 let soundtrack = ref(true)
@@ -12,6 +13,9 @@ let soundtrack = ref(true)
 let soundButton = ref(false)
 
 let playGame = ref(false)
+
+let figure1 = ref(false)
+let figure2 = ref(false)
 
 let principalSound = new Audio();
 principalSound.src = `${props.asset_audio}/soundtracks/space-game.mp3`;
@@ -68,7 +72,9 @@ const play = () => {
     principalSound.volume = 0.2
 
     setTimeout(function () {
-        rocketUp()
+        // rocketUp()
+        document.getElementById('planet1').classList.replace('hidden', 'planetUp')
+        introductionText()
     }, 1000);
 
 }
@@ -84,11 +90,80 @@ const rocketUp = () => {
         rocket.classList.replace("rocket-up", "rocket-down")
         rocket.classList.add("top-[500px]")
         setTimeout(function () {
-        document.getElementById("rocket-humo").classList.replace('opacity-100', 'opacity-0');
-    }, 5000);
+            document.getElementById("rocket-humo").classList.replace('opacity-100', 'opacity-0');
+        }, 5000);
     }, 3000);
 
 }
+
+const introductionText = () => {
+
+    setTimeout(function () {
+        document.getElementById('principalText').innerText = "Hola Viajeros!"
+    }, 1000);
+    setTimeout(function () {
+        document.getElementById('principalText').innerText = "Bienvenidos a una nueva aventura!"
+    }, 3000);
+    setTimeout(function () {
+        document.getElementById('principalText').innerText = "por el universo mágico de las "
+    }, 6000);
+    setTimeout(function () {
+        document.getElementById('principalText').innerText = " "
+        figure1.value = true
+    }, 9000);
+    setTimeout(function () {
+        document.getElementById('principalText').innerText = ""
+        figure1.value = false
+        figure2.value = true
+    }, 12000);
+    setTimeout(function () {
+        figure2.value = false
+        document.getElementById('secondText').innerText = "A"
+        setTimeout(function () {
+            document.getElementById('secondText').innerText = "AB"
+            setTimeout(function () {
+                document.getElementById('secondText').innerText = "ABC"
+            }, 500);
+        }, 500);
+    }, 15000);
+    setTimeout(function () {
+        document.getElementById('secondText').innerText = "1"
+        setTimeout(function () {
+            document.getElementById('secondText').innerText = "12"
+            setTimeout(function () {
+                document.getElementById('secondText').innerText = "123"
+            }, 500);
+        }, 500);
+    }, 18000);
+    setTimeout(function () {
+        document.getElementById('secondText').innerText = ""
+        document.getElementById('principalText').innerText = "El viaje interplanetario comienza en la tierra y el primer destino es el planeta Marte"
+        document.getElementById('planet1').classList.add('scale-110')
+    }, 21000);
+    setTimeout(function () {
+        document.getElementById('planet1').classList.remove('scale-110')
+        document.getElementById('principalText').innerText = "Súbete a tú nave e inicia este feliz viaje resolviendo el primer reto"
+        setTimeout(function () {
+            document.getElementById('principalText').classList.add('planetDown')
+            document.getElementById('planet1').classList.replace('planetUp', 'planetDown')
+            rocketUp()
+            setTimeout(function () {
+                document.getElementById("rocket").classList.remove('scale-50')
+            }, 2000)
+            setTimeout(function () {
+                let sound = new Audio();
+                sound.src = `${props.asset_audio}/space-shot.wav`;
+                sound.play()
+            }, 9000)
+            setTimeout(function () {
+                window.location.replace(props.levels_route);
+            }, 10000)
+
+
+        })
+    }, 24000);
+}
+
 
 </script>
 <template>
@@ -137,7 +212,7 @@ const rocketUp = () => {
                     <div class="h-star h-star-position6"></div>
                     <div class="h-star h-star-position7"></div>
                 </div>
-                <div class="h-box-of-star4">
+                <div id="start" class="h-box-of-star4">
                     <div class="h-star h-star-position1"></div>
                     <div class="h-star h-star-position2"></div>
                     <div class="h-star h-star-position3"></div>
@@ -243,7 +318,34 @@ const rocketUp = () => {
                 </div>
 
 
-                <div v-if="playGame" class="text-white fixed top-36 font-P2">Hola Viajeros!</div>
+                <div v-if="playGame" id="principalText" class="text-white fixed top-36 font-P2 flex justify-center">
+
+                </div>
+
+                <div v-if="figure1" class="fixed top-36" style="transform: scale(2);">
+                    <div class="loader2 flex gap-x-16">
+                        <div class="box2"></div>
+                        <div class="circle2"></div>
+                        <div class="triangle2"></div>
+                    </div>
+                </div>
+
+                <div v-if="figure2" class="fixed top-36 mr-28">
+                    <div class="container3">
+                        <div class="item item-1"></div>
+                        <div class="item item-2"></div>
+                        <div class="item item-3"></div>
+                        <div class="item item-4"></div>
+                    </div>
+                </div>
+
+                <div id="planet1" class="fixed top-96 hidden duration-300">
+                    <img :src="`${props.asset_images}/planetas/tierra.svg`" width="300" alt="">
+                </div>
+
+                <div id="secondText" class="fixed top-36 font-P2 flex justify-center text-7xl text-gray-500"></div>
+
+
                 <div v-if="playGame" class="rocket top-[1500px]" @click="rocketUp()" id="rocket">
                     <div class="rocket-body">
                         <div class="body"></div>
@@ -279,6 +381,35 @@ const rocketUp = () => {
 #homeDown {
     transition: transform 500ms ease-in-out;
 }
+
+.planetDown {
+    animation: down 15s;
+}
+
+.planetUp {
+    animation: up 3s;
+}
+
+@keyframes up {
+    0% {
+        transform: translateY(650px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes down {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(650px);
+    }
+}
+
 
 @keyframes snow {
     0% {
@@ -352,7 +483,7 @@ const rocketUp = () => {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #FFF;
+    background-color: #4ade80;
     position: absolute;
     z-index: 10;
     top: 8px;
@@ -397,7 +528,7 @@ const rocketUp = () => {
 
 /*nave*/
 .rocket-up {
-    top: -100%;
+    top: 100%;
 }
 
 .rocket-up {
@@ -444,7 +575,7 @@ const rocketUp = () => {
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    background-color: #a75248;
+    background-color: #60a5fa;
     left: calc(50% - 25px);
     top: -150px;
     border: 5px solid #b4b2b2;
@@ -456,7 +587,7 @@ const rocketUp = () => {
     height: 55px;
     width: 50px;
     top: 10px;
-    background-color: #a75248;
+    background-color: #60a5fa;
 }
 
 .rocket .fin-left {
@@ -700,6 +831,189 @@ const rocketUp = () => {
     80% {
         transform: scale(1.1);
         opacity: 0.7;
+    }
+}
+
+/*----*/
+
+.loader2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.box2 {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #3498db;
+    animation: box-expand 1s ease-in-out infinite alternate;
+}
+
+.circle2 {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top-color: #f1c40f;
+    animation: circle-rotate 1s linear infinite;
+}
+
+.triangle2 {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #e74c3c;
+    animation: triangle-expand 1s ease-in-out infinite alternate;
+}
+
+@keyframes box-expand {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes circle-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes triangle-expand {
+    0% {
+        width: 0;
+        height: 0;
+    }
+
+    100% {
+        width: 30px;
+        height: 60px;
+    }
+}
+
+/*-----*/
+
+.container3 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.item {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+
+.item-1 {
+    background-color: rgb(250, 87, 103);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation: item-1_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+}
+
+.item-2 {
+    background-color: rgb(121, 68, 228);
+    top: 0;
+    right: 0;
+    animation: item-2_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+}
+
+.item-3 {
+    background-color: rgb(27, 145, 247);
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    animation: item-3_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+}
+
+.item-4 {
+    background-color: rgb(250, 194, 76);
+    bottom: 0;
+    left: 0;
+    animation: item-4_move 1.8s cubic-bezier(.6, .01, .4, 1) infinite;
+}
+
+@keyframes item-1_move {
+    0%, 100% {
+        transform: translate(0, 0)
+    }
+
+    25% {
+        transform: translate(0, 50px)
+    }
+
+    50% {
+        transform: translate(50px, 50px)
+    }
+
+    75% {
+        transform: translate(50px, 0)
+    }
+}
+
+@keyframes item-2_move {
+    0%, 100% {
+        transform: translate(0, 0)
+    }
+
+    25% {
+        transform: translate(-50px, 0)
+    }
+
+    50% {
+        transform: translate(-50px, 50px)
+    }
+
+    75% {
+        transform: translate(0, 50px)
+    }
+}
+
+@keyframes item-3_move {
+    0%, 100% {
+        transform: translate(0, 0)
+    }
+
+    25% {
+        transform: translate(0, -50px)
+    }
+
+    50% {
+        transform: translate(-50px, -50px)
+    }
+
+    75% {
+        transform: translate(-50px, 0)
+    }
+}
+
+@keyframes item-4_move {
+    0%, 100% {
+        transform: translate(0, 0)
+    }
+
+    25% {
+        transform: translate(50px, 0)
+    }
+
+    50% {
+        transform: translate(50px, -50px)
+    }
+
+    75% {
+        transform: translate(0, -50px)
     }
 }
 

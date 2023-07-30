@@ -123,5 +123,5 @@
 {{--        </div>--}}
 {{--    </div>--}}
 
-    <home-view asset_audio="{{asset('audio')}}" asset_images="{{asset('images')}}"></home-view>
+    <home-view asset_audio="{{asset('audio')}}" asset_images="{{asset('images')}}" levels_route="{{ route('levels') }}"></home-view>
 @endsection

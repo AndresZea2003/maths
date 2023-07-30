@@ -371,6 +371,20 @@ let grupo4check = ref(false);
 let grupo5check = ref(false);
 let grupo6check = ref(false);
 
+let select1 = ref(false)
+let select2 = ref(false)
+let select3 = ref(false)
+let select4 = ref(false)
+let select5 = ref(false)
+let select6 = ref(false)
+let select7 = ref(false)
+let select8 = ref(false)
+let select9 = ref(false)
+
+
+let filaFocus = ref(1)
+const boxNumRange = [101, 118];
+
 function initialAudio() {
     if (talk.value === false) {
         talk.value = true;
@@ -713,6 +727,10 @@ const resetMati = () => {
 
 const paint = (id) => {
 
+    if (document.getElementById(id).classList.contains('bg-gray-infinite')) {
+        document.getElementById(id).classList.remove('bg-gray-infinite')
+    }
+
     if (color === 'white' && colorSelected.value < 1) {
         let sound = new Audio();
         sound.src = `${props.asset_audio}/wood.wav`;
@@ -756,6 +774,7 @@ const paint = (id) => {
     document.getElementById(id).classList.remove('hover:bg-gray-400')
     document.getElementById(id).classList.remove('bg-white')
     document.getElementById(id).classList.remove('bg-blue-600')
+    document.getElementById(id).classList.remove('bg-green-600')
     document.getElementById(id).classList.remove('bg-yellow-400')
     document.getElementById(id).classList.remove('bg-fuchsia-400')
     document.getElementById(id).classList.add(`bg-${color}`);
@@ -1186,13 +1205,46 @@ const paint = (id) => {
         // })
     }
 
+    // Interactivo sin refactorizar down
 
-    // Fila1
+    if (filaFocus.value === 1) {
 
-    let fila1 = ref(false)
-    if (fila1.value === false) {
-        fila1.value = true
-        if (document.getElementById('caja103').classList.contains('bg-blue-600')) {
+        let box1 = 'caja101'
+        let box2 = 'caja102'
+        let box3 = 'caja103'
+
+        let nextBox1 = 'caja104'
+        let nextBox2 = 'caja105'
+        let nextBox3 = 'caja106'
+
+        let boxNum1 = 101
+        let boxNum3 = 103
+
+        if (document.getElementById(box3).classList.contains('bg-green-600')) { // Si completa la primera fila
+
+            filaFocus.value = 2
+
+            successSound()
+            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+
+            // Audio bien
+
+            setTimeout(function () {
+                document.getElementById(nextBox1).classList.add('bg-blue-600')
+                setTimeout(function () {
+                    bottonLigth(nextBox2)
+                }, 1000)
+            }, 1000)
+
+            return;
+
+        } else if (document.getElementById(box3).classList.contains('bg-blue-600')) {
+            let selectSquare = box3
+
+            let yellowSquare = box1
+
+
             for (let i = 101; i <= 103; i++) {
                 const elementId = `caja${i}`;
                 document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
@@ -1200,18 +1252,27 @@ const paint = (id) => {
                     document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
                 }, 1000)
                 setTimeout(function () {
-                    document.getElementById('caja101').classList.add('bg-yellow-400');
-                    document.getElementById('caja103').classList.add('bg-yellow-400');
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
                     setTimeout(function () {
-                        document.getElementById('caja101').classList.remove('bg-yellow-400');
-                        document.getElementById('caja103').classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById('caja103').classList.remove('bg-yellow-400', 'bg-blue-600');
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-blue-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
                 }, 3500)
             }
-        } else if (document.getElementById('caja103').classList.contains('bg-red-600')) {
+        } else if (document.getElementById(box3).classList.contains('bg-red-600')) {
+            let selectSquare = box3
+
+            let yellowSquare = box2
+
+
             for (let i = 101; i <= 103; i++) {
                 const elementId = `caja${i}`;
                 document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
@@ -1219,83 +1280,654 @@ const paint = (id) => {
                     document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
                 }, 1000)
                 setTimeout(function () {
-                    document.getElementById('caja102').classList.add('bg-yellow-400');
-                    document.getElementById('caja103').classList.add('bg-yellow-400');
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
                     setTimeout(function () {
-                        document.getElementById('caja102').classList.remove('bg-yellow-400');
-                        document.getElementById('caja103').classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById('caja103').classList.remove('bg-yellow-400', 'bg-red-600');
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
                 }, 3500)
             }
-        } else if (document.getElementById('caja103').classList.contains('bg-green-600')) {
-            for (let i = 101; i <= 103; i++) {
+        }
+    }
+
+    if (filaFocus.value === 2) {
+
+        let box1 = 'caja104'
+        let box2 = 'caja105'
+        let box3 = 'caja106'
+
+        let oldBoxNum1 = 101
+        let oldBoxNum3 = 103
+
+        let boxNum1 = 104
+        let boxNum3 = 106
+
+
+        if (document.getElementById(box2).classList.contains('bg-green-600')) { // Si completa la primera fila
+            filaFocus.value = 3
+
+            successSound()
+            document.getElementById('caja106').classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById('caja106').classList.add('bg-gray-infinite')
+
+        } else if (document.getElementById(box2).classList.contains('bg-blue-600')) {
+            let selectSquare = box2
+            let yellowSquare = box1
+
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
                 const elementId = `caja${i}`;
-                document.getElementById(elementId).classList.remove('bg-green-600', 'bg-red-600', 'bg-blue-600')
-                document.getElementById(elementId).classList.add('bg-green-300');
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
                 setTimeout(function () {
-                    document.getElementById(elementId).classList.remove('bg-green-300');
-                    document.getElementById('caja101').classList.add('bg-blue-600')
-                    document.getElementById('caja102').classList.add('bg-red-600')
-                    document.getElementById('caja103').classList.add('bg-green-600')
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-blue-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        } else if (document.getElementById(box2).classList.contains('bg-red-600')) {
+            let selectSquare = box2
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    for (let i = oldBoxNum1; i <= oldBoxNum3; i++) {
+                        const elementId2 = `caja${i}`;
+                        document.getElementById(elementId2).classList.add('opacity-50')
+                    }
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        for (let i = oldBoxNum1; i <= oldBoxNum3; i++) {
+                            const elementId2 = `caja${i}`;
+                            document.getElementById(elementId2).classList.remove('opacity-50')
+                        }
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        }
+    }
+
+    if (filaFocus.value === 3) {
+        let box1 = 'caja104'
+        let box2 = 'caja105'
+        let box3 = 'caja106'
+
+        let oldBoxNum1 = 101
+        let oldBoxNum3 = 103
+
+        let nextBox1 = 'caja107'
+        let nextBox2 = 'caja108'
+        let nextBox3 = 'caja109'
+
+        let boxNum1 = 104
+        let boxNum3 = 106
+
+        if (document.getElementById(box3).classList.contains('bg-red-600')) { // Si completa la primera fila
+            filaFocus.value = 4
+
+            successSound()
+            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+
+            // Audio bien
+
+            setTimeout(function () {
+                document.getElementById(nextBox1).classList.add('bg-red-600')
+                setTimeout(function () {
+                    document.getElementById(nextBox2).classList.add('bg-green-600')
+                    setTimeout(function () {
+                        bottonLigth(nextBox3)
+                    }, 1000)
+                }, 1000)
+            }, 1000)
+
+        } else if (document.getElementById(box3).classList.contains('bg-blue-600')) {
+            let selectSquare = box3
+            let yellowSquare = box1
+
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-blue-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        } else if (document.getElementById(box3).classList.contains('bg-green-600')) {
+            let selectSquare = box3
+
+            let yellowSquare = box2
+
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        }
+
+
+    }
+
+    if (filaFocus.value === 4) {
+
+        let box1 = 'caja107'
+        let box2 = 'caja108'
+        let box3 = 'caja109'
+
+        let nextBox1 = 'caja110'
+        let nextBox2 = 'caja111'
+        let nextBox3 = 'caja112'
+
+        let boxNum1 = 107
+        let boxNum3 = 109
+
+        if (document.getElementById(box3).classList.contains('bg-blue-600')) { // Si completa la primera fila
+
+            filaFocus.value = 5
+
+            successSound()
+            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+
+            // Audio bien
+
+            setTimeout(function () {
+                document.getElementById(nextBox1).classList.add('bg-red-600')
+                setTimeout(function () {
+                    bottonLigth(nextBox2)
+                }, 1000)
+            }, 1000)
+
+            return;
+
+        } else if (document.getElementById(box3).classList.contains('bg-red-600') || document.getElementById(box3).classList.contains('bg-green-600')) {
+
+            let selectSquare = box3
+            let yellowSquare = null
+
+            if (document.getElementById(box3).classList.contains('bg-red-600')) {
+                yellowSquare = box1
+            } else if (document.getElementById(box3).classList.contains('bg-green-600')) {
+                yellowSquare = box2
+            }
+
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-green-600', 'bg-red-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        }
+    }
+
+    if (filaFocus.value === 5) {
+
+        let box1 = 'caja110'
+        let box2 = 'caja111'
+        let box3 = 'caja112'
+
+        let oldBoxNum1 = 107
+        let oldBoxNum3 = 109
+
+        let boxNum1 = 110
+        let boxNum3 = 112
+
+
+        if (document.getElementById(box2).classList.contains('bg-blue-600')) { // Si completa la primera fila
+            filaFocus.value = 6
+
+            successSound()
+            document.getElementById(box3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(box3).classList.add('bg-gray-infinite')
+
+        } else if (document.getElementById(box2).classList.contains('bg-red-600')) {
+            let selectSquare = box2
+            let yellowSquare = box1
+
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        } else if (document.getElementById(box2).classList.contains('bg-green-600')) {
+            let selectSquare = box2
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    for (let i = oldBoxNum1; i <= oldBoxNum3; i++) {
+                        const elementId2 = `caja${i}`;
+                        document.getElementById(elementId2).classList.add('opacity-50')
+                    }
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        for (let i = oldBoxNum1; i <= oldBoxNum3; i++) {
+                            const elementId2 = `caja${i}`;
+                            document.getElementById(elementId2).classList.remove('opacity-50')
+                        }
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        }
+    }
+
+    if (filaFocus.value === 6) {
+
+        let box1 = 'caja110'
+        let box2 = 'caja111'
+        let box3 = 'caja112'
+
+        let oldBoxNum1 = 107
+        let oldBoxNum3 = 109
+
+        let boxNum1 = 110
+        let boxNum3 = 112
+
+        let nextBox1 = 'caja113'
+        let nextBox2 = 'caja114'
+        let nextBox3 = 'caja115'
+
+
+        if (document.getElementById(box3).classList.contains('bg-green-600')) { // Si completa la primera fila
+
+            filaFocus.value = 7
+
+            successSound()
+            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+
+            // Audio bien
+
+            setTimeout(function () {
+                document.getElementById(nextBox1).classList.add('bg-green-600')
+                setTimeout(function () {
+                    document.getElementById(nextBox2).classList.add('bg-blue-600')
+                    setTimeout(function () {
+                        bottonLigth(nextBox3)
+                    }, 1000)
+                }, 1000)
+            }, 1000)
+
+            return;
+
+        }
+        else if (document.getElementById(box3).classList.contains('bg-red-600') || document.getElementById(box3).classList.contains('bg-blue-600')) {
+
+            let selectSquare = box3
+            let yellowSquare = null
+
+            if (document.getElementById(box3).classList.contains('bg-red-600')) {
+                yellowSquare = box1
+            } else if (document.getElementById(box3).classList.contains('bg-blue-600')) {
+                yellowSquare = box2
+            }
+
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-blue-600', 'bg-red-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        }
+    }
+
+    if (filaFocus.value === 7) {
+
+        let box1 = 'caja113'
+        let box2 = 'caja114'
+        let box3 = 'caja115'
+
+        let oldBoxNum1 = 110
+        let oldBoxNum3 = 112
+
+        let boxNum1 = 113
+        let boxNum3 = 115
+
+        let nextBox1 = 'caja116'
+        let nextBox2 = 'caja117'
+        let nextBox3 = 'caja118'
+
+
+        if (document.getElementById(box3).classList.contains('bg-red-600')) { // Si completa la primera fila
+            filaFocus.value = 8
+
+            successSound()
+
+            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+
+            setTimeout(function () {
+                document.getElementById(nextBox1).classList.add('bg-green-600')
+                bottonLigth(nextBox2)
+            }, 1000)
+
+        }
+        else if (document.getElementById(box3).classList.contains('bg-green-600') || document.getElementById(box3).classList.contains('bg-blue-600')) {
+
+            let selectSquare = box3
+            let yellowSquare = null
+
+            if (document.getElementById(box3).classList.contains('bg-green-600')) {
+                yellowSquare = box1
+            } else if (document.getElementById(box3).classList.contains('bg-blue-600')) {
+                yellowSquare = box2
+            }
+
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-blue-600', 'bg-green-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        }
+    }
+
+    if (filaFocus.value === 8) {
+
+        let box1 = 'caja116'
+        let box2 = 'caja117'
+        let box3 = 'caja118'
+
+        let oldBoxNum1 = 113
+        let oldBoxNum3 = 115
+
+        let boxNum1 = 116
+        let boxNum3 = 118
+
+
+        if (document.getElementById(box2).classList.contains('bg-red-600')) { // Si completa la primera fila
+            filaFocus.value = 9
+
+            successSound()
+            document.getElementById(box3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(box3).classList.add('bg-gray-infinite')
+
+        } else if (document.getElementById(box2).classList.contains('bg-green-600')) {
+            let selectSquare = box2
+            let yellowSquare = box1
+
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        } else if (document.getElementById(box2).classList.contains('bg-blue-600')) {
+            let selectSquare = box2
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    for (let i = oldBoxNum1; i <= oldBoxNum3; i++) {
+                        const elementId2 = `caja${i}`;
+                        document.getElementById(elementId2).classList.add('opacity-50')
+                    }
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        for (let i = oldBoxNum1; i <= oldBoxNum3; i++) {
+                            const elementId2 = `caja${i}`;
+                            document.getElementById(elementId2).classList.remove('opacity-50')
+                        }
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
+        }
+    }
+
+    if (filaFocus.value === 9) {
+
+        let box1 = 'caja116'
+        let box2 = 'caja117'
+        let box3 = 'caja118'
+
+        let oldBoxNum1 = 113
+        let oldBoxNum3 = 115
+
+        let boxNum1 = 116
+        let boxNum3 = 118
+
+        let nextBox1 = 'caja116'
+        let nextBox2 = 'caja117'
+        let nextBox3 = 'caja118'
+
+
+        if (document.getElementById(box3).classList.contains('bg-blue-600')) { // Si completa la primera fila
+            filaFocus.value = 10
+
+            successSound()
+
+            for (let i = 101; i <= 118; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-green-400');
+                setTimeout(function (){
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-green-400');
                 }, 1000)
             }
-            setTimeout(function () {
-                for (let i = 104; i <= 106; i++) {
-                    const elementId = `caja${i}`;
-                    document.getElementById(elementId).classList.remove('scale-75', 'opacity-10', 'bg-gray-400');
-                    document.getElementById('caja103').classList.add('bg-green-600')
-                }
-            }, 2000)
-            setTimeout(function () {
-                document.getElementById('caja104').classList.add('bg-blue-600')
-            }, 3000)
+
+
+        }
+        else if (document.getElementById(box3).classList.contains('bg-green-600') || document.getElementById(box3).classList.contains('bg-red-600')) {
+
+            let selectSquare = box3
+            let yellowSquare = null
+
+            if (document.getElementById(box3).classList.contains('bg-green-600')) {
+                yellowSquare = box1
+            } else if (document.getElementById(box3).classList.contains('bg-red-600')) {
+                yellowSquare = box2
+            }
+
+
+            for (let i = boxNum1; i <= boxNum3; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                }, 1000)
+                setTimeout(function () {
+                    // El color { color } ya se encuentra en esta fila
+                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    setTimeout(function () {
+                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                    }, 1000)
+                }, 2000)
+                setTimeout(function () {
+                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600', 'bg-green-600');
+                    setTimeout(function () {
+                        document.getElementById(selectSquare).classList.add('bg-gray-infinite')
+                    }, 800)
+                }, 3500)
+            }
         }
     }
 
+    // Interactivo sin refactorizar up
 
-    if (document.getElementById('caja105').classList.contains('bg-blue-600')) {
-        for (let i = 104; i <= 106; i++) {
-            const elementId = `caja${i}`;
-            document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
-            setTimeout(function () {
-                document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
-            }, 1000)
-            setTimeout(function () {
-                document.getElementById('caja104').classList.add('bg-yellow-400');
-                document.getElementById('caja105').classList.add('bg-yellow-400');
-                setTimeout(function () {
-                    document.getElementById('caja104').classList.remove('bg-yellow-400');
-                    document.getElementById('caja105').classList.remove('bg-yellow-400');
-                }, 1000)
-            }, 2000)
-            setTimeout(function () {
-                document.getElementById('caja105').classList.remove('bg-yellow-400', 'bg-blue-600');
-            }, 3500)
-        }
-    } else if (document.getElementById('caja105').classList.contains('bg-green-600')) {
-        for (let i = 104; i <= 106; i++) {
-            const elementId = `caja${i}`;
-            document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
-            setTimeout(function () {
-                document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
-            }, 1000)
-            setTimeout(function () {
-                document.getElementById('caja106').classList.add('bg-yellow-400');
-                document.getElementById('caja105').classList.add('bg-yellow-400');
-                setTimeout(function () {
-                    document.getElementById('caja106').classList.remove('bg-yellow-400');
-                    document.getElementById('caja105').classList.remove('bg-yellow-400');
-                }, 1000)
-            }, 2000)
-            setTimeout(function () {
-                document.getElementById('caja105').classList.remove('bg-yellow-400', 'bg-green-600');
-            }, 3500)
-        }
-    }
+}
 
+const successSound = () => {
+    let sound = new Audio();
+    sound.src = `${props.asset_audio}/success.wav`;
+    sound.play()
 }
 
 const selectColor = (bg, id) => {
@@ -1407,6 +2039,10 @@ const boxClicked = (boxNumber) => {
 
 }
 
+const bottonLigth = (id) => {
+    document.getElementById(id).classList.add('bg-gray-infinite')
+}
+
 const interactiveActivity = () => {
     document.getElementById('actividad').classList.add('opacity-10')
 
@@ -1434,12 +2070,6 @@ const interactiveActivity = () => {
         }, 2000)
     }, 1000)
 
-    const bottonLigth = (id) => {
-        document.getElementById(id).classList.add('bg-gray-400')
-        setTimeout(function () {
-            document.getElementById(id).classList.remove("bg-gray-400");
-        }, 300);
-    }
 }
 
 
@@ -2280,5 +2910,23 @@ setTimeout(interactiveActivity, 2000)
     background-color: #fbfdfa;
     border-radius: 0 30px 0 0;
     border-bottom: 10px solid #b0cfe4;
+}
+
+.bg-gray-infinite {
+    animation: gray-infinite 2s infinite;
+}
+
+@keyframes gray-infinite {
+    0% {
+        background-color: white;
+    }
+
+    50% {
+        background-color: gray;
+    }
+
+    100% {
+        background-color: white;
+    }
 }
 </style>
