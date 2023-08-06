@@ -1415,17 +1415,7 @@ const add = (num) => {
 
 
 const selectItem = (item) => {
-
-
     content.value = item
-
-    // document.getElementById('muestra').classList.remove('bg-red-600')
-    // document.getElementById('muestra').classList.remove('bg-white')
-    // document.getElementById('muestra').classList.remove('bg-yellow-400')
-    // document.getElementById('muestra').classList.remove('bg-yellow-400')
-    // document.getElementById('muestra').classList.remove('bg-white')
-    //
-    // document.getElementById('muestra').classList.add(`bg-${color}`)
 
     let sound = new Audio();
     sound.src = `${props.asset_audio}/bubble.wav`;

@@ -142,6 +142,10 @@ import Test1 from "./components/nivel1/Test1.vue"
 import Tutorial1 from "./components/nivel1/tutorial1.vue"
 import HomeView from "./components/HomeView.vue"
 
+import LayoutActivity10 from "./components/nivel10/LayoutActivity10.vue"
+import LayoutInteractiveActivity10 from "./components/nivel10/LayoutInteractiveActivity10.vue"
+import LayoutSubInteractivity10 from "./components/nivel10/LayoutSubInteractivity10.vue"
+
 createApp({
     components: {
         'home-view': HomeView,
@@ -154,6 +158,10 @@ createApp({
         'motas-1': Motas1,
 
         'test-1': Test1,
+
+        'layout-activity-10': LayoutActivity10,
+        'layout-interactive-activity-10': LayoutInteractiveActivity10,
+        'layout-sub-interactive-activity-10': LayoutSubInteractivity10,
 
         'tutorial-1': Tutorial1,
         'actividad-1a': Actividad1A,

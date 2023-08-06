@@ -13,10 +13,22 @@ const props = defineProps({
     route_back: {type: String, required: true},
     route_next: {type: String, required: true},
     asset_images: {type: String, required: true},
-    asset_audio: {type: String, required: true}
+    asset_audio: {type: String, required: true},
+    win_audio: {type: String, required: true},
+    icon_1: {type: String, required: true},
+    icon_2: {type: String, required: true},
+    icon_3: {type: String, required: true},
+    color_1: {type: String, required: true},
+    color_2: {type: String, required: true},
+    color_3: {type: String, required: true},
+    color_audio1: {type: String, required: true},
+    color_audio2: {type: String, required: true},
+    color_audio3: {type: String, required: true},
 })
 
-let content = ref(null);
+const propColor1 = `bg-${props.color_1}`
+const propColor2 = `bg-${props.color_2}`
+const propColor3 = `bg-${props.color_3}`
 
 let colorSelected = ref(0);
 
@@ -38,25 +50,6 @@ let selectFig3 = ref('');
 let indexSquare = ref('');
 
 let indexSquareFig = ref('');
-
-let num1 = ref(null)
-let num2 = ref(null)
-let num3 = ref(null)
-let num4 = ref(null)
-let num5 = ref(null)
-let num6 = ref(null)
-let num7 = ref(null)
-let num8 = ref(null)
-let num9 = ref(null)
-let num10 = ref(null)
-let num11 = ref(null)
-let num12 = ref(null)
-let num13 = ref(null)
-let num14 = ref(null)
-let num15 = ref(null)
-let num16 = ref(null)
-let num17 = ref(null)
-let num18 = ref(null)
 
 let color1Error = ref(false);
 let color2Error = ref(false);
@@ -153,13 +146,25 @@ let select9 = ref(false)
 
 
 let filaFocus = ref(1)
-const boxNumRange = [1, 18];
+const boxNumRange = [101, 118];
 
 let focusId = ref('')
 
 let canPaint = ref(true)
 
-const myTimeout = setTimeout(initialAudio, 2000);
+setTimeout(function () {
+    Swal.fire({
+        title: 'Tutorial',
+        text: 'Llegamos a las permutaciones! Aqui veremos un poco de pensamiento combinatorio, filas y muchos colores!',
+        icon: 'warning',
+        confirmButtonText: 'Comenzar'
+    }).then((result) => {
+        // La función dentro de then se ejecutará después de hacer clic en el botón OK
+        if (result.isConfirmed) {
+            interactiveActivity();
+        }
+    });
+}, 500)
 
 function initialAudio() {
     if (talk.value === false) {
@@ -169,7 +174,7 @@ function initialAudio() {
         sound.src = `${props.asset_audio}/voz1/permutaciones/vamoscolores.m4a`;
         sound.play()
 
-        showIndexSquare('bg-green-600', 'bg-blue-600', 'bg-red-600')
+        showIndexSquare(propColor2, propColor1, propColor3)
 
         setTimeout(function () {
             let sound = new Audio();
@@ -197,19 +202,19 @@ function initialAudio() {
 
 const audioColor1 = () => {
     let sound = new Audio();
-    sound.src = `${props.asset_audio}/voz1/colors/Verde.m4a`;
+    sound.src = `${props.asset_audio}${props.color_audio1}`;
     sound.play()
 }
 
 const audioColor2 = () => {
     let sound = new Audio();
-    sound.src = `${props.asset_audio}/voz1/colors/Azul.m4a`;
+    sound.src = `${props.asset_audio}${props.color_audio2}`;
     sound.play()
 }
 
 const audioColor3 = () => {
     let sound = new Audio();
-    sound.src = `${props.asset_audio}/voz1/colors/Rojo.m4a`;
+    sound.src = `${props.asset_audio}${props.color_audio3}`;
     sound.play()
 }
 
@@ -222,99 +227,6 @@ const audioErrorFila = () => {
 const audioErrorBack = () => {
     let sound = new Audio();
     sound.src = `${props.asset_audio}/voz1/permutaciones/errorcolorback.m4a`;
-    sound.play();
-}
-
-const audio2filas = () => {
-
-    setTimeout(function () {
-        document.getElementById('num1').classList.add('bg-yellow-400')
-        document.getElementById('num2').classList.add('bg-yellow-400')
-        document.getElementById('num3').classList.add('bg-yellow-400')
-        setTimeout(function () {
-            document.getElementById('num4').classList.add('bg-yellow-400')
-            document.getElementById('num5').classList.add('bg-yellow-400')
-            document.getElementById('num6').classList.add('bg-yellow-400')
-        }, 500)
-    }, 1000)
-
-    setTimeout(function () {
-        document.getElementById('num1').classList.remove('bg-yellow-400')
-        document.getElementById('num2').classList.remove('bg-yellow-400')
-        document.getElementById('num3').classList.remove('bg-yellow-400')
-        document.getElementById('num4').classList.remove('bg-yellow-400')
-        document.getElementById('num5').classList.remove('bg-yellow-400')
-        document.getElementById('num6').classList.remove('bg-yellow-400')
-    }, 2000)
-
-    setTimeout(function () {
-        document.getElementById('num1').classList.add('opacity-50')
-        document.getElementById('num2').classList.add('opacity-50')
-        document.getElementById('num3').classList.add('opacity-50')
-        document.getElementById('num4').classList.add('opacity-50')
-        document.getElementById('num5').classList.add('opacity-50')
-        document.getElementById('num6').classList.add('opacity-50')
-        setTimeout(function () {
-            document.getElementById('num1').classList.replace('opacity-50', 'opacity-100')
-            setTimeout(function () {
-                document.getElementById('num2').classList.replace('opacity-50', 'opacity-100')
-                setTimeout(function () {
-                    document.getElementById('num3').classList.replace('opacity-50', 'opacity-100')
-                }, 1000)
-            }, 500)
-        }, 1000)
-    }, 5000)
-
-    setTimeout(function () {
-        document.getElementById('num4').classList.replace('opacity-50', 'opacity-100')
-        setTimeout(function () {
-            document.getElementById('num5').classList.replace('opacity-50', 'opacity-100')
-            setTimeout(function () {
-                document.getElementById('num6').classList.replace('opacity-50', 'opacity-100')
-            }, 1000)
-        }, 1000)
-    }, 10000)
-
-    let sound = new Audio();
-    sound.src = `${props.asset_audio}/voz1/permutaciones/completado2filascolores.m4a`;
-    sound.play();
-}
-
-
-const audio4filas = () => {
-
-    setTimeout(function () {
-        document.getElementById('num1').classList.add('bg-yellow-400')
-        document.getElementById('num2').classList.add('bg-yellow-400')
-        document.getElementById('num3').classList.add('bg-yellow-400')
-        document.getElementById('num4').classList.add('bg-yellow-400')
-        document.getElementById('num5').classList.add('bg-yellow-400')
-        document.getElementById('num6').classList.add('bg-yellow-400')
-        document.getElementById('num7').classList.add('bg-yellow-400')
-        document.getElementById('num8').classList.add('bg-yellow-400')
-        document.getElementById('num9').classList.add('bg-yellow-400')
-        document.getElementById('num10').classList.add('bg-yellow-400')
-        document.getElementById('num11').classList.add('bg-yellow-400')
-        document.getElementById('num12').classList.add('bg-yellow-400')
-    }, 2000)
-
-    setTimeout(function () {
-        document.getElementById('num1').classList.remove('bg-yellow-400')
-        document.getElementById('num2').classList.remove('bg-yellow-400')
-        document.getElementById('num3').classList.remove('bg-yellow-400')
-        document.getElementById('num4').classList.remove('bg-yellow-400')
-        document.getElementById('num5').classList.remove('bg-yellow-400')
-        document.getElementById('num6').classList.remove('bg-yellow-400')
-        document.getElementById('num7').classList.remove('bg-yellow-400')
-        document.getElementById('num8').classList.remove('bg-yellow-400')
-        document.getElementById('num9').classList.remove('bg-yellow-400')
-        document.getElementById('num10').classList.remove('bg-yellow-400')
-        document.getElementById('num11').classList.remove('bg-yellow-400')
-        document.getElementById('num12').classList.remove('bg-yellow-400')
-    }, 3000)
-
-    let sound = new Audio();
-    sound.src = `${props.asset_audio}/voz1/permutaciones/completado4filascolores.m4a`;
     sound.play();
 }
 
@@ -418,27 +330,27 @@ const paint = (id) => {
         return;
     }
 
-    if (id === 'num1' || id === 'num2' || id === 'num3') {
+    if (id === 'caja101' || id === 'caja102' || id === 'caja103') {
         if (grupo1check.value) {
             return;
         }
-    } else if (id === 'num4' || id === 'num5' || id === 'num6') {
+    } else if (id === 'caja104' || id === 'caja105' || id === 'caja106') {
         if (grupo2check.value) {
             return;
         }
-    } else if (id === 'num7' || id === 'num8' || id === 'num9') {
+    } else if (id === 'caja107' || id === 'caja108' || id === 'caja109') {
         if (grupo3check.value) {
             return;
         }
-    } else if (id === 'num10' || id === 'num11' || id === 'num12') {
+    } else if (id === 'caja110' || id === 'caja111' || id === 'caja112') {
         if (grupo4check.value) {
             return;
         }
-    } else if (id === 'num13' || id === 'num14' || id === 'num15') {
+    } else if (id === 'caja113' || id === 'caja114' || id === 'caja115') {
         if (grupo5check.value) {
             return;
         }
-    } else if (id === 'num16' || id === 'num17' || id === 'num18') {
+    } else if (id === 'caja116' || id === 'caja117' || id === 'caja118') {
         if (grupo6check.value) {
             return;
         }
@@ -446,16 +358,16 @@ const paint = (id) => {
 
     document.getElementById(id).classList.remove('hover:bg-gray-400')
     document.getElementById(id).classList.remove('bg-white')
-    document.getElementById(id).classList.remove('bg-blue-600')
-    document.getElementById(id).classList.remove('bg-green-600')
-    document.getElementById(id).classList.remove('bg-yellow-400')
+    document.getElementById(id).classList.remove(propColor1)
+    document.getElementById(id).classList.remove(propColor2)
+    document.getElementById(id).classList.remove('opacity-40')
     document.getElementById(id).classList.remove('bg-fuchsia-400')
     document.getElementById(id).classList.add(`bg-${color}`);
 
 
     if (color === 'yellow-400') {
         sequenceNumber = '1'
-    } else if (color === 'blue-600') {
+    } else if (color === props.color_1) {
         sequenceNumber = '2'
     } else if (color === 'fuchsia-400') {
         sequenceNumber = '3'
@@ -667,6 +579,12 @@ const paint = (id) => {
         boxes[id].color.value = sequenceNumber.value;
     }
 
+    const playJumpSound = () => {
+        const sound = new Audio();
+        sound.src = `${props.asset_audio}/jumpCoin.wav`;
+        sound.play();
+    };
+
     const verifyCombinations = (boxNum, group, groupNum, groupCheck, classToAdd, sec1, sec2, sec3) => {
 
         grupo1.value = color1.value + color2.value + color3.value;
@@ -756,41 +674,20 @@ const paint = (id) => {
         sound.play();
     }
 
-
-    // Completar figura
-    // if (document.getElementById('caja1').classList.contains('bg-blue-600') &&
-    //     document.getElementById('caja2').classList.contains('bg-red-600') &&
-    //     document.getElementById('caja3').classList.contains('bg-yellow-400') &&
-    //     document.getElementById('caja4').classList.contains('bg-red-600')
-    // ) {
-    //     win()
-    //     let sound = new Audio();
-    //     sound.src = `${props.asset_audio}/correctVictory.wav`;
-    //     sound.play()
-    //     // Swal.fire({
-    //     //     icon: 'success',
-    //     //     title: 'Completado!',
-    //     //     text: 'Felicidades! Has completado la actividad',
-    //     //     showConfirmButton: true,
-    //     // })
-    // }
-
-    // Interactivo sin refactorizar down
-
     if (filaFocus.value === 1) {
 
-        let box1 = 'num1'
-        let box2 = 'num2'
-        let box3 = 'num3'
+        let box1 = 'caja101'
+        let box2 = 'caja102'
+        let box3 = 'caja103'
 
-        let nextBox1 = 'num4'
-        let nextBox2 = 'num5'
-        let nextBox3 = 'num6'
+        let nextBox1 = 'caja104'
+        let nextBox2 = 'caja105'
+        let nextBox3 = 'caja106'
 
-        let boxNum1 = 1
-        let boxNum3 = 3
+        let boxNum1 = 101
+        let boxNum3 = 103
 
-        if (document.getElementById(box3).classList.contains('bg-green-600')) { // Si completa la primera fila
+        if (document.getElementById(box3).classList.contains(propColor2)) { // Si completa la primera fila
 
             filaFocus.value = 2
 
@@ -801,7 +698,7 @@ const paint = (id) => {
             // Audio bien
 
             setTimeout(function () {
-                document.getElementById(nextBox1).classList.add('bg-blue-600')
+                document.getElementById(nextBox1).classList.add(propColor1)
                 audioColor2()
                 setTimeout(function () {
                     bottonLigth(nextBox2)
@@ -811,7 +708,7 @@ const paint = (id) => {
 
             return;
 
-        } else if (document.getElementById(box3).classList.contains('bg-blue-600')) {
+        } else if (document.getElementById(box3).classList.contains(propColor1)) {
             canPaint.value = false
             errorSound()
             audioErrorFila()
@@ -819,7 +716,7 @@ const paint = (id) => {
 
             let yellowSquare = box1
 
-            for (let i = 1; i <= 3; i++) {
+            for (let i = 101; i <= 103; i++) {
                 const elementId = `caja${i}`;
                 document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
                 setTimeout(function () {
@@ -827,22 +724,22 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-blue-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor1);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
                     }, 800)
                 }, 3500)
             }
-        } else if (document.getElementById(box3).classList.contains('bg-red-600')) {
+        } else if (document.getElementById(box3).classList.contains(propColor3)) {
             canPaint.value = false
             errorSound()
             audioErrorFila()
@@ -851,7 +748,7 @@ const paint = (id) => {
             let yellowSquare = box2
 
 
-            for (let i = 1; i <= 3; i++) {
+            for (let i = 101; i <= 103; i++) {
                 const elementId = `caja${i}`;
                 document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
                 setTimeout(function () {
@@ -859,15 +756,15 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor3);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
@@ -879,26 +776,26 @@ const paint = (id) => {
 
     if (filaFocus.value === 2) {
 
-        let box1 = 'num4'
-        let box2 = 'num5'
-        let box3 = 'num6'
+        let box1 = 'caja104'
+        let box2 = 'caja105'
+        let box3 = 'caja106'
 
-        let oldBoxNum1 = 1
-        let oldBoxNum3 = 3
+        let oldBoxNum1 = 101
+        let oldBoxNum3 = 103
 
-        let boxNum1 = 4
-        let boxNum3 = 6
+        let boxNum1 = 104
+        let boxNum3 = 106
 
 
-        if (document.getElementById(box2).classList.contains('bg-green-600')) { // Si completa la primera fila
+        if (document.getElementById(box2).classList.contains(propColor2)) { // Si completa la primera fila
             filaFocus.value = 3
 
             successSound()
             focusId.value = box3
-            document.getElementById('num6').classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-            document.getElementById('num6').classList.add('bg-gray-infinite')
+            document.getElementById('caja106').classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById('caja106').classList.add('bg-gray-infinite')
 
-        } else if (document.getElementById(box2).classList.contains('bg-blue-600')) {
+        } else if (document.getElementById(box2).classList.contains(propColor1)) {
             canPaint.value = false
             errorSound()
             audioErrorFila()
@@ -914,22 +811,22 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-blue-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor1);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
                     }, 800)
                 }, 3500)
             }
-        } else if (document.getElementById(box2).classList.contains('bg-red-600')) {
+        } else if (document.getElementById(box2).classList.contains(propColor3)) {
             canPaint.value = false
             errorSound()
             audioErrorBack()
@@ -947,17 +844,17 @@ const paint = (id) => {
                         const elementId2 = `caja${i}`;
                         document.getElementById(elementId2).classList.add('opacity-50')
                     }
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
                         for (let i = oldBoxNum1; i <= oldBoxNum3; i++) {
                             const elementId2 = `caja${i}`;
                             document.getElementById(elementId2).classList.remove('opacity-50')
                         }
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor3);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
@@ -968,52 +865,48 @@ const paint = (id) => {
     }
 
     if (filaFocus.value === 3) {
-        let box1 = 'num4'
-        let box2 = 'num5'
-        let box3 = 'num6'
+        let box1 = 'caja104'
+        let box2 = 'caja105'
+        let box3 = 'caja106'
 
-        let oldBoxNum1 = 1
-        let oldBoxNum3 = 3
+        let oldBoxNum1 = 101
+        let oldBoxNum3 = 103
 
-        let nextBox1 = 'num7'
-        let nextBox2 = 'num8'
-        let nextBox3 = 'num9'
+        let nextBox1 = 'caja107'
+        let nextBox2 = 'caja108'
+        let nextBox3 = 'caja109'
 
-        let boxNum1 = 4
-        let boxNum3 = 6
+        let boxNum1 = 104
+        let boxNum3 = 106
 
-        if (document.getElementById(box3).classList.contains('bg-red-600')) { // Si completa la primera fila
+        if (document.getElementById(box3).classList.contains(propColor3)) { // Si completa la primera fila
             filaFocus.value = 4
 
             successSound()
 
-            audio2filas()
+            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+
+            // Audio bien
 
             setTimeout(function () {
-                document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-                document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-                document.getElementById(nextBox3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-
-                // Audio bien
-
+                document.getElementById(nextBox1).classList.add(propColor3)
+                audioColor3()
                 setTimeout(function () {
-                    document.getElementById(nextBox1).classList.add('bg-red-600')
-                    audioColor3()
+                    document.getElementById(nextBox2).classList.add(propColor2)
+                    audioColor1()
                     setTimeout(function () {
-                        document.getElementById(nextBox2).classList.add('bg-green-600')
-                        audioColor1()
-                        setTimeout(function () {
-                            bottonLigth(nextBox3)
-                            let sound = new Audio();
-                            sound.src = `${props.asset_audio}/voz1/permutaciones/quecolor.m4a`;
-                            sound.play()
-                            focusId.value = nextBox3
-                        }, 1000)
+                        bottonLigth(nextBox3)
+                        let sound = new Audio();
+                        sound.src = `${props.asset_audio}/voz1/permutaciones/quecolor.m4a`;
+                        sound.play()
+                        focusId.value = nextBox3
                     }, 1000)
                 }, 1000)
-            }, 20000)
+            }, 1000)
 
-        } else if (document.getElementById(box3).classList.contains('bg-blue-600')) {
+        } else if (document.getElementById(box3).classList.contains(propColor1)) {
             canPaint.value = false
             errorSound()
             let selectSquare = box3
@@ -1029,22 +922,22 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-blue-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor1);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
                     }, 800)
                 }, 3500)
             }
-        } else if (document.getElementById(box3).classList.contains('bg-green-600')) {
+        } else if (document.getElementById(box3).classList.contains(propColor2)) {
             canPaint.value = false
             errorSound()
             audioErrorFila()
@@ -1061,15 +954,15 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor3);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
@@ -1083,18 +976,18 @@ const paint = (id) => {
 
     if (filaFocus.value === 4) {
 
-        let box1 = 'num7'
-        let box2 = 'num8'
-        let box3 = 'num9'
+        let box1 = 'caja107'
+        let box2 = 'caja108'
+        let box3 = 'caja109'
 
-        let nextBox1 = 'num10'
-        let nextBox2 = 'num11'
-        let nextBox3 = 'num12'
+        let nextBox1 = 'caja110'
+        let nextBox2 = 'caja111'
+        let nextBox3 = 'caja112'
 
-        let boxNum1 = 7
-        let boxNum3 = 9
+        let boxNum1 = 107
+        let boxNum3 = 109
 
-        if (document.getElementById(box3).classList.contains('bg-blue-600')) { // Si completa la primera fila
+        if (document.getElementById(box3).classList.contains(propColor1)) { // Si completa la primera fila
 
             filaFocus.value = 5
 
@@ -1105,7 +998,7 @@ const paint = (id) => {
             // Audio bien
 
             setTimeout(function () {
-                document.getElementById(nextBox1).classList.add('bg-red-600')
+                document.getElementById(nextBox1).classList.add(propColor3)
                 audioColor3()
                 setTimeout(function () {
                     bottonLigth(nextBox2)
@@ -1115,16 +1008,16 @@ const paint = (id) => {
 
             return;
 
-        } else if (document.getElementById(box3).classList.contains('bg-red-600') || document.getElementById(box3).classList.contains('bg-green-600')) {
+        } else if (document.getElementById(box3).classList.contains(propColor3) || document.getElementById(box3).classList.contains(propColor2)) {
             canPaint.value = false
             errorSound()
             audioErrorFila()
             let selectSquare = box3
             let yellowSquare = null
 
-            if (document.getElementById(box3).classList.contains('bg-red-600')) {
+            if (document.getElementById(box3).classList.contains(propColor3)) {
                 yellowSquare = box1
-            } else if (document.getElementById(box3).classList.contains('bg-green-600')) {
+            } else if (document.getElementById(box3).classList.contains(propColor2)) {
                 yellowSquare = box2
             }
 
@@ -1137,15 +1030,15 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-green-600', 'bg-red-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor2, propColor3);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
@@ -1157,18 +1050,18 @@ const paint = (id) => {
 
     if (filaFocus.value === 5) {
 
-        let box1 = 'num10'
-        let box2 = 'num11'
-        let box3 = 'num12'
+        let box1 = 'caja110'
+        let box2 = 'caja111'
+        let box3 = 'caja112'
 
-        let oldBoxNum1 = 7
-        let oldBoxNum3 = 9
+        let oldBoxNum1 = 107
+        let oldBoxNum3 = 109
 
-        let boxNum1 = 10
-        let boxNum3 = 12
+        let boxNum1 = 110
+        let boxNum3 = 112
 
 
-        if (document.getElementById(box2).classList.contains('bg-blue-600')) { // Si completa la primera fila
+        if (document.getElementById(box2).classList.contains(propColor1)) { // Si completa la primera fila
             filaFocus.value = 6
 
             successSound()
@@ -1176,7 +1069,7 @@ const paint = (id) => {
             document.getElementById(box3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
             document.getElementById(box3).classList.add('bg-gray-infinite')
 
-        } else if (document.getElementById(box2).classList.contains('bg-red-600')) {
+        } else if (document.getElementById(box2).classList.contains(propColor3)) {
             canPaint.value = false
             errorSound()
             let selectSquare = box2
@@ -1192,22 +1085,22 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor3);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
                     }, 800)
                 }, 3500)
             }
-        } else if (document.getElementById(box2).classList.contains('bg-green-600')) {
+        } else if (document.getElementById(box2).classList.contains(propColor2)) {
             canPaint.value = false
             errorSound()
             audioErrorBack()
@@ -1225,17 +1118,17 @@ const paint = (id) => {
                         const elementId2 = `caja${i}`;
                         document.getElementById(elementId2).classList.add('opacity-50')
                     }
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
                         for (let i = oldBoxNum1; i <= oldBoxNum3; i++) {
                             const elementId2 = `caja${i}`;
                             document.getElementById(elementId2).classList.remove('opacity-50')
                         }
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor3);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
@@ -1247,62 +1140,58 @@ const paint = (id) => {
 
     if (filaFocus.value === 6) {
 
-        let box1 = 'num10'
-        let box2 = 'num11'
-        let box3 = 'num12'
+        let box1 = 'caja110'
+        let box2 = 'caja111'
+        let box3 = 'caja112'
 
-        let oldBoxNum1 = 7
-        let oldBoxNum3 = 9
+        let oldBoxNum1 = 107
+        let oldBoxNum3 = 109
 
-        let boxNum1 = 10
-        let boxNum3 = 12
+        let boxNum1 = 110
+        let boxNum3 = 112
 
-        let nextBox1 = 'num13'
-        let nextBox2 = 'num14'
-        let nextBox3 = 'num15'
+        let nextBox1 = 'caja113'
+        let nextBox2 = 'caja114'
+        let nextBox3 = 'caja115'
 
 
-        if (document.getElementById(box3).classList.contains('bg-green-600')) { // Si completa la primera fila
+        if (document.getElementById(box3).classList.contains(propColor2)) { // Si completa la primera fila
 
             filaFocus.value = 7
 
             successSound()
 
-            audio4filas()
+            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+
+            // Audio bien
 
             setTimeout(function () {
-                document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-                document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-                document.getElementById(nextBox3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-
-                // Audio bien
-
+                document.getElementById(nextBox1).classList.add(propColor2)
+                audioColor1()
                 setTimeout(function () {
-                    document.getElementById(nextBox1).classList.add('bg-green-600')
-                    audioColor1()
+                    document.getElementById(nextBox2).classList.add(propColor1)
+                    audioColor2()
                     setTimeout(function () {
-                        document.getElementById(nextBox2).classList.add('bg-blue-600')
-                        audioColor2()
-                        setTimeout(function () {
-                            bottonLigth(nextBox3)
-                            focusId.value = nextBox3
-                        }, 1000)
+                        bottonLigth(nextBox3)
+                        focusId.value = nextBox3
                     }, 1000)
                 }, 1000)
+            }, 1000)
 
-                return;
-            }, 7000)
+            return;
 
-        } else if (document.getElementById(box3).classList.contains('bg-red-600') || document.getElementById(box3).classList.contains('bg-blue-600')) {
+        } else if (document.getElementById(box3).classList.contains(propColor3) || document.getElementById(box3).classList.contains(propColor1)) {
             canPaint.value = false
             errorSound()
             audioErrorFila()
             let selectSquare = box3
             let yellowSquare = null
 
-            if (document.getElementById(box3).classList.contains('bg-red-600')) {
+            if (document.getElementById(box3).classList.contains(propColor3)) {
                 yellowSquare = box1
-            } else if (document.getElementById(box3).classList.contains('bg-blue-600')) {
+            } else if (document.getElementById(box3).classList.contains(propColor1)) {
                 yellowSquare = box2
             }
 
@@ -1315,15 +1204,15 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-blue-600', 'bg-red-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor1, propColor3);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
@@ -1335,22 +1224,22 @@ const paint = (id) => {
 
     if (filaFocus.value === 7) {
 
-        let box1 = 'num13'
-        let box2 = 'num14'
-        let box3 = 'num15'
+        let box1 = 'caja113'
+        let box2 = 'caja114'
+        let box3 = 'caja115'
 
-        let oldBoxNum1 = 10
-        let oldBoxNum3 = 12
+        let oldBoxNum1 = 110
+        let oldBoxNum3 = 112
 
-        let boxNum1 = 13
-        let boxNum3 = 15
+        let boxNum1 = 113
+        let boxNum3 = 115
 
-        let nextBox1 = 'num16'
-        let nextBox2 = 'num17'
-        let nextBox3 = 'num18'
+        let nextBox1 = 'caja116'
+        let nextBox2 = 'caja117'
+        let nextBox3 = 'caja118'
 
 
-        if (document.getElementById(box3).classList.contains('bg-red-600')) { // Si completa la primera fila
+        if (document.getElementById(box3).classList.contains(propColor3)) { // Si completa la primera fila
             filaFocus.value = 8
 
             successSound()
@@ -1359,22 +1248,22 @@ const paint = (id) => {
             document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
 
             setTimeout(function () {
-                document.getElementById(nextBox1).classList.add('bg-green-600')
+                document.getElementById(nextBox1).classList.add(propColor2)
                 audioColor1()
                 bottonLigth(nextBox2)
                 focusId.value = nextBox2
             }, 1000)
 
-        } else if (document.getElementById(box3).classList.contains('bg-green-600') || document.getElementById(box3).classList.contains('bg-blue-600')) {
+        } else if (document.getElementById(box3).classList.contains(propColor2) || document.getElementById(box3).classList.contains(propColor1)) {
             canPaint.value = false
             errorSound()
             audioErrorFila()
             let selectSquare = box3
             let yellowSquare = null
 
-            if (document.getElementById(box3).classList.contains('bg-green-600')) {
+            if (document.getElementById(box3).classList.contains(propColor2)) {
                 yellowSquare = box1
-            } else if (document.getElementById(box3).classList.contains('bg-blue-600')) {
+            } else if (document.getElementById(box3).classList.contains(propColor1)) {
                 yellowSquare = box2
             }
 
@@ -1387,15 +1276,15 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-blue-600', 'bg-green-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor1, propColor2);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
@@ -1407,18 +1296,18 @@ const paint = (id) => {
 
     if (filaFocus.value === 8) {
 
-        let box1 = 'num16'
-        let box2 = 'num17'
-        let box3 = 'num18'
+        let box1 = 'caja116'
+        let box2 = 'caja117'
+        let box3 = 'caja118'
 
-        let oldBoxNum1 = 13
-        let oldBoxNum3 = 15
+        let oldBoxNum1 = 113
+        let oldBoxNum3 = 115
 
-        let boxNum1 = 16
-        let boxNum3 = 18
+        let boxNum1 = 116
+        let boxNum3 = 118
 
 
-        if (document.getElementById(box2).classList.contains('bg-red-600')) { // Si completa la primera fila
+        if (document.getElementById(box2).classList.contains(propColor3)) { // Si completa la primera fila
             filaFocus.value = 9
 
             successSound()
@@ -1426,7 +1315,7 @@ const paint = (id) => {
             document.getElementById(box3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
             document.getElementById(box3).classList.add('bg-gray-infinite')
 
-        } else if (document.getElementById(box2).classList.contains('bg-green-600')) {
+        } else if (document.getElementById(box2).classList.contains(propColor2)) {
             canPaint.value = false
             errorSound()
             let selectSquare = box2
@@ -1442,22 +1331,22 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor3);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
                     }, 800)
                 }, 3500)
             }
-        } else if (document.getElementById(box2).classList.contains('bg-blue-600')) {
+        } else if (document.getElementById(box2).classList.contains(propColor1)) {
             canPaint.value = false
             errorSound()
             audioErrorBack()
@@ -1475,17 +1364,17 @@ const paint = (id) => {
                         const elementId2 = `caja${i}`;
                         document.getElementById(elementId2).classList.add('opacity-50')
                     }
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
                         for (let i = oldBoxNum1; i <= oldBoxNum3; i++) {
                             const elementId2 = `caja${i}`;
                             document.getElementById(elementId2).classList.remove('opacity-50')
                         }
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor3);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
@@ -1497,22 +1386,22 @@ const paint = (id) => {
 
     if (filaFocus.value === 9) {
 
-        let box1 = 'num16'
-        let box2 = 'num17'
-        let box3 = 'num18'
+        let box1 = 'caja116'
+        let box2 = 'caja117'
+        let box3 = 'caja118'
 
-        let oldBoxNum1 = 13
-        let oldBoxNum3 = 15
+        let oldBoxNum1 = 113
+        let oldBoxNum3 = 115
 
-        let boxNum1 = 16
-        let boxNum3 = 18
+        let boxNum1 = 116
+        let boxNum3 = 118
 
-        let nextBox1 = 'num16'
-        let nextBox2 = 'num17'
-        let nextBox3 = 'num18'
+        let nextBox1 = 'caja116'
+        let nextBox2 = 'caja117'
+        let nextBox3 = 'caja118'
 
 
-        if (document.getElementById(box3).classList.contains('bg-blue-600')) { // Si completa la primera fila
+        if (document.getElementById(box3).classList.contains(propColor1)) { // Si completa la primera fila
             filaFocus.value = 10
 
             let sound = new Audio();
@@ -1521,7 +1410,7 @@ const paint = (id) => {
 
             focusId.value = ''
 
-            for (let i = 1; i <= 18; i++) {
+            for (let i = 101; i <= 118; i++) {
                 const elementId = `caja${i}`;
                 document.getElementById(elementId).classList.add('brush-fail', 'bg-green-400');
                 setTimeout(function () {
@@ -1534,16 +1423,16 @@ const paint = (id) => {
             }, 800)
 
 
-        } else if (document.getElementById(box3).classList.contains('bg-green-600') || document.getElementById(box3).classList.contains('bg-red-600')) {
+        } else if (document.getElementById(box3).classList.contains(propColor2) || document.getElementById(box3).classList.contains(propColor3)) {
             canPaint.value = false
             errorSound()
             audioErrorFila()
             let selectSquare = box3
             let yellowSquare = null
 
-            if (document.getElementById(box3).classList.contains('bg-green-600')) {
+            if (document.getElementById(box3).classList.contains(propColor2)) {
                 yellowSquare = box1
-            } else if (document.getElementById(box3).classList.contains('bg-red-600')) {
+            } else if (document.getElementById(box3).classList.contains(propColor3)) {
                 yellowSquare = box2
             }
 
@@ -1556,15 +1445,15 @@ const paint = (id) => {
                 }, 1000)
                 setTimeout(function () {
                     // El color { color } ya se encuentra en esta fila
-                    document.getElementById(yellowSquare).classList.add('bg-yellow-400');
-                    document.getElementById(selectSquare).classList.add('bg-yellow-400');
+                    document.getElementById(yellowSquare).classList.add('opacity-40');
+                    document.getElementById(selectSquare).classList.add('opacity-40');
                     setTimeout(function () {
-                        document.getElementById(yellowSquare).classList.remove('bg-yellow-400');
-                        document.getElementById(selectSquare).classList.remove('bg-yellow-400');
+                        document.getElementById(yellowSquare).classList.remove('opacity-40');
+                        document.getElementById(selectSquare).classList.remove('opacity-40');
                     }, 1000)
                 }, 2000)
                 setTimeout(function () {
-                    document.getElementById(selectSquare).classList.remove('bg-yellow-400', 'bg-red-600', 'bg-green-600');
+                    document.getElementById(selectSquare).classList.remove('opacity-40', propColor3, propColor2);
                     setTimeout(function () {
                         document.getElementById(selectSquare).classList.add('bg-gray-infinite')
                         canPaint.value = true
@@ -1593,10 +1482,10 @@ const selectColor = (bg, id) => {
     color = bg
     colorSelected.value++
     if (id === 1) {
-        document.getElementById('muestra1').classList.remove('bg-blue-600', 'bg-red-600', 'bg-green-600', 'bg-white');
+        document.getElementById('muestra1').classList.remove(propColor1, propColor3, propColor2, 'bg-white');
         document.getElementById('muestra1').classList.add(`bg-${bg}`);
     } else if (id === 2) {
-        document.getElementById('muestra').classList.remove('bg-blue-600', 'bg-fuchsia-400', 'bg-yellow-400', 'bg-white');
+        document.getElementById('muestra').classList.remove(propColor1, 'bg-fuchsia-400', 'opacity-40', 'bg-white');
         document.getElementById('muestra').classList.add(`bg-${bg}`);
     }
     const colors = {
@@ -1634,7 +1523,7 @@ const error = (id) => {
 
 const win = () => {
     let sound = new Audio();
-    sound.src = `${props.asset_audio}/voz1/win/fantastico1.m4a`;
+    sound.src = `${props.asset_audio}${props.win_audio}`;
     sound.play();
 
     // document.getElementById('loader').classList.remove('hidden');
@@ -1700,247 +1589,43 @@ const bottonLigth = (id) => {
 }
 
 const interactiveActivity = () => {
-    for (let i = 1; i <= 3; i++) {
-        const elementId = `caja${i}`;
-        document.getElementById(elementId).classList.add('scale-10', 'bg-red-500');
-        setTimeout(function () {
-            document.getElementById(elementId).classList.remove('scale-10', 'bg-red-500');
-        }, 500)
-    }
-
-    for (let i = 4; i <= 18; i++) {
-        const elementId = `caja${i}`;
-        document.getElementById(elementId).classList.add('scale-75', 'bg-gray-400', 'opacity-10');
-    }
-
-    let myInterval = ''
-    setTimeout(function () {
-        document.getElementById('num1').classList.add('bg-blue-600');
-        audioColor2()
-        setTimeout(function () {
-            document.getElementById('num2').classList.add('bg-red-600');
-            audioColor3()
-        }, 1000)
-        setTimeout(function () {
-            let sound = new Audio();
-            sound.src = `${props.asset_audio}/voz1/permutaciones/ahoracolor.m4a`;
-            sound.play();
-            bottonLigth('num3')
-            focusId.value = 'num3'
-        }, 2000)
-    }, 1000)
-
-}
-
-const add = (num) => {
-
-    if (num === 'num1') {
-        num1.value = content.value
-        if (content.value === null) {
-            document.getElementById('num1').classList.add('p-7')
-            document.getElementById('num1').classList.remove('py-3')
-            document.getElementById('num1').classList.remove('px-5')
-        } else {
-            document.getElementById('num1').classList.remove('p-7')
-            document.getElementById('num1').classList.add('py-3')
-            document.getElementById('num1').classList.add('px-5')
-        }
-    } else if (num === 'num2') {
-        num2.value = content.value
-        if (content.value === null) {
-            document.getElementById('num2').classList.add('p-7')
-            document.getElementById('num2').classList.remove('py-3')
-            document.getElementById('num2').classList.remove('px-5')
-        } else {
-            document.getElementById('num2').classList.remove('p-7')
-            document.getElementById('num2').classList.add('py-3')
-            document.getElementById('num2').classList.add('px-5')
-        }
-    } else if (num === 'num3') {
-        num3.value = content.value
-        if (content.value === null) {
-            document.getElementById('num3').classList.add('p-7')
-            document.getElementById('num3').classList.remove('py-3')
-            document.getElementById('num3').classList.remove('px-5')
-        } else {
-            document.getElementById('num3').classList.remove('p-7')
-            document.getElementById('num3').classList.add('py-3')
-            document.getElementById('num3').classList.add('px-5')
-        }
-    } else if (num === 'num4') {
-        num4.value = content.value
-        if (content.value === null) {
-            document.getElementById('num4').classList.add('p-7')
-            document.getElementById('num4').classList.remove('py-3')
-            document.getElementById('num4').classList.remove('px-5')
-        } else {
-            document.getElementById('num4').classList.remove('p-7')
-            document.getElementById('num4').classList.add('py-3')
-            document.getElementById('num4').classList.add('px-5')
-        }
-    } else if (num === 'num5') {
-        num5.value = content.value
-        if (content.value === null) {
-            document.getElementById('num5').classList.add('p-7')
-            document.getElementById('num5').classList.remove('py-3')
-            document.getElementById('num5').classList.remove('px-5')
-        } else {
-            document.getElementById('num5').classList.remove('p-7')
-            document.getElementById('num5').classList.add('py-3')
-            document.getElementById('num5').classList.add('px-5')
-        }
-    } else if (num === 'num6') {
-        num6.value = content.value
-        if (content.value === null) {
-            document.getElementById('num6').classList.add('p-7')
-            document.getElementById('num6').classList.remove('py-3')
-            document.getElementById('num6').classList.remove('px-5')
-        } else {
-            document.getElementById('num6').classList.remove('p-7')
-            document.getElementById('num6').classList.add('py-3')
-            document.getElementById('num6').classList.add('px-5')
-        }
-    } else if (num === 'num7') {
-        num7.value = content.value
-        if (content.value === null) {
-            document.getElementById('num7').classList.add('p-7')
-            document.getElementById('num7').classList.remove('py-3')
-            document.getElementById('num7').classList.remove('px-5')
-        } else {
-            document.getElementById('num7').classList.remove('p-7')
-            document.getElementById('num7').classList.add('py-3')
-            document.getElementById('num7').classList.add('px-5')
-        }
-    } else if (num === 'num8') {
-        num8.value = content.value
-        if (content.value === null) {
-            document.getElementById('num8').classList.add('p-7')
-            document.getElementById('num8').classList.remove('py-3')
-            document.getElementById('num8').classList.remove('px-5')
-        } else {
-            document.getElementById('num8').classList.remove('p-7')
-            document.getElementById('num8').classList.add('py-3')
-            document.getElementById('num8').classList.add('px-5')
-        }
-    } else if (num === 'num9') {
-        num9.value = content.value
-        if (content.value === null) {
-            document.getElementById('num9').classList.add('p-7')
-            document.getElementById('num9').classList.remove('py-3')
-            document.getElementById('num9').classList.remove('px-5')
-        } else {
-            document.getElementById('num9').classList.remove('p-7')
-            document.getElementById('num9').classList.add('py-3')
-            document.getElementById('num9').classList.add('px-5')
-        }
-    } else if (num === 'num10') {
-        num10.value = content.value
-        if (content.value === null) {
-            document.getElementById('num10').classList.add('p-7')
-            document.getElementById('num10').classList.remove('py-3')
-            document.getElementById('num10').classList.remove('px-5')
-        } else {
-            document.getElementById('num10').classList.remove('p-7')
-            document.getElementById('num10').classList.add('py-3')
-            document.getElementById('num10').classList.add('px-5')
-        }
-    } else if (num === 'num11') {
-        num11.value = content.value
-        if (content.value === null) {
-            document.getElementById('num11').classList.add('p-7')
-            document.getElementById('num11').classList.remove('py-3')
-            document.getElementById('num11').classList.remove('px-5')
-        } else {
-            document.getElementById('num11').classList.remove('p-7')
-            document.getElementById('num11').classList.add('py-3')
-            document.getElementById('num11').classList.add('px-5')
-        }
-    } else if (num === 'num12') {
-        num12.value = content.value
-        if (content.value === null) {
-            document.getElementById('num12').classList.add('p-7')
-            document.getElementById('num12').classList.remove('py-3')
-            document.getElementById('num12').classList.remove('px-5')
-        } else {
-            document.getElementById('num12').classList.remove('p-7')
-            document.getElementById('num12').classList.add('py-3')
-            document.getElementById('num12').classList.add('px-5')
-        }
-    } else if (num === 'num13') {
-        num13.value = content.value
-        if (content.value === null) {
-            document.getElementById('num13').classList.add('p-7')
-            document.getElementById('num13').classList.remove('py-3')
-            document.getElementById('num13').classList.remove('px-5')
-        } else {
-            document.getElementById('num13').classList.remove('p-7')
-            document.getElementById('num13').classList.add('py-3')
-            document.getElementById('num13').classList.add('px-5')
-        }
-    } else if (num === 'num14') {
-        num14.value = content.value
-        if (content.value === null) {
-            document.getElementById('num14').classList.add('p-7')
-            document.getElementById('num14').classList.remove('py-3')
-            document.getElementById('num14').classList.remove('px-5')
-        } else {
-            document.getElementById('num14').classList.remove('p-7')
-            document.getElementById('num14').classList.add('py-3')
-            document.getElementById('num14').classList.add('px-5')
-        }
-    } else if (num === 'num15') {
-        num15.value = content.value
-        if (content.value === null) {
-            document.getElementById('num15').classList.add('p-7')
-            document.getElementById('num15').classList.remove('py-3')
-            document.getElementById('num15').classList.remove('px-5')
-        } else {
-            document.getElementById('num15').classList.remove('p-7')
-            document.getElementById('num15').classList.add('py-3')
-            document.getElementById('num15').classList.add('px-5')
-        }
-    } else if (num === 'num16') {
-        num16.value = content.value
-        if (content.value === null) {
-            document.getElementById('num16').classList.add('p-7')
-            document.getElementById('num16').classList.remove('py-3')
-            document.getElementById('num16').classList.remove('px-5')
-        } else {
-            document.getElementById('num16').classList.remove('p-7')
-            document.getElementById('num16').classList.add('py-3')
-            document.getElementById('num16').classList.add('px-5')
-        }
-    } else if (num === 'num17') {
-        num17.value = content.value
-        if (content.value === null) {
-            document.getElementById('num17').classList.add('p-7')
-            document.getElementById('num17').classList.remove('py-3')
-            document.getElementById('num17').classList.remove('px-5')
-        } else {
-            document.getElementById('num17').classList.remove('p-7')
-            document.getElementById('num17').classList.add('py-3')
-            document.getElementById('num17').classList.add('px-5')
-        }
-    } else if (num === 'num18') {
-        num18.value = content.value
-        if (content.value === null) {
-            document.getElementById('num18').classList.add('p-7')
-            document.getElementById('num18').classList.remove('py-3')
-            document.getElementById('num18').classList.remove('px-5')
-        } else {
-            document.getElementById('num18').classList.remove('p-7')
-            document.getElementById('num18').classList.add('py-3')
-            document.getElementById('num18').classList.add('px-5')
-        }
-    }
-}
-
-const selectItem = (item) => {
-    content.value = item
 
     let sound = new Audio();
-    sound.src = `${props.asset_audio}/bubble.wav`;
-    sound.play()
+    sound.src = `${props.asset_audio}/voz1/permutaciones/continuemosordenando.m4a`;
+    sound.play();
+
+    setTimeout(function () {
+        for (let i = 101; i <= 103; i++) {
+            const elementId = `caja${i}`;
+            document.getElementById(elementId).classList.add('scale-110', 'bg-red-500');
+            setTimeout(function () {
+                document.getElementById(elementId).classList.remove('scale-110', 'bg-red-500');
+            }, 500)
+        }
+
+        for (let i = 104; i <= 118; i++) {
+            const elementId = `caja${i}`;
+            document.getElementById(elementId).classList.add('scale-75', 'bg-gray-400', 'opacity-10');
+        }
+
+        let myInterval = ''
+        setTimeout(function () {
+            document.getElementById('caja101').classList.add(propColor1);
+            audioColor2()
+            setTimeout(function () {
+                document.getElementById('caja102').classList.add(propColor3);
+                audioColor3()
+            }, 1000)
+            setTimeout(function () {
+                let sound = new Audio();
+                sound.src = `${props.asset_audio}/voz1/permutaciones/ahoracolor.m4a`;
+                sound.play();
+                bottonLigth('caja103')
+                focusId.value = 'caja103'
+            }, 2000)
+        }, 1000)
+    }, 2000)
+
 }
 
 </script>
@@ -2092,104 +1777,21 @@ const selectItem = (item) => {
                                 <div>
                                     <div class="">
                                         <div class="flex justify-center">
-                                            <div class="grid grid-cols-1 gap-y-5 gap-x-1">
+                                            <div class="grid grid-cols-3 gap-y-5 gap-x-1">
 
                                                 <!--                                                <div v-for="i in 18" :key="i + 100" :id="`caja${i + 100}`"-->
                                                 <!--                                                     :class="['p-6', 'border-black', 'border-2', 'cursor-cell', 'grid', 'hover:bg-gray-400', 'duration-300',-->
-                                                <!--                                             { 'bg-red-600' : i + 100 ===  || i + 100 === 6 || i + 100 === 7 || i + 100 === 10 || i + 100 === 15 || i + 100 === 17},-->
-                                                <!--                                             { 'bg-blue-600': i + 100 === 1 || i + 100 === 4 || i + 100 === 9 || i + 100 ===  || i + 100 ===  || i + 100 === 18},-->
-                                                <!--                                             { 'bg-green-500': i + 100 === 3 || i + 100 ===  || i + 100 ===  || i + 100 === 12 || i + 100 === 13 || i + 100 === 16}-->
+                                                <!--                                             { propColor3 : i + 100 === 102 || i + 100 === 106 || i + 100 === 107 || i + 100 === 110 || i + 100 === 115 || i + 100 === 117},-->
+                                                <!--                                             { propColor1: i + 100 === 101 || i + 100 === 104 || i + 100 === 109 || i + 100 === 111 || i + 100 === 114 || i + 100 === 118},-->
+                                                <!--                                             { 'bg-green-500': i + 100 === 103 || i + 100 === 105 || i + 100 === 108 || i + 100 === 112 || i + 100 === 113 || i + 100 === 116}-->
                                                 <!--                                             ]">-->
                                                 <!--                                                    {{ null }}-->
                                                 <!--                                                </div>-->
-                                                <div class="grid grid-cols-3">
-                                                    <button @click="add('num1')" class=" border-black border-2 p-7"
-                                                            id="num1">
-                                                        <span class="font-MPlus text-3xl">{{ num1 }}</span>
-                                                    </button>
-                                                    <button @click="add('num2')" class=" border-black border-2 p-7"
-                                                            id="num2">
-                                                        <span class="font-MPlus text-3xl">{{ num2 }}</span>
-                                                    </button>
-                                                    <button @click="add('num3')" class=" border-black border-2 p-7"
-                                                            id="num3">
-                                                        <span class="font-MPlus text-3xl">{{ num3 }}</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="grid grid-cols-3">
-                                                    <button @click="add('num4')" class=" border-black border-2 p-7"
-                                                            id="num4">
-                                                        <span class="font-MPlus text-3xl">{{ num4 }}</span>
-                                                    </button>
-                                                    <button @click="add('num5')" class=" border-black border-2 p-7"
-                                                            id="num5">
-                                                        <span class="font-MPlus text-3xl">{{ num5 }}</span>
-                                                    </button>
-                                                    <button @click="add('num6')" class=" border-black border-2 p-7"
-                                                            id="num6">
-                                                        <span class="font-MPlus text-3xl">{{ num6 }}</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="grid grid-cols-3">
-                                                    <button @click="add('num7')" class=" border-black border-2 p-7"
-                                                            id="num7">
-                                                        <span class="font-MPlus text-3xl">{{ num7 }}</span>
-                                                    </button>
-                                                    <button @click="add('num8')" class=" border-black border-2 p-7"
-                                                            id="num8">
-                                                        <span class="font-MPlus text-3xl">{{ num8 }}</span>
-                                                    </button>
-                                                    <button @click="add('num9')" class=" border-black border-2 p-7"
-                                                            id="num9">
-                                                        <span class="font-MPlus text-3xl">{{ num9 }}</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="grid grid-cols-3">
-                                                    <button @click="add('num10')" class=" border-black border-2 p-7"
-                                                            id="num10">
-                                                        <span class="font-MPlus text-3xl">{{ num10 }}</span>
-                                                    </button>
-                                                    <button @click="add('num11')" class=" border-black border-2 p-7"
-                                                            id="num11">
-                                                        <span class="font-MPlus text-3xl">{{ num11 }}</span>
-                                                    </button>
-                                                    <button @click="add('num12')" class=" border-black border-2 p-7"
-                                                            id="num12">
-                                                        <span class="font-MPlus text-3xl">{{ num12 }}</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="grid grid-cols-3">
-                                                    <button @click="add('num13')" class=" border-black border-2 p-7"
-                                                            id="num13">
-                                                        <span class="font-MPlus text-3xl">{{ num13 }}</span>
-                                                    </button>
-                                                    <button @click="add('num14')" class=" border-black border-2 p-7"
-                                                            id="num14">
-                                                        <span class="font-MPlus text-3xl">{{ num14 }}</span>
-                                                    </button>
-                                                    <button @click="add('num15')" class=" border-black border-2 p-7"
-                                                            id="num15">
-                                                        <span class="font-MPlus text-3xl">{{ num15 }}</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="grid grid-cols-3">
-                                                    <button @click="add('num16')" class=" border-black border-2 p-7"
-                                                            id="num16">
-                                                        <span class="font-MPlus text-3xl">{{ num16 }}</span>
-                                                    </button>
-                                                    <button @click="add('num17')" class=" border-black border-2 p-7"
-                                                            id="num17">
-                                                        <span class="font-MPlus text-3xl">{{ num17 }}</span>
-                                                    </button>
-                                                    <button @click="add('num18')" class=" border-black border-2 p-7"
-                                                            id="num18">
-                                                        <span class="font-MPlus text-3xl">{{ num18 }}</span>
-                                                    </button>
+                                                <div v-for="i in 18" :key="i + 100" :id="`caja${i + 100}`"
+                                                     @click="paint(`caja${i + 100}`)"
+                                                     :class="['p-6', 'border-black', 'border-2', 'cursor-cell', 'grid', 'hover:bg-gray-400', 'duration-300'
+                                             ]">
+                                                    {{ null }}
                                                 </div>
                                             </div>
                                         </div>
@@ -2214,7 +1816,7 @@ const selectItem = (item) => {
 
                                 <div class="flex justify-center items-center">
                                                 <span id="observa"
-                                                      class="font-MPlus text-SM duration-300">LETRAS</span>
+                                                      class="font-MPlus text-SM duration-300">COLORES</span>
                                 </div>
 
 
@@ -2222,41 +1824,54 @@ const selectItem = (item) => {
                                     <div>
                                         <div class="grid grid-cols-2 gap-5 mt-5">
                                             <div class="flex justify-center">
-                                                <button @click="selectItem('A')"
-                                                        class="rounded-md py-3 px-5 shadow-md bg-gray-300">
-                                                    <span class="font-bold text-4xl">A</span>
+                                                <button @click="selectColor(props.color_2,1)"
+                                                        class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg :class="props.icon_2"
+                                                         xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50"
+                                                         viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
                                                 </button>
                                             </div>
 
                                             <div class="flex justify-center">
-                                                <button @click="selectItem('B')"
-                                                        class="rounded-md py-3 px-5 shadow-md bg-gray-300">
-                                                    <span class="font-bold text-4xl">B</span>
+                                                <button @click="selectColor(props.color_1,1)"
+                                                        class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg :class="props.icon_1"
+                                                         xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
                                                 </button>
                                             </div>
 
                                             <div class="flex justify-center">
-                                                <button @click="selectItem('C')"
-                                                        class="rounded-md  py-3 px-5 shadow-md bg-gray-300">
-                                                    <span class="font-bold text-4xl">C</span>
+                                                <button @click="selectColor(props.color_3,1)"
+                                                        class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg :class="props.icon_3"
+                                                         xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
                                                 </button>
                                             </div>
 
-                                            <button @click="selectItem(null)"
+                                            <button @click="selectColor('white',1)"
                                                     class="relative rounded-md p-2 shadow-md bg-gray-300  flex justify-center select-none">
                                                 <div class="relative">
                                                     <img :src="eraser" alt="borrador" width="50">
                                                 </div>
                                             </button>
 
-                                            <div v-if="content === null" id="muestra"
-                                                 class="border-2 border-black py-6 mt-5 bg-white col-span-2 shadow-2xl shadow-blue-900 flex justify-center font-bold text-5xl">
-                                                {{ content }}
-                                            </div>
-                                            <div v-else id="muestra"
-                                                 class="border-2 border-black mt-5 bg-white col-span-2 shadow-2xl shadow-blue-900 flex justify-center font-bold text-5xl">
-                                                {{ content }}
-                                            </div>
+                                            <div id="muestra1"
+                                                 class="border-2 border-black py-5 mt-5 bg-white col-span-2 shadow-2xl shadow-blue-900"></div>
                                         </div>
 
                                     </div>
