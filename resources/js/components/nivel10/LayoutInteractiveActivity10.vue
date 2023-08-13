@@ -139,18 +139,21 @@ let focusId = ref('')
 
 let canPaint = ref(true)
 
-setTimeout(function (){
+let filaExtra = ref(false)
+
+setTimeout(function () {
     Swal.fire({
-    title: 'Tutorial',
-    text: 'Llegamos a las permutaciones! Aqui veremos un poco de pensamiento combinatorio, filas y muchos colores!',
-    icon: 'warning',
-    confirmButtonText: 'Comenzar'
-  }).then((result) => {
-    // La función dentro de then se ejecutará después de hacer clic en el botón OK
-    if (result.isConfirmed) {
-      initialAudio();
-    }
-  });
+        title: 'Tutorial',
+        text: 'Llegamos a las permutaciones! Aqui veremos un poco de pensamiento combinatorio, filas y muchos colores!',
+        icon: 'warning',
+        confirmButtonText: 'Comenzar'
+    }).then((result) => {
+        // La función dentro de then se ejecutará después de hacer clic en el botón OK
+        if (result.isConfirmed) {
+            initialAudio();
+            // interactiveActivity()
+        }
+    });
 }, 500)
 
 function initialAudio() {
@@ -306,7 +309,7 @@ const audio4filas = () => {
     }, 3000)
 
     let sound = new Audio();
-    sound.src = `${props.asset_audio}/voz1/permutaciones/completado4filascolores.m4a`;
+    sound.src = `${props.asset_audio}/voz1/permutaciones/completado4filascolor.m4a`;
     sound.play();
 }
 
@@ -405,9 +408,17 @@ const paint = (id) => {
         return
     }
 
-    if (id !== focusId.value) {
+    if (id !== focusId.value && filaExtra.value === false) {
         error(id)
         return;
+    }
+
+    if (filaExtra.value === true) {
+        if (id === 'caja119' || id === 'caja120' || id === 'caja121') {
+
+        } else {
+            error(id)
+        }
     }
 
     if (id === 'caja101' || id === 'caja102' || id === 'caja103') {
@@ -793,8 +804,8 @@ const paint = (id) => {
             filaFocus.value = 2
 
             successSound()
-            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
+            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
 
             // Audio bien
 
@@ -802,6 +813,7 @@ const paint = (id) => {
                 document.getElementById(nextBox1).classList.add('bg-blue-600')
                 audioColor2()
                 setTimeout(function () {
+                    nextSelectSound(1)
                     bottonLigth(nextBox2)
                     focusId.value = nextBox2
                 }, 1000)
@@ -893,7 +905,8 @@ const paint = (id) => {
 
             successSound()
             focusId.value = box3
-            document.getElementById('caja106').classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            nextSelectSound(2)
+            document.getElementById('caja106').classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
             document.getElementById('caja106').classList.add('bg-gray-infinite')
 
         } else if (document.getElementById(box2).classList.contains('bg-blue-600')) {
@@ -988,9 +1001,9 @@ const paint = (id) => {
             audio2filas()
 
             setTimeout(function () {
-                document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-                document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-                document.getElementById(nextBox3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+                document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
+                document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
+                document.getElementById(nextBox3).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
 
                 // Audio bien
 
@@ -1002,9 +1015,7 @@ const paint = (id) => {
                         audioColor1()
                         setTimeout(function () {
                             bottonLigth(nextBox3)
-                            let sound = new Audio();
-                            sound.src = `${props.asset_audio}/voz1/permutaciones/quecolor.m4a`;
-                            sound.play()
+                            nextSelectSound(4)
                             focusId.value = nextBox3
                         }, 1000)
                     }, 1000)
@@ -1097,8 +1108,8 @@ const paint = (id) => {
             filaFocus.value = 5
 
             successSound()
-            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
+            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
 
             // Audio bien
 
@@ -1106,6 +1117,7 @@ const paint = (id) => {
                 document.getElementById(nextBox1).classList.add('bg-red-600')
                 audioColor3()
                 setTimeout(function () {
+                    nextSelectSound(1)
                     bottonLigth(nextBox2)
                     focusId.value = nextBox2
                 }, 1000)
@@ -1171,8 +1183,9 @@ const paint = (id) => {
 
             successSound()
             focusId.value = box3
-            document.getElementById(box3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(box3).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
             document.getElementById(box3).classList.add('bg-gray-infinite')
+            nextSelectSound(3)
 
         } else if (document.getElementById(box2).classList.contains('bg-red-600')) {
             canPaint.value = false
@@ -1269,9 +1282,9 @@ const paint = (id) => {
             audio4filas()
 
             setTimeout(function () {
-                document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-                document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-                document.getElementById(nextBox3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+                document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
+                document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
+                document.getElementById(nextBox3).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
 
                 // Audio bien
 
@@ -1282,6 +1295,7 @@ const paint = (id) => {
                         document.getElementById(nextBox2).classList.add('bg-blue-600')
                         audioColor2()
                         setTimeout(function () {
+                            nextSelectSound(2)
                             bottonLigth(nextBox3)
                             focusId.value = nextBox3
                         }, 1000)
@@ -1353,14 +1367,17 @@ const paint = (id) => {
 
             successSound()
 
-            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
-            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(nextBox1).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
+            document.getElementById(nextBox2).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
 
             setTimeout(function () {
                 document.getElementById(nextBox1).classList.add('bg-green-600')
                 audioColor1()
-                bottonLigth(nextBox2)
-                focusId.value = nextBox2
+                setTimeout(function () {
+                    nextSelectSound(3)
+                    bottonLigth(nextBox2)
+                    focusId.value = nextBox2
+                }, 1000)
             }, 1000)
 
         } else if (document.getElementById(box3).classList.contains('bg-green-600') || document.getElementById(box3).classList.contains('bg-blue-600')) {
@@ -1421,8 +1438,9 @@ const paint = (id) => {
 
             successSound()
             focusId.value = box3
-            document.getElementById(box3).classList.remove('scale-75', 'bg-gray-400', 'opacity-10')
+            document.getElementById(box3).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
             document.getElementById(box3).classList.add('bg-gray-infinite')
+            nextSelectSound(2)
 
         } else if (document.getElementById(box2).classList.contains('bg-green-600')) {
             canPaint.value = false
@@ -1505,30 +1523,36 @@ const paint = (id) => {
         let boxNum1 = 116
         let boxNum3 = 118
 
-        let nextBox1 = 'caja116'
-        let nextBox2 = 'caja117'
-        let nextBox3 = 'caja118'
+        let nextBox1 = 'caja119'
+        let nextBox2 = 'caja120'
+        let nextBox3 = 'caja121'
 
 
         if (document.getElementById(box3).classList.contains('bg-blue-600')) { // Si completa la primera fila
             filaFocus.value = 10
 
-            let sound = new Audio();
-            sound.src = `${props.asset_audio}/coin.wav`;
-            sound.play();
+            successSound()
 
+            filaExtra.value = true
             focusId.value = ''
 
-            for (let i = 101; i <= 118; i++) {
-                const elementId = `caja${i}`;
-                document.getElementById(elementId).classList.add('brush-fail', 'bg-green-400');
-                setTimeout(function () {
-                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-green-400');
-                }, 1000)
-            }
+            let sound = new Audio();
+            sound.src = `${props.asset_audio}/voz1/permutaciones/extrafilacolor.m4a`;
+            sound.play()
+
+            // for (let i = 101; i <= 118; i++) {
+            //     const elementId = `caja${i}`;
+            //     document.getElementById(elementId).classList.add('brush-fail', 'bg-green-400');
+            //     setTimeout(function () {
+            //         document.getElementById(elementId).classList.remove('brush-fail', 'bg-green-400');
+            //     }, 1000)
+            // }
 
             setTimeout(function () {
-                win()
+                for (let i = 118; i <= 121; i++) {
+                    const elementId = `caja${i}`;
+                    document.getElementById(elementId).classList.remove('opacity-0');
+                }
             }, 800)
 
 
@@ -1572,6 +1596,36 @@ const paint = (id) => {
         }
     }
 
+    if (filaFocus.value === 10) {
+
+        let box1 = document.getElementById('caja119')
+        let box2 = document.getElementById('caja120')
+        let box3 = document.getElementById('caja121')
+
+        if (box1.classList.contains('hover:bg-gray-400') || box2.classList.contains('hover:bg-gray-400') || box3.classList.contains('hover:bg-gray-400')) {
+
+        } else {
+            errorSound()
+            for (let i = 119; i <= 121; i++) {
+                const elementId = `caja${i}`;
+                document.getElementById(elementId).classList.add('brush-fail', 'bg-red-800');
+                setTimeout(function () {
+                    document.getElementById(elementId).classList.remove('brush-fail', 'bg-red-800');
+                    document.getElementById(elementId).classList.add('opacity-0');
+                }, 1000)
+            }
+            let sound = new Audio();
+            sound.src = `${props.asset_audio}/voz1/permutaciones/parecenocolores.m4a`;
+            sound.play()
+            setTimeout(function () {
+                let sound = new Audio();
+                sound.src = `${props.asset_audio}/coin.wav`;
+                sound.play()
+                win()
+            }, 6200)
+
+        }
+    }
     // Interactivo sin refactorizar up
 }
 
@@ -1585,6 +1639,29 @@ const errorSound = () => {
     let sound = new Audio();
     sound.src = `${props.asset_audio}/wood.wav`;
     sound.play()
+}
+
+const nextSelectSound = (num) => {
+    if (num === 1) {
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/voz1/permutaciones/completalafila.m4a`;
+        sound.play()
+    }
+    if (num === 2) {
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/voz1/permutaciones/quecoloresel.m4a`;
+        sound.play()
+    }
+    if (num === 3) {
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/voz1/permutaciones/ahoracolor.m4a`;
+        sound.play()
+    }
+    if (num === 4) {
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/voz1/permutaciones/quecolor.m4a`;
+        sound.play()
+    }
 }
 
 const selectColor = (bg, id) => {
@@ -1698,18 +1775,19 @@ const bottonLigth = (id) => {
 }
 
 const interactiveActivity = () => {
+
     for (let i = 101; i <= 103; i++) {
         const elementId = `caja${i}`;
-        document.getElementById(elementId).classList.add('scale-110', 'bg-red-500');
+        document.getElementById(elementId).classList.replace('opacity-0', 'opacity-100');
         setTimeout(function () {
             document.getElementById(elementId).classList.remove('scale-110', 'bg-red-500');
         }, 500)
     }
 
-    for (let i = 104; i <= 118; i++) {
-        const elementId = `caja${i}`;
-        document.getElementById(elementId).classList.add('scale-75', 'bg-gray-400', 'opacity-10');
-    }
+    // for (let i = 104; i <= 118; i++) {
+    //     const elementId = `caja${i}`;
+    //     document.getElementById(elementId).classList.add('scale-75', 'bg-gray-400', 'opacity-0');
+    // }
 
     let myInterval = ''
     setTimeout(function () {
@@ -1889,9 +1967,9 @@ const interactiveActivity = () => {
                                                 <!--                                             ]">-->
                                                 <!--                                                    {{ null }}-->
                                                 <!--                                                </div>-->
-                                                <div v-for="i in 18" :key="i + 100" :id="`caja${i + 100}`"
+                                                <div v-for="i in 21" :key="i + 100" :id="`caja${i + 100}`"
                                                      @click="paint(`caja${i + 100}`)"
-                                                     :class="['p-6', 'border-black', 'border-2', 'cursor-cell', 'grid', 'hover:bg-gray-400', 'duration-300'
+                                                     :class="['p-6', 'border-black', 'border-2', 'cursor-cell', 'grid', 'hover:bg-gray-400', 'duration-300', 'opacity-0'
                                              ]">
                                                     {{ null }}
                                                 </div>
