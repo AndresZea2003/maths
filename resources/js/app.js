@@ -146,8 +146,16 @@ import LayoutActivity10 from "./components/nivel10/LayoutActivity10.vue"
 import LayoutInteractiveActivity10 from "./components/nivel10/LayoutInteractiveActivity10.vue"
 import LayoutSubInteractivity10 from "./components/nivel10/LayoutSubInteractivity10.vue"
 
+import PerfectVue from "./components/test/PerfectVue.vue"
+
+import ItemsLayoutPermutaciones from "./components/permutaciones/ItemsLayoutPermutaciones.vue"
+
 createApp({
     components: {
+        'items-layout-permutaciones': ItemsLayoutPermutaciones,
+
+        'perfect-vue': PerfectVue,
+
         'home-view': HomeView,
         'mati-saludo': MatiSaludo,
         'c-button': CButton,

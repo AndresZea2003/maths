@@ -905,7 +905,7 @@ const paint = (id) => {
 
             successSound()
             focusId.value = box3
-            nextSelectSound(2)
+            nextSelectSound(4)
             document.getElementById('caja106').classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
             document.getElementById('caja106').classList.add('bg-gray-infinite')
 
@@ -1295,7 +1295,7 @@ const paint = (id) => {
                         document.getElementById(nextBox2).classList.add('bg-blue-600')
                         audioColor2()
                         setTimeout(function () {
-                            nextSelectSound(2)
+                            nextSelectSound(4)
                             bottonLigth(nextBox3)
                             focusId.value = nextBox3
                         }, 1000)
@@ -1374,7 +1374,7 @@ const paint = (id) => {
                 document.getElementById(nextBox1).classList.add('bg-green-600')
                 audioColor1()
                 setTimeout(function () {
-                    nextSelectSound(3)
+                    nextSelectSound(1)
                     bottonLigth(nextBox2)
                     focusId.value = nextBox2
                 }, 1000)
@@ -1440,7 +1440,7 @@ const paint = (id) => {
             focusId.value = box3
             document.getElementById(box3).classList.remove('scale-75', 'bg-gray-400', 'opacity-0')
             document.getElementById(box3).classList.add('bg-gray-infinite')
-            nextSelectSound(2)
+            nextSelectSound(4)
 
         } else if (document.getElementById(box2).classList.contains('bg-green-600')) {
             canPaint.value = false
@@ -1644,7 +1644,7 @@ const errorSound = () => {
 const nextSelectSound = (num) => {
     if (num === 1) {
         let sound = new Audio();
-        sound.src = `${props.asset_audio}/voz1/permutaciones/completalafila.m4a`;
+        sound.src = `${props.asset_audio}/voz1/permutaciones/colordebeseguir.m4a`;
         sound.play()
     }
     if (num === 2) {
