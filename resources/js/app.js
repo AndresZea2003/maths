@@ -149,10 +149,19 @@ import LayoutSubInteractivity10 from "./components/nivel10/LayoutSubInteractivit
 import PerfectVue from "./components/test/PerfectVue.vue"
 
 import ItemsLayoutPermutaciones from "./components/permutaciones/ItemsLayoutPermutaciones.vue"
+import ImgLayoutPermutaciones from "./components/permutaciones/ImgLayoutPermutaciones.vue"
+
+import LayoutSelectActivity from "./components/layouts/LayoutSelectActivity.vue"
+
+import InteractiveItemsLayoutPermutaciones from "./components/permutaciones/InteractiveItemsLayoutPermutaciones.vue"
 
 createApp({
     components: {
+        'layout-select-activity': LayoutSelectActivity,
+
+        'interactive-items-layout-permutaciones': InteractiveItemsLayoutPermutaciones,
         'items-layout-permutaciones': ItemsLayoutPermutaciones,
+        'img-layout-permutaciones': ImgLayoutPermutaciones,
 
         'perfect-vue': PerfectVue,
 

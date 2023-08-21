@@ -139,6 +139,7 @@ Route::view('/normal/level-14/b', 'levels.normal.level14.b')->name('normal.level
 Route::view('/normal/level-14', 'levels.normal.level14.home')->name('normal.level-14.home');
 Route::view('/normal/level-14/a', 'levels.normal.level14.a')->name('normal.level-14.a');
 Route::view('/normal/level-14/b', 'levels.normal.level14.b')->name('normal.level-14.b');
+Route::view('/normal/level-14/c', 'levels.normal.level14.c')->name('normal.level-14.c');
 
 Route::view('/normal/level-15', 'levels.normal.level15.home')->name('normal.level-15.home');
 Route::view('/normal/level-15/a', 'levels.normal.level15.a')->name('normal.level-15.a');
