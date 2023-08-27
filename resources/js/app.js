@@ -155,8 +155,12 @@ import LayoutSelectActivity from "./components/layouts/LayoutSelectActivity.vue"
 
 import InteractiveItemsLayoutPermutaciones from "./components/permutaciones/InteractiveItemsLayoutPermutaciones.vue"
 
+import LayoutSudoku from "./components/sudokus/LayoutSudoku.vue"
+
 createApp({
     components: {
+        'layout-sudoku': LayoutSudoku,
+
         'layout-select-activity': LayoutSelectActivity,
 
         'interactive-items-layout-permutaciones': InteractiveItemsLayoutPermutaciones,
