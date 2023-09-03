@@ -12,6 +12,12 @@ const props = defineProps({
     item_1: {type: String, required: true},
     item_2: {type: String, required: true},
     item_3: {type: String, required: true},
+    color_1: {type: String},
+    color_2: {type: String},
+    color_3: {type: String},
+    icon_1: {type: String},
+    icon_2: {type: String},
+    icon_3: {type: String},
     activity_description: {type: String, required: true},
     audio_win: {type: String, required: true},
     bg_color_activity: {type: String, required: true},
@@ -19,15 +25,87 @@ const props = defineProps({
     palette_text: {type: String, required: true},
     route_back: {type: String, required: true},
     route_next: {type: String, required: true},
+    asset_videos: {type: String, required: true},
     asset_images: {type: String, required: true},
     asset_audio: {type: String, required: true},
     sudoku_size: {type: Number, required: true},
 })
 
+let dato1 = ref({
+    type: null,
+    value: null
+})
+let dato2 = ref({
+    type: null,
+    value: null
+})
+let dato3 = ref({
+    type: null,
+    value: null
+})
+
+if (props.item_1.length > 1) {
+    dato1.value = {
+        type: 'image',
+        value: props.item_1
+    }
+} else {
+    dato1.value = {
+        type: 'item',
+        value: props.item_1
+    }
+}
+
+if (props.item_2.length > 1) {
+    dato2.value = {
+        type: 'image',
+        value: props.item_2
+    }
+} else {
+    dato2.value = {
+        type: 'item',
+        value: props.item_2
+    }
+}
+
+if (props.item_3.length > 1) {
+    dato3.value = {
+        type: 'image',
+        value: props.item_3
+    }
+} else {
+    dato3.value = {
+        type: 'item',
+        value: props.item_3
+    }
+}
+
+if (props.color_1) {
+    dato1.value = {
+        type: 'color',
+        value: props.color_1
+    }
+}
+
+if (props.color_2) {
+    dato2.value = {
+        type: 'color',
+        value: props.color_2
+    }
+}
+
+if (props.color_3) {
+    dato3.value = {
+        type: 'color',
+        value: props.color_3
+    }
+}
+
+
+console.log(dato1.value, dato2.value, dato3.value)
+
 
 let content = ref(null);
-
-let colorSelected = ref(0);
 
 let talk = ref(false);
 
@@ -351,14 +429,48 @@ const win = () => {
 
 const firstClick = ref(false)
 
-const selectItem = (item) => {
-    content.value = item
+let colorSelected = ref('bg-white');
 
-    firstClick.value = true
+let contentType = ref('color')
 
-    let sound = new Audio();
-    sound.src = `${props.asset_audio}/bubble.wav`;
-    sound.play()
+const selectItem = (itemType, itemValue) => {
+    if (itemType === 'item') {
+        contentType.value = itemType
+        content.value = itemValue
+
+        firstClick.value = true
+
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/bubble.wav`;
+        sound.play()
+    } else if (itemType === 'color') {
+        contentType.value = itemType
+        colorSelected.value = `bg-${itemValue}`
+        content.value = null
+
+        firstClick.value = true
+
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/bubble.wav`;
+        sound.play()
+    } else if (itemType === 'image') {
+        console.log(itemValue)
+        contentType.value = itemType
+        colorSelected.value = 'bg-white'
+        content.value = itemValue
+
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/bubble.wav`;
+        sound.play()
+    } else if (itemType === null) {
+        contentType.value = 'color'
+        colorSelected.value = 'bg-white'
+        content.value = null
+
+        let sound = new Audio();
+        sound.src = `${props.asset_audio}/bubble.wav`;
+        sound.play()
+    }
 }
 
 const item1 = ref(null);
@@ -380,7 +492,28 @@ const item16 = ref(null)
 const item17 = ref(null)
 const item18 = ref(null)
 
+const ShowImg1 = ref(false);
+const ShowImg2 = ref(false);
+const ShowImg3 = ref(false)
+const ShowImg4 = ref(false)
+const ShowImg5 = ref(false)
+const ShowImg6 = ref(false)
+const ShowImg7 = ref(false)
+const ShowImg8 = ref(false)
+const ShowImg9 = ref(false)
+const ShowImg10 = ref(false)
+const ShowImg11 = ref(false)
+const ShowImg12 = ref(false)
+const ShowImg13 = ref(false)
+const ShowImg14 = ref(false)
+const ShowImg15 = ref(false)
+const ShowImg16 = ref(false)
+const ShowImg17 = ref(false)
+const ShowImg18 = ref(false)
+
 const items = [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12, item13, item14, item15, item16, item17, item18];
+
+const showImages = [ShowImg1, ShowImg2, ShowImg3, ShowImg4, ShowImg5, ShowImg6, ShowImg7, ShowImg8, ShowImg9, ShowImg10, ShowImg11, ShowImg12, ShowImg13, ShowImg14, ShowImg15, ShowImg16, ShowImg17, ShowImg18];
 
 const paintString = (id, numIndex) => {
 
@@ -408,18 +541,60 @@ const paintString = (id, numIndex) => {
     //     sound.play()
     // }
 
-    items[numIndex].value = content.value;
+    let showImg = false
+    let paintType = ''
 
-    if (content.value === props.item_1) {
-        sequenceNumber.value = '1'
-    } else if (content.value === props.item_2) {
-        sequenceNumber.value = '2'
-    } else if (content.value === props.item_3) {
-        sequenceNumber.value = '3'
-    } else if (content.value === null) {
-        sequenceNumber.value = ''
+    document.getElementById(id).classList.remove('hover:bg-gray-400')
+    document.getElementById(id).classList.remove('bg-white')
+    document.getElementById(id).classList.remove(`bg-${props.color_1}`)
+    document.getElementById(id).classList.remove(`bg-${props.color_2}`)
+    document.getElementById(id).classList.remove(`bg-${props.color_3}`)
+
+    if (content.value === null) {
+        items[numIndex].value = null;
+        showImages[numIndex].value = false;
+        document.getElementById(id).classList.add(`${colorSelected.value}`);
+        paintType = 'color'
+    } else {
+        if (content.value.length === 1) {
+            showImages[numIndex].value = false;
+            items[numIndex].value = content.value;
+            paintType = 'item'
+        }
+
+        if (content.value.length > 1) {
+            showImages[numIndex].value = true;
+            items[numIndex].value = content.value;
+            paintType = 'image'
+        }
     }
 
+    if (paintType === 'color') {
+        console.log('entro')
+        if (colorSelected.value === `bg-${props.color_1}`) {
+            console.log('1')
+            sequenceNumber.value = '1'
+        } else if (colorSelected.value === `bg-${props.color_2}`) {
+            console.log('2')
+            sequenceNumber.value = '2'
+        } else if (colorSelected.value === `bg-${props.color_3}`) {
+            console.log('3')
+            sequenceNumber.value = '3'
+        } else if (colorSelected.value === `bg-white`) {
+            console.log('4')
+            sequenceNumber.value = ''
+        }
+    } else {
+        if (content.value === dato1.value.value) {
+            sequenceNumber.value = '1'
+        } else if (content.value === dato2.value.value) {
+            sequenceNumber.value = '2'
+        } else if (content.value === dato3.value.value) {
+            sequenceNumber.value = '3'
+        } else if (content.value === null) {
+            sequenceNumber.value = ''
+        }
+    }
 
     const boxes = {
         'caja1': {
@@ -644,8 +819,7 @@ const paintString = (id, numIndex) => {
         const box = document.getElementById(`caja${boxNum}`);
         const contentBox = items[numIndex].value;
 
-        if (contentBox === null) {
-            document.getElementById(`error${groupNum}`).classList.replace('opacity-100', 'opacity-0')
+        if (contentBox === null && colorSelected.value === 'bg-white') {
             let sound = new Audio();
             sound.src = `${props.asset_audio}/eraser.mp3`;
             sound.play()
@@ -656,7 +830,6 @@ const paintString = (id, numIndex) => {
 
         if (combinations.includes(group.value)) {
             groupCheck.value = true
-            document.getElementById(`error${groupNum}`).classList.replace('opacity-100', 'opacity-0')
             let index = combinations.indexOf(group.value)
             combinations.splice(index, 1)
             playJumpSound()
@@ -678,7 +851,10 @@ const paintString = (id, numIndex) => {
             let sound = new Audio();
 
             if (group.value.length === 3) {
-                document.getElementById(`error${groupNum}`).classList.replace('opacity-0', 'opacity-100')
+                document.getElementById(id).classList.remove(`bg-${props.color_1}`)
+                document.getElementById(id).classList.remove(`bg-${props.color_2}`)
+                document.getElementById(id).classList.remove(`bg-${props.color_3}`)
+
                 sound.src = `${props.asset_audio}/wood.wav`;
                 document.getElementById(sec1).classList.add('bg-red-800', 'brush-fail')
                 document.getElementById(sec2).classList.add('bg-red-800', 'brush-fail')
@@ -874,9 +1050,17 @@ const paintString = (id, numIndex) => {
                                         <div v-for="i in props.sudoku_size * props.sudoku_size" :key="i"
                                              :id="`caja${i}`"
                                              @click="paintString(`caja${i}`, i - 1)"
-                                             :class="['h-12 w-12', 'font-bold text-2xl' , 'border-black', 'border-2', 'cursor-cell', 'flex justify-center items-center', 'hover:bg-gray-400', 'duration-300',
+                                             :class="['h-24 w-24', 'font-bold text-6xl' , 'border-black', 'border-2', 'cursor-cell', 'flex justify-center items-center', 'hover:bg-gray-400', 'duration-300',
                                              ]">
-                                            {{ null }}
+                                            <!--                                            <div>-->
+                                            <!--                                                {{ items[i - 1].value }}-->
+                                            <!--                                            </div>-->
+                                            <div v-if="showImages[i - 1].value === false">
+                                                {{ items[i - 1].value }}
+                                            </div>
+                                            <div v-else class="bg-orange-400">
+                                                <img :src="items[i - 1].value" alt="" width="50">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -909,40 +1093,109 @@ const paintString = (id, numIndex) => {
                                     <div>
                                         <div class="grid grid-cols-2 gap-5 mt-5">
                                             <div class="flex justify-center">
-                                                <button @click="selectItem(props.item_1)"
+                                                <!--                                                <button @click="selectItem(props.item_1)"-->
+                                                <!--                                                        class="rounded-md py-3 px-5 shadow-md bg-gray-300">-->
+                                                <!--                                                    <span class="font-bold text-4xl">{{ props.item_1 }}</span>-->
+                                                <!--                                                </button>-->
+                                                <button v-if="dato1.type === 'image'"
+                                                        @click="selectItem(dato1.type, dato1.value)"
+                                                        class="flex justify-center items-center ">
+                                                    <div class="bg-gray-300 p-4 shadow-md rounded-lg">
+                                                        <img :src="dato1.value" width="40" alt="">
+                                                    </div>
+                                                </button>
+
+                                                <button v-if="dato1.type === 'color'"
+                                                        @click="selectItem(dato1.type, dato1.value)"
+                                                        class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg :class="props.icon_1" xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
+                                                </button>
+
+                                                <button v-if="dato1.type === 'item'"
+                                                        @click="selectItem(dato1.type, dato1.value)"
                                                         class="rounded-md py-3 px-5 shadow-md bg-gray-300">
-                                                    <span class="font-bold text-4xl">{{ props.item_1 }}</span>
+                                                    <span class="font-bold text-4xl">{{ dato1.value }}</span>
                                                 </button>
                                             </div>
 
                                             <div class="flex justify-center">
-                                                <button @click="selectItem(props.item_2)"
-                                                        class="rounded-md py-3 px-5 shadow-md bg-gray-300">
-                                                    <span class="font-bold text-4xl">{{ props.item_2 }}</span>
+                                                <button v-if="dato2.type === 'image'"
+                                                        @click="selectItem(dato2.type, dato2.value)"
+                                                        class="flex justify-center items-center ">
+                                                    <div class="bg-gray-300 p-4 shadow-md rounded-lg">
+                                                        <img class="icon-blue" :src="dato2.value" width="40" alt="">
+                                                    </div>
                                                 </button>
+
+                                                <button v-if="dato2.type === 'color'"
+                                                        @click="selectItem(dato2.type, dato2.value)"
+                                                        class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg :class="props.icon_2" xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
+                                                </button>
+
+                                                <button v-if="dato2.type === 'item'"
+                                                        @click="selectItem(dato2.type, dato2.value)"
+                                                        class="rounded-md py-3 px-5 shadow-md bg-gray-300">
+                                                    <span class="font-bold text-4xl">{{ dato2.value }}</span>
+                                                </button>
+
                                             </div>
 
                                             <div class="flex justify-center">
-                                                <button @click="selectItem(props.item_3)"
-                                                        class="rounded-md  py-3 px-5 shadow-md bg-gray-300">
-                                                    <span class="font-bold text-4xl">{{ props.item_3 }}</span>
+                                                <button v-if="dato3.type === 'image'"
+                                                        @click="selectItem(dato3.type, dato3.value)"
+                                                        class="flex justify-center items-center ">
+                                                    <div class="bg-gray-300 p-4 shadow-md rounded-lg">
+                                                        <img :src="dato3.value" width="40" alt="">
+                                                    </div>
+                                                </button>
+
+                                                <button v-if="dato3.type === 'color'"
+                                                        @click="selectItem(dato3.type, dato3.value)"
+                                                        class="rounded-md p-2 shadow-md bg-gray-300">
+                                                    <svg :class="props.icon_3" xmlns="http://www.w3.org/2000/svg"
+                                                         width="50"
+                                                         height="50" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z"/>
+                                                    </svg>
+                                                </button>
+
+                                                <button v-if="dato3.type === 'item'"
+                                                        @click="selectItem(dato3.type, dato3.value)"
+                                                        class="rounded-md py-3 px-5 shadow-md bg-gray-300">
+                                                    <span class="font-bold text-4xl">{{ dato3.value }}</span>
                                                 </button>
                                             </div>
 
-                                            <button @click="selectItem(null)"
+                                            <button @click="selectItem(null, null)"
                                                     class="relative rounded-md p-2 shadow-md bg-gray-300  flex justify-center select-none">
                                                 <div class="relative">
                                                     <img :src="eraser" alt="borrador" width="50">
                                                 </div>
                                             </button>
 
-                                            <div v-if="content === null" id="muestra"
-                                                 class="border-2 border-black py-6 mt-5 bg-white col-span-2 shadow-2xl shadow-blue-900 flex justify-center font-bold text-5xl">
+                                            <div v-if="contentType === 'color'" id="muestra"
+                                                 :class="`${colorSelected} border-2 border-black h-14 mt-5 col-span-2 shadow-2xl shadow-blue-900 flex justify-center font-bold text-5xl`">
                                                 {{ content }}
                                             </div>
-                                            <div v-else id="muestra"
-                                                 class="border-2 border-black mt-5 bg-white col-span-2 shadow-2xl shadow-blue-900 flex justify-center font-bold text-5xl">
+                                            <div v-if="contentType === 'item'" id="muestra2"
+                                                 class="border-2 border-black h-14 mt-5 bg-white col-span-2 shadow-2xl shadow-blue-900 flex justify-center font-bold text-5xl">
                                                 {{ content }}
+                                            </div>
+                                            <div v-if="contentType === 'image'" id="muestra3"
+                                                 class="border-2 border-black p-1 h-14 mt-5 bg-white col-span-2 shadow-2xl shadow-blue-900 flex justify-center font-bold text-5xl">
+                                                <img :src="content" alt="">
                                             </div>
                                         </div>
 
