@@ -515,6 +515,25 @@ const items = [item1, item2, item3, item4, item5, item6, item7, item8, item9, it
 
 const showImages = [ShowImg1, ShowImg2, ShowImg3, ShowImg4, ShowImg5, ShowImg6, ShowImg7, ShowImg8, ShowImg9, ShowImg10, ShowImg11, ShowImg12, ShowImg13, ShowImg14, ShowImg15, ShowImg16, ShowImg17, ShowImg18];
 
+let sudokuArray = ref(["0", "0", "0", "0", "0", "0", "0", "0", "0"])
+
+let filas = ref([])
+
+let validateSudoku = {
+    valido: true
+}
+
+let filaError1 = ref(false)
+let filaError2 = ref(false)
+let filaError3 = ref(false)
+
+let filaCol1 = ref(false)
+let filaCol2 = ref(false)
+let filaCol3 = ref(false)
+
+let textValidate = ref(null)
+
+
 const paintString = (id, numIndex) => {
 
     if (content.value === null && firstClick.value === false) {
@@ -570,19 +589,18 @@ const paintString = (id, numIndex) => {
     }
 
     if (paintType === 'color') {
-        console.log('entro')
         if (colorSelected.value === `bg-${props.color_1}`) {
-            console.log('1')
+            // console.log('1')
             sequenceNumber.value = '1'
         } else if (colorSelected.value === `bg-${props.color_2}`) {
-            console.log('2')
+            // console.log('2')
             sequenceNumber.value = '2'
         } else if (colorSelected.value === `bg-${props.color_3}`) {
-            console.log('3')
+            // console.log('3')
             sequenceNumber.value = '3'
         } else if (colorSelected.value === `bg-white`) {
-            console.log('4')
-            sequenceNumber.value = ''
+            // console.log('4')
+            sequenceNumber.value = '0'
         }
     } else {
         if (content.value === dato1.value.value) {
@@ -592,8 +610,28 @@ const paintString = (id, numIndex) => {
         } else if (content.value === dato3.value.value) {
             sequenceNumber.value = '3'
         } else if (content.value === null) {
-            sequenceNumber.value = ''
+            sequenceNumber.value = '0'
         }
+    }
+
+    if (id === 'caja1') {
+        sudokuArray.value[0] = sequenceNumber.value
+    } else if (id === 'caja2') {
+        sudokuArray.value[1] = sequenceNumber.value
+    } else if (id === 'caja3') {
+        sudokuArray.value[2] = sequenceNumber.value
+    } else if (id === 'caja4') {
+        sudokuArray.value[3] = sequenceNumber.value
+    } else if (id === 'caja5') {
+        sudokuArray.value[4] = sequenceNumber.value
+    } else if (id === 'caja6') {
+        sudokuArray.value[5] = sequenceNumber.value
+    } else if (id === 'caja7') {
+        sudokuArray.value[6] = sequenceNumber.value
+    } else if (id === 'caja8') {
+        sudokuArray.value[7] = sequenceNumber.value
+    } else if (id === 'caja9') {
+        sudokuArray.value[8] = sequenceNumber.value
     }
 
     const boxes = {
@@ -797,9 +835,9 @@ const paintString = (id, numIndex) => {
         },
     };
 
-    if (boxes.hasOwnProperty(id)) {
-        boxes[id].color.value = sequenceNumber.value;
-    }
+    // if (boxes.hasOwnProperty(id)) {
+    //     boxes[id].color.value = sequenceNumber.value;
+    // }
 
     const playJumpSound = () => {
         const sound = new Audio();
@@ -807,86 +845,340 @@ const paintString = (id, numIndex) => {
         sound.play();
     };
 
-    const verifyCombinations = (boxNum, group, groupNum, groupCheck, classToAdd, sec1, sec2, sec3) => {
+    // const verifyCombinations = (boxNum, group, groupNum, groupCheck, classToAdd, sec1, sec2, sec3) => {
+    //
+    //     grupo1.value = color1.value + color2.value + color3.value;
+    //     grupo2.value = color4.value + color5.value + color6.value;
+    //     grupo3.value = color7.value + color8.value + color9.value;
+    //     grupo4.value = color10.value + color11.value + color12.value;
+    //     grupo5.value = color13.value + color14.value + color15.value;
+    //     grupo6.value = color16.value + color17.value + color18.value;
+    //
+    //     const box = document.getElementById(`caja${boxNum}`);
+    //     const contentBox = items[numIndex].value;
+    //
+    //     if (contentBox === null && colorSelected.value === 'bg-white') {
+    //         let sound = new Audio();
+    //         sound.src = `${props.asset_audio}/eraser.mp3`;
+    //         sound.play()
+    //         return
+    //     } else {
+    //
+    //     }
+    //
+    //     if (combinations.includes(group.value)) {
+    //         groupCheck.value = true
+    //         let index = combinations.indexOf(group.value)
+    //         combinations.splice(index, 1)
+    //         playJumpSound()
+    //
+    //         document.getElementById(sec1).classList.add(classToAdd)
+    //         document.getElementById(sec2).classList.add(classToAdd)
+    //         document.getElementById(sec3).classList.add(classToAdd)
+    //
+    //     } else {
+    //         function validarString(str) {
+    //
+    //             const uniqueDigits = new Set(str);
+    //             return uniqueDigits.size === 3;
+    //         }
+    //
+    //         const miString = group.value; // Reemplaza esto con tu string
+    //         const esValido = validarString(miString);
+    //
+    //         let sound = new Audio();
+    //
+    //         if (group.value.length === 3) {
+    //             document.getElementById(id).classList.remove(`bg-${props.color_1}`)
+    //             document.getElementById(id).classList.remove(`bg-${props.color_2}`)
+    //             document.getElementById(id).classList.remove(`bg-${props.color_3}`)
+    //
+    //             sound.src = `${props.asset_audio}/wood.wav`;
+    //             document.getElementById(sec1).classList.add('bg-red-800', 'brush-fail')
+    //             document.getElementById(sec2).classList.add('bg-red-800', 'brush-fail')
+    //             document.getElementById(sec3).classList.add('bg-red-800', 'brush-fail')
+    //             setTimeout(function () {
+    //                 document.getElementById(sec1).classList.remove('bg-red-800', 'brush-fail')
+    //                 document.getElementById(sec2).classList.remove('bg-red-800', 'brush-fail')
+    //                 document.getElementById(sec3).classList.remove('bg-red-800', 'brush-fail')
+    //             }, 500)
+    //         } else {
+    //             sound.src = `${props.asset_audio}/paint.wav`;
+    //         }
+    //
+    //         sound.play();
+    //     }
+    //
+    //     if (combinations.length === 0) {
+    //         win()
+    //     }
+    // }
+    //
+    // if (id in boxes) {
+    //     const {num, group, groupNum, groupCheck, classToAdd, sec1, sec2, sec3} = boxes[id];
+    //     verifyCombinations(num, group, groupNum, groupCheck, classToAdd, sec1, sec2, sec3);
+    // }
 
-        grupo1.value = color1.value + color2.value + color3.value;
-        grupo2.value = color4.value + color5.value + color6.value;
-        grupo3.value = color7.value + color8.value + color9.value;
-        grupo4.value = color10.value + color11.value + color12.value;
-        grupo5.value = color13.value + color14.value + color15.value;
-        grupo6.value = color16.value + color17.value + color18.value;
+    filas.value = dividirFilas(sudokuArray.value, 3)
 
-        const box = document.getElementById(`caja${boxNum}`);
-        const contentBox = items[numIndex].value;
+    let response = validarSubgrupos(filas.value)
+    validateSudoku.valido = response.valido
+    validateSudoku.conflictos = response.conflictos
 
-        if (contentBox === null && colorSelected.value === 'bg-white') {
-            let sound = new Audio();
-            sound.src = `${props.asset_audio}/eraser.mp3`;
-            sound.play()
-            return
-        } else {
+    if (validateSudoku.valido === false) {
+        let FyC = 0
+        let type = ''
+        for (let i = 0; i < validateSudoku.conflictos.length; i++) {
 
-        }
+            if (validateSudoku.conflictos[i].tipo === 'fila') {
+                FyC++
+                type = 'fila'
 
-        if (combinations.includes(group.value)) {
-            groupCheck.value = true
-            let index = combinations.indexOf(group.value)
-            combinations.splice(index, 1)
-            playJumpSound()
-
-            document.getElementById(sec1).classList.add(classToAdd)
-            document.getElementById(sec2).classList.add(classToAdd)
-            document.getElementById(sec3).classList.add(classToAdd)
-
-        } else {
-            function validarString(str) {
-
-                const uniqueDigits = new Set(str);
-                return uniqueDigits.size === 3;
+                if (validateSudoku.conflictos[i].posicion === 0) {
+                    for (let i = 1; i <= 3; i++) {
+                        const elementId = `caja${i}`;
+                        document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
+                        setTimeout(function () {
+                            document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
+                        }, 500)
+                    }
+                } else if (validateSudoku.conflictos[i].posicion === 1) {
+                    for (let i = 3; i <= 6; i++) {
+                        const elementId = `caja${i + 1}`;
+                        document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
+                        setTimeout(function () {
+                            document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
+                        }, 500)
+                    }
+                } else if (validateSudoku.conflictos[i].posicion === 2) {
+                    for (let i = 6; i <= 9; i++) {
+                        const elementId = `caja${i + 1}`;
+                        document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
+                        setTimeout(function () {
+                            document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
+                        }, 500)
+                    }
+                }
             }
 
-            const miString = group.value; // Reemplaza esto con tu string
-            const esValido = validarString(miString);
-
-            let sound = new Audio();
-
-            if (group.value.length === 3) {
-                document.getElementById(id).classList.remove(`bg-${props.color_1}`)
-                document.getElementById(id).classList.remove(`bg-${props.color_2}`)
-                document.getElementById(id).classList.remove(`bg-${props.color_3}`)
-
-                sound.src = `${props.asset_audio}/wood.wav`;
-                document.getElementById(sec1).classList.add('bg-red-800', 'brush-fail')
-                document.getElementById(sec2).classList.add('bg-red-800', 'brush-fail')
-                document.getElementById(sec3).classList.add('bg-red-800', 'brush-fail')
-                setTimeout(function () {
-                    document.getElementById(sec1).classList.remove('bg-red-800', 'brush-fail')
-                    document.getElementById(sec2).classList.remove('bg-red-800', 'brush-fail')
-                    document.getElementById(sec3).classList.remove('bg-red-800', 'brush-fail')
-                }, 500)
-            } else {
-                sound.src = `${props.asset_audio}/paint.wav`;
+            if (validateSudoku.conflictos[i].tipo === 'columna') {
+                FyC++
+                type = 'columna'
+                if (validateSudoku.conflictos[i].posicion === 0) {
+                    for (let i = 1; i <= 3; i++) {
+                        let y = 0
+                        if (i === 1) {
+                            y = 1
+                        }
+                        if (i === 2) {
+                            y = 4
+                        }
+                        if (i === 3) {
+                            y = 7
+                        }
+                        const elementId = `caja${y}`;
+                        document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
+                        setTimeout(function () {
+                            document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
+                        }, 500)
+                    }
+                } else if (validateSudoku.conflictos[i].posicion === 1) {
+                    for (let i = 1; i <= 3; i++) {
+                        let y = 0
+                        if (i === 1) {
+                            y = 2
+                        }
+                        if (i === 2) {
+                            y = 5
+                        }
+                        if (i === 3) {
+                            y = 8
+                        }
+                        console.log(`caja${y}`)
+                        const elementId = `caja${y}`;
+                        document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
+                        setTimeout(function () {
+                            document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
+                        }, 500)
+                    }
+                } else if (validateSudoku.conflictos[i].posicion === 2) {
+                    for (let i = 1; i <= 3; i++) {
+                        let y = 0
+                        if (i === 1) {
+                            y = 3
+                        }
+                        if (i === 2) {
+                            y = 6
+                        }
+                        if (i === 3) {
+                            y = 9
+                        }
+                        const elementId = `caja${y}`;
+                        document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
+                        setTimeout(function () {
+                            document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
+                        }, 500)
+                    }
+                }
             }
-
-            sound.play();
+            console.log(validateSudoku.conflictos[i]);
         }
 
-        if (combinations.length === 0) {
-            win()
+        // alert(FyC)
+        console.log(validateSudoku.value)
+        if (FyC === 1) {
+            textValidate.value = `Uy!, Parece que el dato ${validateSudoku.conflictos[0].numerosRepetidos[0]} se esta repitiendo en la ${type} ${validateSudoku.conflictos[0].posicion + 1}`
         }
-    }
+        if (FyC === 2) {
+            textValidate.value = `Uy!, Parece que el dato ${validateSudoku.conflictos[0].numerosRepetidos[0]} se esta repitiendo en la fila ${validateSudoku.conflictos[0].posicion + 1} y en la columna ${validateSudoku.conflictos[1].posicion + 1}`
+        }
 
-    if (id in boxes) {
-        const {num, group, groupNum, groupCheck, classToAdd, sec1, sec2, sec3} = boxes[id];
-        verifyCombinations(num, group, groupNum, groupCheck, classToAdd, sec1, sec2, sec3);
     }
 
 
 }
 
+
+let yep1 = ref(null)
+let yep2 = ref(null)
+let yep3 = ref(null)
+let yep4 = ref(null)
+let yep5 = ref(null)
+let yep6 = ref(null)
+let yep7 = ref(null)
+let yep8 = ref(null)
+let yep9 = ref(null)
+
+let yeps = ref([])
+
+let columnas = ref([])
+
+let banana = ref(null)
+
+const verify = () => {
+
+    yep1.value = document.getElementById('caja1').value
+    yep2.value = document.getElementById('caja2').value
+    yep3.value = document.getElementById('caja3').value
+    yep4.value = document.getElementById('caja4').value
+    yep5.value = document.getElementById('caja5').value
+    yep6.value = document.getElementById('caja6').value
+    yep7.value = document.getElementById('caja7').value
+    yep8.value = document.getElementById('caja8').value
+    yep9.value = document.getElementById('caja9').value
+
+    yeps.value = [yep1.value, yep2.value, yep3.value, yep4.value, yep5.value, yep6.value, yep7.value, yep8.value, yep9.value]
+
+    filas.value = dividirFilas(yeps.value, 3)
+
+    banana.value = validarSubgrupos(filas.value)
+
+    columnas.value = dividirColumnas(yeps.value, 3)
+}
+
+function dividirFilas(arr, numPartes) {
+    if (numPartes <= 0) {
+        throw new Error("El número de partes debe ser mayor que cero.");
+    }
+
+    const tamañoParte = Math.ceil(arr.length / numPartes);
+    const partes = [];
+
+    for (let i = 0; i < numPartes; i++) {
+        partes.push(arr.slice(i * tamañoParte, (i + 1) * tamañoParte));
+    }
+
+    return partes;
+}
+
+function dividirColumnas(arr, numPartes) {
+    if (numPartes <= 0) {
+        throw new Error("El número de partes debe ser mayor que cero.");
+    }
+
+    const tamañoParte = Math.ceil(arr.length / numPartes);
+    const partes = [];
+
+    for (let i = 0; i < tamañoParte; i++) {
+        const columna = [];
+        for (let j = 0; j < numPartes; j++) {
+            const indice = j * tamañoParte + i;
+            if (indice < arr.length) {
+                columna.push(arr[indice]);
+            }
+        }
+        partes.push(columna);
+    }
+
+    return partes;
+}
+
+
+function validarSubgrupos(subgrupos) {
+    const conflictos = [];
+
+    // Validar filas
+
+    for (let filaIndex = 0; filaIndex < subgrupos.length; filaIndex++) {
+        const fila = subgrupos[filaIndex];
+
+        if (fila.includes('0')) {
+            continue; // Omitir validación de esta fila
+        }
+
+        const numerosUnicos = new Set(fila);
+        if (numerosUnicos.size !== 3) {
+            const numerosRepetidos = [];
+            for (let i = 0; i < fila.length; i++) {
+                const numero = fila[i];
+                if (fila.lastIndexOf(numero) !== i) {
+                    numerosRepetidos.push(numero);
+                }
+            }
+            conflictos.push({
+                tipo: "fila",
+                posicion: filaIndex,
+                numerosRepetidos: numerosRepetidos,
+            });
+        }
+    }
+
+    // Validar columnas
+    for (let columnaIndex = 0; columnaIndex < subgrupos[0].length; columnaIndex++) {
+        const columna = subgrupos.map((fila) => fila[columnaIndex]);
+
+        if (columna.includes('0')) {
+            continue; // Omitir validación de esta columna
+        }
+
+        const numerosUnicos = new Set(columna);
+        if (numerosUnicos.size !== 3) {
+            const numerosRepetidos = [];
+            for (let i = 0; i < columna.length; i++) {
+                const numero = columna[i];
+                if (columna.lastIndexOf(numero) !== i) {
+                    numerosRepetidos.push(numero);
+                }
+            }
+            conflictos.push({
+                tipo: "columna",
+                posicion: columnaIndex,
+                numerosRepetidos: numerosRepetidos,
+            });
+        }
+    }
+
+    if (conflictos.length === 0) {
+        return {valido: true};
+    } else {
+        return {valido: false, conflictos: conflictos};
+    }
+}
+
 </script>
 
 <template>
+
     <div id="loader"
          class="hidden fixed top-0 left-0 w-full h-full bg-black opacity-0 transition-opacity duration-500 z-50">
         <div class="flex items-center justify-center h-full">
@@ -948,9 +1240,9 @@ const paintString = (id, numIndex) => {
                 <div class="flex items-center justify-between">
                     <a href="#" class="text-white font-bold text-xl">Experiencias logico matematico -</a>
                     <div class="flex items-center mr-auto">
-                        <span class="text-white mx-3 font-bold text-yellow-500">Actividad {{
-                                props.activity_number
-                            }}</span>
+                            <span class="text-white mx-3 font-bold text-yellow-500">Actividad {{
+                                    props.activity_number
+                                }}</span>
                     </div>
                     <a :href="props.route_back"
                        class="flex items-center gap-2 text-white hover:text-gray-200 mx-3 bg-gray-800 py-1 px-2 rounded-md hover:bg-gray-600">
@@ -1009,6 +1301,7 @@ const paintString = (id, numIndex) => {
                          :class="`bg-white border-4 ${props.border_color_activity} rounded-md md:col-span-10 grid md:grid-cols-11 flex items-center`">
 
                         <div :class="`${selectFig1} col-span-9`">
+                            {{ sudokuArray }} {{ filas }} {{ validateSudoku }}
                             <div>
                                 <div class="grid grid-cols-1">
                                     <div class="flex justify-center items-center mt-1 gap-5">
@@ -1018,11 +1311,11 @@ const paintString = (id, numIndex) => {
                                         <div class="flex w-[80%] justify-center bg-gray-400 rounded-full">
                                             <div v-for="i in props.number_of_activities" :key="i" :id="`bar${i}`"
                                                  :class="['w-full h-5', 'bg-gray-400',
-                                             { 'bg-green-400' : i < props.activity_number},
-                                             { 'border-l-4 border-black' : i !== 1 },
-                                             { 'rounded-l-full' : i === 1},
-                                             { 'rounded-r-full' : i === props.number_of_activities},
-                                             ]">
+                                                 { 'bg-green-400' : i < props.activity_number},
+                                                 { 'border-l-4 border-black' : i !== 1 },
+                                                 { 'rounded-l-full' : i === 1},
+                                                 { 'rounded-r-full' : i === props.number_of_activities},
+                                                 ]">
                                                 {{ null }}
                                             </div>
                                         </div>
@@ -1044,6 +1337,12 @@ const paintString = (id, numIndex) => {
                                 </div>
                             </div>
 
+                            {{ textValidate }}
+<!--                            <span v-if="validateSudoku.valido === false">-->
+<!--                                <span>Uy!, Parece que el dato {{ validateSudoku.conflictos[0].numerosRepetidos[0] }} ya se encuentra en la {{-->
+<!--                                        validateSudoku.conflictos[0].tipo-->
+<!--                                    }}  {{ validateSudoku.conflictos[0].posicion + 1 }}</span>-->
+<!--                            </span>-->
                             <div id="vista" class="items-center justify-center p-2 mt-5 duration-300">
                                 <div class="flex justify-center">
                                     <div :class="`grid gap-1 grid-cols-${props.sudoku_size}`">
@@ -1051,7 +1350,7 @@ const paintString = (id, numIndex) => {
                                              :id="`caja${i}`"
                                              @click="paintString(`caja${i}`, i - 1)"
                                              :class="['h-24 w-24', 'font-bold text-6xl' , 'border-black', 'border-2', 'cursor-cell', 'flex justify-center items-center', 'hover:bg-gray-400', 'duration-300',
-                                             ]">
+                                                 ]">
                                             <!--                                            <div>-->
                                             <!--                                                {{ items[i - 1].value }}-->
                                             <!--                                            </div>-->
@@ -1082,10 +1381,10 @@ const paintString = (id, numIndex) => {
                                 </div>
 
                                 <div class="flex justify-center items-center">
-                                                <span id="observa"
-                                                      class="font-MPlus text-SM duration-300">{{
-                                                        props.palette_text
-                                                    }}</span>
+                                                    <span id="observa"
+                                                          class="font-MPlus text-SM duration-300">{{
+                                                            props.palette_text
+                                                        }}</span>
                                 </div>
 
 
