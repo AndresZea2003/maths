@@ -18,6 +18,12 @@ const props = defineProps({
     icon_1: {type: String},
     icon_2: {type: String},
     icon_3: {type: String},
+    sound_item_1: {type: String, required: true},
+    sound_item_2: {type: String, required: true},
+    sound_item_3: {type: String, required: true},
+    the_sound_item_1: {type: String},
+    the_sound_item_2: {type: String},
+    the_sound_item_3: {type: String},
     activity_description: {type: String, required: true},
     audio_win: {type: String, required: true},
     bg_color_activity: {type: String, required: true},
@@ -104,6 +110,23 @@ if (props.color_3) {
 
 console.log(dato1.value, dato2.value, dato3.value)
 
+const soundItem1 = () => {
+    let sound = new Audio();
+    sound.src = `${props.sound_item_1}`;
+    sound.play()
+}
+
+const soundItem2 = () => {
+    let sound = new Audio();
+    sound.src = `${props.sound_item_2}`;
+    sound.play()
+}
+
+const soundItem3 = () => {
+    let sound = new Audio();
+    sound.src = `${props.sound_item_3}`;
+    sound.play()
+}
 
 let content = ref(null);
 
@@ -233,7 +256,7 @@ let focusId = ref('')
 
 let canPaint = ref(true)
 
-// const myTimeout = setTimeout(initialAudio, 2000);
+const myTimeout = setTimeout(initialAudio, 2000);
 
 function initialAudio() {
     if (talk.value === false) {
@@ -243,26 +266,26 @@ function initialAudio() {
         sound.src = `${props.asset_audio}/voz1/permutaciones/vamoscolores.m4a`;
         sound.play()
 
-        showIndexSquare('bg-green-600', 'bg-blue-600', 'bg-red-600')
+        showIndexSquare()
 
-        setTimeout(function () {
-            let sound = new Audio();
-            sound.src = `${props.asset_audio}/voz1/permutaciones/filascolores.m4a`;
-            sound.play()
-        }, 8000)
-
-        setTimeout(function () {
-            let sound = new Audio();
-            sound.src = `${props.asset_audio}/voz1/permutaciones/prestacolor.m4a`;
-            sound.play()
-        }, 12000)
-
-        setTimeout(function () {
-            interactiveActivity()
-        }, 24000)
+        // setTimeout(function () {
+        //     let sound = new Audio();
+        //     sound.src = `${props.asset_audio}/voz1/permutaciones/filascolores.m4a`;
+        //     sound.play()
+        // }, 8000)
+        //
+        // setTimeout(function () {
+        //     let sound = new Audio();
+        //     sound.src = `${props.asset_audio}/voz1/permutaciones/prestacolor.m4a`;
+        //     sound.play()
+        // }, 12000)
+        //
+        // setTimeout(function () {
+        //     interactiveActivity()
+        // }, 24000)
 
         widthMati.value = 160;
-        setTimeout(resetMati, 24000);
+        // setTimeout(resetMati, 24000);
         // setTimeout(function () {
         //     helpAudio()
         // }, 15000)
@@ -287,22 +310,73 @@ const audioColor3 = () => {
     sound.play()
 }
 
-function showIndexSquare(color1, color2, color3) {
+let contentIndexSquare = ref('')
+let imageIndexSquare = ref(false)
+
+console.log('PAAAAAAAA', dato1.value, dato2.value, dato3.value)
+
+function showIndexSquare() {
     indexSquareFig.value = 'colors';
     setTimeout(function () {
-        audioColor1()
-        indexSquare.value = `border-black border-2 p-12 ${color1}`;
+        soundItem1()
+        if (dato1.value.type === 'color') {
+            indexSquare.value = `border-black border-2 h-24 w-24 bg-${dato1.value.value} flex justify-center items-center`;
+            contentIndexSquare.value = null
+        }
+        if (dato1.value.type === 'item') {
+            indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
+            contentIndexSquare.value = dato1.value.value
+        }
+        if (dato1.value.type === 'image') {
+            imageIndexSquare.value = true
+            indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
+            contentIndexSquare.value = dato1.value.value
+            setTimeout(function () {
+                imageIndexSquare.value = false
+            }, 1500)
+        }
     }, 3000);
     setTimeout(function () {
-        audioColor2()
-        indexSquare.value = `border-black border-2 p-12 ${color2}`;
+        soundItem2()
+        if (dato2.value.type === 'color') {
+            indexSquare.value = `border-black border-2 h-24 w-24 bg-${dato2.value.value} flex justify-center items-center`;
+            contentIndexSquare.value = null
+        }
+        if (dato2.value.type === 'item') {
+            indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
+            contentIndexSquare.value = dato2.value.value
+        }
+        if (dato2.value.type === 'image') {
+            imageIndexSquare.value = true
+            indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
+            contentIndexSquare.value = dato2.value.value
+            setTimeout(function () {
+                imageIndexSquare.value = false
+            }, 1500)
+        }
     }, 4500);
     setTimeout(function () {
-        audioColor3()
-        indexSquare.value = `border-black border-2 p-12 ${color3}`;
+        soundItem3()
+        if (dato3.value.type === 'color') {
+            indexSquare.value = `border-black border-2 h-24 w-24 bg-${dato3.value.value} flex justify-center items-center`;
+            contentIndexSquare.value = null
+        }
+        if (dato3.value.type === 'item') {
+            indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
+            contentIndexSquare.value = dato3.value.value
+        }
+        if (dato3.value.type === 'image') {
+            imageIndexSquare.value = true
+            indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
+            contentIndexSquare.value = dato3.value.value
+            setTimeout(function () {
+                imageIndexSquare.value = false
+            }, 1500)
+        }
     }, 6000);
     setTimeout(function () {
         indexSquare.value = '';
+        contentIndexSquare.value = '';
     }, 7500);
 }
 
@@ -518,6 +592,8 @@ const showImages = [ShowImg1, ShowImg2, ShowImg3, ShowImg4, ShowImg5, ShowImg6, 
 let sudokuArray = ref(["0", "0", "0", "0", "0", "0", "0", "0", "0"])
 
 let filas = ref([])
+
+let columnas = ref([])
 
 let validateSudoku = {
     valido: true
@@ -835,96 +911,24 @@ const paintString = (id, numIndex) => {
         },
     };
 
-    // if (boxes.hasOwnProperty(id)) {
-    //     boxes[id].color.value = sequenceNumber.value;
-    // }
-
     const playJumpSound = () => {
         const sound = new Audio();
         sound.src = `${props.asset_audio}/jumpCoin.wav`;
         sound.play();
     };
 
-    // const verifyCombinations = (boxNum, group, groupNum, groupCheck, classToAdd, sec1, sec2, sec3) => {
-    //
-    //     grupo1.value = color1.value + color2.value + color3.value;
-    //     grupo2.value = color4.value + color5.value + color6.value;
-    //     grupo3.value = color7.value + color8.value + color9.value;
-    //     grupo4.value = color10.value + color11.value + color12.value;
-    //     grupo5.value = color13.value + color14.value + color15.value;
-    //     grupo6.value = color16.value + color17.value + color18.value;
-    //
-    //     const box = document.getElementById(`caja${boxNum}`);
-    //     const contentBox = items[numIndex].value;
-    //
-    //     if (contentBox === null && colorSelected.value === 'bg-white') {
-    //         let sound = new Audio();
-    //         sound.src = `${props.asset_audio}/eraser.mp3`;
-    //         sound.play()
-    //         return
-    //     } else {
-    //
-    //     }
-    //
-    //     if (combinations.includes(group.value)) {
-    //         groupCheck.value = true
-    //         let index = combinations.indexOf(group.value)
-    //         combinations.splice(index, 1)
-    //         playJumpSound()
-    //
-    //         document.getElementById(sec1).classList.add(classToAdd)
-    //         document.getElementById(sec2).classList.add(classToAdd)
-    //         document.getElementById(sec3).classList.add(classToAdd)
-    //
-    //     } else {
-    //         function validarString(str) {
-    //
-    //             const uniqueDigits = new Set(str);
-    //             return uniqueDigits.size === 3;
-    //         }
-    //
-    //         const miString = group.value; // Reemplaza esto con tu string
-    //         const esValido = validarString(miString);
-    //
-    //         let sound = new Audio();
-    //
-    //         if (group.value.length === 3) {
-    //             document.getElementById(id).classList.remove(`bg-${props.color_1}`)
-    //             document.getElementById(id).classList.remove(`bg-${props.color_2}`)
-    //             document.getElementById(id).classList.remove(`bg-${props.color_3}`)
-    //
-    //             sound.src = `${props.asset_audio}/wood.wav`;
-    //             document.getElementById(sec1).classList.add('bg-red-800', 'brush-fail')
-    //             document.getElementById(sec2).classList.add('bg-red-800', 'brush-fail')
-    //             document.getElementById(sec3).classList.add('bg-red-800', 'brush-fail')
-    //             setTimeout(function () {
-    //                 document.getElementById(sec1).classList.remove('bg-red-800', 'brush-fail')
-    //                 document.getElementById(sec2).classList.remove('bg-red-800', 'brush-fail')
-    //                 document.getElementById(sec3).classList.remove('bg-red-800', 'brush-fail')
-    //             }, 500)
-    //         } else {
-    //             sound.src = `${props.asset_audio}/paint.wav`;
-    //         }
-    //
-    //         sound.play();
-    //     }
-    //
-    //     if (combinations.length === 0) {
-    //         win()
-    //     }
-    // }
-    //
-    // if (id in boxes) {
-    //     const {num, group, groupNum, groupCheck, classToAdd, sec1, sec2, sec3} = boxes[id];
-    //     verifyCombinations(num, group, groupNum, groupCheck, classToAdd, sec1, sec2, sec3);
-    // }
-
     filas.value = dividirFilas(sudokuArray.value, 3)
+
+    columnas.value = dividirColumnas(sudokuArray.value, 3)
 
     let response = validarSubgrupos(filas.value)
     validateSudoku.valido = response.valido
     validateSudoku.conflictos = response.conflictos
 
+    for (let i = 0; i < props.sudoku_size; i++) {
+        let y = i + 1
+        document.getElementById(`caja${y}`).classList.remove('animate-pulse')
+    }
     if (validateSudoku.valido === false) {
         let FyC = 0
         let type = ''
@@ -935,24 +939,33 @@ const paintString = (id, numIndex) => {
                 type = 'fila'
 
                 if (validateSudoku.conflictos[i].posicion === 0) {
-                    for (let i = 1; i <= 3; i++) {
-                        const elementId = `caja${i}`;
+                    let y = 1
+                    for (let i = 0; i < props.sudoku_size; i++) {
+                        console.log(`caja${y}`)
+                        const elementId = `caja${y}`;
+                        y += 1
                         document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
                         setTimeout(function () {
                             document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
                         }, 500)
                     }
                 } else if (validateSudoku.conflictos[i].posicion === 1) {
-                    for (let i = 3; i <= 6; i++) {
-                        const elementId = `caja${i + 1}`;
+                    let y = 4
+                    for (let i = 0; i < props.sudoku_size; i++) {
+                        console.log(`caja${y}`)
+                        const elementId = `caja${y}`;
+                        y += 1
                         document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
                         setTimeout(function () {
                             document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
                         }, 500)
                     }
                 } else if (validateSudoku.conflictos[i].posicion === 2) {
-                    for (let i = 6; i <= 9; i++) {
-                        const elementId = `caja${i + 1}`;
+                    let y = 7
+                    for (let i = 0; i < props.sudoku_size; i++) {
+                        console.log(`caja${y}`)
+                        const elementId = `caja${y}`;
+                        y += 1
                         document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
                         setTimeout(function () {
                             document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
@@ -965,55 +978,33 @@ const paintString = (id, numIndex) => {
                 FyC++
                 type = 'columna'
                 if (validateSudoku.conflictos[i].posicion === 0) {
-                    for (let i = 1; i <= 3; i++) {
-                        let y = 0
-                        if (i === 1) {
-                            y = 1
-                        }
-                        if (i === 2) {
-                            y = 4
-                        }
-                        if (i === 3) {
-                            y = 7
-                        }
+                    let y = 1
+                    for (let i = 0; i < props.sudoku_size; i++) {
+                        console.log(`caja${y}`)
                         const elementId = `caja${y}`;
+                        y += 3
                         document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
                         setTimeout(function () {
                             document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
                         }, 500)
                     }
                 } else if (validateSudoku.conflictos[i].posicion === 1) {
-                    for (let i = 1; i <= 3; i++) {
-                        let y = 0
-                        if (i === 1) {
-                            y = 2
-                        }
-                        if (i === 2) {
-                            y = 5
-                        }
-                        if (i === 3) {
-                            y = 8
-                        }
+                    let y = 2
+                    for (let i = 0; i < props.sudoku_size; i++) {
                         console.log(`caja${y}`)
                         const elementId = `caja${y}`;
+                        y += 3
                         document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
                         setTimeout(function () {
                             document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
                         }, 500)
                     }
                 } else if (validateSudoku.conflictos[i].posicion === 2) {
-                    for (let i = 1; i <= 3; i++) {
-                        let y = 0
-                        if (i === 1) {
-                            y = 3
-                        }
-                        if (i === 2) {
-                            y = 6
-                        }
-                        if (i === 3) {
-                            y = 9
-                        }
+                    let y = 3
+                    for (let i = 0; i < props.sudoku_size; i++) {
+                        console.log(`caja${y}`)
                         const elementId = `caja${y}`;
+                        y += 3
                         document.getElementById(elementId).classList.add('bg-red-500', 'brush-fail');
                         setTimeout(function () {
                             document.getElementById(elementId).classList.remove('bg-red-500', 'brush-fail');
@@ -1026,15 +1017,153 @@ const paintString = (id, numIndex) => {
 
         // alert(FyC)
         console.log(validateSudoku.value)
+        for (let i = 0; i < props.sudoku_size; i++) {
+            let y = i + 1
+            document.getElementById(`caja${y}`).classList.remove('animate-pulse')
+        }
+
         if (FyC === 1) {
-            textValidate.value = `Uy!, Parece que el dato ${validateSudoku.conflictos[0].numerosRepetidos[0]} se esta repitiendo en la ${type} ${validateSudoku.conflictos[0].posicion + 1}`
+
+            console.log('filas :', filas.value)
+            console.log('columnas :', columnas.value)
+
+            if (type === 'fila') {
+
+                console.log('yessssssssss', filas.value[validateSudoku.conflictos[0].posicion][0]);
+
+
+                let miArray = [];
+
+                for (let i = 0; i < filas.value.length; i++) {
+                    miArray.push(filas.value[validateSudoku.conflictos[0].posicion][i])
+                }
+
+                let posiciones = [];
+
+                for (let i = 0; i < miArray.length; i++) {
+                    if (miArray[i] == validateSudoku.conflictos[0].numerosRepetidos[0]) {
+                        posiciones.push(i);
+                    }
+                }
+
+                if (posiciones.length > 0) {
+
+                    // if (validateSudoku.conflictos[0].posicion] === 0) {
+                    //     alert('banana')
+                    // }
+
+                    for (let i = 0; i < posiciones.length; i++) {
+                        document.getElementById(`caja${posiciones[i] + 1}`).classList.add('animate-pulse')
+                    }
+
+                    console.log(`El número ${validateSudoku.conflictos[0].numerosRepetidos[0]} se encuentra en las siguientes posiciones: ` + posiciones.join(", "));
+                } else {
+                    console.log(`El número ${validateSudoku.conflictos[0].numerosRepetidos[0]} no se encuentra en el array.`);
+                }
+
+                console.log('aqui', filas.value[validateSudoku.conflictos[0].posicion])
+
+                if (validateSudoku.conflictos[0].numerosRepetidos[0] == 1) {
+                    const sound = new Audio();
+                    sound.src = `${props.the_sound_item_1}`;
+                    sound.play();
+                }
+
+                if (validateSudoku.conflictos[0].numerosRepetidos[0] == 2) {
+                    const sound = new Audio();
+                    sound.src = `${props.the_sound_item_2}`;
+                    sound.play();
+                }
+
+                if (validateSudoku.conflictos[0].numerosRepetidos[0] == 3) {
+                    const sound = new Audio();
+                    sound.src = `${props.the_sound_item_3}`;
+                    sound.play();
+                }
+
+                setTimeout(function () {
+                    const sound = new Audio();
+                    sound.src = `${props.asset_audio}/voz1/sudokus/yaenestafila.m4a`;
+                    sound.play();
+                }, 1000)
+            }
+
+            if (type === 'columna') {
+
+                if (validateSudoku.conflictos[0].numerosRepetidos[0] == 1) {
+                    const sound = new Audio();
+                    sound.src = `${props.the_sound_item_1}`;
+                    sound.play();
+                }
+
+                if (validateSudoku.conflictos[0].numerosRepetidos[0] == 2) {
+                    const sound = new Audio();
+                    sound.src = `${props.the_sound_item_2}`;
+                    sound.play();
+                }
+
+                if (validateSudoku.conflictos[0].numerosRepetidos[0] == 3) {
+                    const sound = new Audio();
+                    sound.src = `${props.the_sound_item_3}`;
+                    sound.play();
+                }
+
+                setTimeout(function () {
+                    const sound = new Audio();
+                    sound.src = `${props.asset_audio}/voz1/sudokus/yaenestacol.m4a`;
+                    sound.play();
+                }, 1000)
+
+            }
+
+            // console.log(sudokuArray.value[0])
+            // console.log('Hola ', validateSudoku.conflictos[0].numerosRepetidos[0], items[0].value)
+            // textValidate.value = `Uy!, Parece que el dato ${validateSudoku.conflictos[0].numerosRepetidos[0]} se esta repitiendo en la ${type} ${validateSudoku.conflictos[0].posicion}`
+
+
+            const sound = new Audio();
+            sound.src = `${props.asset_audio}/wood.wav`;
+            sound.play();
+
         }
         if (FyC === 2) {
-            textValidate.value = `Uy!, Parece que el dato ${validateSudoku.conflictos[0].numerosRepetidos[0]} se esta repitiendo en la fila ${validateSudoku.conflictos[0].posicion + 1} y en la columna ${validateSudoku.conflictos[1].posicion + 1}`
+            // textValidate.value = `Uy!, Parece que el dato ${validateSudoku.conflictos[0].numerosRepetidos[0]} se esta repitiendo en la fila ${validateSudoku.conflictos[0].posicion + 1} y en la columna ${validateSudoku.conflictos[1].posicion + 1}`
+
+            if (validateSudoku.conflictos[0].numerosRepetidos[0] == 1) {
+                    const sound = new Audio();
+                    sound.src = `${props.the_sound_item_1}`;
+                    sound.play();
+                }
+
+                if (validateSudoku.conflictos[0].numerosRepetidos[0] == 2) {
+                    const sound = new Audio();
+                    sound.src = `${props.the_sound_item_2}`;
+                    sound.play();
+                }
+
+                if (validateSudoku.conflictos[0].numerosRepetidos[0] == 3) {
+                    const sound = new Audio();
+                    sound.src = `${props.the_sound_item_3}`;
+                    sound.play();
+                }
+
+                setTimeout(function () {
+                    const sound = new Audio();
+                    sound.src = `${props.asset_audio}/voz1/sudokus/yaenestafilaycol.m4a`;
+                    sound.play();
+                }, 1000)
+
+            const sound = new Audio();
+            sound.src = `${props.asset_audio}/wood.wav`;
+            sound.play();
         }
 
     }
 
+
+    const sound = new Audio();
+    sound.src = `${props.asset_audio}/tap.wav`;
+    sound.play();
 
 }
 
@@ -1051,7 +1180,6 @@ let yep9 = ref(null)
 
 let yeps = ref([])
 
-let columnas = ref([])
 
 let banana = ref(null)
 
@@ -1268,7 +1396,10 @@ function validarSubgrupos(subgrupos) {
 
                             <div v-if="indexSquareFig === 'colors'" class="flex justify-center items-center mb-16">
                                 <div :class="`${indexSquare}`">
-                                    {{ null }}
+                                    <div v-if="imageIndexSquare">
+                                        <img width="60" :src="contentIndexSquare" alt="">
+                                    </div>
+                                    <span v-else class="font-bold text-6xl">{{ contentIndexSquare }}</span>
                                 </div>
                             </div>
 
@@ -1301,7 +1432,8 @@ function validarSubgrupos(subgrupos) {
                          :class="`bg-white border-4 ${props.border_color_activity} rounded-md md:col-span-10 grid md:grid-cols-11 flex items-center`">
 
                         <div :class="`${selectFig1} col-span-9`">
-                            {{ sudokuArray }} {{ filas }} {{ validateSudoku }}
+                            <!--                            {{ sudokuArray }} {{ filas }} {{ validateSudoku }}-->
+                            <!--                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa {{ columnas }}-->
                             <div>
                                 <div class="grid grid-cols-1">
                                     <div class="flex justify-center items-center mt-1 gap-5">
@@ -1338,11 +1470,11 @@ function validarSubgrupos(subgrupos) {
                             </div>
 
                             {{ textValidate }}
-<!--                            <span v-if="validateSudoku.valido === false">-->
-<!--                                <span>Uy!, Parece que el dato {{ validateSudoku.conflictos[0].numerosRepetidos[0] }} ya se encuentra en la {{-->
-<!--                                        validateSudoku.conflictos[0].tipo-->
-<!--                                    }}  {{ validateSudoku.conflictos[0].posicion + 1 }}</span>-->
-<!--                            </span>-->
+                            <!--                            <span v-if="validateSudoku.valido === false">-->
+                            <!--                                <span>Uy!, Parece que el dato {{ validateSudoku.conflictos[0].numerosRepetidos[0] }} ya se encuentra en la {{-->
+                            <!--                                        validateSudoku.conflictos[0].tipo-->
+                            <!--                                    }}  {{ validateSudoku.conflictos[0].posicion + 1 }}</span>-->
+                            <!--                            </span>-->
                             <div id="vista" class="items-center justify-center p-2 mt-5 duration-300">
                                 <div class="flex justify-center">
                                     <div :class="`grid gap-1 grid-cols-${props.sudoku_size}`">
