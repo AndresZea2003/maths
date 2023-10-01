@@ -35,6 +35,18 @@ const props = defineProps({
     asset_images: {type: String, required: true},
     asset_audio: {type: String, required: true},
     sudoku_size: {type: Number, required: true},
+    introduction_audio_1: {type: String, required: true},
+    caja_1: {type: String},
+    caja_2: {type: String},
+    caja_3: {type: String},
+    caja_4: {type: String},
+    caja_5: {type: String},
+    caja_6: {type: String},
+    caja_7: {type: String},
+    caja_8: {type: String},
+    caja_9: {type: String},
+    interactive_array: {type: Array},
+    interactive_array_solution: {type: Array},
 })
 
 let dato1 = ref({
@@ -262,27 +274,15 @@ function initialAudio() {
     if (talk.value === false) {
         talk.value = true;
 
-        let sound = new Audio();
-        sound.src = `${props.asset_audio}/voz1/permutaciones/vamoscolores.m4a`;
-        sound.play()
+        let sound = new Audio(props.introduction_audio_1);
 
-        showIndexSquare()
+        function onSoundEnded() {
+            sound.removeEventListener('ended', onSoundEnded);
+            showIndexSquare()
+        }
 
-        // setTimeout(function () {
-        //     let sound = new Audio();
-        //     sound.src = `${props.asset_audio}/voz1/permutaciones/filascolores.m4a`;
-        //     sound.play()
-        // }, 8000)
-        //
-        // setTimeout(function () {
-        //     let sound = new Audio();
-        //     sound.src = `${props.asset_audio}/voz1/permutaciones/prestacolor.m4a`;
-        //     sound.play()
-        // }, 12000)
-        //
-        // setTimeout(function () {
-        //     interactiveActivity()
-        // }, 24000)
+        sound.addEventListener('ended', onSoundEnded)
+        sound.play();
 
         widthMati.value = 160;
         // setTimeout(resetMati, 24000);
@@ -317,25 +317,22 @@ console.log('PAAAAAAAA', dato1.value, dato2.value, dato3.value)
 
 function showIndexSquare() {
     indexSquareFig.value = 'colors';
-    setTimeout(function () {
-        soundItem1()
-        if (dato1.value.type === 'color') {
-            indexSquare.value = `border-black border-2 h-24 w-24 bg-${dato1.value.value} flex justify-center items-center`;
-            contentIndexSquare.value = null
-        }
-        if (dato1.value.type === 'item') {
-            indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
-            contentIndexSquare.value = dato1.value.value
-        }
-        if (dato1.value.type === 'image') {
-            imageIndexSquare.value = true
-            indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
-            contentIndexSquare.value = dato1.value.value
-            setTimeout(function () {
-                imageIndexSquare.value = false
-            }, 1500)
-        }
-    }, 3000);
+    soundItem1()
+    if (dato1.value.type === 'color') {
+        imageIndexSquare.value = false
+        indexSquare.value = `border-black border-2 h-24 w-24 bg-${dato1.value.value} flex justify-center items-center`;
+        contentIndexSquare.value = null
+    }
+    if (dato1.value.type === 'item') {
+        imageIndexSquare.value = false
+        indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
+        contentIndexSquare.value = dato1.value.value
+    }
+    if (dato1.value.type === 'image') {
+        imageIndexSquare.value = true
+        indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
+        contentIndexSquare.value = dato1.value.value
+    }
     setTimeout(function () {
         soundItem2()
         if (dato2.value.type === 'color') {
@@ -350,18 +347,25 @@ function showIndexSquare() {
             imageIndexSquare.value = true
             indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
             contentIndexSquare.value = dato2.value.value
-            setTimeout(function () {
-                imageIndexSquare.value = false
-            }, 1500)
+
         }
-    }, 4500);
+    }, 1500);
     setTimeout(function () {
-        soundItem3()
+
+        let sound = new Audio(`${props.asset_audio}/voz1/y .m4a`);
+        sound.play();
+
+        setTimeout(function () {
+            soundItem3()
+        }, 280)
+
         if (dato3.value.type === 'color') {
+            imageIndexSquare.value = false
             indexSquare.value = `border-black border-2 h-24 w-24 bg-${dato3.value.value} flex justify-center items-center`;
             contentIndexSquare.value = null
         }
         if (dato3.value.type === 'item') {
+            imageIndexSquare.value = false
             indexSquare.value = `border-black border-2 h-24 w-24 bg-gray-300 flex justify-center items-center`;
             contentIndexSquare.value = dato3.value.value
         }
@@ -373,11 +377,42 @@ function showIndexSquare() {
                 imageIndexSquare.value = false
             }, 1500)
         }
-    }, 6000);
+    }, 3000);
     setTimeout(function () {
         indexSquare.value = '';
         contentIndexSquare.value = '';
-    }, 7500);
+
+        let sound = new Audio(props.introduction_audio_1);
+
+        function onSoundEnded() {
+            sound.removeEventListener('ended', onSoundEnded);
+            interactive()
+        }
+
+        sound.addEventListener('ended', onSoundEnded)
+
+        sound.play();
+
+    }, 4500);
+}
+
+let interactiveMode = ref(false)
+
+let selectBox = ref('')
+
+let nextSelectBox = ref(0)
+
+function interactive() {
+    if (props.interactive_array.length > 0) {
+        interactiveMode.value = true
+        selectBox.value = (`caja${props.interactive_array[nextSelectBox.value]}`)
+        console.log(selectBox.value)
+        document.getElementById(selectBox.value).classList.add('bg-red-200')
+        console.log('Comienza la interactividad!')
+    } else {
+        console.log('No hay interactividad')
+    }
+
 }
 
 function helpAudio() {
@@ -444,7 +479,6 @@ const errorSound = () => {
 }
 
 const error = (id) => {
-
     let sound = new Audio();
     sound.src = `${props.asset_audio}/wood.wav`;
     sound.play()
@@ -612,6 +646,7 @@ let textValidate = ref(null)
 
 const paintString = (id, numIndex) => {
 
+
     if (content.value === null && firstClick.value === false) {
         let sound = new Audio();
         sound.src = `${props.asset_audio}/wood.wav`;
@@ -626,15 +661,13 @@ const paintString = (id, numIndex) => {
         return
     }
 
-    // if (content.value === null) {
-    //     let sound = new Audio();
-    //     sound.src = `${props.asset_audio}/eraser.mp3`;
-    //     sound.play()
-    // } else {
-    //     let sound = new Audio();
-    //     sound.src = `${props.asset_audio}/paint.wav`;
-    //     sound.play()
-    // }
+    if (interactiveMode.value === true) {
+        if (id !== selectBox.value) {
+            error(id)
+            return;
+        }
+    }
+
 
     let showImg = false
     let paintType = ''
@@ -690,6 +723,27 @@ const paintString = (id, numIndex) => {
         }
     }
 
+    if (interactiveMode.value === true) {
+        console.log(nextSelectBox.value, props.interactive_array.length, 'banana')
+        if (nextSelectBox.value >= props.interactive_array.length - 1) {
+            win()
+            return;
+        }
+        if (props.interactive_array_solution[nextSelectBox.value] == sequenceNumber.value) {
+            successSound()
+            console.log(nextSelectBox.value)
+            document.getElementById(selectBox.value).classList.remove('bg-red-200')
+            nextSelectBox.value++
+            console.log(nextSelectBox.value)
+            selectBox.value = (`caja${props.interactive_array[nextSelectBox.value]}`)
+            console.log(selectBox.value)
+            document.getElementById(selectBox.value).classList.add('bg-red-200')
+
+        } else {
+            error(id)
+        }
+    }
+
     if (id === 'caja1') {
         sudokuArray.value[0] = sequenceNumber.value
     } else if (id === 'caja2') {
@@ -709,6 +763,7 @@ const paintString = (id, numIndex) => {
     } else if (id === 'caja9') {
         sudokuArray.value[8] = sequenceNumber.value
     }
+
 
     const boxes = {
         'caja1': {
@@ -1012,11 +1067,9 @@ const paintString = (id, numIndex) => {
                     }
                 }
             }
-            console.log(validateSudoku.conflictos[i]);
         }
 
         // alert(FyC)
-        console.log(validateSudoku.value)
         for (let i = 0; i < props.sudoku_size; i++) {
             let y = i + 1
             document.getElementById(`caja${y}`).classList.remove('animate-pulse')
@@ -1130,28 +1183,28 @@ const paintString = (id, numIndex) => {
             // textValidate.value = `Uy!, Parece que el dato ${validateSudoku.conflictos[0].numerosRepetidos[0]} se esta repitiendo en la fila ${validateSudoku.conflictos[0].posicion + 1} y en la columna ${validateSudoku.conflictos[1].posicion + 1}`
 
             if (validateSudoku.conflictos[0].numerosRepetidos[0] == 1) {
-                    const sound = new Audio();
-                    sound.src = `${props.the_sound_item_1}`;
-                    sound.play();
-                }
+                const sound = new Audio();
+                sound.src = `${props.the_sound_item_1}`;
+                sound.play();
+            }
 
-                if (validateSudoku.conflictos[0].numerosRepetidos[0] == 2) {
-                    const sound = new Audio();
-                    sound.src = `${props.the_sound_item_2}`;
-                    sound.play();
-                }
+            if (validateSudoku.conflictos[0].numerosRepetidos[0] == 2) {
+                const sound = new Audio();
+                sound.src = `${props.the_sound_item_2}`;
+                sound.play();
+            }
 
-                if (validateSudoku.conflictos[0].numerosRepetidos[0] == 3) {
-                    const sound = new Audio();
-                    sound.src = `${props.the_sound_item_3}`;
-                    sound.play();
-                }
+            if (validateSudoku.conflictos[0].numerosRepetidos[0] == 3) {
+                const sound = new Audio();
+                sound.src = `${props.the_sound_item_3}`;
+                sound.play();
+            }
 
-                setTimeout(function () {
-                    const sound = new Audio();
-                    sound.src = `${props.asset_audio}/voz1/sudokus/yaenestafilaycol.m4a`;
-                    sound.play();
-                }, 1000)
+            setTimeout(function () {
+                const sound = new Audio();
+                sound.src = `${props.asset_audio}/voz1/sudokus/yaenestafilaycol.m4a`;
+                sound.play();
+            }, 1000)
 
             const sound = new Audio();
             sound.src = `${props.asset_audio}/wood.wav`;
@@ -1303,10 +1356,103 @@ function validarSubgrupos(subgrupos) {
     }
 }
 
+
+const jopa = () => {
+    const sound = new Audio();
+    sound.src = `${props.the_sound_item_2}`;
+
+    function onSoundEnded() {
+        sound.removeEventListener('ended', onSoundEnded);
+
+        const sound2 = new Audio();
+        sound2.src = `${props.the_sound_item_1}`;
+        sound2.play()
+    }
+
+    sound.addEventListener('ended', onSoundEnded)
+
+    sound.play();
+}
+
+setTimeout(function () {
+    prepareSudoku()
+}, 2000)
+
+const prepareSudoku = () => {
+    const sound = new Audio(`${props.asset_audio}/tap.wav`);
+    sound.play();
+
+    const colorUpdate = (caja, dato) => {
+        document.getElementById(`caja${caja}`).classList.add(`bg-${dato.value.value}`)
+        // playSound()
+    }
+
+    const imageUpdate = (caja, dato) => {
+        items[caja - 1].value = dato.value.value
+        showImages[caja - 1].value = true
+    }
+
+    const itemUpdate = (caja, dato) => {
+        items[caja - 1].value = dato.value.value
+        showImages[caja - 1].value = false
+    }
+
+    for (let caja = 1; caja <= 9; caja++) {
+
+        if (props[`caja_${caja}`] == 1) {
+
+            if (dato1.value.type == 'image') {
+                imageUpdate(caja, dato1)
+            }
+
+            if (dato1.value.type === 'color') {
+                colorUpdate(caja, dato1)
+            }
+
+            if (dato1.value.type == 'item') {
+                itemUpdate(caja, dato1)
+            }
+        }
+
+        if (props[`caja_${caja}`] == 2) {
+
+            if (dato2.value.type == 'image') {
+                imageUpdate(caja, dato2)
+            }
+
+            if (dato2.value.type === 'color') {
+                colorUpdate(caja, dato2)
+            }
+
+            if (dato2.value.type == 'item') {
+                itemUpdate(caja, dato2)
+            }
+        }
+
+
+        if (props[`caja_${caja}`] == 3) {
+
+            if (dato3.value.type == 'image') {
+                imageUpdate(caja, dato3)
+            }
+
+            if (dato3.value.type === 'color') {
+                colorUpdate(caja, dato3)
+            }
+
+            if (dato3.value.type == 'item') {
+                itemUpdate(caja, dato3)
+            }
+
+        }
+    }
+};
+
+// console.log('here', dato1.value.value)
+
 </script>
 
 <template>
-
     <div id="loader"
          class="hidden fixed top-0 left-0 w-full h-full bg-black opacity-0 transition-opacity duration-500 z-50">
         <div class="flex items-center justify-center h-full">
