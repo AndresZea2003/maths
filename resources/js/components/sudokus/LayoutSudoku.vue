@@ -36,6 +36,7 @@ const props = defineProps({
     asset_audio: {type: String, required: true},
     sudoku_size: {type: Number, required: true},
     introduction_audio_1: {type: String, required: true},
+    introduction_audio_2: {type: String, required: true},
     caja_1: {type: String},
     caja_2: {type: String},
     caja_3: {type: String},
@@ -47,6 +48,11 @@ const props = defineProps({
     caja_9: {type: String},
     interactive_array: {type: Array},
     interactive_array_solution: {type: Array},
+    ok_audio_1: {type: String},
+    ok_audio_2: {type: String},
+    ok_audio_3: {type: String},
+    ok_audio_4: {type: String},
+    error_audio_1: {type: String}
 })
 
 let dato1 = ref({
@@ -268,7 +274,31 @@ let focusId = ref('')
 
 let canPaint = ref(true)
 
-const myTimeout = setTimeout(initialAudio, 2000);
+// const myTimeout = setTimeout(initialAudio, 2000);
+
+// setTimeout(function () {
+//     prepareSudoku()
+//     setTimeout(function () {
+//         interactive()
+//     }, 500)
+// }, 1000)
+
+
+setTimeout(function () {
+    Swal.fire({
+        title: 'Tutorial',
+        text: 'Llegamos a los Sudokus! Aqui veremos un poco de pensamiento combinatorio, filas y muchos colores!',
+        icon: 'warning',
+        confirmButtonText: 'Comenzar'
+    }).then((result) => {
+        // if (result.isConfirmed) {
+        //     initialAudio();
+        //     prepareSudoku()
+        // }
+        initialAudio();
+        prepareSudoku()
+    });
+}, 500)
 
 function initialAudio() {
     if (talk.value === false) {
@@ -382,7 +412,7 @@ function showIndexSquare() {
         indexSquare.value = '';
         contentIndexSquare.value = '';
 
-        let sound = new Audio(props.introduction_audio_1);
+        let sound = new Audio(props.introduction_audio_2);
 
         function onSoundEnded() {
             sound.removeEventListener('ended', onSoundEnded);
@@ -407,7 +437,7 @@ function interactive() {
         interactiveMode.value = true
         selectBox.value = (`caja${props.interactive_array[nextSelectBox.value]}`)
         console.log(selectBox.value)
-        document.getElementById(selectBox.value).classList.add('bg-red-200')
+        document.getElementById(selectBox.value).classList.add('bg-gray-infinite')
         console.log('Comienza la interactividad!')
     } else {
         console.log('No hay interactividad')
@@ -724,23 +754,65 @@ const paintString = (id, numIndex) => {
     }
 
     if (interactiveMode.value === true) {
+        document.getElementById(selectBox.value).classList.remove('bg-gray-infinite')
         console.log(nextSelectBox.value, props.interactive_array.length, 'banana')
-        if (nextSelectBox.value >= props.interactive_array.length - 1) {
-            win()
-            return;
-        }
         if (props.interactive_array_solution[nextSelectBox.value] == sequenceNumber.value) {
-            successSound()
+
+            if (nextSelectBox.value === 0 && props.ok_audio_1) {
+                let sound = new Audio();
+                sound.src = `${props.ok_audio_1}`;
+                sound.play()
+            }
+
+            if (nextSelectBox.value === 1 && props.ok_audio_2) {
+                let sound = new Audio();
+                sound.src = `${props.ok_audio_2}`;
+                sound.play()
+            }
+
+            if (nextSelectBox.value === 2 && props.ok_audio_3) {
+                let sound = new Audio();
+                sound.src = `${props.ok_audio_3}`;
+                sound.play()
+            }
+
+            if (nextSelectBox.value === 3 && props.ok_audio_4) {
+                let sound = new Audio();
+                sound.src = `${props.ok_audio_4}`;
+                sound.play()
+            }
+
+            document.getElementById(id).classList.remove('opacity-50')
+            document.getElementById(id).classList.remove('brush-fail')
+
+            // successSound()
             console.log(nextSelectBox.value)
-            document.getElementById(selectBox.value).classList.remove('bg-red-200')
+            document.getElementById(selectBox.value).classList.remove('bg-gray-infinite')
             nextSelectBox.value++
+
+            if (nextSelectBox.value >= props.interactive_array.length) {
+                win()
+                return;
+            }
+
             console.log(nextSelectBox.value)
             selectBox.value = (`caja${props.interactive_array[nextSelectBox.value]}`)
             console.log(selectBox.value)
-            document.getElementById(selectBox.value).classList.add('bg-red-200')
-
+            document.getElementById(selectBox.value).classList.add('bg-gray-infinite')
         } else {
-            error(id)
+
+            document.getElementById(id).classList.add('opacity-50')
+            document.getElementById(id).classList.add('brush-fail')
+
+            setTimeout(function () {
+                document.getElementById(id).classList.remove('brush-fail')
+            }, 500)
+
+            let sound = new Audio();
+            sound.src = `${props.error_audio_1}`;
+            sound.play()
+            // alert('nop')
+            // error(id)
         }
     }
 
@@ -1374,10 +1446,6 @@ const jopa = () => {
     sound.play();
 }
 
-setTimeout(function () {
-    prepareSudoku()
-}, 2000)
-
 const prepareSudoku = () => {
     const sound = new Audio(`${props.asset_audio}/tap.wav`);
     sound.play();
@@ -1530,9 +1598,9 @@ const prepareSudoku = () => {
             <div
                 :class="`${props.bg_color_activity} border-4 ${props.border_color_activity} flex-col pb-2 rounded-md shadow-2xl`">
                 <div class="mx-5 py-2 flex justify-between">
-                    <div>
+                    <div :class="`bg-orange-200 px-2 rounded-md shadow-2xl border-4 ${props.border_color_activity}`">
                         <span class="font-bold">Actividad {{ props.activity_number }} - </span>
-                        <span> {{ props.activity_description }}</span>
+                        <span class="font-semibold "> {{ props.activity_description }}</span>
                     </div>
                 </div>
                 <div class="mx-5 grid md:grid-cols-12 gap-5">
@@ -1635,7 +1703,7 @@ const prepareSudoku = () => {
                                             <div v-if="showImages[i - 1].value === false">
                                                 {{ items[i - 1].value }}
                                             </div>
-                                            <div v-else class="bg-orange-400">
+                                            <div v-else>
                                                 <img :src="items[i - 1].value" alt="" width="50">
                                             </div>
                                         </div>

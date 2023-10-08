@@ -156,6 +156,12 @@ Route::view('/normal/level-16/c', 'levels.normal.level16.c')->name('normal.level
 Route::view('/normal/level-16/d', 'levels.normal.level16.d')->name('normal.level-16.d');
 Route::view('/normal/level-16/e', 'levels.normal.level16.e')->name('normal.level-16.e');
 Route::view('/normal/level-16/f', 'levels.normal.level16.f')->name('normal.level-16.f');
+Route::view('/normal/level-16/g', 'levels.normal.level16.g')->name('normal.level-16.g');
+Route::view('/normal/level-16/h', 'levels.normal.level16.h')->name('normal.level-16.h');
+Route::view('/normal/level-16/i', 'levels.normal.level16.i')->name('normal.level-16.i');
+Route::view('/normal/level-16/j', 'levels.normal.level16.j')->name('normal.level-16.j');
+Route::view('/normal/level-16/k', 'levels.normal.level16.k')->name('normal.level-16.k');
+Route::view('/normal/level-16/l', 'levels.normal.level16.l')->name('normal.level-16.l');
 
 Route::view('/normal/level-17', 'levels.normal.level17.home')->name('normal.level-17.home');
 Route::view('/normal/level-17/a', 'levels.normal.level17.a')->name('normal.level-17.a');

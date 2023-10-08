@@ -152,16 +152,19 @@ import ItemsLayoutPermutaciones from "./components/permutaciones/ItemsLayoutPerm
 import ImgLayoutPermutaciones from "./components/permutaciones/ImgLayoutPermutaciones.vue"
 
 import LayoutSelectActivity from "./components/layouts/LayoutSelectActivity.vue"
+import Design from "./components/layouts/Design.vue"
 
 import InteractiveItemsLayoutPermutaciones from "./components/permutaciones/InteractiveItemsLayoutPermutaciones.vue"
 
 import LayoutSudoku from "./components/sudokus/LayoutSudoku.vue"
+
 
 createApp({
     components: {
         'layout-sudoku': LayoutSudoku,
 
         'layout-select-activity': LayoutSelectActivity,
+        'design': Design,
 
         'interactive-items-layout-permutaciones': InteractiveItemsLayoutPermutaciones,
         'items-layout-permutaciones': ItemsLayoutPermutaciones,

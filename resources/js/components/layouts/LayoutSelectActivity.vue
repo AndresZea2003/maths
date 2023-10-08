@@ -13,14 +13,7 @@ const props = defineProps({
     base_url: {type: String, required: true},
 
     activity_number: {type: Number, required: true},
-    planet_1: {type: String, required: true},
-    planet_2: {type: String, required: true},
-    item_1: {type: String, required: true},
-    item_2: {type: String, required: true},
-    item_3: {type: String, required: true},
     activity_description: {type: String, required: true},
-    audio_win: {type: String, required: true},
-
 
     asset_audio: {type: String, required: true}
 })
@@ -40,7 +33,7 @@ const abecedario = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 
                 <div class="flex justify-center">
                     <div class="font-bold text-2xl text-gray-600">Nivel {{ props.level_number }}</div>
                 </div>
-                <div :class="`gap-5 grid ${props.cols} sm:grid-cols-1 mx-5`">
+                <div :class="`gap-5 grid md:${props.cols} grid-cols-1 mx-5`">
                     <a v-for="i in props.number_of_activities" :key="i" :id="`caja${i}`" :href="`${props.base_url}/normal/level-${props.level_number}/${abecedario[i - 1]}`">
                         <div
                             :class="`${props.bg_color_activity} ${props.border_color_activity} p-2 rounded-md shadow-2xl border-4 flex-col hover:scale-90 duration-300 cursor-pointer`">

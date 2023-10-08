@@ -135,8 +135,8 @@
         the_sound_item_3="{{asset('audio/voz1/letters/the/LaLetraC.m4a')}}"
         activity_description="Aqui la descripcion de la actividad"
         audio_win="{{asset('audio/voz1/win/fantastico1.m4a')}}"
-        bg_color_activity="bg-orange-500"
-        border_color_activity="border-orange-800"
+        bg_color_activity="bg-circles-orange"
+        border_color_activity="border-orange-600"
         palette_text="MIXTO"
         asset_videos="{{asset('videos')}}"
         asset_audio="{{asset('audio')}}"
@@ -158,4 +158,6 @@
         :interactive_array_solution="[]"
     >
     </layout-sudoku>
+
+{{--<design></design>--}}
 @endsection
