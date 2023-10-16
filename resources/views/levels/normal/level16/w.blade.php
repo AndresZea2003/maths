@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('main')
-    {{--    <actividad-16c asset_audio="{{asset('audio')}}" route_back="{{route('normal.level-16.home')}}" route_next="{{route('normal.level-16.d')}}" asset_images="{{asset('images')}}"></actividad-16c>--}}
+{{--    <actividad-16b asset_audio="{{asset('audio')}}" route_back="{{route('normal.level-16.home')}}" route_next="{{route('normal.level-16.c')}}" asset_images="{{asset('images')}}"></actividad-16b>--}}
 
-    <layout-sudoku
+<layout-sudoku
         :number_of_activities="{{ 12 }}"
         :activity_number="{{ 1 }}"
         planet_1="{{ asset('images/planetas/tierra.svg') }}"
         planet_2="{{ asset('images/planetas/rojo.svg') }}"
-        item_1="{{ asset('images/animales/tiburon.svg') }}"
-        item_2="{{ asset('images/animales/cangrejo.svg') }}"
-        item_3="{{ asset('images/animales/pulpo.svg') }}"
-        color_1="rose-400"
-        color_2="[#78288C]"
-        color_3="[#00aae4]"
+        item_1="1"
+        item_2="3"
+        item_3="5"
+        color_1=""
+        color_2=""
+        color_3=""
         icon_1="icon-blue"
         icon_2="icon-yellow"
         icon_3="icon-red1"
@@ -36,29 +36,29 @@
         :sudoku_size="{{ 3 }}"
         introduction_audio_1="{{asset('audio/voz1/sudokus/inicios/vamosimagenes.m4a')}}"
         introduction_audio_2="{{asset('audio/voz1/sudokus/inicios/ubiquemos.m4a')}}"
-        caja_1=""
+        caja_1="2"
         caja_2="3"
-        caja_3="1"
+        caja_3=""
         caja_4=""
         caja_5="1"
         caja_6="2"
         caja_7="1"
-        caja_8=""
+        caja_8="2"
         caja_9=""
-        :interactive_array="[4,1,8,9]"
-        :interactive_array_solution="[3,2,2,3]"
+        :interactive_array="[3,9,4]"
+        :interactive_array_solution="[1,3,3]"
         ok_audio_1="{{asset('audio/voz1/sudokus/animals/elefantefila.m4a')}}"
         ok_audio_2="{{asset('audio/voz1/sudokus/animals/correctococodrilo.m4a')}}"
-        ok_audio_3="{{asset('audio/voz1/sudokus/animals/correctococodrilo.m4a')}}"
+        ok_audio_3=""
         ok_audio_4=""
         error_audio_1="{{asset('audio/voz1/sudokus/errors/yafila.m4a')}}"
         error_audio_2="{{asset('audio/voz1/sudokus/errors/col1fila3.m4a')}}"
         error_audio_3="{{asset('audio/voz1/sudokus/errors/yafilacol.m4a')}}"
-        error_audio_3=""
-        :selector_1="[2,0]"
-        :selector_2="[1,1]"
-        :selector_3="[0,2]"
-        :selector_4="[3,3]"
+        error_audio_4=""
+        :selector_1="[1,0]"
+        :selector_2="[3,0]"
+        :selector_3="[2,1]"
+        :selector_4="[0,0]"
     >
     </layout-sudoku>
 @endsection

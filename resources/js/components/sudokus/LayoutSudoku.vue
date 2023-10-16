@@ -52,7 +52,14 @@ const props = defineProps({
     ok_audio_2: {type: String},
     ok_audio_3: {type: String},
     ok_audio_4: {type: String},
-    error_audio_1: {type: String}
+    error_audio_1: {type: String},
+    error_audio_2: {type: String},
+    error_audio_3: {type: String},
+    error_audio_4: {type: String},
+    selector_1: {type: Array},
+    selector_2: {type: Array},
+    selector_3: {type: Array},
+    selector_4: {type: Array},
 })
 
 let dato1 = ref({
@@ -276,29 +283,30 @@ let canPaint = ref(true)
 
 // const myTimeout = setTimeout(initialAudio, 2000);
 
-// setTimeout(function () {
-//     prepareSudoku()
-//     setTimeout(function () {
-//         interactive()
-//     }, 500)
-// }, 1000)
-
-
 setTimeout(function () {
-    Swal.fire({
-        title: 'Tutorial',
-        text: 'Llegamos a los Sudokus! Aqui veremos un poco de pensamiento combinatorio, filas y muchos colores!',
-        icon: 'warning',
-        confirmButtonText: 'Comenzar'
-    }).then((result) => {
-        // if (result.isConfirmed) {
-        //     initialAudio();
-        //     prepareSudoku()
-        // }
-        initialAudio();
-        prepareSudoku()
-    });
-}, 500)
+    prepareSudoku()
+    setTimeout(function () {
+        interactive()
+    }, 500)
+}, 1000)
+
+
+// setTimeout(function () {
+//     Swal.fire({
+//         title: 'Tutorial',
+//         text: 'Llegamos a los Sudokus! Aqui veremos un poco de pensamiento combinatorio, filas y muchos colores!',
+//         icon: 'warning',
+//         confirmButtonText: 'Comenzar'
+//     }).then((result) => {
+//         // if (result.isConfirmed) {
+//         //     initialAudio();
+//         //     prepareSudoku()
+//         // }
+//         initialAudio();
+//         prepareSudoku()
+//     });
+// }, 500)
+
 
 function initialAudio() {
     if (talk.value === false) {
@@ -673,7 +681,6 @@ let filaCol3 = ref(false)
 
 let textValidate = ref(null)
 
-
 const paintString = (id, numIndex) => {
 
 
@@ -753,6 +760,100 @@ const paintString = (id, numIndex) => {
         }
     }
 
+    const select_fila = (filaNum, color, error) => {
+        if (filaNum === 0) {
+            return
+        }
+        let y = 0
+        let x = 0
+        if (filaNum === 1) {
+            y = 1
+            x = 1
+        }
+        if (filaNum === 2) {
+            y = props.sudoku_size + 1
+            x = props.sudoku_size + 1
+        }
+        if (filaNum === 3) {
+            y = props.sudoku_size + props.sudoku_size + 1
+            x = props.sudoku_size + props.sudoku_size + 1
+        }
+
+        let classToAdd = ''
+
+        if (error) {
+            classToAdd = 'brush-fail'
+        } else {
+            classToAdd = 'scale-90'
+        }
+
+        setTimeout(function () {
+            for (let i = 0; i < props.sudoku_size; i++) {
+
+                document.getElementById(`caja${y}`).classList.add(color, classToAdd);
+
+                y++
+            }
+        }, 3000)
+
+
+        setTimeout(function () {
+            for (let i = 0; i < props.sudoku_size; i++) {
+
+                document.getElementById(`caja${x}`).classList.remove(classToAdd, color);
+
+                x++
+            }
+        }, 5000)
+    }
+
+
+    const select_col = (colNum, color, error) => {
+        if (colNum === 0) {
+            return
+        }
+        let y = 0
+        let x = 0
+        if (colNum === 1) {
+            y = 1
+            x = 1
+        }
+        if (colNum === 2) {
+            y = 2
+            x = 2
+        }
+        if (colNum === 3) {
+            y = 3
+            x = 3
+        }
+
+        let classToAdd = ''
+
+        if (error) {
+            classToAdd = 'brush-fail'
+        } else {
+            classToAdd = 'scale-90'
+        }
+
+        setTimeout(function () {
+            for (let i = 0; i < props.sudoku_size; i++) {
+
+                document.getElementById(`caja${y}`).classList.add(color, classToAdd);
+
+                y = y + props.sudoku_size
+            }
+        }, 3000)
+
+        setTimeout(function () {
+            for (let i = 0; i < props.sudoku_size; i++) {
+
+                document.getElementById(`caja${x}`).classList.remove(classToAdd, color);
+
+                x = x + props.sudoku_size
+            }
+        }, 5000)
+    }
+
     if (interactiveMode.value === true) {
         document.getElementById(selectBox.value).classList.remove('bg-gray-infinite')
         console.log(nextSelectBox.value, props.interactive_array.length, 'banana')
@@ -762,24 +863,80 @@ const paintString = (id, numIndex) => {
                 let sound = new Audio();
                 sound.src = `${props.ok_audio_1}`;
                 sound.play()
+
+                for (let i = 0; i < props.sudoku_size; i++) {
+                    if (props.selector_1[0] === 0) {
+                        select_col(props.selector_1[1], 'bg-yellow-400', false)
+                        setTimeout(function () {
+                            select_fila(props.selector_1[0], 'bg-yellow-400', false)
+                        }, 3000)
+                    } else {
+                        select_fila(props.selector_1[0], 'bg-yellow-400', false)
+                        setTimeout(function () {
+                            select_col(props.selector_1[1], 'bg-yellow-400', false)
+                        }, 3000)
+                    }
+                }
             }
 
             if (nextSelectBox.value === 1 && props.ok_audio_2) {
                 let sound = new Audio();
                 sound.src = `${props.ok_audio_2}`;
                 sound.play()
+
+                for (let i = 0; i < props.sudoku_size; i++) {
+                    if (props.selector_2[0] === 0) {
+                        select_col(props.selector_2[1], 'bg-yellow-400', false)
+                        setTimeout(function () {
+                            select_fila(props.selector_2[0], 'bg-yellow-400', false)
+                        }, 3000)
+                    } else {
+                        select_fila(props.selector_2[0], 'bg-yellow-400', false)
+                        setTimeout(function () {
+                            select_col(props.selector_2[1], 'bg-yellow-400', false)
+                        }, 3000)
+                    }
+                }
             }
 
             if (nextSelectBox.value === 2 && props.ok_audio_3) {
                 let sound = new Audio();
                 sound.src = `${props.ok_audio_3}`;
                 sound.play()
+
+                for (let i = 0; i < props.sudoku_size; i++) {
+                    if (props.selector_3[0] === 0) {
+                        select_col(props.selector_3[1], 'bg-yellow-400', false)
+                        setTimeout(function () {
+                            select_fila(props.selector_3[0], 'bg-yellow-400', false)
+                        }, 3000)
+                    } else {
+                        select_fila(props.selector_3[0], 'bg-yellow-400', false)
+                        setTimeout(function () {
+                            select_col(props.selector_3[1], 'bg-yellow-400', false)
+                        }, 3000)
+                    }
+                }
             }
 
             if (nextSelectBox.value === 3 && props.ok_audio_4) {
                 let sound = new Audio();
                 sound.src = `${props.ok_audio_4}`;
                 sound.play()
+
+                for (let i = 0; i < props.sudoku_size; i++) {
+                    if (props.selector_4[0] === 0) {
+                        select_col(props.selector_4[1], 'bg-yellow-400', false)
+                        setTimeout(function () {
+                            select_fila(props.selector_4[0], 'bg-yellow-400', false)
+                        }, 3000)
+                    } else {
+                        select_fila(props.selector_4[0], 'bg-yellow-400', false)
+                        setTimeout(function () {
+                            select_col(props.selector_4[1], 'bg-yellow-400', false)
+                        }, 3000)
+                    }
+                }
             }
 
             document.getElementById(id).classList.remove('opacity-50')
@@ -808,9 +965,193 @@ const paintString = (id, numIndex) => {
                 document.getElementById(id).classList.remove('brush-fail')
             }, 500)
 
-            let sound = new Audio();
-            sound.src = `${props.error_audio_1}`;
-            sound.play()
+
+            if (nextSelectBox.value === 0 && props.error_audio_1) {
+
+                if (props.selector_1[0] === 0) {
+                    select_col(props.selector_1[1], 'bg-red-400', true)
+                    setTimeout(function () {
+                        select_fila(props.selector_1[0], 'bg-red-400', true)
+                    }, 3000)
+                } else {
+                    select_fila(props.selector_1[0], 'bg-red-400', true)
+                    setTimeout(function () {
+                        select_col(props.selector_1[1], 'bg-red-400', true)
+                    }, 3000)
+                }
+
+                if (sequenceNumber.value === '1') {
+
+                    let sound = new Audio();
+                    sound.src = `${props.sound_item_1}`;
+                    sound.play()
+
+                    function onSoundEnded() {
+                        sound.removeEventListener('ended', onSoundEnded);
+                        sound.src = `${props.error_audio_1}`;
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded)
+                    sound.play();
+
+
+                } else if (sequenceNumber.value === '2') {
+
+                    let sound = new Audio();
+                    sound.src = `${props.sound_item_2}`;
+                    sound.play()
+
+                    function onSoundEnded() {
+                        sound.removeEventListener('ended', onSoundEnded);
+                        sound.src = `${props.error_audio_1}`;
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded)
+                    sound.play();
+
+                } else if (sequenceNumber.value === '3') {
+
+                    let sound = new Audio();
+                    sound.src = `${props.sound_item_3}`;
+                    sound.play()
+
+                    function onSoundEnded() {
+                        sound.removeEventListener('ended', onSoundEnded);
+                        sound.src = `${props.error_audio_1}`;
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded)
+                    sound.play();
+                }
+            }
+
+            if (nextSelectBox.value === 1 && props.error_audio_2) {
+
+                if (props.selector_2[0] === 0) {
+                    select_col(props.selector_2[1], 'bg-red-400', true)
+                    setTimeout(function () {
+                        select_fila(props.selector_2[0], 'bg-red-400', true)
+                    }, 3000)
+                } else {
+                    select_fila(props.selector_2[0], 'bg-red-400', true)
+                    setTimeout(function () {
+                        select_col(props.selector_2[1], 'bg-red-400', true)
+                    }, 3000)
+                }
+
+                if (sequenceNumber.value === '1') {
+                    let sound = new Audio();
+                    sound.src = `${props.sound_item_1}`;
+                    sound.play()
+
+                    function onSoundEnded() {
+                        sound.removeEventListener('ended', onSoundEnded);
+                        sound.src = `${props.error_audio_2}`;
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded)
+                    sound.play();
+
+                } else if (sequenceNumber.value === '2') {
+                    let sound = new Audio();
+                    sound.src = `${props.sound_item_2}`;
+                    sound.play()
+
+                    function onSoundEnded() {
+                        sound.removeEventListener('ended', onSoundEnded);
+                        sound.src = `${props.error_audio_2}`;
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded)
+                    sound.play();
+
+                } else if (sequenceNumber.value === '3') {
+                    let sound = new Audio();
+                    sound.src = `${props.sound_item_3}`;
+                    sound.play()
+
+                    function onSoundEnded() {
+                        sound.removeEventListener('ended', onSoundEnded);
+                        sound.src = `${props.error_audio_2}`;
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded)
+                    sound.play();
+                }
+            }
+
+            if (nextSelectBox.value === 2 && props.error_audio_3) {
+
+                if (props.selector_3[0] === 0) {
+                    select_col(props.selector_3[1], 'bg-red-400', true)
+                    setTimeout(function () {
+                        select_fila(props.selector_3[0], 'bg-red-400', true)
+                    }, 3000)
+                } else {
+                    select_fila(props.selector_3[0], 'bg-red-400', true)
+                    setTimeout(function () {
+                        select_col(props.selector_3[1], 'bg-red-400', true)
+                    }, 3000)
+                }
+
+                if (sequenceNumber.value === '1') {
+                    let sound = new Audio();
+                    sound.src = `${props.sound_item_1}`;
+                    sound.play()
+
+                    function onSoundEnded() {
+                        sound.removeEventListener('ended', onSoundEnded);
+                        sound.src = `${props.error_audio_3}`;
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded)
+                    sound.play();
+
+                } else if (sequenceNumber.value === '2') {
+                    let sound = new Audio();
+                    sound.src = `${props.sound_item_2}`;
+                    sound.play()
+
+                    function onSoundEnded() {
+                        sound.removeEventListener('ended', onSoundEnded);
+                        sound.src = `${props.error_audio_3}`;
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded)
+                    sound.play();
+
+                } else if (sequenceNumber.value === '3') {
+                    let sound = new Audio();
+                    sound.src = `${props.sound_item_3}`;
+                    sound.play()
+
+                    function onSoundEnded() {
+                        sound.removeEventListener('ended', onSoundEnded);
+                        sound.src = `${props.error_audio_3}`;
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded)
+                    sound.play();
+                }
+            }
+
+            if (nextSelectBox.value === 3 && props.error_audio_4) {
+
+            }
+
+            // let sound = new Audio();
+            // sound.src = `${props.error_audio_1}`;
+            // sound.play()
+
             // alert('nop')
             // error(id)
         }
@@ -1695,7 +2036,7 @@ const prepareSudoku = () => {
                                         <div v-for="i in props.sudoku_size * props.sudoku_size" :key="i"
                                              :id="`caja${i}`"
                                              @click="paintString(`caja${i}`, i - 1)"
-                                             :class="['h-24 w-24', 'font-bold text-6xl' , 'border-black', 'border-2', 'cursor-cell', 'flex justify-center items-center', 'hover:bg-gray-400', 'duration-300',
+                                             :class="['h-32 w-32', 'font-bold text-6xl' , 'border-black', 'border-2', 'cursor-cell', 'flex justify-center items-center', 'hover:bg-gray-400', 'duration-300',
                                                  ]">
                                             <!--                                            <div>-->
                                             <!--                                                {{ items[i - 1].value }}-->
@@ -1704,7 +2045,7 @@ const prepareSudoku = () => {
                                                 {{ items[i - 1].value }}
                                             </div>
                                             <div v-else>
-                                                <img :src="items[i - 1].value" alt="" width="50">
+                                                <img :src="items[i - 1].value" alt="" width="100">
                                             </div>
                                         </div>
                                     </div>
