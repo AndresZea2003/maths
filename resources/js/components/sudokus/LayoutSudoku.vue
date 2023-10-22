@@ -35,6 +35,7 @@ const props = defineProps({
     asset_images: {type: String, required: true},
     asset_audio: {type: String, required: true},
     sudoku_size: {type: Number, required: true},
+    introduction: {type: Boolean},
     introduction_audio_1: {type: String, required: true},
     introduction_audio_2: {type: String, required: true},
     caja_1: {type: String},
@@ -283,40 +284,229 @@ let canPaint = ref(true)
 
 // const myTimeout = setTimeout(initialAudio, 2000);
 
-setTimeout(function () {
-    prepareSudoku()
-    setTimeout(function () {
-        interactive()
-    }, 500)
-}, 1000)
-
-
 // setTimeout(function () {
-//     Swal.fire({
-//         title: 'Tutorial',
-//         text: 'Llegamos a los Sudokus! Aqui veremos un poco de pensamiento combinatorio, filas y muchos colores!',
-//         icon: 'warning',
-//         confirmButtonText: 'Comenzar'
-//     }).then((result) => {
-//         // if (result.isConfirmed) {
-//         //     initialAudio();
-//         //     prepareSudoku()
-//         // }
-//         initialAudio();
-//         prepareSudoku()
-//     });
-// }, 500)
+//     prepareSudoku()
+//     setTimeout(function () {
+//         interactive()
+//     }, 500)
+// }, 1000)
 
+
+setTimeout(function () {
+    Swal.fire({
+        title: 'Tutorial',
+        text: 'Llegamos a los Sudokus! Aqui veremos un poco de pensamiento combinatorio, filas y muchos colores!',
+        icon: 'warning',
+        confirmButtonText: 'Comenzar'
+    }).then((result) => {
+        // if (result.isConfirmed) {
+        //     initialAudio();
+        //     prepareSudoku()
+        // }
+        initialAudio();
+        prepareSudoku()
+    });
+}, 500)
+
+const classSelect = 'bg-yellow-400'
+
+const selectFila1 = () => {
+
+    document.getElementById('arrowFila1').classList.replace('opacity-0', 'opacity-80')
+
+    let sound = new Audio();
+    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/fila1.m4a`;
+    sound.play()
+
+    document.getElementById('caja1').classList.add(classSelect)
+    document.getElementById('caja2').classList.add(classSelect)
+    document.getElementById('caja3').classList.add(classSelect)
+
+    setTimeout(function () {
+        document.getElementById('caja1').classList.remove(classSelect)
+        document.getElementById('caja2').classList.remove(classSelect)
+        document.getElementById('caja3').classList.remove(classSelect)
+    }, 2000)
+}
+
+const selectFila2 = () => {
+
+    document.getElementById('arrowFila1').classList.replace('opacity-80', 'hidden')
+    document.getElementById('arrowFila2').classList.replace('opacity-0', 'opacity-80')
+
+    let sound = new Audio();
+    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/fila2.m4a`;
+    sound.play()
+
+    document.getElementById('caja4').classList.add(classSelect)
+    document.getElementById('caja5').classList.add(classSelect)
+    document.getElementById('caja6').classList.add(classSelect)
+
+    setTimeout(function () {
+        document.getElementById('caja4').classList.remove(classSelect)
+        document.getElementById('caja5').classList.remove(classSelect)
+        document.getElementById('caja6').classList.remove(classSelect)
+    }, 2000)
+}
+
+const selectFila3 = () => {
+
+    document.getElementById('arrowFila2').classList.replace('opacity-80', 'hidden')
+    document.getElementById('arrowFila3').classList.replace('opacity-0', 'opacity-80')
+
+    let sound = new Audio();
+    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yfila3.m4a`;
+    sound.play()
+
+    document.getElementById('caja7').classList.add(classSelect)
+    document.getElementById('caja8').classList.add(classSelect)
+    document.getElementById('caja9').classList.add(classSelect)
+
+    setTimeout(function () {
+        document.getElementById('arrowFila3').classList.replace('opacity-80', 'hidden')
+        document.getElementById('caja7').classList.remove(classSelect)
+        document.getElementById('caja8').classList.remove(classSelect)
+        document.getElementById('caja9').classList.remove(classSelect)
+    }, 2000)
+}
+
+const selectCol1 = () => {
+
+    document.getElementById('arrowCol1').classList.replace('opacity-0', 'opacity-80')
+
+    let sound = new Audio();
+    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/col1.m4a`;
+    sound.play()
+
+    document.getElementById('caja1').classList.add(classSelect)
+    document.getElementById('caja4').classList.add(classSelect)
+    document.getElementById('caja7').classList.add(classSelect)
+
+    setTimeout(function () {
+        document.getElementById('caja1').classList.remove(classSelect)
+        document.getElementById('caja4').classList.remove(classSelect)
+        document.getElementById('caja7').classList.remove(classSelect)
+    }, 2000)
+}
+
+const selectCol2 = () => {
+
+    document.getElementById('arrowCol1').classList.replace('opacity-80', 'hidden')
+    document.getElementById('arrowCol2').classList.replace('opacity-0', 'opacity-80')
+
+    let sound = new Audio();
+    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/col2.m4a`;
+    sound.play()
+
+    document.getElementById('caja2').classList.add(classSelect)
+    document.getElementById('caja5').classList.add(classSelect)
+    document.getElementById('caja8').classList.add(classSelect)
+
+    setTimeout(function () {
+        document.getElementById('caja2').classList.remove(classSelect)
+        document.getElementById('caja5').classList.remove(classSelect)
+        document.getElementById('caja8').classList.remove(classSelect)
+    }, 2000)
+}
+
+const selectCol3 = () => {
+
+    document.getElementById('arrowCol2').classList.replace('opacity-80', 'hidden')
+    document.getElementById('arrowCol3').classList.replace('opacity-0', 'opacity-80')
+
+    let sound = new Audio();
+    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/ycol3.m4a`;
+    sound.play()
+
+    document.getElementById('caja3').classList.add(classSelect)
+    document.getElementById('caja6').classList.add(classSelect)
+    document.getElementById('caja9').classList.add(classSelect)
+
+    setTimeout(function () {
+        document.getElementById('arrowCol3').classList.replace('opacity-80', 'hidden')
+
+        document.getElementById('caja3').classList.remove(classSelect)
+        document.getElementById('caja6').classList.remove(classSelect)
+        document.getElementById('caja9').classList.remove(classSelect)
+    }, 2000)
+}
 
 function initialAudio() {
     if (talk.value === false) {
         talk.value = true;
 
+        document.getElementById('arrowFila1').classList.remove('hidden')
+        document.getElementById('arrowFila2').classList.remove('hidden')
+        document.getElementById('arrowFila3').classList.remove('hidden')
+        document.getElementById('arrowCol1').classList.remove('hidden')
+        document.getElementById('arrowCol2').classList.remove('hidden')
+        document.getElementById('arrowCol3').classList.remove('hidden')
+
         let sound = new Audio(props.introduction_audio_1);
 
         function onSoundEnded() {
             sound.removeEventListener('ended', onSoundEnded);
-            showIndexSquare()
+
+            if (props.introduction === true) {
+
+                selectFila1()
+
+                setTimeout(function () {
+                    selectFila2()
+                    setTimeout(function () {
+                        selectFila3()
+                    }, 2000)
+                }, 2000)
+
+
+                setTimeout(function () {
+                    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/colmismacantidad.m4a`;
+
+                    function onSoundEnded() {
+                        sound.removeEventListener('ended', onSoundEnded);
+
+                        selectCol1()
+
+                        setTimeout(function () {
+                            selectCol2()
+                            setTimeout(function () {
+                                selectCol3()
+                            }, 2000)
+                        }, 2000)
+
+                        setTimeout(function () {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/inicios/deberascompletar.m4a`;
+
+                            setTimeout(function () {
+                                document.getElementById(`caja${props.interactive_array[0]}`).classList.add('bg-red-400')
+                                document.getElementById(`caja${props.interactive_array[1]}`).classList.add('bg-red-400')
+                                document.getElementById(`caja${props.interactive_array[2]}`).classList.add('bg-red-400')
+                            }, 500)
+
+                            setTimeout(function () {
+                                document.getElementById(`caja${props.interactive_array[0]}`).classList.remove('bg-red-400')
+                                document.getElementById(`caja${props.interactive_array[1]}`).classList.remove('bg-red-400')
+                                document.getElementById(`caja${props.interactive_array[2]}`).classList.remove('bg-red-400')
+                            }, 3500)
+
+                            function onSoundEnded() {
+                                sound.removeEventListener('ended', onSoundEnded);
+
+                                showIndexSquare()
+                            }
+
+                            sound.addEventListener('ended', onSoundEnded)
+                            sound.play()
+                        }, 6000)
+
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded)
+                    sound.play()
+                }, 6000)
+            } else {
+                showIndexSquare()
+            }
         }
 
         sound.addEventListener('ended', onSoundEnded)
@@ -445,7 +635,7 @@ function interactive() {
         interactiveMode.value = true
         selectBox.value = (`caja${props.interactive_array[nextSelectBox.value]}`)
         console.log(selectBox.value)
-        document.getElementById(selectBox.value).classList.add('bg-gray-infinite')
+        document.getElementById(selectBox.value).classList.add('bg-green-infinite')
         console.log('Comienza la interactividad!')
     } else {
         console.log('No hay interactividad')
@@ -533,6 +723,8 @@ const error = (id) => {
 
 const win = () => {
     let sound = new Audio();
+
+    successSound()
     sound.src = `${props.audio_win}`;
     sound.play();
 
@@ -681,6 +873,12 @@ let filaCol3 = ref(false)
 
 let textValidate = ref(null)
 
+const waterBubbleSound = () => {
+    let sound = new Audio();
+        sound.src = `${props.asset_audio}/waterBubble.wav`;
+        sound.play()
+}
+
 const paintString = (id, numIndex) => {
 
 
@@ -780,22 +978,22 @@ const paintString = (id, numIndex) => {
         }
 
         let classToAdd = ''
+        let time = 0
 
         if (error) {
             classToAdd = 'brush-fail'
+            time = 800
         } else {
             classToAdd = 'scale-90'
+            time = 2000
         }
 
-        setTimeout(function () {
-            for (let i = 0; i < props.sudoku_size; i++) {
+        for (let i = 0; i < props.sudoku_size; i++) {
 
-                document.getElementById(`caja${y}`).classList.add(color, classToAdd);
+            document.getElementById(`caja${y}`).classList.add(color, classToAdd);
 
-                y++
-            }
-        }, 3000)
-
+            y++
+        }
 
         setTimeout(function () {
             for (let i = 0; i < props.sudoku_size; i++) {
@@ -804,7 +1002,7 @@ const paintString = (id, numIndex) => {
 
                 x++
             }
-        }, 5000)
+        }, time)
     }
 
 
@@ -828,21 +1026,22 @@ const paintString = (id, numIndex) => {
         }
 
         let classToAdd = ''
+        let time = 0
 
         if (error) {
             classToAdd = 'brush-fail'
+            time = 800
         } else {
             classToAdd = 'scale-90'
+            time = 2000
         }
 
-        setTimeout(function () {
-            for (let i = 0; i < props.sudoku_size; i++) {
+        for (let i = 0; i < props.sudoku_size; i++) {
 
-                document.getElementById(`caja${y}`).classList.add(color, classToAdd);
+            document.getElementById(`caja${y}`).classList.add(color, classToAdd);
 
-                y = y + props.sudoku_size
-            }
-        }, 3000)
+            y = y + props.sudoku_size
+        }
 
         setTimeout(function () {
             for (let i = 0; i < props.sudoku_size; i++) {
@@ -851,72 +1050,295 @@ const paintString = (id, numIndex) => {
 
                 x = x + props.sudoku_size
             }
-        }, 5000)
+        }, time)
     }
 
     if (interactiveMode.value === true) {
-        document.getElementById(selectBox.value).classList.remove('bg-gray-infinite')
+        document.getElementById(selectBox.value).classList.remove('bg-green-infinite')
         console.log(nextSelectBox.value, props.interactive_array.length, 'banana')
         if (props.interactive_array_solution[nextSelectBox.value] == sequenceNumber.value) {
+            waterBubbleSound()
 
             if (nextSelectBox.value === 0 && props.ok_audio_1) {
+
                 let sound = new Audio();
-                sound.src = `${props.ok_audio_1}`;
+                sound.src = `${props.asset_audio}/voz1/nice/muybien.m4a`;
+
+                function onSoundEnded() {
+                    sound.removeEventListener('ended', onSoundEnded);
+
+                    if (props.interactive_array_solution[0] == 1) {
+                        sound.src = `${props.sound_item_1}`;
+                    } else if (props.interactive_array_solution[0] == 2) {
+                        sound.src = `${props.sound_item_2}`;
+                    } else if (props.interactive_array_solution[0] == 3) {
+                        sound.src = `${props.sound_item_3}`;
+                    }
+
+
+                    function onSoundEnded1() {
+                        sound.removeEventListener('ended', onSoundEnded1);
+
+                        sound.src = `${props.ok_audio_1}`;
+
+                        function onSoundEnded2() {
+                            sound.removeEventListener('ended', onSoundEnded2);
+
+                            // if (props.selector_1[0] !== 0 && props.selector_1[1] !== 0){
+                            //    Cuando son fila y col
+                            // }
+
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/primerafila.m4a`;
+
+                            for (let i = 0; i < props.sudoku_size; i++) {
+                                if (props.selector_1[0] === 0) {
+                                    select_col(props.selector_1[1], 'bg-yellow-400', false)
+                                    setTimeout(function () {
+                                        select_fila(props.selector_1[0], 'bg-yellow-400', false)
+                                    }, 3000)
+                                } else {
+                                    select_fila(props.selector_1[0], 'bg-yellow-400', false)
+                                    setTimeout(function () {
+                                        select_col(props.selector_1[1], 'bg-yellow-400', false)
+                                    }, 3000)
+                                }
+                            }
+
+                            function onSoundEnded3() {
+                                sound.removeEventListener('ended', onSoundEnded3);
+                                sound.src = `${props.asset_audio}/voz1/sudokus/animals/sigamossiguienteposicion.m4a`;
+
+                                function onSoundEnded4() {
+                                    sound.removeEventListener('ended', onSoundEnded4);
+                                    document.getElementById(selectBox.value).classList.add('bg-green-infinite')
+                                }
+
+                                sound.addEventListener('ended', onSoundEnded4)
+                                sound.play()
+                            }
+
+                            sound.addEventListener('ended', onSoundEnded3)
+                            sound.play()
+
+                        }
+
+                        sound.addEventListener('ended', onSoundEnded2)
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded1)
+                    sound.play()
+
+                }
+
+                sound.addEventListener('ended', onSoundEnded)
                 sound.play()
 
-                for (let i = 0; i < props.sudoku_size; i++) {
-                    if (props.selector_1[0] === 0) {
-                        select_col(props.selector_1[1], 'bg-yellow-400', false)
-                        setTimeout(function () {
-                            select_fila(props.selector_1[0], 'bg-yellow-400', false)
-                        }, 3000)
-                    } else {
-                        select_fila(props.selector_1[0], 'bg-yellow-400', false)
-                        setTimeout(function () {
-                            select_col(props.selector_1[1], 'bg-yellow-400', false)
-                        }, 3000)
-                    }
-                }
             }
 
             if (nextSelectBox.value === 1 && props.ok_audio_2) {
+
                 let sound = new Audio();
-                sound.src = `${props.ok_audio_2}`;
+                sound.src = `${props.asset_audio}/voz1/nice/correcto.m4a`;
+
+                function onSoundEnded() {
+                    sound.removeEventListener('ended', onSoundEnded);
+
+                    if (props.interactive_array_solution[1] == 1) {
+                        sound.src = `${props.sound_item_1}`;
+                    } else if (props.interactive_array_solution[1] == 2) {
+                        sound.src = `${props.sound_item_2}`;
+                    } else if (props.interactive_array_solution[1] == 3) {
+                        sound.src = `${props.sound_item_3}`;
+                    }
+
+
+                    function onSoundEnded1() {
+                        sound.removeEventListener('ended', onSoundEnded1);
+
+                        sound.src = `${props.ok_audio_1}`;
+
+                        function onSoundEnded2() {
+                            sound.removeEventListener('ended', onSoundEnded2);
+
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/tercerafila.m4a`;
+
+                            for (let i = 0; i < props.sudoku_size; i++) {
+                                if (props.selector_2[0] === 0) {
+                                    select_col(props.selector_2[1], 'bg-yellow-400', false)
+                                    setTimeout(function () {
+                                        select_fila(props.selector_2[0], 'bg-yellow-400', false)
+                                    }, 2000)
+                                } else {
+                                    select_fila(props.selector_2[0], 'bg-yellow-400', false)
+                                    setTimeout(function () {
+                                        select_col(props.selector_2[1], 'bg-yellow-400', false)
+                                    }, 2000)
+                                }
+                            }
+
+                            function onSoundEnded3() {
+                                sound.removeEventListener('ended', onSoundEnded3);
+
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yprimeracolumna.m4a`;
+
+                                function onSoundEnded4() {
+                                    sound.removeEventListener('ended', onSoundEnded4);
+                                    sound.src = `${props.asset_audio}/voz1/sudokus/animals/paracompletar.m4a`;
+
+                                    function onSoundEnded5() {
+                                        sound.removeEventListener('ended', onSoundEnded5);
+                                        document.getElementById(selectBox.value).classList.add('bg-green-infinite')
+                                    }
+
+                                    sound.addEventListener('ended', onSoundEnded5)
+                                    sound.play()
+                                }
+
+                                sound.addEventListener('ended', onSoundEnded4)
+                                sound.play()
+                            }
+
+                            sound.addEventListener('ended', onSoundEnded3)
+                            sound.play()
+                        }
+
+                        sound.addEventListener('ended', onSoundEnded2)
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded1)
+                    sound.play()
+
+                }
+
+                sound.addEventListener('ended', onSoundEnded)
                 sound.play()
 
-                for (let i = 0; i < props.sudoku_size; i++) {
-                    if (props.selector_2[0] === 0) {
-                        select_col(props.selector_2[1], 'bg-yellow-400', false)
-                        setTimeout(function () {
-                            select_fila(props.selector_2[0], 'bg-yellow-400', false)
-                        }, 3000)
-                    } else {
-                        select_fila(props.selector_2[0], 'bg-yellow-400', false)
-                        setTimeout(function () {
-                            select_col(props.selector_2[1], 'bg-yellow-400', false)
-                        }, 3000)
-                    }
-                }
+                // let sound = new Audio();
+                // sound.src = `${props.ok_audio_2}`;
+                //
+                // function onSoundEnded() {
+                //
+                //     select_fila()
+                //
+                //     sound.removeEventListener('ended', onSoundEnded);
+                //
+                //     showIndexSquare()
+                // }
+                //
+                // sound.addEventListener('ended', onSoundEnded)
+                // sound.play()
+                //
+                //
+                // for (let i = 0; i < props.sudoku_size; i++) {
+                //     if (props.selector_2[0] === 0) {
+                //         select_col(props.selector_2[1], 'bg-yellow-400', false)
+                //         setTimeout(function () {
+                //             select_fila(props.selector_2[0], 'bg-yellow-400', false)
+                //         }, 3000)
+                //     } else {
+                //         select_fila(props.selector_2[0], 'bg-yellow-400', false)
+                //         setTimeout(function () {
+                //             select_col(props.selector_2[1], 'bg-yellow-400', false)
+                //         }, 3000)
+                //     }
+                // }
             }
 
-            if (nextSelectBox.value === 2 && props.ok_audio_3) {
-                let sound = new Audio();
-                sound.src = `${props.ok_audio_3}`;
-                sound.play()
+            if (nextSelectBox.value === 2) {
+                // let sound = new Audio();
+                // sound.src = `${props.ok_audio_3}`;
+                // sound.play()
+                //
+                // for (let i = 0; i < props.sudoku_size; i++) {
+                //     if (props.selector_3[0] === 0) {
+                //         select_col(props.selector_3[1], 'bg-yellow-400', false)
+                //         setTimeout(function () {
+                //             select_fila(props.selector_3[0], 'bg-yellow-400', false)
+                //         }, 3000)
+                //     } else {
+                //         select_fila(props.selector_3[0], 'bg-yellow-400', false)
+                //         setTimeout(function () {
+                //             select_col(props.selector_3[1], 'bg-yellow-400', false)
+                //         }, 3000)
+                //     }
+                // }
 
-                for (let i = 0; i < props.sudoku_size; i++) {
-                    if (props.selector_3[0] === 0) {
-                        select_col(props.selector_3[1], 'bg-yellow-400', false)
-                        setTimeout(function () {
-                            select_fila(props.selector_3[0], 'bg-yellow-400', false)
-                        }, 3000)
-                    } else {
-                        select_fila(props.selector_3[0], 'bg-yellow-400', false)
-                        setTimeout(function () {
-                            select_col(props.selector_3[1], 'bg-yellow-400', false)
-                        }, 3000)
+                let sound = new Audio();
+                sound.src = `${props.asset_audio}/voz1/nice/muybien.m4a`;
+
+                function onSoundEnded() {
+                    sound.removeEventListener('ended', onSoundEnded);
+
+                    if (props.interactive_array_solution[2] == 1) {
+                        sound.src = `${props.sound_item_1}`;
+                    } else if (props.interactive_array_solution[2] == 2) {
+                        sound.src = `${props.sound_item_2}`;
+                    } else if (props.interactive_array_solution[2] == 3) {
+                        sound.src = `${props.sound_item_3}`;
                     }
+
+
+                    function onSoundEnded1() {
+                        sound.removeEventListener('ended', onSoundEnded1);
+
+                        sound.src = `${props.ok_audio_1}`;
+
+                        function onSoundEnded2() {
+                            sound.removeEventListener('ended', onSoundEnded2);
+
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+
+                            for (let i = 0; i < props.sudoku_size; i++) {
+                                if (props.selector_2[0] === 0) {
+                                    select_col(props.selector_3[1], 'bg-yellow-400', false)
+                                    setTimeout(function () {
+                                        select_fila(props.selector_3[0], 'bg-yellow-400', false)
+                                    }, 2000)
+                                } else {
+                                    select_fila(props.selector_3[0], 'bg-yellow-400', false)
+                                    setTimeout(function () {
+                                        select_col(props.selector_3[1], 'bg-yellow-400', false)
+                                    }, 2000)
+                                }
+                            }
+
+                            function onSoundEnded3() {
+                                sound.removeEventListener('ended', onSoundEnded3);
+
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yterceracolumna.m4a`;
+
+                                function onSoundEnded4() {
+                                    if (nextSelectBox.value >= props.interactive_array.length) {
+                                        setTimeout(function () {
+                                            win()
+                                            return;
+                                        }, 800)
+                                    } else {
+                                        document.getElementById(selectBox.value).classList.add('bg-green-infinite')
+                                    }
+                                }
+
+                                sound.addEventListener('ended', onSoundEnded4)
+                                sound.play()
+                            }
+
+                            sound.addEventListener('ended', onSoundEnded3)
+                            sound.play()
+                        }
+
+                        sound.addEventListener('ended', onSoundEnded2)
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded1)
+                    sound.play()
+
                 }
+
+                sound.addEventListener('ended', onSoundEnded)
+                sound.play()
             }
 
             if (nextSelectBox.value === 3 && props.ok_audio_4) {
@@ -939,209 +1361,241 @@ const paintString = (id, numIndex) => {
                 }
             }
 
-            document.getElementById(id).classList.remove('opacity-50')
+            document.getElementById(id).classList.replace('border-yellow-400', 'border-black')
             document.getElementById(id).classList.remove('brush-fail')
 
             // successSound()
             console.log(nextSelectBox.value)
-            document.getElementById(selectBox.value).classList.remove('bg-gray-infinite')
+            document.getElementById(selectBox.value).classList.remove('bg-green-infinite')
             nextSelectBox.value++
 
-            if (nextSelectBox.value >= props.interactive_array.length) {
-                win()
-                return;
-            }
+            // if (nextSelectBox.value >= props.interactive_array.length) {
+            //     win()
+            //     return;
+            // }
 
             console.log(nextSelectBox.value)
             selectBox.value = (`caja${props.interactive_array[nextSelectBox.value]}`)
             console.log(selectBox.value)
-            document.getElementById(selectBox.value).classList.add('bg-gray-infinite')
+            // document.getElementById(selectBox.value).classList.add('bg-green-infinite')
         } else {
 
-            document.getElementById(id).classList.add('opacity-50')
-            document.getElementById(id).classList.add('brush-fail')
+            document.getElementById(id).classList.replace('border-black', 'border-yellow-400')
+            // document.getElementById(id).classList.add('brush-fail')
 
-            setTimeout(function () {
-                document.getElementById(id).classList.remove('brush-fail')
-            }, 500)
+            // setTimeout(function () {
+            //     document.getElementById(id).classList.remove('brush-fail')
+            // }, 500)
 
 
             if (nextSelectBox.value === 0 && props.error_audio_1) {
 
-                if (props.selector_1[0] === 0) {
-                    select_col(props.selector_1[1], 'bg-red-400', true)
-                    setTimeout(function () {
-                        select_fila(props.selector_1[0], 'bg-red-400', true)
-                    }, 3000)
-                } else {
-                    select_fila(props.selector_1[0], 'bg-red-400', true)
-                    setTimeout(function () {
-                        select_col(props.selector_1[1], 'bg-red-400', true)
-                    }, 3000)
-                }
+                let sound = new Audio();
 
                 if (sequenceNumber.value === '1') {
-
-                    let sound = new Audio();
                     sound.src = `${props.sound_item_1}`;
-                    sound.play()
-
-                    function onSoundEnded() {
-                        sound.removeEventListener('ended', onSoundEnded);
-                        sound.src = `${props.error_audio_1}`;
-                        sound.play()
-                    }
-
-                    sound.addEventListener('ended', onSoundEnded)
-                    sound.play();
-
-
                 } else if (sequenceNumber.value === '2') {
-
-                    let sound = new Audio();
                     sound.src = `${props.sound_item_2}`;
-                    sound.play()
-
-                    function onSoundEnded() {
-                        sound.removeEventListener('ended', onSoundEnded);
-                        sound.src = `${props.error_audio_1}`;
-                        sound.play()
-                    }
-
-                    sound.addEventListener('ended', onSoundEnded)
-                    sound.play();
-
                 } else if (sequenceNumber.value === '3') {
-
-                    let sound = new Audio();
                     sound.src = `${props.sound_item_3}`;
-                    sound.play()
+                }
 
-                    function onSoundEnded() {
-                        sound.removeEventListener('ended', onSoundEnded);
-                        sound.src = `${props.error_audio_1}`;
+                function onSoundEnded() {
+                    sound.removeEventListener('ended', onSoundEnded);
+                    sound.src = `${props.error_audio_1}`;
+
+                    function onSoundEnded1() {
+                        sound.removeEventListener('ended', onSoundEnded1);
+
+                        sound.src = `${props.asset_audio}/voz1/sudokus/fyc/primerafila.m4a`;
+
+                        for (let i = 0; i < props.sudoku_size; i++) {
+                            if (props.selector_1[0] === 0) {
+                                select_col(props.selector_1[1], 'bg-red-400', true)
+                                setTimeout(function () {
+                                    select_fila(props.selector_1[0], 'bg-red-400', true)
+                                }, 2000)
+                            } else {
+                                select_fila(props.selector_1[0], 'bg-red-400', true)
+                                setTimeout(function () {
+                                    select_col(props.selector_1[1], 'bg-red-400', true)
+                                }, 2000)
+                            }
+                        }
+
                         sound.play()
+
                     }
 
-                    sound.addEventListener('ended', onSoundEnded)
-                    sound.play();
+                    sound.addEventListener('ended', onSoundEnded1)
+                    sound.play()
                 }
+
+                sound.addEventListener('ended', onSoundEnded)
+                sound.play();
             }
 
             if (nextSelectBox.value === 1 && props.error_audio_2) {
 
-                if (props.selector_2[0] === 0) {
-                    select_col(props.selector_2[1], 'bg-red-400', true)
-                    setTimeout(function () {
-                        select_fila(props.selector_2[0], 'bg-red-400', true)
-                    }, 3000)
-                } else {
-                    select_fila(props.selector_2[0], 'bg-red-400', true)
-                    setTimeout(function () {
-                        select_col(props.selector_2[1], 'bg-red-400', true)
-                    }, 3000)
-                }
+                let sound = new Audio();
 
                 if (sequenceNumber.value === '1') {
-                    let sound = new Audio();
                     sound.src = `${props.sound_item_1}`;
-                    sound.play()
-
-                    function onSoundEnded() {
-                        sound.removeEventListener('ended', onSoundEnded);
-                        sound.src = `${props.error_audio_2}`;
-                        sound.play()
-                    }
-
-                    sound.addEventListener('ended', onSoundEnded)
-                    sound.play();
-
                 } else if (sequenceNumber.value === '2') {
-                    let sound = new Audio();
                     sound.src = `${props.sound_item_2}`;
-                    sound.play()
-
-                    function onSoundEnded() {
-                        sound.removeEventListener('ended', onSoundEnded);
-                        sound.src = `${props.error_audio_2}`;
-                        sound.play()
-                    }
-
-                    sound.addEventListener('ended', onSoundEnded)
-                    sound.play();
-
                 } else if (sequenceNumber.value === '3') {
-                    let sound = new Audio();
                     sound.src = `${props.sound_item_3}`;
-                    sound.play()
+                }
 
-                    function onSoundEnded() {
-                        sound.removeEventListener('ended', onSoundEnded);
-                        sound.src = `${props.error_audio_2}`;
+                function onSoundEnded() {
+                    sound.removeEventListener('ended', onSoundEnded);
+                    sound.src = `${props.error_audio_2}`;
+
+                    function onSoundEnded1() {
+                        sound.removeEventListener('ended', onSoundEnded1);
+
+                        sound.src = `${props.asset_audio}/voz1/sudokus/fyc/tercerafila.m4a`;
+
+                        for (let i = 0; i < props.sudoku_size; i++) {
+                            if (props.selector_2[0] === 0) {
+                                select_col(props.selector_2[1], 'bg-red-400', true)
+                                setTimeout(function () {
+                                    select_fila(props.selector_2[0], 'bg-red-400', true)
+                                }, 2000)
+                            } else {
+                                select_fila(props.selector_2[0], 'bg-red-400', true)
+                                setTimeout(function () {
+                                    select_col(props.selector_2[1], 'bg-red-400', true)
+                                }, 2000)
+                            }
+                        }
+
+                        function onSoundEnded2() {
+                            sound.removeEventListener('ended', onSoundEnded2);
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yprimeracolumna.m4a`;
+                            sound.play()
+                        }
+
+                        sound.addEventListener('ended', onSoundEnded2)
                         sound.play()
+
                     }
 
-                    sound.addEventListener('ended', onSoundEnded)
-                    sound.play();
+                    sound.addEventListener('ended', onSoundEnded1)
+                    sound.play()
                 }
+
+                sound.addEventListener('ended', onSoundEnded)
+                sound.play();
             }
 
             if (nextSelectBox.value === 2 && props.error_audio_3) {
 
-                if (props.selector_3[0] === 0) {
-                    select_col(props.selector_3[1], 'bg-red-400', true)
-                    setTimeout(function () {
-                        select_fila(props.selector_3[0], 'bg-red-400', true)
-                    }, 3000)
-                } else {
-                    select_fila(props.selector_3[0], 'bg-red-400', true)
-                    setTimeout(function () {
-                        select_col(props.selector_3[1], 'bg-red-400', true)
-                    }, 3000)
-                }
+                let sound = new Audio();
 
                 if (sequenceNumber.value === '1') {
-                    let sound = new Audio();
                     sound.src = `${props.sound_item_1}`;
-                    sound.play()
-
-                    function onSoundEnded() {
-                        sound.removeEventListener('ended', onSoundEnded);
-                        sound.src = `${props.error_audio_3}`;
-                        sound.play()
-                    }
-
-                    sound.addEventListener('ended', onSoundEnded)
-                    sound.play();
-
                 } else if (sequenceNumber.value === '2') {
-                    let sound = new Audio();
                     sound.src = `${props.sound_item_2}`;
-                    sound.play()
-
-                    function onSoundEnded() {
-                        sound.removeEventListener('ended', onSoundEnded);
-                        sound.src = `${props.error_audio_3}`;
-                        sound.play()
-                    }
-
-                    sound.addEventListener('ended', onSoundEnded)
-                    sound.play();
-
                 } else if (sequenceNumber.value === '3') {
-                    let sound = new Audio();
                     sound.src = `${props.sound_item_3}`;
-                    sound.play()
+                }
 
-                    function onSoundEnded() {
-                        sound.removeEventListener('ended', onSoundEnded);
-                        sound.src = `${props.error_audio_3}`;
+                function onSoundEnded() {
+                    sound.removeEventListener('ended', onSoundEnded);
+                    sound.src = `${props.error_audio_3}`;
+
+                    function onSoundEnded1() {
+                        sound.removeEventListener('ended', onSoundEnded1);
+
+                        sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+
+                        for (let i = 0; i < props.sudoku_size; i++) {
+                            if (props.selector_2[0] === 0) {
+                                select_col(props.selector_3[1], 'bg-red-400', true)
+                                setTimeout(function () {
+                                    select_fila(props.selector_3[0], 'bg-red-400', true)
+                                }, 2000)
+                            } else {
+                                select_fila(props.selector_3[0], 'bg-red-400', true)
+                                setTimeout(function () {
+                                    select_col(props.selector_3[1], 'bg-red-400', true)
+                                }, 2000)
+                            }
+                        }
+
+                        function onSoundEnded2() {
+                            sound.removeEventListener('ended', onSoundEnded2);
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yterceracolumna.m4a`;
+                            sound.play()
+                        }
+
+                        sound.addEventListener('ended', onSoundEnded2)
                         sound.play()
+
                     }
 
-                    sound.addEventListener('ended', onSoundEnded)
-                    sound.play();
+                    sound.addEventListener('ended', onSoundEnded1)
+                    sound.play()
                 }
+
+                sound.addEventListener('ended', onSoundEnded)
+                sound.play();
+
+                // if (props.selector_3[0] === 0) {
+                //     select_col(props.selector_3[1], 'bg-red-400', true)
+                //     setTimeout(function () {
+                //         select_fila(props.selector_3[0], 'bg-red-400', true)
+                //     }, 3000)
+                // } else {
+                //     select_fila(props.selector_3[0], 'bg-red-400', true)
+                //     setTimeout(function () {
+                //         select_col(props.selector_3[1], 'bg-red-400', true)
+                //     }, 3000)
+                // }
+                //
+                // if (sequenceNumber.value === '1') {
+                //     let sound = new Audio();
+                //     sound.src = `${props.sound_item_1}`;
+                //     sound.play()
+                //
+                //     function onSoundEnded() {
+                //         sound.removeEventListener('ended', onSoundEnded);
+                //         sound.src = `${props.error_audio_3}`;
+                //         sound.play()
+                //     }
+                //
+                //     sound.addEventListener('ended', onSoundEnded)
+                //     sound.play();
+                //
+                // } else if (sequenceNumber.value === '2') {
+                //     let sound = new Audio();
+                //     sound.src = `${props.sound_item_2}`;
+                //     sound.play()
+                //
+                //     function onSoundEnded() {
+                //         sound.removeEventListener('ended', onSoundEnded);
+                //         sound.src = `${props.error_audio_3}`;
+                //         sound.play()
+                //     }
+                //
+                //     sound.addEventListener('ended', onSoundEnded)
+                //     sound.play();
+                //
+                // } else if (sequenceNumber.value === '3') {
+                //     let sound = new Audio();
+                //     sound.src = `${props.sound_item_3}`;
+                //     sound.play()
+                //
+                //     function onSoundEnded() {
+                //         sound.removeEventListener('ended', onSoundEnded);
+                //         sound.src = `${props.error_audio_3}`;
+                //         sound.play()
+                //     }
+                //
+                //     sound.addEventListener('ended', onSoundEnded)
+                //     sound.play();
+                // }
             }
 
             if (nextSelectBox.value === 3 && props.error_audio_4) {
@@ -2048,6 +2502,91 @@ const prepareSudoku = () => {
                                                 <img :src="items[i - 1].value" alt="" width="100">
                                             </div>
                                         </div>
+
+                                        <div id="arrowFila1"
+                                             class="fixed scale-125 w-[230px] hidden opacity-0 translate-x-20 -translate-y-12 duration-300">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                   stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M5.65681 7.75728C5.26629 7.36675 4.63312 7.36675 4.2426 7.75728L1.41426 10.5857C0.633215 11.3667 0.633121 12.6331 1.41417 13.4141L4.24269 16.2425C4.63321 16.633 5.26638 16.633 5.6569 16.2425C6.04743 15.852 6.04743 15.2188 5.6569 14.8283L3.82849 12.9999L17.9998 12.9999L18.0015 12.9999H20.1714L18.3429 14.8283C17.9524 15.2188 17.9524 15.852 18.3429 16.2425C18.7335 16.633 19.3666 16.633 19.7572 16.2425L22.5856 13.4141C23.3666 12.633 23.3668 11.3667 22.5857 10.5857L19.7573 7.75725C19.3668 7.36672 18.7336 7.36672 18.3431 7.75725C17.9526 8.14777 17.9526 8.78094 18.3431 9.17146L20.1715 10.9999L3.82842 10.9999L5.65681 9.17149C6.04734 8.78097 6.04734 8.1478 5.65681 7.75728Z"
+                                                        fill="#0F0F0F"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+
+                                        <div id="arrowFila2"
+                                             class="fixed scale-125 w-[230px] hidden opacity-0 translate-x-20 translate-y-20 duration-300">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                   stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M5.65681 7.75728C5.26629 7.36675 4.63312 7.36675 4.2426 7.75728L1.41426 10.5857C0.633215 11.3667 0.633121 12.6331 1.41417 13.4141L4.24269 16.2425C4.63321 16.633 5.26638 16.633 5.6569 16.2425C6.04743 15.852 6.04743 15.2188 5.6569 14.8283L3.82849 12.9999L17.9998 12.9999L18.0015 12.9999H20.1714L18.3429 14.8283C17.9524 15.2188 17.9524 15.852 18.3429 16.2425C18.7335 16.633 19.3666 16.633 19.7572 16.2425L22.5856 13.4141C23.3666 12.633 23.3668 11.3667 22.5857 10.5857L19.7573 7.75725C19.3668 7.36672 18.7336 7.36672 18.3431 7.75725C17.9526 8.14777 17.9526 8.78094 18.3431 9.17146L20.1715 10.9999L3.82842 10.9999L5.65681 9.17149C6.04734 8.78097 6.04734 8.1478 5.65681 7.75728Z"
+                                                        fill="#0F0F0F"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+
+                                        <div id="arrowFila3"
+                                             class="fixed scale-125 w-[230px] hidden opacity-0 translate-x-20 translate-y-52 duration-300">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                   stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M5.65681 7.75728C5.26629 7.36675 4.63312 7.36675 4.2426 7.75728L1.41426 10.5857C0.633215 11.3667 0.633121 12.6331 1.41417 13.4141L4.24269 16.2425C4.63321 16.633 5.26638 16.633 5.6569 16.2425C6.04743 15.852 6.04743 15.2188 5.6569 14.8283L3.82849 12.9999L17.9998 12.9999L18.0015 12.9999H20.1714L18.3429 14.8283C17.9524 15.2188 17.9524 15.852 18.3429 16.2425C18.7335 16.633 19.3666 16.633 19.7572 16.2425L22.5856 13.4141C23.3666 12.633 23.3668 11.3667 22.5857 10.5857L19.7573 7.75725C19.3668 7.36672 18.7336 7.36672 18.3431 7.75725C17.9526 8.14777 17.9526 8.78094 18.3431 9.17146L20.1715 10.9999L3.82842 10.9999L5.65681 9.17149C6.04734 8.78097 6.04734 8.1478 5.65681 7.75728Z"
+                                                        fill="#0F0F0F"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+
+                                        <div id="arrowCol1"
+                                             class="fixed scale-125 w-[230px] hidden opacity-0 -translate-x-12 translate-y-20 duration-300">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                   stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M16.2426 5.65675C16.6331 5.26623 16.6331 4.63306 16.2426 4.24254L13.4142 1.4142C12.6332 0.633154 11.3668 0.63306 10.5857 1.41411L7.75737 4.24263C7.36685 4.63315 7.36685 5.26632 7.75737 5.65684C8.1479 6.04737 8.78106 6.04737 9.17159 5.65684L11 3.82843V17.9997L11 18.0014V20.1713L9.17158 18.3429C8.78106 17.9524 8.14789 17.9524 7.75737 18.3429C7.36685 18.7334 7.36685 19.3666 7.75737 19.7571L10.5858 22.5855C11.3668 23.3666 12.6332 23.3667 13.4142 22.5857L16.2426 19.7572C16.6332 19.3667 16.6332 18.7336 16.2426 18.343C15.8521 17.9525 15.2189 17.9525 14.8284 18.343L13 20.1714V18.0007V3.82836L14.8284 5.65675C15.2189 6.04727 15.8521 6.04727 16.2426 5.65675Z"
+                                                        fill="#0F0F0F"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+
+                                        <div id="arrowCol2"
+                                             class="fixed scale-125 w-[230px] translate-x-20 translate-y-20 hidden opacity-0 duration-300">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                   stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M16.2426 5.65675C16.6331 5.26623 16.6331 4.63306 16.2426 4.24254L13.4142 1.4142C12.6332 0.633154 11.3668 0.63306 10.5857 1.41411L7.75737 4.24263C7.36685 4.63315 7.36685 5.26632 7.75737 5.65684C8.1479 6.04737 8.78106 6.04737 9.17159 5.65684L11 3.82843V17.9997L11 18.0014V20.1713L9.17158 18.3429C8.78106 17.9524 8.14789 17.9524 7.75737 18.3429C7.36685 18.7334 7.36685 19.3666 7.75737 19.7571L10.5858 22.5855C11.3668 23.3666 12.6332 23.3667 13.4142 22.5857L16.2426 19.7572C16.6332 19.3667 16.6332 18.7336 16.2426 18.343C15.8521 17.9525 15.2189 17.9525 14.8284 18.343L13 20.1714V18.0007V3.82836L14.8284 5.65675C15.2189 6.04727 15.8521 6.04727 16.2426 5.65675Z"
+                                                        fill="#0F0F0F"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+
+                                        <div id="arrowCol3"
+                                             class="fixed scale-125 w-[230px] translate-x-[215px] translate-y-20 hidden opacity-0 duration-300">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                   stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M16.2426 5.65675C16.6331 5.26623 16.6331 4.63306 16.2426 4.24254L13.4142 1.4142C12.6332 0.633154 11.3668 0.63306 10.5857 1.41411L7.75737 4.24263C7.36685 4.63315 7.36685 5.26632 7.75737 5.65684C8.1479 6.04737 8.78106 6.04737 9.17159 5.65684L11 3.82843V17.9997L11 18.0014V20.1713L9.17158 18.3429C8.78106 17.9524 8.14789 17.9524 7.75737 18.3429C7.36685 18.7334 7.36685 19.3666 7.75737 19.7571L10.5858 22.5855C11.3668 23.3666 12.6332 23.3667 13.4142 22.5857L16.2426 19.7572C16.6332 19.3667 16.6332 18.7336 16.2426 18.343C15.8521 17.9525 15.2189 17.9525 14.8284 18.343L13 20.1714V18.0007V3.82836L14.8284 5.65675C15.2189 6.04727 15.8521 6.04727 16.2426 5.65675Z"
+                                                        fill="#0F0F0F"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -2681,6 +3220,24 @@ const prepareSudoku = () => {
 
     50% {
         background-color: gray;
+    }
+
+    100% {
+        background-color: white;
+    }
+}
+
+.bg-green-infinite {
+    animation: green-infinite 2s infinite;
+}
+
+@keyframes green-infinite {
+    0% {
+        background-color: white;
+    }
+
+    50% {
+        background-color: #86efac;
     }
 
     100% {
