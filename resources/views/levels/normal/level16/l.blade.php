@@ -17,9 +17,9 @@
         icon_1="icon-blue"
         icon_2="icon-yellow"
         icon_3="icon-red1"
-        sound_item_1="{{asset('audio/voz1/animals/the/ElLeon.m4a')}}"
-        sound_item_2="{{asset('audio/voz1/animals/the/ElCocodrilo.m4a')}}"
-        sound_item_3="{{asset('audio/voz1/animals/the/ElElefante.m4a')}}"
+        sound_item_1="{{asset('audio/voz1/animales/the/ElLeon.m4a')}}"
+        sound_item_2="{{asset('audio/voz1/animales/the/ElCocodrilo.m4a')}}"
+        sound_item_3="{{asset('audio/voz1/animales/the/ElElefante.m4a')}}"
         the_sound_item_1="{{asset('audio/voz1/colors/the/ElColorAzul.m4a')}}"
         the_sound_item_2="{{asset('audio/voz1/figures/the/ElCuadrado.m4a')}}"
         the_sound_item_3="{{asset('audio/voz1/letters/the/LaLetraC.m4a')}}"
@@ -47,9 +47,9 @@
         caja_9=""
         :interactive_array="[4,1,8,9]"
         :interactive_array_solution="[3,2,2,3]"
-        ok_audio_1="{{asset('audio/voz1/sudokus/animals/elefantefila.m4a')}}"
-        ok_audio_2="{{asset('audio/voz1/sudokus/animals/correctococodrilo.m4a')}}"
-        ok_audio_3="{{asset('audio/voz1/sudokus/animals/correctococodrilo.m4a')}}"
+        ok_audio_1="{{asset('audio/voz1/sudokus/animales/elefantefila.m4a')}}"
+        ok_audio_2="{{asset('audio/voz1/sudokus/animales/correctococodrilo.m4a')}}"
+        ok_audio_3="{{asset('audio/voz1/sudokus/animales/correctococodrilo.m4a')}}"
         ok_audio_4=""
         error_audio_1="{{asset('audio/voz1/sudokus/errors/yafila.m4a')}}"
         error_audio_2="{{asset('audio/voz1/sudokus/errors/col1fila3.m4a')}}"
@@ -62,5 +62,5 @@
     >
     </layout-sudoku>
 
-    
+
 @endsection

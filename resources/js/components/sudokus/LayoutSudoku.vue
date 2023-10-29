@@ -4,6 +4,8 @@ import {ArrowDownIcon, CheckBadgeIcon, ChevronRightIcon} from "@heroicons/vue/24
 import Swal from 'sweetalert2'
 import {ref, watch, computed} from "vue";
 
+import {actions, saludo} from '../../use';
+
 const props = defineProps({
     number_of_activities: {type: Number, required: true},
     activity_number: {type: Number, required: true},
@@ -308,7 +310,7 @@ setTimeout(function () {
     });
 }, 500)
 
-const classSelect = 'bg-yellow-400'
+const classSelect = 'bg-yellow-500'
 
 const selectFila1 = () => {
 
@@ -435,19 +437,19 @@ function initialAudio() {
     if (talk.value === false) {
         talk.value = true;
 
-        document.getElementById('arrowFila1').classList.remove('hidden')
-        document.getElementById('arrowFila2').classList.remove('hidden')
-        document.getElementById('arrowFila3').classList.remove('hidden')
-        document.getElementById('arrowCol1').classList.remove('hidden')
-        document.getElementById('arrowCol2').classList.remove('hidden')
-        document.getElementById('arrowCol3').classList.remove('hidden')
-
         let sound = new Audio(props.introduction_audio_1);
 
         function onSoundEnded() {
             sound.removeEventListener('ended', onSoundEnded);
 
             if (props.introduction === true) {
+
+                document.getElementById('arrowFila1').classList.remove('hidden')
+                document.getElementById('arrowFila2').classList.remove('hidden')
+                document.getElementById('arrowFila3').classList.remove('hidden')
+                document.getElementById('arrowCol1').classList.remove('hidden')
+                document.getElementById('arrowCol2').classList.remove('hidden')
+                document.getElementById('arrowCol3').classList.remove('hidden')
 
                 selectFila1()
 
@@ -875,8 +877,8 @@ let textValidate = ref(null)
 
 const waterBubbleSound = () => {
     let sound = new Audio();
-        sound.src = `${props.asset_audio}/waterBubble.wav`;
-        sound.play()
+    sound.src = `${props.asset_audio}/waterBubble.wav`;
+    sound.play()
 }
 
 const paintString = (id, numIndex) => {
@@ -1088,25 +1090,29 @@ const paintString = (id, numIndex) => {
                             //    Cuando son fila y col
                             // }
 
-                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/primerafila.m4a`;
+                            if (props.selector_1[0] === 1) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/primerafila.m4a`;
+                            } else if (props.selector_1[0] === 2) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+                            }
 
                             for (let i = 0; i < props.sudoku_size; i++) {
                                 if (props.selector_1[0] === 0) {
-                                    select_col(props.selector_1[1], 'bg-yellow-400', false)
+                                    select_col(props.selector_1[1], 'bg-yellow-500', false)
                                     setTimeout(function () {
-                                        select_fila(props.selector_1[0], 'bg-yellow-400', false)
+                                        select_fila(props.selector_1[0], 'bg-yellow-500', false)
                                     }, 3000)
                                 } else {
-                                    select_fila(props.selector_1[0], 'bg-yellow-400', false)
+                                    select_fila(props.selector_1[0], 'bg-yellow-500', false)
                                     setTimeout(function () {
-                                        select_col(props.selector_1[1], 'bg-yellow-400', false)
+                                        select_col(props.selector_1[1], 'bg-yellow-500', false)
                                     }, 3000)
                                 }
                             }
 
                             function onSoundEnded3() {
                                 sound.removeEventListener('ended', onSoundEnded3);
-                                sound.src = `${props.asset_audio}/voz1/sudokus/animals/sigamossiguienteposicion.m4a`;
+                                sound.src = `${props.asset_audio}/voz1/sudokus/${props.palette_text}/sigamossiguienteposicion.m4a`;
 
                                 function onSoundEnded4() {
                                     sound.removeEventListener('ended', onSoundEnded4);
@@ -1156,23 +1162,29 @@ const paintString = (id, numIndex) => {
                     function onSoundEnded1() {
                         sound.removeEventListener('ended', onSoundEnded1);
 
-                        sound.src = `${props.ok_audio_1}`;
+                        sound.src = `${props.ok_audio_2}`;
 
                         function onSoundEnded2() {
                             sound.removeEventListener('ended', onSoundEnded2);
 
-                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/tercerafila.m4a`;
+                            if (props.selector_2[0] === 1) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/primerafila.m4a`;
+                            } else if (props.selector_2[0] === 2) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+                            } else if (props.selector_2[0] === 3) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/tercerafila.m4a`;
+                            }
 
                             for (let i = 0; i < props.sudoku_size; i++) {
                                 if (props.selector_2[0] === 0) {
-                                    select_col(props.selector_2[1], 'bg-yellow-400', false)
+                                    select_col(props.selector_2[1], 'bg-yellow-500', false)
                                     setTimeout(function () {
-                                        select_fila(props.selector_2[0], 'bg-yellow-400', false)
+                                        select_fila(props.selector_2[0], 'bg-yellow-500', false)
                                     }, 2000)
                                 } else {
-                                    select_fila(props.selector_2[0], 'bg-yellow-400', false)
+                                    select_fila(props.selector_2[0], 'bg-yellow-500', false)
                                     setTimeout(function () {
-                                        select_col(props.selector_2[1], 'bg-yellow-400', false)
+                                        select_col(props.selector_2[1], 'bg-yellow-500', false)
                                     }, 2000)
                                 }
                             }
@@ -1180,11 +1192,15 @@ const paintString = (id, numIndex) => {
                             function onSoundEnded3() {
                                 sound.removeEventListener('ended', onSoundEnded3);
 
-                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yprimeracolumna.m4a`;
+                                if (props.selector_2[1] === 1) {
+                                    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yprimeracolumna.m4a`;
+                                } else if (props.selector_2[1] === 3) {
+                                    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yterceracolumna.m4a`;
+                                }
 
                                 function onSoundEnded4() {
                                     sound.removeEventListener('ended', onSoundEnded4);
-                                    sound.src = `${props.asset_audio}/voz1/sudokus/animals/paracompletar.m4a`;
+                                    sound.src = `${props.asset_audio}/voz1/sudokus/${props.palette_text}/sigamossiguienteposicion.m4a`;
 
                                     function onSoundEnded5() {
                                         sound.removeEventListener('ended', onSoundEnded5);
@@ -1233,14 +1249,14 @@ const paintString = (id, numIndex) => {
                 //
                 // for (let i = 0; i < props.sudoku_size; i++) {
                 //     if (props.selector_2[0] === 0) {
-                //         select_col(props.selector_2[1], 'bg-yellow-400', false)
+                //         select_col(props.selector_2[1], 'bg-yellow-500', false)
                 //         setTimeout(function () {
-                //             select_fila(props.selector_2[0], 'bg-yellow-400', false)
+                //             select_fila(props.selector_2[0], 'bg-yellow-500', false)
                 //         }, 3000)
                 //     } else {
-                //         select_fila(props.selector_2[0], 'bg-yellow-400', false)
+                //         select_fila(props.selector_2[0], 'bg-yellow-500', false)
                 //         setTimeout(function () {
-                //             select_col(props.selector_2[1], 'bg-yellow-400', false)
+                //             select_col(props.selector_2[1], 'bg-yellow-500', false)
                 //         }, 3000)
                 //     }
                 // }
@@ -1253,14 +1269,14 @@ const paintString = (id, numIndex) => {
                 //
                 // for (let i = 0; i < props.sudoku_size; i++) {
                 //     if (props.selector_3[0] === 0) {
-                //         select_col(props.selector_3[1], 'bg-yellow-400', false)
+                //         select_col(props.selector_3[1], 'bg-yellow-500', false)
                 //         setTimeout(function () {
-                //             select_fila(props.selector_3[0], 'bg-yellow-400', false)
+                //             select_fila(props.selector_3[0], 'bg-yellow-500', false)
                 //         }, 3000)
                 //     } else {
-                //         select_fila(props.selector_3[0], 'bg-yellow-400', false)
+                //         select_fila(props.selector_3[0], 'bg-yellow-500', false)
                 //         setTimeout(function () {
-                //             select_col(props.selector_3[1], 'bg-yellow-400', false)
+                //             select_col(props.selector_3[1], 'bg-yellow-500', false)
                 //         }, 3000)
                 //     }
                 // }
@@ -1283,23 +1299,27 @@ const paintString = (id, numIndex) => {
                     function onSoundEnded1() {
                         sound.removeEventListener('ended', onSoundEnded1);
 
-                        sound.src = `${props.ok_audio_1}`;
+                        sound.src = `${props.ok_audio_3}`;
 
                         function onSoundEnded2() {
                             sound.removeEventListener('ended', onSoundEnded2);
 
-                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+                            if (props.selector_3[1] === 2) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundacol.m4a`;
+                            } else {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+                            }
 
                             for (let i = 0; i < props.sudoku_size; i++) {
-                                if (props.selector_2[0] === 0) {
-                                    select_col(props.selector_3[1], 'bg-yellow-400', false)
+                                if (props.selector_3[0] === 0) {
+                                    select_col(props.selector_3[1], 'bg-yellow-500', false)
                                     setTimeout(function () {
-                                        select_fila(props.selector_3[0], 'bg-yellow-400', false)
+                                        select_fila(props.selector_3[0], 'bg-yellow-500', false)
                                     }, 2000)
                                 } else {
-                                    select_fila(props.selector_3[0], 'bg-yellow-400', false)
+                                    select_fila(props.selector_3[0], 'bg-yellow-500', false)
                                     setTimeout(function () {
-                                        select_col(props.selector_3[1], 'bg-yellow-400', false)
+                                        select_col(props.selector_3[1], 'bg-yellow-500', false)
                                     }, 2000)
                                 }
                             }
@@ -1307,9 +1327,115 @@ const paintString = (id, numIndex) => {
                             function onSoundEnded3() {
                                 sound.removeEventListener('ended', onSoundEnded3);
 
-                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yterceracolumna.m4a`;
+                                function onSoundEnded4() {
+                                    if (nextSelectBox.value >= props.interactive_array.length) {
+                                        setTimeout(function () {
+                                            win()
+                                            return;
+                                        }, 800)
+                                    } else {
+
+                                        sound.src = `${props.asset_audio}/voz1/sudokus/${props.palette_text}/sigamossiguienteposicion.m4a`;
+
+                                        sound.removeEventListener('ended', onSoundEnded5);
+
+                                        function onSoundEnded5() {
+                                            sound.removeEventListener('ended', onSoundEnded5);
+                                            document.getElementById(selectBox.value).classList.add('bg-green-infinite')
+                                        }
+
+                                        sound.addEventListener('ended', onSoundEnded5)
+                                        sound.play()
+                                    }
+                                }
+
+                                if (props.selector_3[0] !== 0) {
+                                    if (props.selector_3[1] === 1) {
+                                        sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yprimeracolumna.m4a`;
+                                    } else if (props.selector_3[1] === 3) {
+                                        sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yterceracolumna.m4a`;
+                                    }
+                                    sound.addEventListener('ended', onSoundEnded4)
+                                    sound.play()
+                                } else {
+                                    onSoundEnded4()
+                                }
+                            }
+
+                            sound.addEventListener('ended', onSoundEnded3)
+                            sound.play()
+                        }
+
+                        sound.addEventListener('ended', onSoundEnded2)
+                        sound.play()
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded1)
+                    sound.play()
+
+                }
+
+                sound.addEventListener('ended', onSoundEnded)
+                sound.play()
+            }
+
+            if (nextSelectBox.value === 3 && props.ok_audio_4) {
+                let sound = new Audio();
+                sound.src = `${props.asset_audio}/voz1/nice/correcto.m4a`;
+
+                function onSoundEnded() {
+                    sound.removeEventListener('ended', onSoundEnded);
+
+                    if (props.interactive_array_solution[3] == 1) {
+                        sound.src = `${props.sound_item_1}`;
+                    } else if (props.interactive_array_solution[3] == 2) {
+                        sound.src = `${props.sound_item_2}`;
+                    } else if (props.interactive_array_solution[3] == 3) {
+                        sound.src = `${props.sound_item_3}`;
+                    }
+
+
+                    function onSoundEnded1() {
+                        sound.removeEventListener('ended', onSoundEnded1);
+
+                        sound.src = `${props.ok_audio_4}`;
+
+                        function onSoundEnded2() {
+                            sound.removeEventListener('ended', onSoundEnded2);
+
+                            if (props.selector_4[0] === 1) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/primerafila.m4a`;
+                            } else if (props.selector_4[0] === 2) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+                            } else if (props.selector_4[0] === 3) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/tercerafila.m4a`;
+                            }
+
+                            for (let i = 0; i < props.sudoku_size; i++) {
+                                if (props.selector_4[0] === 0) {
+                                    select_col(props.selector_4[1], 'bg-yellow-500', false)
+                                    setTimeout(function () {
+                                        select_fila(props.selector_4[0], 'bg-yellow-500', false)
+                                    }, 2000)
+                                } else {
+                                    select_fila(props.selector_4[0], 'bg-yellow-500', false)
+                                    setTimeout(function () {
+                                        select_col(props.selector_4[1], 'bg-yellow-500', false)
+                                    }, 2000)
+                                }
+                            }
+
+                            function onSoundEnded3() {
+                                sound.removeEventListener('ended', onSoundEnded3);
+
+                                if (props.selector_4[1] === 1) {
+                                    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yprimeracolumna.m4a`;
+                                } else if (props.selector_4[1] === 3) {
+                                    sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yterceracolumna.m4a`;
+                                }
 
                                 function onSoundEnded4() {
+
                                     if (nextSelectBox.value >= props.interactive_array.length) {
                                         setTimeout(function () {
                                             win()
@@ -1339,26 +1465,6 @@ const paintString = (id, numIndex) => {
 
                 sound.addEventListener('ended', onSoundEnded)
                 sound.play()
-            }
-
-            if (nextSelectBox.value === 3 && props.ok_audio_4) {
-                let sound = new Audio();
-                sound.src = `${props.ok_audio_4}`;
-                sound.play()
-
-                for (let i = 0; i < props.sudoku_size; i++) {
-                    if (props.selector_4[0] === 0) {
-                        select_col(props.selector_4[1], 'bg-yellow-400', false)
-                        setTimeout(function () {
-                            select_fila(props.selector_4[0], 'bg-yellow-400', false)
-                        }, 3000)
-                    } else {
-                        select_fila(props.selector_4[0], 'bg-yellow-400', false)
-                        setTimeout(function () {
-                            select_col(props.selector_4[1], 'bg-yellow-400', false)
-                        }, 3000)
-                    }
-                }
             }
 
             document.getElementById(id).classList.replace('border-yellow-400', 'border-black')
@@ -1407,7 +1513,12 @@ const paintString = (id, numIndex) => {
                     function onSoundEnded1() {
                         sound.removeEventListener('ended', onSoundEnded1);
 
-                        sound.src = `${props.asset_audio}/voz1/sudokus/fyc/primerafila.m4a`;
+                        if (props.selector_1[0] === 1) {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/primerafila.m4a`;
+                        } else if (props.selector_1[0] === 2) {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+                        }
+
 
                         for (let i = 0; i < props.sudoku_size; i++) {
                             if (props.selector_1[0] === 0) {
@@ -1454,7 +1565,13 @@ const paintString = (id, numIndex) => {
                     function onSoundEnded1() {
                         sound.removeEventListener('ended', onSoundEnded1);
 
-                        sound.src = `${props.asset_audio}/voz1/sudokus/fyc/tercerafila.m4a`;
+                        if (props.selector_2[0] === 1) {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/primerafila.m4a`;
+                        } else if (props.selector_2[0] === 2) {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+                        } else if (props.selector_2[0] === 3) {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/tercerafila.m4a`;
+                        }
 
                         for (let i = 0; i < props.sudoku_size; i++) {
                             if (props.selector_2[0] === 0) {
@@ -1472,7 +1589,14 @@ const paintString = (id, numIndex) => {
 
                         function onSoundEnded2() {
                             sound.removeEventListener('ended', onSoundEnded2);
-                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yprimeracolumna.m4a`;
+
+                            if (props.selector_2[1] === 1) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yprimeracolumna.m4a`;
+                            } else if (props.selector_2[1] === 3) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yterceracolumna.m4a`;
+                            }
+
+
                             sound.play()
                         }
 
@@ -1508,10 +1632,14 @@ const paintString = (id, numIndex) => {
                     function onSoundEnded1() {
                         sound.removeEventListener('ended', onSoundEnded1);
 
-                        sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+                        if (props.selector_3[1] === 2) {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundacol.m4a`;
+                        } else {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+                        }
 
                         for (let i = 0; i < props.sudoku_size; i++) {
-                            if (props.selector_2[0] === 0) {
+                            if (props.selector_3[0] === 0) {
                                 select_col(props.selector_3[1], 'bg-red-400', true)
                                 setTimeout(function () {
                                     select_fila(props.selector_3[0], 'bg-red-400', true)
@@ -1524,9 +1652,20 @@ const paintString = (id, numIndex) => {
                             }
                         }
 
+
                         function onSoundEnded2() {
+                            if (props.selector_3[1] === 2) {
+                                return
+                            }
+
                             sound.removeEventListener('ended', onSoundEnded2);
-                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yterceracolumna.m4a`;
+
+                            if (props.selector_3[1] === 1) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yprimeracolumna.m4a`;
+                            } else if (props.selector_3[1] === 3) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yterceracolumna.m4a`;
+                            }
+
                             sound.play()
                         }
 
@@ -1599,7 +1738,70 @@ const paintString = (id, numIndex) => {
             }
 
             if (nextSelectBox.value === 3 && props.error_audio_4) {
+                let sound = new Audio();
 
+                if (sequenceNumber.value === '1') {
+                    sound.src = `${props.sound_item_1}`;
+                } else if (sequenceNumber.value === '2') {
+                    sound.src = `${props.sound_item_2}`;
+                } else if (sequenceNumber.value === '3') {
+                    sound.src = `${props.sound_item_3}`;
+                }
+
+                function onSoundEnded() {
+                    sound.removeEventListener('ended', onSoundEnded);
+                    sound.src = `${props.error_audio_4}`;
+
+                    function onSoundEnded1() {
+                        sound.removeEventListener('ended', onSoundEnded1);
+
+                        if (props.selector_4[0] === 1) {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/primerafila.m4a`;
+                        } else if (props.selector_4[0] === 2) {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/segundafila.m4a`;
+                        } else if (props.selector_4[0] === 3) {
+                            sound.src = `${props.asset_audio}/voz1/sudokus/fyc/tercerafila.m4a`;
+                        }
+
+                        for (let i = 0; i < props.sudoku_size; i++) {
+                            if (props.selector_4[0] === 0) {
+                                select_col(props.selector_4[1], 'bg-red-400', true)
+                                setTimeout(function () {
+                                    select_fila(props.selector_4[0], 'bg-red-400', true)
+                                }, 2000)
+                            } else {
+                                select_fila(props.selector_4[0], 'bg-red-400', true)
+                                setTimeout(function () {
+                                    select_col(props.selector_4[1], 'bg-red-400', true)
+                                }, 2000)
+                            }
+                        }
+
+
+                        function onSoundEnded2() {
+
+                            sound.removeEventListener('ended', onSoundEnded2);
+
+                            if (props.selector_4[1] === 1) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yprimeracolumna.m4a`;
+                            } else if (props.selector_4[1] === 3) {
+                                sound.src = `${props.asset_audio}/voz1/sudokus/fyc/yterceracolumna.m4a`;
+                            }
+
+                            sound.play()
+                        }
+
+                        sound.addEventListener('ended', onSoundEnded2)
+                        sound.play()
+
+                    }
+
+                    sound.addEventListener('ended', onSoundEnded1)
+                    sound.play()
+                }
+
+                sound.addEventListener('ended', onSoundEnded)
+                sound.play();
             }
 
             // let sound = new Audio();
