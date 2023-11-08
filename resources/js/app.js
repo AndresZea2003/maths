@@ -157,11 +157,13 @@ import Design from "./components/layouts/Design.vue"
 import InteractiveItemsLayoutPermutaciones from "./components/permutaciones/InteractiveItemsLayoutPermutaciones.vue"
 
 import LayoutSudoku from "./components/sudokus/LayoutSudoku.vue"
+import LayoutSudoku4x4 from "./components/sudokus/LayoutSudoku4x4.vue"
 
 
 createApp({
     components: {
         'layout-sudoku': LayoutSudoku,
+        'layout-sudoku-4x4': LayoutSudoku4x4,
 
         'layout-select-activity': LayoutSelectActivity,
         'design': Design,
